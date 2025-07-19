@@ -4,11 +4,11 @@
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
-    <logger name="pro.piechowski.highschoolstory.movement.ControllerMovementInputSystem" level="info"/>
-    <logger name="pro.piechowski.highschoolstory.movement.MovementInputSystem" level="info"/>
-    <logger name="pro.piechowski.highschoolstory.movement.VelocitySystem" level="info"/>
+    <logger name="pro.piechowski.highschoolstory.movement.input.ControllerMovementInputSystem" level="info"/>
+    <logger name="pro.piechowski.highschoolstory.movement.input.MultiplexMovementInputSystem" level="info"/>
+    <logger name="pro.piechowski.highschoolstory.movement.velocity.VelocitySystem" level="info"/>
     <logger name="pro.piechowski.highschoolstory.movement.CurrentSpritePositionSystem" level="info"/>
-    <logger name="pro.piechowski.highschoolstory.movement.FaceDirectionSystem" level="debug"/>
+    <logger name="pro.piechowski.highschoolstory.movement.facedirection.FaceDirectionSystem" level="debug"/>
     <root level="info">
         <appender-ref ref="STDOUT" />
     </root>

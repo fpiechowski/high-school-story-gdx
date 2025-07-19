@@ -13,12 +13,12 @@ import pro.piechowski.highschoolstory.GdxSprite
 import pro.piechowski.highschoolstory.animation.CurrentAnimation
 import pro.piechowski.highschoolstory.animation.DirectionAnimations
 import pro.piechowski.highschoolstory.direction.Direction
-import pro.piechowski.highschoolstory.direction.FaceDirection
-import pro.piechowski.highschoolstory.movement.MovementAnimation
-import pro.piechowski.highschoolstory.movement.MovementInput
-import pro.piechowski.highschoolstory.movement.Position
 import pro.piechowski.highschoolstory.movement.Speed
-import pro.piechowski.highschoolstory.movement.Velocity
+import pro.piechowski.highschoolstory.movement.animaiton.MovementAnimation
+import pro.piechowski.highschoolstory.movement.facedirection.FaceDirection
+import pro.piechowski.highschoolstory.movement.input.MovementInput
+import pro.piechowski.highschoolstory.movement.position.Position
+import pro.piechowski.highschoolstory.movement.velocity.Velocity
 import pro.piechowski.highschoolstory.sprite.CurrentSprite
 
 const val PLAYER_CHARACTER_ANIMATION_DURATION = 1f / 5f

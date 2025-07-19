@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory.movement
+﻿package pro.piechowski.highschoolstory.movement.input
 
 import com.badlogic.gdx.math.Vector2
 import com.github.quillraven.fleks.Entity
@@ -8,7 +8,7 @@ import io.github.oshai.kotlinlogging.KotlinLogging
 import ktx.math.plus
 import pro.piechowski.highschoolstory.debug
 
-class MovementInputSystem :
+class MultiplexMovementInputSystem :
     IteratingSystem(World.family { any(MovementInput.AI, MovementInput.Controller).all(MovementInput.Multiplex) }) {
     private val logger = KotlinLogging.logger { }
 

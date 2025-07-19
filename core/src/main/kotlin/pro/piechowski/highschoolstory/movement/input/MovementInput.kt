@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory.movement
+﻿package pro.piechowski.highschoolstory.movement.input
 
 import com.badlogic.gdx.math.Vector2
 import com.github.quillraven.fleks.Component

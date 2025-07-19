@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory.movement
+﻿package pro.piechowski.highschoolstory.movement.animaiton
 
 import com.github.quillraven.fleks.Component
 import com.github.quillraven.fleks.ComponentType

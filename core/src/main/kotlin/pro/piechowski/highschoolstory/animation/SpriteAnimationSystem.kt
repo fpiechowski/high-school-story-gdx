@@ -6,7 +6,7 @@ import com.github.quillraven.fleks.World
 import org.koin.core.component.KoinComponent
 import pro.piechowski.highschoolstory.sprite.CurrentSprite
 
-class AnimatedSpriteSystem :
+class SpriteAnimationSystem :
     IteratingSystem(World.family { all(CurrentSprite, CurrentAnimation) }),
     KoinComponent {
     override fun onTickEntity(entity: Entity) {

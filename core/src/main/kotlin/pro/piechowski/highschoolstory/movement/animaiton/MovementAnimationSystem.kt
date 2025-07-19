@@ -1,18 +1,18 @@
-﻿package pro.piechowski.highschoolstory.movement
+﻿package pro.piechowski.highschoolstory.movement.animaiton
 
 import com.github.quillraven.fleks.Entity
 import com.github.quillraven.fleks.IteratingSystem
 import com.github.quillraven.fleks.World
 import pro.piechowski.highschoolstory.animation.CurrentAnimation
-import pro.piechowski.highschoolstory.direction.FaceDirection
-import pro.piechowski.highschoolstory.movement.Velocity
+import pro.piechowski.highschoolstory.movement.facedirection.FaceDirection
+import pro.piechowski.highschoolstory.movement.velocity.Velocity
 
 class MovementAnimationSystem :
     IteratingSystem(
         World.Companion.family {
             all(
                 CurrentAnimation,
-                Velocity.Companion,
+                Velocity,
                 FaceDirection,
             ).any(
                 MovementAnimation.Idle,

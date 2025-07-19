@@ -1,0 +1,86 @@
+﻿@startuml
+'https://plantuml.com/component-diagram
+
+skinparam componentStyle rectangle
+
+package "Input" {
+    [Gdx.input]
+}
+
+package Movement {
+    package Movement.Input {
+        [ControllerMovementInputSystem]
+        [MultiplexMovementInputSystem]
+        interface MovementInput.AI
+        interface MovementInput.Controller
+        interface MovementInput.Multiplex
+    }
+
+    package Movement.FaceDirection {
+        interface FaceDirection
+        [FaceDirectionSystem]
+    }
+
+    package Movement.Velocity{
+        interface Velocity
+        [VelocitySystem]
+    }
+
+    package Movement.Position{
+        interface Position
+        [PositionChangeSystem]
+    }
+
+    interface Speed
+
+    package Movement.Animation {
+        [MovementAnimationSystem]
+    }
+}
+
+package Animation {
+    interface CurrentAnimation
+    [SpriteAnimationSystem]
+}
+
+package Sprite {
+    interface CurrentSprite
+    [CurrentSpritePositionSystem]
+    [SpriteRenderingSystem]
+}
+
+[Gdx.input] --> [ControllerMovementInputSystem]
+
+[ControllerMovementInputSystem] --> MovementInput.Controller
+
+MovementInput.Controller --> [MultiplexMovementInputSystem]
+MovementInput.AI --> [MultiplexMovementInputSystem]
+
+[MultiplexMovementInputSystem] --> MovementInput.Multiplex
+
+MovementInput.Multiplex --> [FaceDirectionSystem]
+[FaceDirectionSystem] --> FaceDirection
+
+FaceDirection --> [MovementAnimationSystem]
+Velocity --> [MovementAnimationSystem]
+[MovementAnimationSystem] --> CurrentAnimation
+
+MovementInput.Multiplex --> [VelocitySystem]
+
+[VelocitySystem] --> Velocity
+
+Velocity --> [PositionChangeSystem]
+Speed --> [VelocitySystem]
+
+[PositionChangeSystem] --> Position
+
+Position --> [CurrentSpritePositionSystem]
+[CurrentSpritePositionSystem] --> CurrentSprite: setOriginBasedPosition
+
+CurrentSprite --> [SpriteRenderingSystem]
+
+CurrentAnimation --> [SpriteAnimationSystem]
+
+[SpriteAnimationSystem] --> CurrentSprite
+
+@enduml

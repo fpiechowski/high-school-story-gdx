@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory.movement
+﻿package pro.piechowski.highschoolstory.movement.facedirection
 
 import com.badlogic.gdx.math.Vector2
 import com.github.quillraven.fleks.Entity
@@ -7,7 +7,7 @@ import com.github.quillraven.fleks.World
 import io.github.oshai.kotlinlogging.KotlinLogging
 import pro.piechowski.highschoolstory.debug
 import pro.piechowski.highschoolstory.direction.Direction
-import pro.piechowski.highschoolstory.direction.FaceDirection
+import pro.piechowski.highschoolstory.movement.input.MovementInput
 
 class FaceDirectionSystem : IteratingSystem(World.family { all(MovementInput.Multiplex, FaceDirection) }) {
     private val logger = KotlinLogging.logger { }
