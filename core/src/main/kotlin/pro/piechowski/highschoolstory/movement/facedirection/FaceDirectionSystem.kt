@@ -5,11 +5,21 @@ import com.github.quillraven.fleks.Entity
 import com.github.quillraven.fleks.IteratingSystem
 import com.github.quillraven.fleks.World
 import io.github.oshai.kotlinlogging.KotlinLogging
+import pro.piechowski.highschoolstory.ReadOnly
+import pro.piechowski.highschoolstory.Write
 import pro.piechowski.highschoolstory.debug
 import pro.piechowski.highschoolstory.direction.Direction
 import pro.piechowski.highschoolstory.movement.input.MovementInput
 
-class FaceDirectionSystem : IteratingSystem(World.family { all(MovementInput.Multiplex, FaceDirection) }) {
+class FaceDirectionSystem :
+    IteratingSystem(
+        World.family {
+            all(
+                @ReadOnly MovementInput.Multiplex,
+                @Write FaceDirection,
+            )
+        },
+    ) {
     private val logger = KotlinLogging.logger { }
 
     override fun onTickEntity(entity: Entity) {

@@ -7,9 +7,17 @@ import com.github.quillraven.fleks.Entity
 import com.github.quillraven.fleks.IteratingSystem
 import com.github.quillraven.fleks.World
 import io.github.oshai.kotlinlogging.KotlinLogging
+import pro.piechowski.highschoolstory.Write
 import pro.piechowski.highschoolstory.debug
 
-class ControllerMovementInputSystem : IteratingSystem(World.family { all(MovementInput.Controller) }) {
+class ControllerMovementInputSystem :
+    IteratingSystem(
+        World.family {
+            all(
+                @Write MovementInput.Controller,
+            )
+        },
+    ) {
     private val logger = KotlinLogging.logger { }
 
     override fun onTickEntity(entity: Entity) {

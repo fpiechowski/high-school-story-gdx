@@ -6,10 +6,21 @@ import com.github.quillraven.fleks.IteratingSystem
 import com.github.quillraven.fleks.World
 import io.github.oshai.kotlinlogging.KotlinLogging
 import ktx.math.plus
+import pro.piechowski.highschoolstory.ReadOnly
+import pro.piechowski.highschoolstory.Write
 import pro.piechowski.highschoolstory.debug
 
 class MultiplexMovementInputSystem :
-    IteratingSystem(World.family { any(MovementInput.AI, MovementInput.Controller).all(MovementInput.Multiplex) }) {
+    IteratingSystem(
+        World.family {
+            any(
+                @ReadOnly MovementInput.AI,
+                @ReadOnly MovementInput.Controller,
+            ).all(
+                @Write MovementInput.Multiplex,
+            )
+        },
+    ) {
     private val logger = KotlinLogging.logger { }
 
     override fun onTickEntity(entity: Entity) {

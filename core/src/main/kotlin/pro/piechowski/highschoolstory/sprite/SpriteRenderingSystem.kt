@@ -6,9 +6,16 @@ import com.github.quillraven.fleks.IteratingSystem
 import com.github.quillraven.fleks.World.Companion.family
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import pro.piechowski.highschoolstory.ReadOnly
 
 class SpriteRenderingSystem :
-    IteratingSystem(family { all(CurrentSprite) }),
+    IteratingSystem(
+        family {
+            all(
+                @ReadOnly CurrentSprite,
+            )
+        },
+    ),
     KoinComponent {
     private val spriteBatch: SpriteBatch by inject()
 

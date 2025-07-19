@@ -3,6 +3,8 @@
 import com.github.quillraven.fleks.Entity
 import com.github.quillraven.fleks.IteratingSystem
 import com.github.quillraven.fleks.World
+import pro.piechowski.highschoolstory.ReadOnly
+import pro.piechowski.highschoolstory.Write
 import pro.piechowski.highschoolstory.animation.CurrentAnimation
 import pro.piechowski.highschoolstory.movement.facedirection.FaceDirection
 import pro.piechowski.highschoolstory.movement.velocity.Velocity
@@ -11,12 +13,12 @@ class MovementAnimationSystem :
     IteratingSystem(
         World.Companion.family {
             all(
-                CurrentAnimation,
-                Velocity,
-                FaceDirection,
+                @ReadOnly Velocity,
+                @ReadOnly FaceDirection,
+                @Write CurrentAnimation,
             ).any(
-                MovementAnimation.Idle,
-                MovementAnimation.Walk,
+                @ReadOnly MovementAnimation.Idle,
+                @ReadOnly MovementAnimation.Walk,
             )
         },
     ) {
