@@ -4,6 +4,7 @@ plugins {
     kotlin("jvm") version "2.2.0"
     kotlin("plugin.serialization") version "2.2.0"
     id("org.jlleitschuh.gradle.ktlint") version "13.0.0"
+    id("com.google.devtools.ksp") version "2.2.0-2.0.2"
 }
 
 repositories {

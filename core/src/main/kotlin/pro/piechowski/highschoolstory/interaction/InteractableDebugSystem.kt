@@ -8,7 +8,7 @@ import com.github.quillraven.fleks.World
 import ktx.graphics.use
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import pro.piechowski.highschoolstory.sprite.CurrentSprite
+import pro.piechowski.highschoolstory.rendering.sprite.CurrentSprite
 
 class InteractableDebugSystem :
     IteratingSystem(

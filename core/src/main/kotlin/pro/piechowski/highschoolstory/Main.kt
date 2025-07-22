@@ -3,19 +3,28 @@ package pro.piechowski.highschoolstory
 import ktx.app.KtxGame
 import ktx.app.KtxScreen
 import ktx.async.KtxAsync
+import org.koin.core.Koin
+import org.koin.core.context.loadKoinModules
 import org.koin.core.context.startKoin
 
 class Main : KtxGame<KtxScreen>() {
     override fun create() {
         KtxAsync.initiate()
 
-        startKoin {
-            modules(mainModule)
+        val koin =
+            startKoin {
+                modules(mainModule)
+            }.koin
+
+        with(koin) {
+            startGame()
         }
+    }
 
-        addScreen(GameScreen())
-
+    context(koin: Koin)
+    fun startGame() {
+        loadKoinModules(gameModule)
+        addScreen(koin.get<GameScreen>())
         setScreen<GameScreen>()
     }
 }
-

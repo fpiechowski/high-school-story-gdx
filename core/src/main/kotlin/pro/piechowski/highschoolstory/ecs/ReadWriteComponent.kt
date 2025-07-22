@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory
+﻿package pro.piechowski.highschoolstory.ecs
 
 @Retention(AnnotationRetention.SOURCE)
 @Target(AnnotationTarget.EXPRESSION)

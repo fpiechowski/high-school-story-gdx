@@ -1,11 +1,11 @@
-﻿package pro.piechowski.highschoolstory.sprite
+﻿package pro.piechowski.highschoolstory.rendering.sprite
 
 import com.github.quillraven.fleks.Component
 import com.github.quillraven.fleks.ComponentType
 import pro.piechowski.highschoolstory.GdxSprite
 
 class CurrentSprite(
-    var sprite: GdxSprite
+    var sprite: GdxSprite,
 ) : Component<CurrentSprite> {
     override fun type() = CurrentSprite
 

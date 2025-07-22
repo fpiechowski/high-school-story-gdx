@@ -1,18 +1,18 @@
-﻿package pro.piechowski.highschoolstory.sprite
+﻿package pro.piechowski.highschoolstory.rendering.sprite
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.github.quillraven.fleks.Entity
 import com.github.quillraven.fleks.IteratingSystem
-import com.github.quillraven.fleks.World.Companion.family
+import com.github.quillraven.fleks.World
 import com.github.quillraven.fleks.collection.compareEntity
 import ktx.graphics.use
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import pro.piechowski.highschoolstory.ReadOnly
+import pro.piechowski.highschoolstory.ecs.ReadOnly
 
 class SpriteRenderingSystem :
     IteratingSystem(
-        family {
+        World.family {
             all(
                 @ReadOnly CurrentSprite,
             )

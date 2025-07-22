@@ -14,10 +14,11 @@ import ktx.assets.async.AssetStorage
 import ktx.assets.disposeSafely
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
+import org.koin.core.module.Module
 import pro.piechowski.highschoolstory.character.Character
 import pro.piechowski.highschoolstory.character.PlayerCharacter
+import pro.piechowski.highschoolstory.ecs.plusAssign
 import pro.piechowski.highschoolstory.input.GameInputMultiplexer
 import pro.piechowski.highschoolstory.interaction.Interactable
 import pro.piechowski.highschoolstory.movement.position.Position
@@ -25,10 +26,8 @@ import pro.piechowski.highschoolstory.movement.position.Position
 class GameScreen :
     KtxScreen,
     KoinComponent {
-    init {
-        loadKoinModules(gameModule)
-    }
-
+    private val config: Config by inject()
+    private val gameModule: Module by inject()
     private val gameInputMultiplexer: GameInputMultiplexer by inject()
 
     init {

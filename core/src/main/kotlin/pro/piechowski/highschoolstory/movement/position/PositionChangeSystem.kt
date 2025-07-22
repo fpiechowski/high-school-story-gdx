@@ -6,9 +6,9 @@ import com.github.quillraven.fleks.World
 import io.github.oshai.kotlinlogging.KotlinLogging
 import ktx.math.plusAssign
 import ktx.math.times
-import pro.piechowski.highschoolstory.ReadOnly
-import pro.piechowski.highschoolstory.Write
 import pro.piechowski.highschoolstory.debug
+import pro.piechowski.highschoolstory.ecs.ReadOnly
+import pro.piechowski.highschoolstory.ecs.Write
 import pro.piechowski.highschoolstory.movement.velocity.Velocity
 
 class PositionChangeSystem :

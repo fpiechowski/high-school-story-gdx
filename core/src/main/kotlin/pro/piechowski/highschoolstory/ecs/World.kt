@@ -1,0 +1,77 @@
+﻿package pro.piechowski.highschoolstory.ecs
+
+import com.github.quillraven.fleks.SystemConfiguration
+import com.github.quillraven.fleks.World
+import com.github.quillraven.fleks.configureWorld
+import org.koin.core.scope.Scope
+import pro.piechowski.highschoolstory.Config
+import pro.piechowski.highschoolstory.animation.SpriteAnimationSystem
+import pro.piechowski.highschoolstory.interaction.InteractableDebugSystem
+import pro.piechowski.highschoolstory.interaction.InteractionSystem
+import pro.piechowski.highschoolstory.interaction.InteractorDebugSystem
+import pro.piechowski.highschoolstory.movement.animaiton.MovementAnimationSystem
+import pro.piechowski.highschoolstory.movement.facedirection.FaceDirectionDebugSystem
+import pro.piechowski.highschoolstory.movement.facedirection.FaceDirectionSystem
+import pro.piechowski.highschoolstory.movement.input.MovementControllerInputSystem
+import pro.piechowski.highschoolstory.movement.input.MovementMultiplexInputSystem
+import pro.piechowski.highschoolstory.movement.position.PositionChangeSystem
+import pro.piechowski.highschoolstory.movement.velocity.VelocitySystem
+import pro.piechowski.highschoolstory.rendering.sprite.CurrentSpritePositionSystem
+import pro.piechowski.highschoolstory.rendering.sprite.SpriteRenderingSystem
+
+context(scope: Scope)
+operator fun World.Companion.invoke() =
+    with(scope) {
+        configureWorld {
+            systems {
+                inputSystems()
+                gameSystems()
+                renderingSystems()
+
+                if (get<Config>().debug) {
+                    debugSystems()
+                }
+            }
+        }
+    }
+
+context(sc: SystemConfiguration, scope: Scope)
+private fun inputSystems() =
+    with(sc) {
+        with(scope) {
+            add(get<MovementControllerInputSystem>())
+            add(get<MovementMultiplexInputSystem>())
+        }
+    }
+
+context(sc: SystemConfiguration, scope: Scope)
+private fun gameSystems() =
+    with(sc) {
+        with(scope) {
+            add(get<FaceDirectionSystem>())
+            add(get<VelocitySystem>())
+            add(get<PositionChangeSystem>())
+            add(get<InteractionSystem>())
+        }
+    }
+
+context(sc: SystemConfiguration, scope: Scope)
+private fun renderingSystems() =
+    with(sc) {
+        with(scope) {
+            add(get<MovementAnimationSystem>())
+            add(get<SpriteAnimationSystem>())
+            add(get<CurrentSpritePositionSystem>())
+            add(get<SpriteRenderingSystem>())
+        }
+    }
+
+context(sc: SystemConfiguration, scope: Scope)
+private fun debugSystems() =
+    with(sc) {
+        with(scope) {
+            add(get<FaceDirectionDebugSystem>())
+            add(get<InteractorDebugSystem>())
+            add(get<InteractableDebugSystem>())
+        }
+    }

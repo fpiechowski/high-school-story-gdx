@@ -4,9 +4,9 @@ import com.github.quillraven.fleks.Entity
 import com.github.quillraven.fleks.IteratingSystem
 import com.github.quillraven.fleks.World
 import org.koin.core.component.KoinComponent
-import pro.piechowski.highschoolstory.ReadOnly
-import pro.piechowski.highschoolstory.Write
-import pro.piechowski.highschoolstory.sprite.CurrentSprite
+import pro.piechowski.highschoolstory.ecs.ReadOnly
+import pro.piechowski.highschoolstory.ecs.Write
+import pro.piechowski.highschoolstory.rendering.sprite.CurrentSprite
 
 class SpriteAnimationSystem :
     IteratingSystem(

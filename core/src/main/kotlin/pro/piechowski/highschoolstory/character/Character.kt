@@ -9,11 +9,11 @@ import kotlinx.serialization.Serializable
 import ktx.assets.async.AssetStorage
 import ktx.assets.async.Identifier
 import ktx.collections.toGdxArray
-import pro.piechowski.highschoolstory.Archetype
 import pro.piechowski.highschoolstory.GdxSprite
 import pro.piechowski.highschoolstory.animation.CurrentAnimation
 import pro.piechowski.highschoolstory.animation.Direction4Animations
 import pro.piechowski.highschoolstory.direction.Direction8
+import pro.piechowski.highschoolstory.ecs.Archetype
 import pro.piechowski.highschoolstory.interaction.Interactor
 import pro.piechowski.highschoolstory.interaction.input.InteractionInput
 import pro.piechowski.highschoolstory.movement.Speed
@@ -22,8 +22,8 @@ import pro.piechowski.highschoolstory.movement.facedirection.FaceDirection
 import pro.piechowski.highschoolstory.movement.input.MovementInput
 import pro.piechowski.highschoolstory.movement.position.Position
 import pro.piechowski.highschoolstory.movement.velocity.Velocity
-import pro.piechowski.highschoolstory.sprite.CharacterSprite
-import pro.piechowski.highschoolstory.sprite.CurrentSprite
+import pro.piechowski.highschoolstory.rendering.sprite.CharacterSprite
+import pro.piechowski.highschoolstory.rendering.sprite.CurrentSprite
 
 const val CHARACTER_ANIMATION_DURATION = 1f / 5f
 

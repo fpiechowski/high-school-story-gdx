@@ -1,5 +1,6 @@
 plugins {
     kotlin("plugin.serialization")
+    id("com.google.devtools.ksp")
 }
 
 tasks {
@@ -29,6 +30,7 @@ val kotlinxCoroutinesVersion: String by project
 val graalHelperVersion: String by project
 val enableGraalNative: String by project
 val koinVersion: String by project
+val koinAnnotationsVersion: String by project
 
 dependencies {
     api("com.badlogicgames.ashley:ashley:$ashleyVersion")
@@ -72,6 +74,8 @@ dependencies {
     api("io.github.oshai:kotlin-logging-jvm:7.0.7")
     api("org.slf4j:slf4j-api:2.0.17")
     api("ch.qos.logback:logback-classic:1.5.18")
+    api("com.sksamuel.hoplite:hoplite-core:2.9.0")
+    api("com.sksamuel.hoplite:hoplite-yaml:2.9.0")
 
     if (enableGraalNative == "true") {
         implementation("io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion")

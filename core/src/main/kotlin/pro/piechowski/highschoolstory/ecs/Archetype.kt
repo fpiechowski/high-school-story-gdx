@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory
+﻿package pro.piechowski.highschoolstory.ecs
 
 import com.github.quillraven.fleks.Component
 import com.github.quillraven.fleks.Entity
