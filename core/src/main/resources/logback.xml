@@ -7,6 +7,7 @@
     <logger name="pro.piechowski.highschoolstory.movement.input.MovementControllerInputSystem" level="info"/>
     <logger name="pro.piechowski.highschoolstory.movement.input.MovementMultiplexInputSystem" level="info"/>
     <logger name="pro.piechowski.highschoolstory.movement.velocity.VelocitySystem" level="info"/>
+    <logger name="pro.piechowski.highschoolstory.movement.position.PositionChangeSystem" level="info"/>
     <logger name="pro.piechowski.highschoolstory.movement.CurrentSpritePositionSystem" level="info"/>
     <logger name="pro.piechowski.highschoolstory.movement.facedirection.FaceDirectionSystem" level="info"/>
     <logger name="pro.piechowski.highschoolstory.interaction.input.InteractionInputProcessor" level="info"/>

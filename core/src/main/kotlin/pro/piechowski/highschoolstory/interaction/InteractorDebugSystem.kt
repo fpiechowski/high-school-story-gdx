@@ -1,7 +1,9 @@
 ﻿package pro.piechowski.highschoolstory.interaction
 
+import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Camera
 import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.github.quillraven.fleks.Entity
 import com.github.quillraven.fleks.IteratingSystem
@@ -20,6 +22,9 @@ class InteractorDebugSystem :
     val camera: Camera by inject()
 
     override fun onTickEntity(entity: Entity) {
+        Gdx.gl.glEnable(GL20.GL_BLEND)
+        Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA)
+
         val interactor = InteractorEntity(entity)
 
         shapeRenderer.use(ShapeRenderer.ShapeType.Filled, camera) {

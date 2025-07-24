@@ -2,6 +2,7 @@
 
 import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.graphics.g2d.TextureRegion
+import com.badlogic.gdx.math.Vector2
 
 class CharacterSprite(
     textureRegion: TextureRegion,
@@ -11,6 +12,7 @@ class CharacterSprite(
         const val ORIGIN_Y = 24f
         const val WIDTH = 48f
         const val HEIGHT = 96f
+        val size = Vector2(WIDTH, HEIGHT)
     }
 
     init {

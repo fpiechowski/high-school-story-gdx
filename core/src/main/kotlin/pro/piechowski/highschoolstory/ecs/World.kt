@@ -6,6 +6,7 @@ import com.github.quillraven.fleks.configureWorld
 import org.koin.core.scope.Scope
 import pro.piechowski.highschoolstory.Config
 import pro.piechowski.highschoolstory.animation.SpriteAnimationSystem
+import pro.piechowski.highschoolstory.debug.DebugTextSystem
 import pro.piechowski.highschoolstory.interaction.InteractableDebugSystem
 import pro.piechowski.highschoolstory.interaction.InteractionSystem
 import pro.piechowski.highschoolstory.interaction.InteractorDebugSystem
@@ -16,6 +17,8 @@ import pro.piechowski.highschoolstory.movement.input.MovementControllerInputSyst
 import pro.piechowski.highschoolstory.movement.input.MovementMultiplexInputSystem
 import pro.piechowski.highschoolstory.movement.position.PositionChangeSystem
 import pro.piechowski.highschoolstory.movement.velocity.VelocitySystem
+import pro.piechowski.highschoolstory.physics.collision.CollisionShapeDebugSystem
+import pro.piechowski.highschoolstory.physics.collision.CollisionShapePositionSystem
 import pro.piechowski.highschoolstory.rendering.sprite.CurrentSpritePositionSystem
 import pro.piechowski.highschoolstory.rendering.sprite.SpriteRenderingSystem
 
@@ -26,10 +29,10 @@ operator fun World.Companion.invoke() =
             systems {
                 inputSystems()
                 gameSystems()
-                renderingSystems()
-
-                if (get<Config>().debug) {
-                    debugSystems()
+                renderingSystems {
+                    if (get<Config>().debug) {
+                        debugSystems()
+                    }
                 }
             }
         }
@@ -51,18 +54,22 @@ private fun gameSystems() =
             add(get<FaceDirectionSystem>())
             add(get<VelocitySystem>())
             add(get<PositionChangeSystem>())
+            add(get<CollisionShapePositionSystem>())
             add(get<InteractionSystem>())
         }
     }
 
 context(sc: SystemConfiguration, scope: Scope)
-private fun renderingSystems() =
+private fun renderingSystems(inBatch: () -> Unit = {}) =
     with(sc) {
         with(scope) {
+            // add(get<BeginRenderingBatchSystem>())
             add(get<MovementAnimationSystem>())
             add(get<SpriteAnimationSystem>())
             add(get<CurrentSpritePositionSystem>())
             add(get<SpriteRenderingSystem>())
+            inBatch()
+            // add(get<EndRenderingBatchSystem>())
         }
     }
 
@@ -73,5 +80,7 @@ private fun debugSystems() =
             add(get<FaceDirectionDebugSystem>())
             add(get<InteractorDebugSystem>())
             add(get<InteractableDebugSystem>())
+            add(get<CollisionShapeDebugSystem>())
+            add(get<DebugTextSystem>())
         }
     }

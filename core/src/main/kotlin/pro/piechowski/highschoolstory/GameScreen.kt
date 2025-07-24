@@ -2,7 +2,6 @@
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Camera
-import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Vector2
@@ -22,12 +21,13 @@ import pro.piechowski.highschoolstory.ecs.plusAssign
 import pro.piechowski.highschoolstory.input.GameInputMultiplexer
 import pro.piechowski.highschoolstory.interaction.Interactable
 import pro.piechowski.highschoolstory.movement.position.Position
+import pro.piechowski.highschoolstory.physics.collision.get
 
 class GameScreen :
     KtxScreen,
     KoinComponent {
     private val config: Config by inject()
-    private val gameModule: Module by inject()
+    private val gameModule: Module by inject(gameModuleQualifier)
     private val gameInputMultiplexer: GameInputMultiplexer by inject()
 
     init {
@@ -66,9 +66,6 @@ class GameScreen :
     }
 
     override fun render(delta: Float) {
-        Gdx.gl.glEnable(GL20.GL_BLEND)
-        Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA)
-
         batch.projectionMatrix = camera.combined
 
         camera.update()

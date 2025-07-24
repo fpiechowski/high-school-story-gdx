@@ -9,11 +9,14 @@ import kotlinx.serialization.Serializable
 import ktx.assets.async.AssetStorage
 import ktx.assets.async.Identifier
 import ktx.collections.toGdxArray
-import pro.piechowski.highschoolstory.GdxSprite
+import ktx.math.div
+import ktx.math.minus
 import pro.piechowski.highschoolstory.animation.CurrentAnimation
 import pro.piechowski.highschoolstory.animation.Direction4Animations
 import pro.piechowski.highschoolstory.direction.Direction8
 import pro.piechowski.highschoolstory.ecs.Archetype
+import pro.piechowski.highschoolstory.gdx.GdxEllipse
+import pro.piechowski.highschoolstory.gdx.GdxSprite
 import pro.piechowski.highschoolstory.interaction.Interactor
 import pro.piechowski.highschoolstory.interaction.input.InteractionInput
 import pro.piechowski.highschoolstory.movement.Speed
@@ -22,6 +25,7 @@ import pro.piechowski.highschoolstory.movement.facedirection.FaceDirection
 import pro.piechowski.highschoolstory.movement.input.MovementInput
 import pro.piechowski.highschoolstory.movement.position.Position
 import pro.piechowski.highschoolstory.movement.velocity.Velocity
+import pro.piechowski.highschoolstory.physics.collision.CollisionShape
 import pro.piechowski.highschoolstory.rendering.sprite.CharacterSprite
 import pro.piechowski.highschoolstory.rendering.sprite.CurrentSprite
 
@@ -126,9 +130,18 @@ data object Character : EntityTag() {
             this += CurrentAnimation(downIdleAnimation)
             this += MovementInput.Multiplex()
             this += Speed(300f)
-            this += Position(Vector2.Zero.cpy())
+            val position = Position(Vector2.Zero.cpy())
+            this += position
             this += FaceDirection(Direction8.Down)
             this += Interactor
             this += InteractionInput()
+            this +=
+                CollisionShape.Ellipse(
+                    GdxEllipse(
+                        position.position - (CharacterSprite.size / 2),
+                        Vector2(CharacterSprite.WIDTH, CharacterSprite.HEIGHT / 4),
+                    ),
+                    offset = Vector2(0f, -(CharacterSprite.HEIGHT / 4)),
+                )
         }
 }

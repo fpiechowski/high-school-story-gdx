@@ -2,7 +2,7 @@
 
 import com.github.quillraven.fleks.Component
 import com.github.quillraven.fleks.ComponentType
-import pro.piechowski.highschoolstory.GdxSprite
+import pro.piechowski.highschoolstory.gdx.GdxSprite
 
 class CurrentSprite(
     var sprite: GdxSprite,

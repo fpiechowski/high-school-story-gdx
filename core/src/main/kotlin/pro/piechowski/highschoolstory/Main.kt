@@ -6,6 +6,7 @@ import ktx.async.KtxAsync
 import org.koin.core.Koin
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.startKoin
+import org.koin.core.module.Module
 
 class Main : KtxGame<KtxScreen>() {
     override fun create() {
@@ -13,7 +14,7 @@ class Main : KtxGame<KtxScreen>() {
 
         val koin =
             startKoin {
-                modules(mainModule)
+                modules(mainModule())
             }.koin
 
         with(koin) {
@@ -23,7 +24,7 @@ class Main : KtxGame<KtxScreen>() {
 
     context(koin: Koin)
     fun startGame() {
-        loadKoinModules(gameModule)
+        loadKoinModules(koin.get<Module>(gameModuleQualifier))
         addScreen(koin.get<GameScreen>())
         setScreen<GameScreen>()
     }

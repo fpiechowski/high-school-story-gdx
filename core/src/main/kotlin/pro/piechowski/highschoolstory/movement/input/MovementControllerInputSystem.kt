@@ -41,6 +41,8 @@ class MovementControllerInputSystem :
             controllerMovementInput.movementInput.x += 1f
         }
 
+        controllerMovementInput.movementInput = controllerMovementInput.movementInput.nor()
+
         if (controllerMovementInput.movementInput != Vector2.Zero.cpy()) {
             logger.debug(controllerMovementInput, entity)
         }
