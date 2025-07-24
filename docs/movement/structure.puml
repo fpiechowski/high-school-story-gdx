@@ -1,0 +1,60 @@
+﻿@startuml
+
+skinparam roundcorner 10
+skinparam componentStyle rectangle
+
+<style>
+process {
+    BackgroundColor #C5DFEE
+}
+</style>
+
+package "Input" {
+    component "Gdx.input" as GdxInput
+}
+
+package Physics {
+    component PhysicsBody {
+        component Velocity as PhysicsBody.Velocity
+        component Position as PhysicsBody.Position
+    }
+
+    package Movement {
+        package Input as Movement.Input {
+            process ControllerMovementInputSystem
+            process MultiplexMovementInputSystem
+            process AIMovementInputSystem
+            component MovementInput.AI
+            component MovementInput.Controller
+            component MovementInput.Multiplex
+        }
+
+        package FaceDirection as Movement.FaceDirection {
+            component FaceDirection
+            process FaceDirectionSystem
+        }
+
+        component Speed
+
+        package Animation as Movement.Animation {
+            process MovementAnimationSystem
+        }
+
+        package Velocity as Movement.Velocity {
+            process VelocitySystem
+        }
+    }
+}
+
+package Animation {
+    component CurrentAnimation
+    process SpriteAnimationSystem
+}
+
+package Sprite {
+    component CurrentSprite
+    process CurrentSpritePositionSystem
+    process SpriteRenderingSystem
+}
+
+@enduml

@@ -3,29 +3,28 @@
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.Animation
 import com.badlogic.gdx.graphics.g2d.TextureRegion
-import com.badlogic.gdx.math.Vector2
+import com.badlogic.gdx.physics.box2d.BodyDef
 import com.github.quillraven.fleks.EntityTag
 import kotlinx.serialization.Serializable
 import ktx.assets.async.AssetStorage
 import ktx.assets.async.Identifier
+import ktx.box2d.body
+import ktx.box2d.box
 import ktx.collections.toGdxArray
-import ktx.math.div
-import ktx.math.minus
 import pro.piechowski.highschoolstory.animation.CurrentAnimation
 import pro.piechowski.highschoolstory.animation.Direction4Animations
 import pro.piechowski.highschoolstory.direction.Direction8
 import pro.piechowski.highschoolstory.ecs.Archetype
-import pro.piechowski.highschoolstory.gdx.GdxEllipse
 import pro.piechowski.highschoolstory.gdx.GdxSprite
+import pro.piechowski.highschoolstory.gdx.PhysicsWorld
 import pro.piechowski.highschoolstory.interaction.Interactor
 import pro.piechowski.highschoolstory.interaction.input.InteractionInput
-import pro.piechowski.highschoolstory.movement.Speed
-import pro.piechowski.highschoolstory.movement.animaiton.MovementAnimation
-import pro.piechowski.highschoolstory.movement.facedirection.FaceDirection
-import pro.piechowski.highschoolstory.movement.input.MovementInput
-import pro.piechowski.highschoolstory.movement.position.Position
-import pro.piechowski.highschoolstory.movement.velocity.Velocity
-import pro.piechowski.highschoolstory.physics.collision.CollisionShape
+import pro.piechowski.highschoolstory.physics.body.PhysicsBody
+import pro.piechowski.highschoolstory.physics.movement.Speed
+import pro.piechowski.highschoolstory.physics.movement.animaiton.MovementAnimation
+import pro.piechowski.highschoolstory.physics.movement.facedirection.FaceDirection
+import pro.piechowski.highschoolstory.physics.movement.input.MovementInput
+import pro.piechowski.highschoolstory.physics.px
 import pro.piechowski.highschoolstory.rendering.sprite.CharacterSprite
 import pro.piechowski.highschoolstory.rendering.sprite.CurrentSprite
 
@@ -33,11 +32,24 @@ const val CHARACTER_ANIMATION_DURATION = 1f / 5f
 
 @Serializable
 data object Character : EntityTag() {
-    context(assetStorage: AssetStorage)
+    context(assetStorage: AssetStorage, physicsWorld: PhysicsWorld)
     fun archetype(spriteSheetIdentifier: Identifier<Texture>) =
         Archetype {
             this += Character
-            this += Velocity()
+
+            this +=
+                PhysicsBody(
+                    physicsWorld.body(BodyDef.BodyType.DynamicBody) {
+                        box(
+                            CharacterSprite.WIDTH.px
+                                .toMeter()
+                                .value,
+                            CharacterSprite.HEIGHT.px
+                                .toMeter()
+                                .value / 4,
+                        )
+                    },
+                )
 
             val characterTexture = assetStorage[spriteSheetIdentifier]
             val characterTextureRegions = TextureRegion.split(characterTexture, 48, 96)
@@ -129,19 +141,9 @@ data object Character : EntityTag() {
             this += CurrentSprite(GdxSprite(characterTextureRegions[0][3]))
             this += CurrentAnimation(downIdleAnimation)
             this += MovementInput.Multiplex()
-            this += Speed(300f)
-            val position = Position(Vector2.Zero.cpy())
-            this += position
+            this += Speed.walk
             this += FaceDirection(Direction8.Down)
             this += Interactor
             this += InteractionInput()
-            this +=
-                CollisionShape.Ellipse(
-                    GdxEllipse(
-                        position.position - (CharacterSprite.size / 2),
-                        Vector2(CharacterSprite.WIDTH, CharacterSprite.HEIGHT / 4),
-                    ),
-                    offset = Vector2(0f, -(CharacterSprite.HEIGHT / 4)),
-                )
         }
 }

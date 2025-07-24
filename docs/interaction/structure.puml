@@ -1,0 +1,45 @@
+﻿@startuml
+
+skinparam roundcorner 10
+skinparam componentStyle rectangle
+
+<style>
+process {
+    BackgroundColor #C5DFEE
+}
+</style>
+
+package "Input" {
+    component "Gdx.input" as GdxInput
+}
+
+frame "Interactor" as InteractorEntity <<Entity>> #FAF5DC {
+    package Physics {
+        component PhysicsBody {
+            component Position as Interactor.Position
+        }
+
+        package Movement {
+            package FaceDirection as Movement.FaceDirection {
+                component FaceDirection
+            }
+        }
+    }
+
+    package Interaction as InteractorInteractionPackage {
+        package "Input" as InteractionInputPackage {
+            component InteractionInput
+            agent InteractionInputProcessor
+        }
+
+        component Interactor
+        process InteractionSystem
+    }
+}
+
+frame "Interactable" as Interactable.Entity <<Family>> #DCECF4 {
+    component Interactable
+
+}
+
+@enduml

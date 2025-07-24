@@ -5,7 +5,7 @@ import com.github.quillraven.fleks.ComponentType
 import com.github.quillraven.fleks.Entity
 import com.github.quillraven.fleks.EntityComponentContext
 import com.github.quillraven.fleks.World
-import pro.piechowski.highschoolstory.movement.position.Position
+import pro.piechowski.highschoolstory.physics.body.PhysicsBody
 
 class Interactable(
     val onInteract: () -> Unit,
@@ -19,7 +19,7 @@ class InteractableEntity private constructor(
     val entity: Entity,
 ) {
     context(ecc: EntityComponentContext)
-    val position get() = with(ecc) { entity[Position] }
+    val position get() = with(ecc) { entity[PhysicsBody].body.position }
 
     context(ecc: EntityComponentContext)
     val interactable get() = with(ecc) { entity[Interactable] }
@@ -36,4 +36,4 @@ class InteractableEntity private constructor(
     }
 }
 
-val World.Interactables get() = family { all(Interactable, Position) }
+val World.Interactables get() = family { all(Interactable, PhysicsBody) }

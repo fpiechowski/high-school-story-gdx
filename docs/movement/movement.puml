@@ -1,0 +1,41 @@
+﻿@startuml
+
+!include movement/structure.puml
+
+GdxInput --> ControllerMovementInputSystem
+
+ControllerMovementInputSystem --> MovementInput.Controller
+
+MovementInput.Controller --> MultiplexMovementInputSystem
+
+AIMovementInputSystem --> MovementInput.AI
+MovementInput.AI --> MultiplexMovementInputSystem
+
+MultiplexMovementInputSystem --> MovementInput.Multiplex
+
+
+
+MovementInput.Multiplex --> FaceDirectionSystem
+FaceDirectionSystem --> FaceDirection
+
+FaceDirection --> MovementAnimationSystem
+PhysicsBody.Velocity --> MovementAnimationSystem
+MovementAnimationSystem --> CurrentAnimation
+
+MovementInput.Multiplex --> VelocitySystem
+
+VelocitySystem --> PhysicsBody.Velocity
+
+Speed --> VelocitySystem
+
+PhysicsBody.Position --> CurrentSpritePositionSystem
+
+CurrentSpritePositionSystem --> CurrentSprite: setOriginBasedPosition
+
+CurrentSprite --> SpriteRenderingSystem
+
+CurrentAnimation --> SpriteAnimationSystem
+
+SpriteAnimationSystem --> CurrentSprite
+
+@enduml

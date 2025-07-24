@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory.movement.animaiton
+﻿package pro.piechowski.highschoolstory.physics.movement.animaiton
 
 import com.github.quillraven.fleks.Entity
 import com.github.quillraven.fleks.IteratingSystem
@@ -6,14 +6,14 @@ import com.github.quillraven.fleks.World
 import pro.piechowski.highschoolstory.animation.CurrentAnimation
 import pro.piechowski.highschoolstory.ecs.ReadOnly
 import pro.piechowski.highschoolstory.ecs.Write
-import pro.piechowski.highschoolstory.movement.facedirection.FaceDirection
-import pro.piechowski.highschoolstory.movement.velocity.Velocity
+import pro.piechowski.highschoolstory.physics.body.PhysicsBody
+import pro.piechowski.highschoolstory.physics.movement.facedirection.FaceDirection
 
 class MovementAnimationSystem :
     IteratingSystem(
         World.Companion.family {
             all(
-                @ReadOnly Velocity,
+                @ReadOnly PhysicsBody,
                 @ReadOnly FaceDirection,
                 @Write CurrentAnimation,
             ).any(
@@ -23,7 +23,7 @@ class MovementAnimationSystem :
         },
     ) {
     override fun onTickEntity(entity: Entity) {
-        val velocity = entity[Velocity.Companion].velocity
+        val velocity = entity[PhysicsBody].body.linearVelocity
 
         val currentAnimation = entity[CurrentAnimation]
 

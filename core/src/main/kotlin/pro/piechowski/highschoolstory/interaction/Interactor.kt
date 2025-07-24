@@ -5,8 +5,9 @@ import com.github.quillraven.fleks.EntityComponentContext
 import com.github.quillraven.fleks.EntityTag
 import com.github.quillraven.fleks.World
 import pro.piechowski.highschoolstory.interaction.input.InteractionInput
-import pro.piechowski.highschoolstory.movement.facedirection.FaceDirection
-import pro.piechowski.highschoolstory.movement.position.Position
+import pro.piechowski.highschoolstory.physics.body.PhysicsBody
+import pro.piechowski.highschoolstory.physics.movement.facedirection.FaceDirection
+import pro.piechowski.highschoolstory.physics.times
 
 data object Interactor : EntityTag()
 
@@ -14,7 +15,7 @@ class InteractorEntity private constructor(
     val entity: Entity,
 ) {
     context(ecc: EntityComponentContext)
-    val position get() = with(ecc) { entity[Position] }
+    val position get() = with(ecc) { entity[PhysicsBody].body.position }
 
     context(ecc: EntityComponentContext)
     val faceDirection get() = with(ecc) { entity[FaceDirection] }
@@ -41,7 +42,7 @@ val World.Interactors
         family {
             all(
                 Interactor,
-                Position,
+                PhysicsBody,
                 FaceDirection,
                 InteractionInput,
             )
@@ -52,7 +53,7 @@ val World.Companion.Interactors
         family {
             all(
                 Interactor,
-                Position,
+                PhysicsBody,
                 FaceDirection,
                 InteractionInput,
             )

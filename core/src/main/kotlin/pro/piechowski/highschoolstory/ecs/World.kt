@@ -10,15 +10,14 @@ import pro.piechowski.highschoolstory.debug.DebugTextSystem
 import pro.piechowski.highschoolstory.interaction.InteractableDebugSystem
 import pro.piechowski.highschoolstory.interaction.InteractionSystem
 import pro.piechowski.highschoolstory.interaction.InteractorDebugSystem
-import pro.piechowski.highschoolstory.movement.animaiton.MovementAnimationSystem
-import pro.piechowski.highschoolstory.movement.facedirection.FaceDirectionDebugSystem
-import pro.piechowski.highschoolstory.movement.facedirection.FaceDirectionSystem
-import pro.piechowski.highschoolstory.movement.input.MovementControllerInputSystem
-import pro.piechowski.highschoolstory.movement.input.MovementMultiplexInputSystem
-import pro.piechowski.highschoolstory.movement.position.PositionChangeSystem
-import pro.piechowski.highschoolstory.movement.velocity.VelocitySystem
-import pro.piechowski.highschoolstory.physics.collision.CollisionShapeDebugSystem
-import pro.piechowski.highschoolstory.physics.collision.CollisionShapePositionSystem
+import pro.piechowski.highschoolstory.physics.body.PhysicsDebugRenderingSystem
+import pro.piechowski.highschoolstory.physics.body.PhysicsWorldStepSystem
+import pro.piechowski.highschoolstory.physics.movement.animaiton.MovementAnimationSystem
+import pro.piechowski.highschoolstory.physics.movement.facedirection.FaceDirectionDebugSystem
+import pro.piechowski.highschoolstory.physics.movement.facedirection.FaceDirectionSystem
+import pro.piechowski.highschoolstory.physics.movement.input.MovementControllerInputSystem
+import pro.piechowski.highschoolstory.physics.movement.input.MovementMultiplexInputSystem
+import pro.piechowski.highschoolstory.physics.movement.velocity.VelocitySystem
 import pro.piechowski.highschoolstory.rendering.sprite.CurrentSpritePositionSystem
 import pro.piechowski.highschoolstory.rendering.sprite.SpriteRenderingSystem
 
@@ -29,6 +28,7 @@ operator fun World.Companion.invoke() =
             systems {
                 inputSystems()
                 gameSystems()
+                physicsSystems()
                 renderingSystems {
                     if (get<Config>().debug) {
                         debugSystems()
@@ -53,9 +53,15 @@ private fun gameSystems() =
         with(scope) {
             add(get<FaceDirectionSystem>())
             add(get<VelocitySystem>())
-            add(get<PositionChangeSystem>())
-            add(get<CollisionShapePositionSystem>())
             add(get<InteractionSystem>())
+        }
+    }
+
+context(sc: SystemConfiguration, scope: Scope)
+private fun physicsSystems() =
+    with(sc) {
+        with(scope) {
+            add(get<PhysicsWorldStepSystem>())
         }
     }
 
@@ -80,7 +86,7 @@ private fun debugSystems() =
             add(get<FaceDirectionDebugSystem>())
             add(get<InteractorDebugSystem>())
             add(get<InteractableDebugSystem>())
-            add(get<CollisionShapeDebugSystem>())
             add(get<DebugTextSystem>())
+            add(get<PhysicsDebugRenderingSystem>())
         }
     }

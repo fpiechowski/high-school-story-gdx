@@ -5,23 +5,25 @@ import com.github.quillraven.fleks.Entity
 import com.github.quillraven.fleks.EntityCreateContext
 import com.github.quillraven.fleks.EntityTag
 import com.github.quillraven.fleks.EntityTags
+import com.github.quillraven.fleks.UniqueId
+import kotlin.reflect.KClass
 
 class Archetype(
-    val components: List<Component<*>>,
-    val entityTags: List<EntityTags>,
+    val components: Map<KClass<out Component<*>>, Component<*>>,
+    val entityTags: Map<KClass<out UniqueId<*>>, EntityTags>,
 ) {
     class Builder(
-        private val components: MutableList<Component<*>> = mutableListOf(),
-        private val entityTags: MutableList<EntityTags> = mutableListOf(),
+        val components: MutableMap<KClass<out Component<*>>, Component<*>> = mutableMapOf(),
+        val entityTags: MutableMap<KClass<out UniqueId<*>>, EntityTags> = mutableMapOf(),
     ) {
         fun build() = Archetype(components, entityTags)
 
-        operator fun plusAssign(component: Component<*>) {
-            components += component
+        inline operator fun <reified T : Component<*>> plusAssign(component: T) {
+            components += component::class to component
         }
 
         operator fun plusAssign(entityTag: EntityTag) {
-            entityTags += entityTag
+            entityTags += entityTag::class to entityTag
         }
 
         operator fun plusAssign(archetype: Archetype) {
@@ -32,6 +34,10 @@ class Archetype(
 
     operator fun plus(archetype: Archetype) = Archetype(components + archetype.components, entityTags + archetype.entityTags)
 
+    operator fun get(componentClass: KClass<out Component<*>>) = components[componentClass]
+
+    operator fun get(entityTagClass: KClass<out UniqueId<*>>) = entityTags[entityTagClass]
+
     companion object {
         operator fun invoke(builderBlock: Builder.() -> Unit = {}) = Builder().also { it.builderBlock() }.build()
     }
@@ -40,6 +46,6 @@ class Archetype(
 context(ecc: EntityCreateContext)
 operator fun Entity.plusAssign(archetype: Archetype) =
     with(ecc) {
-        this@plusAssign.plusAssign(archetype.entityTags)
-        this@plusAssign.plusAssign(archetype.components)
+        this@plusAssign.plusAssign(archetype.entityTags.values.toList())
+        this@plusAssign.plusAssign(archetype.components.values.toList())
     }

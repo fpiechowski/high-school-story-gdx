@@ -6,15 +6,17 @@ import kotlinx.serialization.Serializable
 import ktx.assets.async.AssetStorage
 import pro.piechowski.highschoolstory.AssetIdentifiers
 import pro.piechowski.highschoolstory.ecs.Archetype
-import pro.piechowski.highschoolstory.movement.input.MovementInput
+import pro.piechowski.highschoolstory.gdx.PhysicsWorld
+import pro.piechowski.highschoolstory.physics.movement.Speed
+import pro.piechowski.highschoolstory.physics.movement.input.MovementInput
 
 @Serializable
 data object PlayerCharacter : EntityTag() {
-    context(ecc: EntityCreateContext, assetStorage: AssetStorage)
+    context(ecc: EntityCreateContext, assetStorage: AssetStorage, physicsWorld: PhysicsWorld)
     fun archetype() =
         Archetype {
             this += Character.archetype(AssetIdentifiers.Textures.PlayerCharacter)
-
+            this += Speed.run
             this += PlayerCharacter
             this += MovementInput.Controller()
         }

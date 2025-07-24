@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory.movement.input
+﻿package pro.piechowski.highschoolstory.physics.movement.input
 
 import com.badlogic.gdx.math.Vector2
 import com.github.quillraven.fleks.Entity
@@ -28,6 +28,8 @@ class MovementMultiplexInputSystem :
         multiplexMovementInput.movementInput =
             (entity.getOrNull(MovementInput.Controller)?.movementInput ?: Vector2.Zero.cpy()) +
             (entity.getOrNull(MovementInput.AI)?.movementInput ?: Vector2.Zero)
+
+        multiplexMovementInput.movementInput = multiplexMovementInput.movementInput.nor()
 
         if (multiplexMovementInput.movementInput != Vector2.Zero.cpy()) {
             logger.debug(multiplexMovementInput, entity)

@@ -8,11 +8,11 @@ import com.github.quillraven.fleks.World.Companion.family
 import ktx.graphics.use
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import pro.piechowski.highschoolstory.movement.position.Position
+import pro.piechowski.highschoolstory.physics.body.PhysicsBody
 
 class DebugTextSystem :
     IteratingSystem(
-        family { all(DebugText, Position) },
+        family { all(DebugText, PhysicsBody) },
     ),
     KoinComponent {
     private val spriteBatch: SpriteBatch by inject()
@@ -20,10 +20,10 @@ class DebugTextSystem :
 
     override fun onTickEntity(entity: Entity) {
         val debugText = entity[DebugText]
-        val position = entity[Position]
+        val position = entity[PhysicsBody].body.position
 
         spriteBatch.use {
-            bitmapFont.draw(spriteBatch, debugText.getText(world, entity), position.position.x, position.position.y)
+            bitmapFont.draw(spriteBatch, debugText.getText(world, entity), position.x, position.y)
         }
     }
 }

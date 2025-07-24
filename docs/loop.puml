@@ -1,0 +1,31 @@
+﻿@startuml
+
+skinparam componentStyle rectangle
+
+actor Player
+
+component Input
+
+component World
+
+component Physics
+
+component Rendering
+
+node Screen
+
+Player -> Input
+
+Input -> World
+
+World --> Physics
+
+Physics --> World
+
+World -> Rendering
+
+Rendering -> Screen
+
+Screen -> Player
+
+@enduml

@@ -8,13 +8,15 @@ import io.github.oshai.kotlinlogging.KotlinLogging
 import pro.piechowski.highschoolstory.debug
 import pro.piechowski.highschoolstory.ecs.ReadOnly
 import pro.piechowski.highschoolstory.ecs.Write
-import pro.piechowski.highschoolstory.movement.position.Position
+import pro.piechowski.highschoolstory.physics.body.PhysicsBody
+import pro.piechowski.highschoolstory.physics.m
+import pro.piechowski.highschoolstory.physics.times
 
 class CurrentSpritePositionSystem :
     IteratingSystem(
         World.family {
             all(
-                @ReadOnly Position,
+                @ReadOnly PhysicsBody,
                 @Write CurrentSprite,
             )
         },
@@ -23,11 +25,11 @@ class CurrentSpritePositionSystem :
 
     override fun onTickEntity(entity: Entity) {
         val currentSprite = entity[CurrentSprite]
-        val position = entity[Position]
+        val position = entity[PhysicsBody].body.position * m.toPixels()
 
-        currentSprite.sprite.setOriginBasedPosition(position.position.x, position.position.y)
+        currentSprite.sprite.setOriginBasedPosition(position.x, position.y)
 
-        if (Vector2(currentSprite.sprite.x, currentSprite.sprite.y) != position.position) {
+        if (Vector2(currentSprite.sprite.x, currentSprite.sprite.y) != position) {
             logger.debug(currentSprite, entity)
         }
     }

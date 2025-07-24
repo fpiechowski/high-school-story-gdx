@@ -8,6 +8,7 @@ import com.github.quillraven.fleks.World
 import ktx.graphics.use
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import pro.piechowski.highschoolstory.physics.m
 import pro.piechowski.highschoolstory.rendering.sprite.CurrentSprite
 
 class InteractableDebugSystem :
@@ -26,28 +27,35 @@ class InteractableDebugSystem :
         shaperRenderer.use(ShapeRenderer.ShapeType.Line) {
             it.color = Color.RED.cpy()
             it.rect(
-                interactable.position.position.x - currentSprite.sprite.originX,
-                interactable.position.position.y - currentSprite.sprite.originY,
+                interactable.position.x.m
+                    .toPixels()
+                    .value - currentSprite.sprite.originX,
+                interactable.position.y.m
+                    .toPixels()
+                    .value - currentSprite.sprite.originY,
                 48f,
                 96f,
             )
         }
 
-        val interactors =
-            world.Interactors.forEach {
-                val interactor = InteractorEntity(it)
+        world.Interactors.forEach {
+            val interactor = InteractorEntity(it)
 
-                if (interactable.isInInteractionRangeOf(interactor)) {
-                    shaperRenderer.use(ShapeRenderer.ShapeType.Line) {
-                        it.color = Color.GREEN.cpy()
-                        it.rect(
-                            interactable.position.position.x - currentSprite.sprite.originX,
-                            interactable.position.position.y - currentSprite.sprite.originY,
-                            48f,
-                            96f,
-                        )
-                    }
+            if (interactable.isInInteractionRangeOf(interactor)) {
+                shaperRenderer.use(ShapeRenderer.ShapeType.Line) {
+                    it.color = Color.GREEN.cpy()
+                    it.rect(
+                        interactable.position.x.m
+                            .toPixels()
+                            .value - currentSprite.sprite.originX,
+                        interactable.position.y.m
+                            .toPixels()
+                            .value - currentSprite.sprite.originY,
+                        48f,
+                        96f,
+                    )
                 }
             }
+        }
     }
 }

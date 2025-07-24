@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory.movement.input
+﻿package pro.piechowski.highschoolstory.physics.movement.input
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Input

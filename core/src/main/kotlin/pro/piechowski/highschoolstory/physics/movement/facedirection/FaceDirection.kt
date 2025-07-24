@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory.movement.facedirection
+﻿package pro.piechowski.highschoolstory.physics.movement.facedirection
 
 import com.github.quillraven.fleks.Component
 import com.github.quillraven.fleks.ComponentType

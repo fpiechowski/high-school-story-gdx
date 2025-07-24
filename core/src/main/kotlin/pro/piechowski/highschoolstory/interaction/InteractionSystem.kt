@@ -5,8 +5,9 @@ import com.github.quillraven.fleks.EntityComponentContext
 import com.github.quillraven.fleks.IteratingSystem
 import com.github.quillraven.fleks.World
 import ktx.math.minus
-import pro.piechowski.highschoolstory.interaction.InteractionSystem.Companion.INTERACTION_RANGE
+import pro.piechowski.highschoolstory.interaction.InteractionSystem.Companion.interactionRange
 import pro.piechowski.highschoolstory.interaction.input.InteractionInput
+import pro.piechowski.highschoolstory.physics.m
 
 class InteractionSystem :
     IteratingSystem(
@@ -30,7 +31,7 @@ class InteractionSystem :
     }
 
     companion object {
-        const val INTERACTION_RANGE = 100f
+        val interactionRange = 1.5f.m
     }
 }
 
@@ -40,9 +41,9 @@ fun InteractableEntity.isInInteractionRangeOf(interactorEntity: InteractorEntity
         val interactablePosition = this@isInInteractionRangeOf.position
         val interactorFaceDirection = interactorEntity.faceDirection
 
-        val fromInteractorToInteractable = (interactablePosition.position - interactorEntity.position.position)
+        val fromInteractorToInteractable = (interactablePosition - interactorEntity.position)
 
-        val inRange = fromInteractorToInteractable.len() <= INTERACTION_RANGE
+        val inRange = fromInteractorToInteractable.len() <= interactionRange.value
 
         if (inRange) {
             val facing = fromInteractorToInteractable.nor().dot(interactorFaceDirection.faceDirection.nor()) > 0.7f

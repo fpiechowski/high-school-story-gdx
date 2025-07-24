@@ -12,6 +12,8 @@ import ktx.graphics.circle
 import ktx.graphics.use
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import pro.piechowski.highschoolstory.physics.m
+import pro.piechowski.highschoolstory.physics.times
 
 class InteractorDebugSystem :
     IteratingSystem(
@@ -29,7 +31,7 @@ class InteractorDebugSystem :
 
         shapeRenderer.use(ShapeRenderer.ShapeType.Filled, camera) {
             it.color = Color.BLUE.cpy().also { it.a = 0.1f }
-            it.circle(interactor.position.position, InteractionSystem.INTERACTION_RANGE)
+            it.circle(interactor.position * m.toPixels(), InteractionSystem.interactionRange.toPixels().value)
         }
     }
 }

@@ -18,10 +18,12 @@ import org.koin.core.module.Module
 import pro.piechowski.highschoolstory.character.Character
 import pro.piechowski.highschoolstory.character.PlayerCharacter
 import pro.piechowski.highschoolstory.ecs.plusAssign
+import pro.piechowski.highschoolstory.gdx.PhysicsWorld
 import pro.piechowski.highschoolstory.input.GameInputMultiplexer
 import pro.piechowski.highschoolstory.interaction.Interactable
-import pro.piechowski.highschoolstory.movement.position.Position
-import pro.piechowski.highschoolstory.physics.collision.get
+import pro.piechowski.highschoolstory.physics.body.PhysicsBody
+import pro.piechowski.highschoolstory.physics.px
+import pro.piechowski.highschoolstory.physics.times
 
 class GameScreen :
     KtxScreen,
@@ -45,21 +47,24 @@ class GameScreen :
     private val camera: Camera by inject()
     private val viewport: Viewport by inject()
     private val world: World by inject()
+    private val physicsWorld: PhysicsWorld by inject()
 
     init {
         with(world) {
             with(assetStorage) {
-                entity {
-                    it += PlayerCharacter.archetype()
-                }
+                with(physicsWorld) {
+                    entity {
+                        it += PlayerCharacter.archetype()
+                    }
 
-                entity {
-                    it += Character.archetype(AssetIdentifiers.Textures.Character)
-                    it += Position(Vector2(300f, 100f))
-                    it +=
-                        Interactable {
-                            println("Interacting with the character!")
-                        }
+                    entity {
+                        it += Character.archetype(AssetIdentifiers.Textures.Character)
+                        it[PhysicsBody].body.setTransform(Vector2(300f, 100f) * px.toMeter(), 0f)
+                        it +=
+                            Interactable {
+                                println("Interacting with the character!")
+                            }
+                    }
                 }
             }
         }

@@ -1,0 +1,26 @@
+﻿@startuml
+
+skinparam roundcorner 15
+skinparam componentStyle rectangle
+
+<style>
+process {
+    BackgroundColor #C5DFEE
+}
+</style>
+
+!include structure.puml
+
+
+GdxInput --> InteractionInputProcessor
+
+InteractionInputProcessor --> InteractionInput
+
+Interactor --> InteractionSystem
+InteractionInput --> InteractionSystem
+FaceDirection --> InteractionSystem
+Interactor.Position --> InteractionSystem
+
+Interactable.Entity -left-> InteractionSystem
+
+@enduml
