@@ -6,7 +6,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import pro.piechowski.highschoolstory.interaction.input.InteractionInputProcessor
 
-class GameInputMultiplexer :
+class InputProcessorMultiplexer :
     InputMultiplexer(),
     KoinComponent {
     val interactionInputProcessor by inject<InteractionInputProcessor>()

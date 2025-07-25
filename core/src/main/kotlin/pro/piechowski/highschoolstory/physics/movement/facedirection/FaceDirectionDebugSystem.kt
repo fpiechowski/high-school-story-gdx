@@ -14,12 +14,13 @@ import pro.piechowski.highschoolstory.interaction.InteractionSystem
 import pro.piechowski.highschoolstory.physics.body.PhysicsBody
 import pro.piechowski.highschoolstory.physics.m
 import pro.piechowski.highschoolstory.physics.times
+import pro.piechowski.highschoolstory.rendering.pixelCameraQualifier
 
 class FaceDirectionDebugSystem :
     IteratingSystem(World.family { all(FaceDirection, PhysicsBody) }),
     KoinComponent {
     private val shapeRenderer: ShapeRenderer by inject()
-    private val camera: Camera by inject()
+    private val camera: Camera by inject(pixelCameraQualifier)
 
     override fun onTickEntity(entity: Entity) {
         val position = entity[PhysicsBody].body.position * m.toPixels()

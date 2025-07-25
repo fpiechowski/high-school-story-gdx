@@ -12,8 +12,8 @@ import pro.piechowski.highschoolstory.rendering.sprite.SpriteRenderingSystem
 
 val RenderingModule =
     module {
-        single<Camera> { OrthographicCamera() }
-        single<Viewport> { FitViewport(1280f, 720f, get()) }
+        single<Camera>(pixelCameraQualifier) { OrthographicCamera() }
+        single<Viewport>(pixelViewportQualifier) { FitViewport(1280f, 720f, get(pixelCameraQualifier)) }
         single { SpriteRenderingSystem() }
         single { CurrentSpritePositionSystem() }
         single { SpriteAnimationSystem() }

@@ -4,7 +4,7 @@ import com.github.quillraven.fleks.World
 import org.koin.core.qualifier.StringQualifier
 import org.koin.dsl.module
 import pro.piechowski.highschoolstory.ecs.invoke
-import pro.piechowski.highschoolstory.input.GameInputMultiplexer
+import pro.piechowski.highschoolstory.input.InputProcessorMultiplexer
 import pro.piechowski.highschoolstory.interaction.InteractionModule
 import pro.piechowski.highschoolstory.physics.PhysicsModule
 import pro.piechowski.highschoolstory.physics.movement.MovementModule
@@ -20,7 +20,7 @@ fun gameModule() =
         includes(RenderingModule)
 
         single { GameScreen() }
-        single { GameInputMultiplexer() }
+        single { InputProcessorMultiplexer() }
 
         single<World> { World() }
     }

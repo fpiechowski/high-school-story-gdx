@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory
+﻿package pro.piechowski.highschoolstory.asset
 
 import com.badlogic.gdx.graphics.Texture
 import ktx.assets.async.Identifier

@@ -14,6 +14,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import pro.piechowski.highschoolstory.physics.m
 import pro.piechowski.highschoolstory.physics.times
+import pro.piechowski.highschoolstory.rendering.pixelCameraQualifier
 
 class InteractorDebugSystem :
     IteratingSystem(
@@ -21,7 +22,7 @@ class InteractorDebugSystem :
     ),
     KoinComponent {
     val shapeRenderer: ShapeRenderer by inject()
-    val camera: Camera by inject()
+    val camera: Camera by inject(pixelCameraQualifier)
 
     override fun onTickEntity(entity: Entity) {
         Gdx.gl.glEnable(GL20.GL_BLEND)

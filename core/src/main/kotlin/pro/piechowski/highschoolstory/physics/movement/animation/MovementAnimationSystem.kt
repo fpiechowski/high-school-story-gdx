@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory.physics.movement.animaiton
+﻿package pro.piechowski.highschoolstory.physics.movement.animation
 
 import com.github.quillraven.fleks.Entity
 import com.github.quillraven.fleks.IteratingSystem

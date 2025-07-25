@@ -15,25 +15,29 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.context.unloadKoinModules
 import org.koin.core.module.Module
+import pro.piechowski.highschoolstory.asset.AssetIdentifiers
 import pro.piechowski.highschoolstory.character.Character
 import pro.piechowski.highschoolstory.character.PlayerCharacter
 import pro.piechowski.highschoolstory.ecs.plusAssign
 import pro.piechowski.highschoolstory.gdx.PhysicsWorld
-import pro.piechowski.highschoolstory.input.GameInputMultiplexer
+import pro.piechowski.highschoolstory.input.InputProcessorMultiplexer
 import pro.piechowski.highschoolstory.interaction.Interactable
 import pro.piechowski.highschoolstory.physics.body.PhysicsBody
+import pro.piechowski.highschoolstory.physics.meterViewportQualifier
 import pro.piechowski.highschoolstory.physics.px
 import pro.piechowski.highschoolstory.physics.times
+import pro.piechowski.highschoolstory.rendering.pixelCameraQualifier
+import pro.piechowski.highschoolstory.rendering.pixelViewportQualifier
 
 class GameScreen :
     KtxScreen,
     KoinComponent {
     private val config: Config by inject()
     private val gameModule: Module by inject(gameModuleQualifier)
-    private val gameInputMultiplexer: GameInputMultiplexer by inject()
+    private val inputProcessorMultiplexer: InputProcessorMultiplexer by inject()
 
     init {
-        Gdx.input.inputProcessor = gameInputMultiplexer
+        Gdx.input.inputProcessor = inputProcessorMultiplexer
     }
 
     private val assetStorage: AssetStorage by inject()
@@ -44,8 +48,9 @@ class GameScreen :
     }
 
     private val batch: SpriteBatch by inject()
-    private val camera: Camera by inject()
-    private val viewport: Viewport by inject()
+    private val camera: Camera by inject(pixelCameraQualifier)
+    private val pixelViewport: Viewport by inject(pixelViewportQualifier)
+    private val meterViewport: Viewport by inject(meterViewportQualifier)
     private val world: World by inject()
     private val physicsWorld: PhysicsWorld by inject()
 
@@ -89,6 +94,7 @@ class GameScreen :
         width: Int,
         height: Int,
     ) {
-        viewport.update(width, height)
+        pixelViewport.update(width, height)
+        meterViewport.update(width, height)
     }
 }

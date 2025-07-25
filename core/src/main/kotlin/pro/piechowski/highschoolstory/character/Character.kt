@@ -3,6 +3,7 @@
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.Animation
 import com.badlogic.gdx.graphics.g2d.TextureRegion
+import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.physics.box2d.BodyDef
 import com.github.quillraven.fleks.EntityTag
 import kotlinx.serialization.Serializable
@@ -13,6 +14,10 @@ import ktx.box2d.box
 import ktx.collections.toGdxArray
 import pro.piechowski.highschoolstory.animation.CurrentAnimation
 import pro.piechowski.highschoolstory.animation.Direction4Animations
+import pro.piechowski.highschoolstory.character.animation.CharacterAnimation
+import pro.piechowski.highschoolstory.character.rendering.CharacterSprite
+import pro.piechowski.highschoolstory.character.rendering.CharacterTexture
+import pro.piechowski.highschoolstory.direction.Direction4
 import pro.piechowski.highschoolstory.direction.Direction8
 import pro.piechowski.highschoolstory.ecs.Archetype
 import pro.piechowski.highschoolstory.gdx.GdxSprite
@@ -21,14 +26,11 @@ import pro.piechowski.highschoolstory.interaction.Interactor
 import pro.piechowski.highschoolstory.interaction.input.InteractionInput
 import pro.piechowski.highschoolstory.physics.body.PhysicsBody
 import pro.piechowski.highschoolstory.physics.movement.Speed
-import pro.piechowski.highschoolstory.physics.movement.animaiton.MovementAnimation
+import pro.piechowski.highschoolstory.physics.movement.animation.MovementAnimation
 import pro.piechowski.highschoolstory.physics.movement.facedirection.FaceDirection
 import pro.piechowski.highschoolstory.physics.movement.input.MovementInput
 import pro.piechowski.highschoolstory.physics.px
-import pro.piechowski.highschoolstory.rendering.sprite.CharacterSprite
 import pro.piechowski.highschoolstory.rendering.sprite.CurrentSprite
-
-const val CHARACTER_ANIMATION_DURATION = 1f / 5f
 
 @Serializable
 data object Character : EntityTag() {
@@ -46,18 +48,24 @@ data object Character : EntityTag() {
                                 .value,
                             CharacterSprite.HEIGHT.px
                                 .toMeter()
-                                .value / 4,
+                                .value / HEIGHT_TO_DEPTH_RATIO,
+                            bodyFixturePositionOffset,
                         )
                     },
                 )
 
             val characterTexture = assetStorage[spriteSheetIdentifier]
-            val characterTextureRegions = TextureRegion.split(characterTexture, 48, 96)
+            val characterTextureRegions =
+                TextureRegion.split(
+                    characterTexture,
+                    CharacterSprite.WIDTH.toInt(),
+                    CharacterSprite.HEIGHT.toInt(),
+                )
             val downIdleAnimation =
                 Animation(
-                    CHARACTER_ANIMATION_DURATION,
-                    characterTextureRegions[1]
-                        .slice(18..23)
+                    CharacterAnimation.duration.value,
+                    characterTextureRegions[CharacterTexture.getAnimationRegionsRow(CharacterAnimation.IDLE)]
+                        .slice(CharacterTexture.getLocomotionAnimationRegionsColumnRange(Direction4.Down))
                         .map { CharacterSprite(it) }
                         .toGdxArray(),
                     Animation.PlayMode.LOOP,
@@ -68,27 +76,27 @@ data object Character : EntityTag() {
                         Direction4Animations(
                             right =
                                 Animation(
-                                    CHARACTER_ANIMATION_DURATION,
-                                    characterTextureRegions[1]
-                                        .slice(0..5)
+                                    CharacterAnimation.duration.value,
+                                    characterTextureRegions[CharacterTexture.getAnimationRegionsRow(CharacterAnimation.IDLE)]
+                                        .slice(CharacterTexture.getLocomotionAnimationRegionsColumnRange(Direction4.Right))
                                         .map { region -> CharacterSprite(region) }
                                         .toGdxArray(),
                                     Animation.PlayMode.LOOP,
                                 ),
                             up =
                                 Animation(
-                                    CHARACTER_ANIMATION_DURATION,
-                                    characterTextureRegions[1]
-                                        .slice(6..11)
+                                    CharacterAnimation.duration.value,
+                                    characterTextureRegions[CharacterTexture.getAnimationRegionsRow(CharacterAnimation.IDLE)]
+                                        .slice(CharacterTexture.getLocomotionAnimationRegionsColumnRange(Direction4.Up))
                                         .map { region -> CharacterSprite(region) }
                                         .toGdxArray(),
                                     Animation.PlayMode.LOOP,
                                 ),
                             left =
                                 Animation(
-                                    CHARACTER_ANIMATION_DURATION,
-                                    characterTextureRegions[1]
-                                        .slice(12..17)
+                                    CharacterAnimation.duration.value,
+                                    characterTextureRegions[CharacterTexture.getAnimationRegionsRow(CharacterAnimation.IDLE)]
+                                        .slice(CharacterTexture.getLocomotionAnimationRegionsColumnRange(Direction4.Left))
                                         .map { region -> CharacterSprite(region) }
                                         .toGdxArray(),
                                     Animation.PlayMode.LOOP,
@@ -102,43 +110,52 @@ data object Character : EntityTag() {
                         Direction4Animations(
                             right =
                                 Animation(
-                                    CHARACTER_ANIMATION_DURATION,
-                                    characterTextureRegions[2]
-                                        .slice(0..5)
+                                    CharacterAnimation.duration.value,
+                                    characterTextureRegions[CharacterTexture.getAnimationRegionsRow(CharacterAnimation.WALK)]
+                                        .slice(CharacterTexture.getLocomotionAnimationRegionsColumnRange(Direction4.Right))
                                         .map { region -> CharacterSprite(region) }
                                         .toGdxArray(),
                                     Animation.PlayMode.LOOP,
                                 ),
                             up =
                                 Animation(
-                                    CHARACTER_ANIMATION_DURATION,
-                                    characterTextureRegions[2]
-                                        .slice(6..11)
+                                    CharacterAnimation.duration.value,
+                                    characterTextureRegions[CharacterTexture.getAnimationRegionsRow(CharacterAnimation.WALK)]
+                                        .slice(CharacterTexture.getLocomotionAnimationRegionsColumnRange(Direction4.Up))
                                         .map { region -> CharacterSprite(region) }
                                         .toGdxArray(),
                                     Animation.PlayMode.LOOP,
                                 ),
                             left =
                                 Animation(
-                                    CHARACTER_ANIMATION_DURATION,
-                                    characterTextureRegions[2]
-                                        .slice(12..17)
+                                    CharacterAnimation.duration.value,
+                                    characterTextureRegions[CharacterTexture.getAnimationRegionsRow(CharacterAnimation.WALK)]
+                                        .slice(CharacterTexture.getLocomotionAnimationRegionsColumnRange(Direction4.Left))
                                         .map { region -> CharacterSprite(region) }
                                         .toGdxArray(),
                                     Animation.PlayMode.LOOP,
                                 ),
                             down =
                                 Animation(
-                                    CHARACTER_ANIMATION_DURATION,
-                                    characterTextureRegions[2]
-                                        .slice(18..23)
+                                    CharacterAnimation.duration.value,
+                                    characterTextureRegions[CharacterTexture.getAnimationRegionsRow(CharacterAnimation.WALK)]
+                                        .slice(CharacterTexture.getLocomotionAnimationRegionsColumnRange(Direction4.Down))
                                         .map { region -> CharacterSprite(region) }
                                         .toGdxArray(),
                                     Animation.PlayMode.LOOP,
                                 ),
                         ),
                 )
-            this += CurrentSprite(GdxSprite(characterTextureRegions[0][3]))
+            this +=
+                CurrentSprite(
+                    GdxSprite(
+                        characterTextureRegions[
+                            CharacterTexture.getAnimationRegionsRow(
+                                CharacterAnimation.IDLE,
+                            ),
+                        ][CharacterTexture.getLocomotionAnimationRegionsColumnRange(Direction4.Down).first()],
+                    ),
+                )
             this += CurrentAnimation(downIdleAnimation)
             this += MovementInput.Multiplex()
             this += Speed.walk
@@ -146,4 +163,7 @@ data object Character : EntityTag() {
             this += Interactor
             this += InteractionInput()
         }
+
+    const val HEIGHT_TO_DEPTH_RATIO = 4f
+    val bodyFixturePositionOffset = Vector2(0f, -(CharacterSprite.HEIGHT / HEIGHT_TO_DEPTH_RATIO).px.toMeter().value)
 }

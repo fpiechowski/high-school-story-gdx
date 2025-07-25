@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory.rendering.sprite
+﻿package pro.piechowski.highschoolstory.character.rendering
 
 import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.graphics.g2d.TextureRegion

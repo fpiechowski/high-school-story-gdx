@@ -12,7 +12,7 @@ import pro.piechowski.highschoolstory.interaction.InteractionSystem
 import pro.piechowski.highschoolstory.interaction.InteractorDebugSystem
 import pro.piechowski.highschoolstory.physics.body.PhysicsDebugRenderingSystem
 import pro.piechowski.highschoolstory.physics.body.PhysicsWorldStepSystem
-import pro.piechowski.highschoolstory.physics.movement.animaiton.MovementAnimationSystem
+import pro.piechowski.highschoolstory.physics.movement.animation.MovementAnimationSystem
 import pro.piechowski.highschoolstory.physics.movement.facedirection.FaceDirectionDebugSystem
 import pro.piechowski.highschoolstory.physics.movement.facedirection.FaceDirectionSystem
 import pro.piechowski.highschoolstory.physics.movement.input.MovementControllerInputSystem

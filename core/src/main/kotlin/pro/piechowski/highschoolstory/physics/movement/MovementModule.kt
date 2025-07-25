@@ -1,7 +1,7 @@
 ﻿package pro.piechowski.highschoolstory.physics.movement
 
 import org.koin.dsl.module
-import pro.piechowski.highschoolstory.physics.movement.animaiton.MovementAnimationSystem
+import pro.piechowski.highschoolstory.physics.movement.animation.MovementAnimationSystem
 import pro.piechowski.highschoolstory.physics.movement.facedirection.FaceDirectionDebugSystem
 import pro.piechowski.highschoolstory.physics.movement.facedirection.FaceDirectionSystem
 import pro.piechowski.highschoolstory.physics.movement.input.MovementControllerInputSystem
