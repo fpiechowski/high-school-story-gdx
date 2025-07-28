@@ -8,7 +8,7 @@ import org.koin.core.component.inject
 import pro.piechowski.highschoolstory.dialogue.DialogueInputProcessor
 import pro.piechowski.highschoolstory.interaction.input.InteractionInputProcessor
 
-class InputProcessorMultiplexer :
+class GameInputMultiplexer :
     InputMultiplexer(),
     KoinComponent {
     val interactionInputProcessor by inject<InteractionInputProcessor>()
@@ -18,9 +18,9 @@ class InputProcessorMultiplexer :
     private val logger = KotlinLogging.logger { }
 
     init {
+        addProcessor(stage)
         addProcessor(interactionInputProcessor)
         addProcessor(dialogueInputProcessor)
-        addProcessor(stage)
 
         logger.debug { "Input multiplexer initialized" }
     }

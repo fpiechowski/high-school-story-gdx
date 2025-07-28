@@ -3,11 +3,13 @@
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import pro.piechowski.highschoolstory.input.InputState
 
 class DialogueManager : KoinComponent {
     private val dialogue: MutableStateFlow<Dialogue?> = MutableStateFlow(null)
     private val currentSentenceId: MutableStateFlow<SentenceId?> = MutableStateFlow(null)
     private val dialogueUserInterface: DialogueUserInterface by inject()
+    private val inputState: InputState by inject()
 
     val currentSentence get() = dialogue.value?.sentences?.get(currentSentenceId.value)
     val currentOptionIdx: MutableStateFlow<Int> = MutableStateFlow(0)
@@ -15,7 +17,13 @@ class DialogueManager : KoinComponent {
     fun startDialogue(dialogue: Dialogue) {
         this.dialogue.value = dialogue
 
+        if (dialogue.rootIds.size == 1) {
+            advance()
+        }
+
         updateUserInterface()
+
+        inputState.mode.value = InputState.Mode.DIALOGUE
     }
 
     fun advance() {
@@ -23,10 +31,10 @@ class DialogueManager : KoinComponent {
             ifIsAlreadyAdvanced(
                 dialogue,
                 then = { sentence ->
-                    currentSentenceId.value = sentence.childIds[currentOptionIdx.value]
+                    currentSentenceId.value = sentence.childIds.getOrNull(currentOptionIdx.value)
                 },
                 otherwise = {
-                    currentSentenceId.value = dialogue.rootIds[currentOptionIdx.value]
+                    currentSentenceId.value = dialogue.rootIds.getOrNull(currentOptionIdx.value)
                 },
             )
 
@@ -44,6 +52,8 @@ class DialogueManager : KoinComponent {
         currentOptionIdx.value = 0
 
         updateUserInterface()
+
+        inputState.mode.value = InputState.Mode.EXPLORATION
     }
 
     fun selectPreviousOption() {

@@ -24,7 +24,8 @@ import pro.piechowski.highschoolstory.dialogue.DialogueManager
 import pro.piechowski.highschoolstory.dialogue.dialogue
 import pro.piechowski.highschoolstory.ecs.plusAssign
 import pro.piechowski.highschoolstory.gdx.PhysicsWorld
-import pro.piechowski.highschoolstory.input.InputProcessorMultiplexer
+import pro.piechowski.highschoolstory.input.GameInputMultiplexer
+import pro.piechowski.highschoolstory.input.InputState
 import pro.piechowski.highschoolstory.interaction.Interactable
 import pro.piechowski.highschoolstory.physics.body.PhysicsBody
 import pro.piechowski.highschoolstory.physics.meterViewportQualifier
@@ -40,10 +41,12 @@ class GameScreen :
     KoinComponent {
     private val config: Config by inject()
     private val gameModule: Module by inject(gameModuleQualifier)
-    private val inputProcessorMultiplexer: InputProcessorMultiplexer by inject()
+    private val gameInputMultiplexer: GameInputMultiplexer by inject()
+    private val inputState: InputState by inject()
 
     init {
-        Gdx.input.inputProcessor = inputProcessorMultiplexer
+        Gdx.input.inputProcessor = gameInputMultiplexer
+        inputState.mode.value = InputState.Mode.EXPLORATION
     }
 
     private val assetStorage: AssetStorage by inject()
