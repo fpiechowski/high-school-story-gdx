@@ -4,7 +4,7 @@ import org.koin.dsl.module
 
 val DialogueModule =
     module {
-        single { DialogueManager() }
+        single(createdAtStart = true) { DialogueManager() }
         single { DialogueUserInterface() }
         single { DialogueUserInterfaceUpdater() }
         single { DialogueInputProcessor() }
