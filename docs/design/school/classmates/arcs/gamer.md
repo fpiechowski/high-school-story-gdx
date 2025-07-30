@@ -1,7 +1,7 @@
 ﻿# ❤️ Relationship Arc – Ethan Price
 
 ## 🎭 Stereotype / Role
-> "The Gamer" – memes, Mountain Dew, and skipping gym. Loyal, hilarious, and hiding a hard reality at home.
+> "The Gamer" – memes, Mountain Dew, and skipping gym. Loyal, hilarious, and always online — but behind the screen, he’s helping others survive the very struggle he’s still dealing with himself.
 
 ---
 
@@ -9,13 +9,13 @@
 
 - **Subjects Proficient In:** Computer Science, Math, Digital Art
 - **Preferences:** Online games, Discord servers, memes, instant noodles
-- **Clubs:** None (online guild takes all his time)
+- **Clubs:** None (his online guild and secret side project take up all his time)
 - **Schedule Notes:** Often naps in class, seen in the library’s computer lab or back hallway
 
 ---
 
 ## 🔐 Hidden Trait
-> Ethan is the sole caregiver for his disabled sibling and uses games to escape from the crushing pressure of adulthood too early.
+> Ethan runs an **anonymous online support group** for socially anxious teens under a pseudonym. The members think he’s a wise older mentor, but in reality, he’s just as lost — worried that he’s a fraud helping others while still struggling himself.
 
 ---
 
@@ -37,35 +37,35 @@
 ### 🧩 Stage 3 – Vulnerability
 - **Stat Requirement:** Relationship ≥ 25
 - **Trigger:** Find him asleep in the nurse’s office
-- **Scene Summary:** Admits he’s exhausted and barely sleeps at night
-- **Player Choice:** Ask why or just sit with him
-- **Reward:** Ethan opens up next time about his family situation
+- **Scene Summary:** He admits he barely sleeps — not from gaming, but from moderating and writing messages for his “anonymous support group”
+- **Player Choice:** Ask why he does it, or quietly stay with him
+- **Reward:** Ethan opens up next time about his imposter fears
 
 ### 🧩 Stage 4 – Trust
 - **Stat Requirement:** Relationship ≥ 50
-- **Trigger:** He shows the player a game he’s designing
-- **Scene Summary:** Shares that he dreams of creating something fun but doesn’t know if he’ll ever have the time or chance
-- **Player Choice:** Offer to help with the game or beta test it
-- **Reward:** Unlocks “coding night” hangout (boosts mood or logic stat)
+- **Trigger:** He hesitantly lets the player read one of his group messages
+- **Scene Summary:** He explains how scared he is that he’s lying to people — trying to sound put-together when he’s just as lost as them
+- **Player Choice:** Tell him he’s helping more than he knows, or admit you’ve felt the same
+- **Reward:** Unlocks “digital venting night” hangout (boosts mood, lowers stress)
 
 ### 🧩 Stage 5 – Emotional Climax
 - **Stat Requirement:** Relationship ≥ 75, triggered during Winter Trip
-- **Scene Summary:** Ethan gets a call from home and rushes out; player finds him on the phone arguing with a hospital
-- **Player Choice:** Ask questions, support, or distract him with jokes
-- **Reward:** Emotional hug scene or digital gift exchange (sends player a sprite of them in his game)
+- **Scene Summary:** Ethan panics after one of his online friends talks about disappearing — he rushes out of an event to talk them down
+- **Player Choice:** Support him, help message back, or silently stay close
+- **Reward:** Emotional cutscene where Ethan breaks down, and the player reminds him that **he matters too**
 
 ### 🧩 Stage 6 – Relationship Resolution
 - **Stat Requirement:** Relationship ≥ 90
 - **Trigger:** Last day of school or Valentine’s Event
-- **Scene Summary:** Ethan thanks the player for giving him “real life moments” he never thought he’d have
-- **Player Choice:** Quiet connection, romantic confession, or gaming bond
-- **Reward:** Ending shows Ethan entering a game design program and including a character named after the player
+- **Scene Summary:** Ethan tells the player that he’s starting a real nonprofit version of the support group — and he's putting his real name on it this time
+- **Player Choice:** Quiet connection, romantic support, or become his co-founder
+- **Reward:** Ending shows Ethan in college, running a mental health initiative called **Second Player Joined**, with a character in a game or post dedicated to the player
 
 ---
 
 ## 🔁 Optional Recurring Events
 - Co-op game event during Spring Break
-- Send Ethan snacks during exam week
-- His sibling sends a letter thanking the player (triggered by trust level)
+- Support group “mod crisis” side story
+- Anonymous Valentine received from a group member (Ethan orchestrated it)
 
 ---

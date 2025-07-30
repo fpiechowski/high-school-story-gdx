@@ -1,7 +1,7 @@
 ﻿# ❤️ Relationship Arc – Camden Doyle
 
 ## 🎭 Stereotype / Role
-> "The Skater Rebel" – hoodie up, headphones in, rules ignored. Camden’s all eye-rolls and sarcasm… unless you get close enough to see the poet underneath.
+> "The Skater Rebel" – hoodie up, headphones in, rules ignored. Camden’s all eye-rolls and sarcasm… unless you get close enough to see the truth behind his late nights and ink-stained hands.
 
 ---
 
@@ -15,7 +15,7 @@
 ---
 
 ## 🔐 Hidden Trait
-> Camden writes anonymous poetry in the school paper under the name "Red Ink." No one has figured it out — yet.
+> Camden is the anonymous graffiti artist behind the school’s hidden *Quote Wall*, where he spray-paints overheard thoughts, powerful messages, and emotional fragments from his classmates. He pretends it’s vandalism, but it’s his way of making people feel seen — while staying unseen himself.
 
 ---
 
@@ -24,48 +24,58 @@
 ### 🧩 Stage 1 – Acquaintance
 - **Stat Requirement:** None
 - **Trigger:** Player bumps into Camden sneaking in late
-- **Scene Summary:** He shrugs it off and makes a snarky comment
+- **Scene Summary:** He shrugs it off and makes a snarky comment about “being fashionably rebellious”
 - **Player Choice Impact:** Play along = +Rel, ignore = neutral, report = –Rel
+
+---
 
 ### 🧩 Stage 2 – Budding Friendship
 - **Stat Requirement:** Relationship ≥ 10
 - **Trigger:** Share the same detention or school cleaning task
-- **Scene Summary:** Camden doodles all over the broom and quotes a punk lyric
+- **Scene Summary:** Camden doodles all over the broom handle, quotes a punk lyric about freedom
 - **Player Choice:** Ask about music or skateboarding
 - **Reward:** +Mood and +Relationship when hanging out near outdoor areas
 
+---
+
 ### 🧩 Stage 3 – Vulnerability
 - **Stat Requirement:** Relationship ≥ 25
-- **Trigger:** Player finds a page of poetry dropped near the art wing
-- **Scene Summary:** It’s raw, emotional, and signed “Red Ink”
-- **Player Choice:** Confront, compliment anonymously, or wait
-- **Reward:** Camden invites you to a “secret wall” to graffiti together (mood boost)
+- **Trigger:** Player notices a strange quote on a wall behind the gym — something they once said
+- **Scene Summary:** Camden denies involvement, but looks nervous
+- **Player Choice:** Confront, compliment the message anonymously, or quietly investigate
+- **Reward:** Camden eventually invites the player to see the *Quote Wall* at night (unlocks unique mood-boosting location)
+
+---
 
 ### 🧩 Stage 4 – Trust
 - **Stat Requirement:** Relationship ≥ 50
-- **Trigger:** Camden opens up after a rough day at home
-- **Scene Summary:** Talks about absent parents, his “don’t care” act, and how art helps him survive
-- **Player Choice:** Confide in return or just listen
-- **Reward:** Player can now tag walls with him — increases mood and friendship stat
+- **Trigger:** After a tough day, Camden offers a spray can
+- **Scene Summary:** He opens up — the wall started after a friend of his dropped out. Now he listens for things people say that matter and makes sure they don’t vanish
+- **Player Choice:** Confide in return or ask to tag your own quote
+- **Reward:** Player can now add quotes to the wall. This boosts Mood and Relationship over time
+
+---
 
 ### 🧩 Stage 5 – Emotional Climax
 - **Stat Requirement:** Relationship ≥ 75, during Winter Trip
-- **Scene Summary:** Camden reads one of his poems to the player under a frozen lake sky
-- **Player Choice:** Encourage him to publish, ask for a personal poem, or just sit together
-- **Reward:** Player gets their own custom poem, “Unnamed Spark,” as an item
+- **Scene Summary:** Camden skips the evening party — the player finds him outside sketching a new quote in a notebook
+- **Player Choice:** Ask what it means, sit quietly, or offer a quote of your own
+- **Reward:** Camden adds your quote to the wall next week, signed “You know who.” Item received: *Spray Cap Charm* (reduces stress)
+
+---
 
 ### 🧩 Stage 6 – Relationship Resolution
 - **Stat Requirement:** Relationship ≥ 90
-- **Trigger:** Final school newspaper issue
-- **Scene Summary:** “Red Ink” publishes a final poem — this time signed “Camden Doyle,” thanking one person for helping him speak
-- **Player Choice:** Meet him on the rooftop, confess feelings, or just fist-bump goodbye
-- **Reward:** Ending shows Camden running a graffiti art project for teens, with the player’s name etched into the first wall
+- **Trigger:** The school announces plans to repaint the back wall
+- **Scene Summary:** Camden stays up all night finishing one final message: “To the one who saw through the mask — thank you.” Signed for the first time: *Camden Doyle*
+- **Player Choice:** Watch from the window, sneak out to see it, or tag your own goodbye
+- **Reward:** Ending shows Camden leading a street art collective for at-risk teens, with a mural titled: *"Every Voice Leaves a Mark"* — the player’s quote is there, too.
 
 ---
 
 ## 🔁 Optional Recurring Events
-- Skate-Off Mini-Game (stats: Mood or Agility)
-- “Graffiti the Wall” event
-- Valentine’s: Poem delivered anonymously, player must guess it was him
+- Skate-Off Mini-Game (stat boost: Mood or Agility)
+- “Tag the Wall” night (bonding & stat reward)
+- Valentine’s: Anonymous quote appears referencing something the player once told him
 
 ---
