@@ -1,4 +1,4 @@
-﻿# ❤️ Relationship Arc – Elijah Moore
+﻿# ❤️ Relationship Arc – Noah Brooks
 
 ## 🎭 Stereotype / Role
 > "The Quiet Genius" – always top of the class, rarely talks. Elijah is brilliant, introverted, and hiding a deep fear of failure masked by emotional detachment.

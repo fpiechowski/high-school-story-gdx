@@ -1,7 +1,7 @@
-﻿# ❤️ Relationship Arc – Noah Ellis
+﻿# ❤️ Relationship Arc – Marcus Lee
 
 ## 🎭 Stereotype / Role
-> "The Working Student" – responsible, quiet, mature beyond his years. Balancing school, a part-time job, and caring for others, Noah’s never had the luxury to just be a teenager.
+> "The Working Student" – responsible, quiet, mature beyond his years. Balancing school, a part-time job, and caring for others, Marcus’s never had the luxury to just be a teenager.
 
 ---
 
@@ -15,7 +15,7 @@
 ---
 
 ## 🔐 Hidden Trait
-> Noah supports both himself and his younger sibling financially after their parent disappeared. He hides this from almost everyone.
+> Marcus supports both himself and his younger sibling financially after their parent disappeared. He hides this from almost everyone.
 
 ---
 
@@ -23,16 +23,16 @@
 
 ### 🧩 Stage 1 – Acquaintance
 - **Stat Requirement:** None
-- **Trigger:** Player sees Noah turn down a club invite due to “other responsibilities”
+- **Trigger:** Player sees Marcus turn down a club invite due to “other responsibilities”
 - **Scene Summary:** He’s polite but distant, always checking the time
 - **Player Choice Impact:** Ask what he's rushing to = +Rel, tease = neutral, ignore = –Rel
 
 ### 🧩 Stage 2 – Budding Friendship
 - **Stat Requirement:** Relationship ≥ 10
 - **Trigger:** Visit the diner where he works after school
-- **Scene Summary:** Noah seems surprised and slightly embarrassed to be seen in his uniform
+- **Scene Summary:** Marcus seems surprised and slightly embarrassed to be seen in his uniform
 - **Player Choice:** Be supportive or try to lighten the mood
-- **Reward:** +Energy item from the diner (Noah’s special coffee)
+- **Reward:** +Energy item from the diner (Marcus’s special coffee)
 
 ### 🧩 Stage 3 – Vulnerability
 - **Stat Requirement:** Relationship ≥ 25
@@ -43,21 +43,21 @@
 
 ### 🧩 Stage 4 – Trust
 - **Stat Requirement:** Relationship ≥ 50
-- **Trigger:** Noah opens up about his little sister and how he keeps her life stable
+- **Trigger:** Marcus opens up about his little sister and how he keeps her life stable
 - **Scene Summary:** Shows a picture of her and mentions skipping sleep to cook for her
 - **Player Choice:** Admire him or encourage him to ask for help sometimes
 - **Reward:** +Relationship stat gain when you help him with tasks or bring food
 
 ### 🧩 Stage 5 – Emotional Climax
 - **Stat Requirement:** Relationship ≥ 75, triggered before final exams
-- **Scene Summary:** Noah considers dropping out if he doesn’t pass — he can’t afford tutoring or a second year
+- **Scene Summary:** Marcus considers dropping out if he doesn’t pass — he can’t afford tutoring or a second year
 - **Player Choice:** Offer to tutor him, rally other classmates, or stand by him
 - **Reward:** Cutscene with emotional gratitude, item gift: his sister’s drawing of you
 
 ### 🧩 Stage 6 – Relationship Resolution
 - **Stat Requirement:** Relationship ≥ 90
 - **Trigger:** Graduation Day
-- **Scene Summary:** Noah tells you he got into a college with a full scholarship — and credits you for pushing him through
+- **Scene Summary:** Marcus tells you he got into a college with a full scholarship — and credits you for pushing him through
 - **Player Choice:** Romantic support, future business partners, or lifelong friendship
 - **Reward:** Ending shows him running his own café years later — with a framed photo of you on the wall
 

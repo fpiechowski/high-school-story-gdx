@@ -15,7 +15,7 @@
 ---
 
 ## 🔐 Hidden Trait
-> Riku secretly feels emotionally empty, unsure if any of his "success" actually reflects who he is.
+> Jordan secretly feels emotionally empty, unsure if any of his "success" actually reflects who he is.
 
 ---
 
@@ -24,12 +24,12 @@
 ### 🧩 Stage 1 – Acquaintance
 - **Stat Requirement:** None
 - **Trigger:** First school assembly or volunteer day
-- **Scene Summary:** Player witnesses Riku giving a flawless speech and high-fiving everyone
+- **Scene Summary:** Player witnesses Jordan giving a flawless speech and high-fiving everyone
 - **Player Choice Impact:** Compliment = +Rel, sarcasm = neutral, ignore = –Rel
 
 ### 🧩 Stage 2 – Budding Friendship
 - **Stat Requirement:** Relationship ≥ 10
-- **Trigger:** Player gets paired with Riku for a volunteer task
+- **Trigger:** Player gets paired with Jordan for a volunteer task
 - **Scene Summary:** Friendly chat where he jokes about always being “the mascot”
 - **Player Choice:** Ask about pressure or admire his popularity
 - **Reward:** Volunteering with him gives +Mood or +Relationship gains
@@ -44,22 +44,22 @@
 ### 🧩 Stage 4 – Trust
 - **Stat Requirement:** Relationship ≥ 50
 - **Trigger:** Confides he turned down a modeling opportunity and no one knows
-- **Scene Summary:** Wonders what people would think if he stopped being “Riku”
+- **Scene Summary:** Wonders what people would think if he stopped being “Jordan”
 - **Player Choice:** Tell him to do what he wants, or to embrace the role he plays
 - **Reward:** Secret character sketchbook scene, unlocks emotional quote gift
 
 ### 🧩 Stage 5 – Emotional Climax
 - **Stat Requirement:** Relationship ≥ 75, during Spring Trip
-- **Scene Summary:** Riku admits he envies the player for having purpose
+- **Scene Summary:** Jordan admits he envies the player for having purpose
 - **Player Choice:** Encourage self-discovery or offer to help him find it
 - **Reward:** Cutscene with heartfelt talk at sunset; earns character-exclusive item: “Blank Journal”
 
 ### 🧩 Stage 6 – Relationship Resolution
 - **Stat Requirement:** Relationship ≥ 90
 - **Trigger:** Final school event or ending slideshow
-- **Scene Summary:** Riku steps back from the spotlight and thanks the player for seeing the real him
+- **Scene Summary:** Jordan steps back from the spotlight and thanks the player for seeing the real him
 - **Player Choice:** Close friendship, deeper romantic connection, or farewell
-- **Reward:** Ending scene shows Riku starting a gap year, writing his own story
+- **Reward:** Ending scene shows Jordan starting a gap year, writing his own story
 
 ---
 

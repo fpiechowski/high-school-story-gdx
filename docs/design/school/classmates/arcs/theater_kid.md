@@ -1,7 +1,7 @@
-﻿# ❤️ Relationship Arc – Chloe Adams
+﻿# ❤️ Relationship Arc – Olivia Ruiz
 
 ## 🎭 Stereotype / Role
-> "The Theater Kid" – loud, dramatic, and always in character. Chloe sings her feelings and performs her pain, but few have seen the quiet girl backstage.
+> "The Theater Kid" – loud, dramatic, and always in character. Olivia sings her feelings and performs her pain, but few have seen the quiet girl backstage.
 
 ---
 
@@ -15,7 +15,7 @@
 ---
 
 ## 🔐 Hidden Trait
-> Chloe’s confidence is an act — she was told she’d never “make it” by her own parents, and now every performance is to prove she belongs somewhere.
+> Olivia’s confidence is an act — she was told she’d never “make it” by her own parents, and now every performance is to prove she belongs somewhere.
 
 ---
 
@@ -24,7 +24,7 @@
 ### 🧩 Stage 1 – Acquaintance
 - **Stat Requirement:** None
 - **Trigger:** Assigned to help with stage setup
-- **Scene Summary:** Chloe bursts into song while giving instructions
+- **Scene Summary:** Olivia bursts into song while giving instructions
 - **Player Choice Impact:** Join in = +Rel, stare awkwardly = neutral, tell her to stop = –Rel
 
 ### 🧩 Stage 2 – Budding Friendship
@@ -43,23 +43,23 @@
 
 ### 🧩 Stage 4 – Trust
 - **Stat Requirement:** Relationship ≥ 50
-- **Trigger:** Chloe invites the player to see her solo performance
+- **Trigger:** Olivia invites the player to see her solo performance
 - **Scene Summary:** She performs a haunting monologue written herself
 - **Player Choice:** Applaud, speak after, or just give her a hug
-- **Reward:** Chloe writes a short song inspired by the player — included in music class
+- **Reward:** Olivia writes a short song inspired by the player — included in music class
 
 ### 🧩 Stage 5 – Emotional Climax
 - **Stat Requirement:** Relationship ≥ 75, during Spring Festival Play
-- **Scene Summary:** Chloe almost backs out of opening night
+- **Scene Summary:** Olivia almost backs out of opening night
 - **Player Choice:** Help her rehearse, give a speech, or silently show up in front row
-- **Reward:** Cutscene of the play’s success, Chloe calling the player her “scene partner for life”
+- **Reward:** Cutscene of the play’s success, Olivia calling the player her “scene partner for life”
 
 ### 🧩 Stage 6 – Relationship Resolution
 - **Stat Requirement:** Relationship ≥ 90
 - **Trigger:** Graduation or Final Curtain Call
-- **Scene Summary:** Chloe gives the player her script notebook — the first time she’s shared it
+- **Scene Summary:** Olivia gives the player her script notebook — the first time she’s shared it
 - **Player Choice:** Accept, read together, or gift your own note inside
-- **Reward:** Ending shows Chloe off-Broadway or in film school, quoting your final lines together
+- **Reward:** Ending shows Olivia off-Broadway or in film school, quoting your final lines together
 
 ---
 
