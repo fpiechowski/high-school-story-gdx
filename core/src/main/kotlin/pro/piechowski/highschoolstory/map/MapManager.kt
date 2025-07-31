@@ -8,13 +8,10 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.physics.box2d.Body
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.map
 import ktx.box2d.body
 import ktx.box2d.box
 import ktx.box2d.circle
 import ktx.box2d.loop
-import ktx.box2d.polygon
-import ktx.tiled.height
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import pro.piechowski.highschoolstory.gdx.PhysicsWorld
@@ -33,7 +30,7 @@ class MapManager : KoinComponent {
 
         currentMap.value?.let { map ->
             map.layers
-                .find { it.name == "Walls" }
+                .find { it.name == MapLayer.Walls.name }
                 ?.objects
                 ?.map { wall ->
                     physicsWorld.body {
@@ -58,6 +55,7 @@ class MapManager : KoinComponent {
                                     },
                                 )
                             }
+
                             is RectangleMapObject ->
                                 box(
                                     wall.rectangle.width.px
@@ -67,6 +65,7 @@ class MapManager : KoinComponent {
                                         .toMeter()
                                         .value,
                                 )
+
                             is CircleMapObject ->
                                 circle(
                                     wall.circle.radius.px

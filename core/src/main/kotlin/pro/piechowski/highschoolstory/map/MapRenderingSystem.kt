@@ -6,7 +6,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
 sealed class MapRenderingSystem(
-    val layerNames: List<String> = emptyList(),
+    val layers: List<MapLayer> = emptyList(),
 ) : IntervalSystem(),
     KoinComponent {
     private val mapManager by inject<MapManager>()
@@ -20,7 +20,7 @@ sealed class MapRenderingSystem(
                     map.layers
                         .mapIndexed { idx, layer -> idx to layer }
                         .toMap()
-                        .filterValues { it.name in layerNames }
+                        .filterValues { layer -> layer.name in layers.map { it.name } }
                         .map { it.key }
 
                 renderer.render(layerIndices.toIntArray())
@@ -30,13 +30,13 @@ sealed class MapRenderingSystem(
 
     class Background : MapRenderingSystem(layerNames) {
         companion object {
-            val layerNames = listOf("Background", "Ground")
+            val layerNames = listOf(MapLayer.Background, MapLayer.Ground)
         }
     }
 
     class Foreground : MapRenderingSystem(layerNames) {
         companion object {
-            val layerNames = listOf("Foreground")
+            val layerNames = listOf(MapLayer.Foreground)
         }
     }
 }
