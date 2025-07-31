@@ -72,13 +72,13 @@ private fun renderingSystems(inBatch: () -> Unit = {}) =
     with(sc) {
         with(scope) {
             // add(get<BeginRenderingBatchSystem>())
-            add(get<CameraMovementSystem>())
             add(get<MovementAnimationSystem>())
             add(get<SpriteAnimationSystem>())
             add(get<CurrentSpritePositionSystem>())
             add(get<MapRenderingSystem.Background>())
             add(get<SpriteRenderingSystem>())
             add(get<MapRenderingSystem.Foreground>())
+            add(get<CameraMovementSystem>())
             inBatch()
             // add(get<EndRenderingBatchSystem>())
         }
