@@ -5,6 +5,7 @@ import org.koin.core.qualifier.StringQualifier
 import org.koin.dsl.module
 import pro.piechowski.highschoolstory.camera.GameCameraModule
 import pro.piechowski.highschoolstory.camera.MainCameraModule
+import pro.piechowski.highschoolstory.debug.DebugModule
 import pro.piechowski.highschoolstory.dialogue.DialogueModule
 import pro.piechowski.highschoolstory.ecs.invoke
 import pro.piechowski.highschoolstory.input.GameInputModule
@@ -30,6 +31,7 @@ fun gameModule() =
         includes(RenderingModule)
         includes(MapModule)
         includes(GameCameraModule)
+        includes(DebugModule)
 
         single { GameScreen() }
 

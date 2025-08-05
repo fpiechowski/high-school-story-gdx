@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory.debug
+﻿package pro.piechowski.highschoolstory.debug.text
 
 import com.github.quillraven.fleks.Component
 import com.github.quillraven.fleks.ComponentType

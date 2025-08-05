@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory.debug
+﻿package pro.piechowski.highschoolstory.debug.text
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.g2d.SpriteBatch

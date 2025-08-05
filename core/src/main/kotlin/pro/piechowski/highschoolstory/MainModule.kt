@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage
 import ktx.assets.async.AssetStorage
 import org.koin.dsl.module
 import pro.piechowski.highschoolstory.camera.MainCameraModule
-import pro.piechowski.highschoolstory.debug.DebugTextSystem
+import pro.piechowski.highschoolstory.debug.text.DebugTextSystem
 import pro.piechowski.highschoolstory.input.MainInputModule
 import pro.piechowski.highschoolstory.ui.userInterfaceViewportQualifier
 
