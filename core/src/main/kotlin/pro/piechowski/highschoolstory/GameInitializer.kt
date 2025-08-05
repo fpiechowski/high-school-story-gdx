@@ -1,5 +1,6 @@
 ﻿package pro.piechowski.highschoolstory
 
+import com.github.quillraven.fleks.Entity
 import com.github.quillraven.fleks.World
 import ktx.assets.async.AssetStorage
 import org.koin.core.component.KoinComponent
