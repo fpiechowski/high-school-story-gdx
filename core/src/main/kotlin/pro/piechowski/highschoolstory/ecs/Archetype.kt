@@ -71,7 +71,7 @@ class Archetype(
         } ?: error("Entity tag not found: $entityTag")
 
     companion object {
-        operator fun invoke(builderBlock: Builder.() -> Unit = {}) = Builder().also { it.builderBlock() }.build()
+        suspend operator fun invoke(builderBlock: suspend Builder.() -> Unit = {}) = Builder().also { it.builderBlock() }.build()
     }
 }
 

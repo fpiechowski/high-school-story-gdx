@@ -7,22 +7,16 @@ import ktx.assets.async.AssetStorage
 import pro.piechowski.highschoolstory.asset.AssetIdentifiers
 import pro.piechowski.highschoolstory.character.Character
 import pro.piechowski.highschoolstory.ecs.Archetype
-import pro.piechowski.highschoolstory.ecs.Archetype.Companion.invoke
 import pro.piechowski.highschoolstory.gdx.PhysicsWorld
 import pro.piechowski.highschoolstory.physics.body.PhysicsBody
 import pro.piechowski.highschoolstory.physics.movement.Speed
 import pro.piechowski.highschoolstory.physics.movement.input.MovementInput
 import pro.piechowski.highschoolstory.rendering.sprite.CurrentSprite
+import pro.piechowski.highschoolstory.spatial.Spatial
 
 class PlayerCharacter private constructor(
-    val entity: Entity,
-) {
-    context(ecc: EntityComponentContext)
-    val body: PhysicsBody get() = with(ecc) { entity[PhysicsBody.Companion] }
-
-    context(ecc: EntityComponentContext)
-    val sprite: CurrentSprite get() = with(ecc) { entity[CurrentSprite.Companion] }
-
+    entity: Entity,
+) : Spatial(entity) {
     companion object {
         context(ecc: EntityComponentContext)
         operator fun invoke(entity: Entity) =
@@ -34,7 +28,7 @@ class PlayerCharacter private constructor(
             }
 
         context(ecc: EntityCreateContext, assetStorage: AssetStorage, physicsWorld: PhysicsWorld)
-        fun archetype(
+        suspend fun archetype(
             firstName: String,
             lastName: String,
         ) = Archetype {
