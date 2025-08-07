@@ -9,7 +9,7 @@ class PlaceManager : KoinComponent {
 
     val currentPlace: StateFlow<Place?> get() = _currentPlace
 
-    fun openPlace(place: Place) {
+    fun travelTo(place: Place) {
         _currentPlace.value = place
     }
 }

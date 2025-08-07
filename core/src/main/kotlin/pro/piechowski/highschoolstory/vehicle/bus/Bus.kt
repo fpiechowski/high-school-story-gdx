@@ -15,8 +15,8 @@ import pro.piechowski.highschoolstory.rendering.sprite.CurrentSprite
 import pro.piechowski.highschoolstory.spatial.Spatial
 
 class Bus(
-    entity: Entity,
-) : Spatial(entity) {
+    override val entity: Entity,
+) : Spatial {
     companion object {
         context(koin: Koin)
         suspend operator fun invoke() =

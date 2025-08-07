@@ -8,6 +8,8 @@ val MainCameraModule =
         single<PixelCamera> { PixelCamera() }
         single<PixelViewport> { PixelViewport(get()) }
 
+        single { CameraManager() }
+
         single<UserInterfaceViewport> { UserInterfaceViewport() }
     }
 
@@ -18,5 +20,5 @@ val GameCameraModule =
 
         single<CameraSet> { CameraSet(get(), get()) }
 
-        single { CameraMovementSystem() }
+        single { CameraFollowPlayerCharacterSystem() }
     }

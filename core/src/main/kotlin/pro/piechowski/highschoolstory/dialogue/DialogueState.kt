@@ -1,11 +1,14 @@
 ﻿package pro.piechowski.highschoolstory.dialogue
 
+import kotlinx.coroutines.CompletableJob
+import kotlinx.coroutines.Job
 import org.koin.core.component.KoinComponent
 
 data class DialogueState(
     val dialogue: Dialogue,
     val currentNode: Dialogue.Node = dialogue.root,
     val currentOptionIdx: Int = 0,
+    val job: CompletableJob = Job(),
 ) : KoinComponent {
     fun advanced(): DialogueState {
         val eventualNextSentenceOrChoiceNode =

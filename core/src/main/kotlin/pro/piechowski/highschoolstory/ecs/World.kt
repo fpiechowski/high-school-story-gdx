@@ -6,8 +6,7 @@ import com.github.quillraven.fleks.configureWorld
 import org.koin.core.scope.Scope
 import pro.piechowski.highschoolstory.Config
 import pro.piechowski.highschoolstory.animation.SpriteAnimationSystem
-import pro.piechowski.highschoolstory.camera.CameraMovementSystem
-import pro.piechowski.highschoolstory.debug.highlight.DebugEntityHighlightRenderingSystem
+import pro.piechowski.highschoolstory.camera.CameraFollowPlayerCharacterSystem
 import pro.piechowski.highschoolstory.debug.selection.DebugSelectionIndicatorRenderingSystem
 import pro.piechowski.highschoolstory.debug.text.DebugTextSystem
 import pro.piechowski.highschoolstory.interaction.InteractionSystem
@@ -24,6 +23,7 @@ import pro.piechowski.highschoolstory.physics.movement.input.MovementMultiplexIn
 import pro.piechowski.highschoolstory.physics.movement.velocity.VelocitySystem
 import pro.piechowski.highschoolstory.rendering.sprite.CurrentSpritePositionSystem
 import pro.piechowski.highschoolstory.rendering.sprite.SpriteRenderingSystem
+import pro.piechowski.highschoolstory.transition.FadeTransitionSystem
 
 context(scope: Scope)
 operator fun World.Companion.invoke() =
@@ -77,7 +77,8 @@ private val renderingSystems
                 get<MapRenderingSystem.Background>(),
                 get<SpriteRenderingSystem>(),
                 get<MapRenderingSystem.Foreground>(),
-                get<CameraMovementSystem>(),
+                get<CameraFollowPlayerCharacterSystem>(),
+                get<FadeTransitionSystem>(),
             ).let {
                 if (get<Config>().debug) {
                     it + debugSystems

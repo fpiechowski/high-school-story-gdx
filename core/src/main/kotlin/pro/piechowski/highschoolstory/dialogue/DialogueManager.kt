@@ -4,6 +4,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.updateAndGet
 import kotlinx.coroutines.launch
 import ktx.async.KtxAsync
 import ktx.async.onRenderingThread
@@ -22,14 +23,15 @@ class DialogueManager : KoinComponent {
 
     init {
         KtxAsync.launch(CoroutineContexts.Logic) {
-            _currentDialogueState.collect {
-                if (it == null) {
+            _currentDialogueState.collect { currentDialogueState ->
+                if (currentDialogueState == null) {
                     inputState.mode.value = InputState.Mode.EXPLORATION
                 } else {
                     inputState.mode.value = InputState.Mode.DIALOGUE
 
-                    if (it.currentNode is Dialogue.Node.End) {
+                    if (currentDialogueState.currentNode is Dialogue.Node.End) {
                         _currentDialogueState.value = null
+                        currentDialogueState.job.complete()
                     }
                 }
 
@@ -40,12 +42,13 @@ class DialogueManager : KoinComponent {
         }
     }
 
-    fun startDialogue(dialogue: Dialogue) {
-        _currentDialogueState.value = DialogueState(dialogue)
-    }
+    fun startDialogue(dialogue: Dialogue): DialogueState =
+        DialogueState(dialogue).also {
+            _currentDialogueState.value = it
+        }
 
-    fun advance() =
-        _currentDialogueState.update {
+    fun advance(): DialogueState? =
+        _currentDialogueState.updateAndGet {
             it
                 ?.also {
                     when (it.currentNode) {
@@ -60,7 +63,7 @@ class DialogueManager : KoinComponent {
                 }?.advanced()
         }
 
-    fun selectNextOption() = _currentDialogueState.update { it?.withNextOptionSelected() }
+    fun selectNextOption(): DialogueState? = _currentDialogueState.updateAndGet { it?.withNextOptionSelected() }
 
-    fun selectPreviousOption() = _currentDialogueState.update { it?.withPreviousOptionSelected() }
+    fun selectPreviousOption(): DialogueState? = _currentDialogueState.updateAndGet { it?.withPreviousOptionSelected() }
 }
