@@ -67,3 +67,5 @@ class DialogueManager : KoinComponent {
 
     fun selectPreviousOption(): DialogueState? = _currentDialogueState.updateAndGet { it?.withPreviousOptionSelected() }
 }
+
+suspend fun DialogueState.await() = job.join()

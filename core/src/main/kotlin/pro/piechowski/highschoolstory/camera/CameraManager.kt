@@ -12,4 +12,12 @@ class CameraManager : KoinComponent {
         set(value) {
             _followingPlayerCharacter.value = value
         }
+
+    fun followPlayerCharacter() {
+        followingPlayerCharacterValue = true
+    }
+
+    fun stopFollowingPlayerCharacter() {
+        followingPlayerCharacterValue = false
+    }
 }

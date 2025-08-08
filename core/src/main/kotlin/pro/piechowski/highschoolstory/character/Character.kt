@@ -13,6 +13,7 @@ import pro.piechowski.highschoolstory.animation.Direction4AnimationSet
 import pro.piechowski.highschoolstory.character.animation.CharacterAnimation
 import pro.piechowski.highschoolstory.character.body.CharacterBody
 import pro.piechowski.highschoolstory.dialogue.Dialogue
+import pro.piechowski.highschoolstory.dialogue.DialogueBuilder
 import pro.piechowski.highschoolstory.direction.Direction8
 import pro.piechowski.highschoolstory.ecs.Archetype
 import pro.piechowski.highschoolstory.gdx.PhysicsWorld
@@ -86,3 +87,12 @@ open class Character(
         const val HEIGHT_TO_DEPTH_RATIO = 4f
     }
 }
+
+context(ecc: EntityComponentContext, dialogueBuilder: DialogueBuilder)
+fun Character.says(
+    line: String,
+    id: String? = null,
+    onAdvanced: () -> Unit = {
+    },
+    nextNode: Dialogue.Node = Dialogue.Node.End,
+) = with(dialogueBuilder) { dialogueActor.says(line, id, onAdvanced, nextNode) }

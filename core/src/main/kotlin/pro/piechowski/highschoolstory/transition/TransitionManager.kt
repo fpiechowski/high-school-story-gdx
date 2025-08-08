@@ -2,6 +2,7 @@
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.job
 import org.koin.core.component.KoinComponent
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.minutes
@@ -42,3 +43,5 @@ class TransitionManager : KoinComponent {
         return transition
     }
 }
+
+suspend fun Transition.await() = job.join()
