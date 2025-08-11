@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory.rendering.sprite
+﻿package pro.piechowski.highschoolstory.sprite
 
 import com.badlogic.gdx.math.Vector2
 import com.github.quillraven.fleks.Entity

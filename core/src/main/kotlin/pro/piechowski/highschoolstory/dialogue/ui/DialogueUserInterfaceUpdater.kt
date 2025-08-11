@@ -1,5 +1,7 @@
 ﻿package pro.piechowski.highschoolstory.dialogue.ui
 
+import kotlinx.coroutines.launch
+import ktx.async.KtxAsync
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import pro.piechowski.highschoolstory.dialogue.Dialogue
@@ -8,6 +10,15 @@ import pro.piechowski.highschoolstory.dialogue.DialogueManager
 class DialogueUserInterfaceUpdater : KoinComponent {
     private val dialogueUserInterface: DialogueUserInterface by inject()
     private val dialogueManager: DialogueManager by inject()
+
+    init {
+        KtxAsync.launch {
+            dialogueManager.currentDialogueState
+                .collect { currentDialogueState ->
+                    updateUserInterface()
+                }
+        }
+    }
 
     fun updateUserInterface() =
         with(dialogueManager) {

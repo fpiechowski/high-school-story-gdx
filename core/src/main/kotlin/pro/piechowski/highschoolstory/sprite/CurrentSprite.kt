@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory.rendering.sprite
+﻿package pro.piechowski.highschoolstory.sprite
 
 import com.github.quillraven.fleks.Component
 import com.github.quillraven.fleks.ComponentType

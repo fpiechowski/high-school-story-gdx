@@ -68,6 +68,7 @@ dependencies {
     api("net.onedaybeard.artemis:artemis-odb:$artemisOdbVersion")
     api("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
+    api("org.jetbrains.kotlinx:kotlinx-datetime:0.7.1")
 
     api("io.insert-koin:koin-core:$koinVersion")
     api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")

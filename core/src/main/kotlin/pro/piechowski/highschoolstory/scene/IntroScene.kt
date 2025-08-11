@@ -3,6 +3,8 @@
 import com.github.quillraven.fleks.World
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalTime
 import ktx.async.KtxAsync
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -18,6 +20,8 @@ import pro.piechowski.highschoolstory.physics.times
 import pro.piechowski.highschoolstory.place.PlaceManager
 import pro.piechowski.highschoolstory.place.Road
 import pro.piechowski.highschoolstory.state.GameStateManager
+import pro.piechowski.highschoolstory.time.calendar.Calendar
+import pro.piechowski.highschoolstory.time.clock.Clock
 import pro.piechowski.highschoolstory.transition.Transition
 import pro.piechowski.highschoolstory.transition.TransitionManager
 import pro.piechowski.highschoolstory.transition.await
@@ -36,11 +40,16 @@ class IntroScene :
     private val gameStateManager by inject<GameStateManager>()
     private val cameraManager by inject<CameraManager>()
     private val transitionManager by inject<TransitionManager>()
+    private val clock by inject<Clock>()
+    private val calendar by inject<Calendar>()
 
     override suspend fun play() =
         KtxAsync.launch {
             with(world) {
                 with(getKoin()) {
+                    calendar.currentDate = LocalDate(2020, 8, 29)
+                    clock.currentTime = LocalTime(17, 0, 0)
+
                     transitionManager.play(Transition.FadeBlack.In(Duration.ZERO, 1f))
 
                     Bus().apply {

@@ -6,7 +6,7 @@ import com.github.quillraven.fleks.World
 import org.koin.core.component.KoinComponent
 import pro.piechowski.highschoolstory.ecs.ReadOnly
 import pro.piechowski.highschoolstory.ecs.Write
-import pro.piechowski.highschoolstory.rendering.sprite.CurrentSprite
+import pro.piechowski.highschoolstory.sprite.CurrentSprite
 
 class SpriteAnimationSystem :
     IteratingSystem(

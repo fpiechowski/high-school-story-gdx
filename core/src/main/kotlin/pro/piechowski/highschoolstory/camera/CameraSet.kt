@@ -30,4 +30,9 @@ data class CameraSet(
         pixelCamera.zoom += amount
         meterCamera.zoom += amount
     }
+
+    fun update() {
+        pixelCamera.update()
+        meterCamera.update()
+    }
 }

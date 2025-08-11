@@ -12,7 +12,7 @@ import pro.piechowski.highschoolstory.interaction.interactor.InteractorEntity
 import pro.piechowski.highschoolstory.interaction.interactor.Interactors
 import pro.piechowski.highschoolstory.interaction.isInInteractionRangeOf
 import pro.piechowski.highschoolstory.physics.m
-import pro.piechowski.highschoolstory.rendering.sprite.CurrentSprite
+import pro.piechowski.highschoolstory.sprite.CurrentSprite
 
 class InteractableDebugSystem :
     IteratingSystem(

@@ -3,14 +3,21 @@
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import org.koin.dsl.module
 import pro.piechowski.highschoolstory.animation.SpriteAnimationSystem
-import pro.piechowski.highschoolstory.rendering.sprite.CurrentSpritePositionSystem
-import pro.piechowski.highschoolstory.rendering.sprite.SpriteRenderingSystem
+import pro.piechowski.highschoolstory.shader.ShaderManager
+import pro.piechowski.highschoolstory.sprite.CurrentSpritePositionSystem
+import pro.piechowski.highschoolstory.sprite.SpriteRenderingSystem
+import pro.piechowski.highschoolstory.sprite.framebuffer.BeginSpriteFrameBufferSystem
+import pro.piechowski.highschoolstory.sprite.framebuffer.EndSpriteFrameBufferSystem
+import pro.piechowski.highschoolstory.sprite.framebuffer.SpriteFrameBufferManager
 
 val RenderingModule =
     module {
-
         single { SpriteRenderingSystem() }
         single { CurrentSpritePositionSystem() }
         single { SpriteAnimationSystem() }
         single { ShapeRenderer() }
+        single { SpriteFrameBufferManager() }
+        single { BeginSpriteFrameBufferSystem(get()) }
+        single { EndSpriteFrameBufferSystem(get()) }
+        single { ShaderManager() }
     }

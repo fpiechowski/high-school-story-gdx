@@ -4,7 +4,7 @@ import com.badlogic.gdx.math.Vector2
 import com.github.quillraven.fleks.EntityComponentContext
 import pro.piechowski.highschoolstory.`object`.GameObject
 import pro.piechowski.highschoolstory.physics.body.PhysicsBody
-import pro.piechowski.highschoolstory.rendering.sprite.CurrentSprite
+import pro.piechowski.highschoolstory.sprite.CurrentSprite
 
 interface Spatial : GameObject {
     context(ecc: EntityComponentContext)

@@ -9,6 +9,6 @@ val DialogueModule =
     module {
         single(createdAtStart = true) { DialogueManager() }
         single { DialogueUserInterface() }
-        single { DialogueUserInterfaceUpdater() }
+        single(createdAtStart = true) { DialogueUserInterfaceUpdater() }
         single { DialogueInputProcessor() }
     }

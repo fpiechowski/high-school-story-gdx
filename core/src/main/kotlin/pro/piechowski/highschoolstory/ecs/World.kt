@@ -1,29 +1,16 @@
 ﻿package pro.piechowski.highschoolstory.ecs
 
 import com.github.quillraven.fleks.IntervalSystem
+import com.github.quillraven.fleks.SystemConfiguration
 import com.github.quillraven.fleks.World
 import com.github.quillraven.fleks.configureWorld
 import org.koin.core.scope.Scope
 import pro.piechowski.highschoolstory.Config
-import pro.piechowski.highschoolstory.animation.SpriteAnimationSystem
-import pro.piechowski.highschoolstory.camera.CameraFollowPlayerCharacterSystem
-import pro.piechowski.highschoolstory.debug.selection.DebugSelectionIndicatorRenderingSystem
-import pro.piechowski.highschoolstory.debug.text.DebugTextSystem
-import pro.piechowski.highschoolstory.interaction.InteractionSystem
-import pro.piechowski.highschoolstory.interaction.interactable.InteractableDebugSystem
-import pro.piechowski.highschoolstory.interaction.interactor.InteractorDebugSystem
-import pro.piechowski.highschoolstory.map.MapRenderingSystem
-import pro.piechowski.highschoolstory.physics.body.PhysicsDebugRenderingSystem
-import pro.piechowski.highschoolstory.physics.body.PhysicsWorldStepSystem
-import pro.piechowski.highschoolstory.physics.movement.animation.MovementAnimationSystem
-import pro.piechowski.highschoolstory.physics.movement.facedirection.FaceDirectionDebugSystem
-import pro.piechowski.highschoolstory.physics.movement.facedirection.FaceDirectionSystem
-import pro.piechowski.highschoolstory.physics.movement.input.MovementControllerInputSystem
-import pro.piechowski.highschoolstory.physics.movement.input.MovementMultiplexInputSystem
-import pro.piechowski.highschoolstory.physics.movement.velocity.VelocitySystem
-import pro.piechowski.highschoolstory.rendering.sprite.CurrentSpritePositionSystem
-import pro.piechowski.highschoolstory.rendering.sprite.SpriteRenderingSystem
-import pro.piechowski.highschoolstory.transition.FadeTransitionSystem
+import pro.piechowski.highschoolstory.ecs.debug.debugSystems
+import pro.piechowski.highschoolstory.ecs.game.gameSystems
+import pro.piechowski.highschoolstory.ecs.input.inputSystems
+import pro.piechowski.highschoolstory.ecs.physics.physicsSystems
+import pro.piechowski.highschoolstory.ecs.rendering.setupRenderingSystems
 
 context(scope: Scope)
 operator fun World.Companion.invoke() =
@@ -31,74 +18,26 @@ operator fun World.Companion.invoke() =
         configureWorld {
             systems {
                 inputSystems.forEach { add(it) }
+
                 gameSystems.forEach { add(it) }
+
                 physicsSystems.forEach { add(it) }
-                renderingSystems.forEach { add(it) }
+
+                setupRenderingSystems()
+
+                if (get<Config>().debug) {
+                    debugSystems.forEach { add(it) }
+                }
             }
         }
     }
 
-context(scope: Scope)
-private val inputSystems
-    get() =
-        with(scope) {
-            listOf(
-                get<MovementControllerInputSystem>(),
-                get<MovementMultiplexInputSystem>(),
-            )
+context(scope: Scope, systemConfiguration: SystemConfiguration)
+inline fun <reified BEGIN : IntervalSystem, reified END : IntervalSystem> systemWrapper(block: () -> Unit) =
+    with(scope) {
+        with(systemConfiguration) {
+            add(get<BEGIN>())
+            block()
+            add(get<END>())
         }
-
-context(scope: Scope)
-private val gameSystems
-    get() =
-        with(scope) {
-            listOf(
-                get<FaceDirectionSystem>(),
-                get<VelocitySystem>(),
-                get<InteractionSystem>(),
-            )
-        }
-
-context(scope: Scope)
-private val physicsSystems
-    get() =
-        with(scope) {
-            listOf(get<PhysicsWorldStepSystem>())
-        }
-
-context(scope: Scope)
-private val renderingSystems
-    get() =
-        with(scope) {
-            listOf(
-                get<MovementAnimationSystem>(),
-                get<SpriteAnimationSystem>(),
-                get<CurrentSpritePositionSystem>(),
-                get<MapRenderingSystem.Background>(),
-                get<SpriteRenderingSystem>(),
-                get<MapRenderingSystem.Foreground>(),
-                get<CameraFollowPlayerCharacterSystem>(),
-                get<FadeTransitionSystem>(),
-            ).let {
-                if (get<Config>().debug) {
-                    it + debugSystems
-                } else {
-                    it
-                }
-            }
-        }
-
-context(scope: Scope)
-private val debugSystems: List<IntervalSystem>
-    get() =
-        with(scope) {
-            listOf(
-                get<FaceDirectionDebugSystem>(),
-                get<InteractorDebugSystem>(),
-                get<InteractableDebugSystem>(),
-                get<DebugTextSystem>(),
-                get<PhysicsDebugRenderingSystem>(),
-                get<DebugSelectionIndicatorRenderingSystem>(),
-                // get<DebugEntityHighlightRenderingSystem>(),
-            )
-        }
+    }

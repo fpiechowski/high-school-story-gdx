@@ -16,7 +16,7 @@ import pro.piechowski.highschoolstory.input.InputState
 
 class DialogueManager : KoinComponent {
     private val _currentDialogueState = MutableStateFlow<DialogueState?>(null)
-    val currentDialogueState: StateFlow<DialogueState?> get() = _currentDialogueState.asStateFlow()
+    val currentDialogueState = _currentDialogueState.asStateFlow()
 
     private val inputState: InputState by inject()
     private val dialogueUserInterfaceUpdater: DialogueUserInterfaceUpdater by inject()
@@ -33,10 +33,6 @@ class DialogueManager : KoinComponent {
                         _currentDialogueState.value = null
                         currentDialogueState.job.complete()
                     }
-                }
-
-                onRenderingThread {
-                    dialogueUserInterfaceUpdater.updateUserInterface()
                 }
             }
         }

@@ -11,8 +11,8 @@ import pro.piechowski.highschoolstory.exterior.ExteriorTexture
 import pro.piechowski.highschoolstory.gdx.PhysicsWorld
 import pro.piechowski.highschoolstory.physics.body.PhysicsBody
 import pro.piechowski.highschoolstory.physics.px
-import pro.piechowski.highschoolstory.rendering.sprite.CurrentSprite
 import pro.piechowski.highschoolstory.spatial.Spatial
+import pro.piechowski.highschoolstory.sprite.CurrentSprite
 
 class Bus(
     override val entity: Entity,

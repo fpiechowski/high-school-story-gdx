@@ -3,7 +3,6 @@
 import com.badlogic.gdx.graphics.Texture
 import com.github.quillraven.fleks.Entity
 import com.github.quillraven.fleks.EntityComponentContext
-import com.github.quillraven.fleks.World
 import kotlinx.serialization.Serializable
 import ktx.assets.async.AssetStorage
 import ktx.assets.async.Identifier
@@ -24,8 +23,8 @@ import pro.piechowski.highschoolstory.physics.movement.Speed
 import pro.piechowski.highschoolstory.physics.movement.animation.MovementAnimationSet
 import pro.piechowski.highschoolstory.physics.movement.facedirection.FaceDirection
 import pro.piechowski.highschoolstory.physics.movement.input.MovementInput
-import pro.piechowski.highschoolstory.rendering.sprite.CurrentSprite
 import pro.piechowski.highschoolstory.spatial.Spatial
+import pro.piechowski.highschoolstory.sprite.CurrentSprite
 
 @Serializable
 open class Character(

@@ -7,7 +7,7 @@ import ktx.graphics.use
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import pro.piechowski.highschoolstory.camera.PixelCamera
-import pro.piechowski.highschoolstory.rendering.sprite.CurrentSprite
+import pro.piechowski.highschoolstory.sprite.CurrentSprite
 
 class DebugSelectionIndicatorRenderingSystem :
     IntervalSystem(),

@@ -2,7 +2,7 @@
 
 import org.koin.dsl.module
 
-val FadeModule =
+val TransitionModule =
     module {
         single { TransitionManager() }
         single { FadeTransitionSystem() }

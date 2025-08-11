@@ -1,5 +1,6 @@
 ﻿package pro.piechowski.highschoolstory
 
+import box2dLight.RayHandler
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
@@ -18,10 +19,12 @@ import org.koin.core.component.inject
 import org.koin.core.context.unloadKoinModules
 import org.koin.core.module.Module
 import pro.piechowski.highschoolstory.asset.AssetIdentifiers
+import pro.piechowski.highschoolstory.camera.CameraSet
 import pro.piechowski.highschoolstory.camera.MeterCamera
 import pro.piechowski.highschoolstory.camera.MeterViewport
 import pro.piechowski.highschoolstory.camera.PixelCamera
 import pro.piechowski.highschoolstory.camera.PixelViewport
+import pro.piechowski.highschoolstory.camera.PixelViewportManager
 import pro.piechowski.highschoolstory.input.GameInputMultiplexer
 import pro.piechowski.highschoolstory.input.InputState
 import pro.piechowski.highschoolstory.ui.UserInterface
@@ -51,9 +54,8 @@ class GameScreen :
     }
 
     private val batch: SpriteBatch by inject()
-    private val pixelCamera: PixelCamera by inject()
-    private val meterCamera: MeterCamera by inject()
-    private val pixelViewport: PixelViewport by inject()
+    private val cameraSet by inject<CameraSet>()
+    private val pixelViewportManager: PixelViewportManager by inject()
     private val meterViewport: MeterViewport by inject()
     private val userInterfaceViewport: UserInterfaceViewport by inject()
     private val world: World by inject()
@@ -76,10 +78,9 @@ class GameScreen :
 
         clearScreen(red = 0.7f, green = 0.7f, blue = 0.7f)
 
-        pixelCamera.update()
-        meterCamera.update()
+        cameraSet.update()
 
-        batch.projectionMatrix = pixelCamera.combined
+        batch.projectionMatrix = cameraSet.pixelCamera.combined
 
         world.update(delta)
 
@@ -98,7 +99,7 @@ class GameScreen :
     ) {
         if (!gameInitializationJob.isCompleted) return
 
-        pixelViewport.update(width, height)
+        pixelViewportManager.update(width, height)
         meterViewport.update(width, height)
         userInterfaceViewport.update(width, height)
     }

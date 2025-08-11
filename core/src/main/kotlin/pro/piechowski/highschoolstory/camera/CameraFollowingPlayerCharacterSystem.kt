@@ -7,7 +7,7 @@ import org.koin.core.component.inject
 import pro.piechowski.highschoolstory.physics.m
 import pro.piechowski.highschoolstory.state.GameStateManager
 
-class CameraFollowPlayerCharacterSystem :
+class CameraFollowingPlayerCharacterSystem :
     IntervalSystem(),
     KoinComponent {
     private val logger = KotlinLogging.logger { }

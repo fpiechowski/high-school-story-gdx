@@ -1,6 +1,7 @@
 ﻿package pro.piechowski.highschoolstory.map
 
 import com.github.quillraven.fleks.IntervalSystem
+import io.github.oshai.kotlinlogging.KotlinLogging
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import pro.piechowski.highschoolstory.camera.PixelCamera
@@ -11,6 +12,8 @@ sealed class MapRenderingSystem(
     KoinComponent {
     private val mapManager by inject<MapManager>()
     private val pixelCamera by inject<PixelCamera>()
+
+    private val logger = KotlinLogging.logger { }
 
     override fun onTick() {
         mapManager.mapRenderer.value?.let { renderer ->
@@ -32,6 +35,8 @@ sealed class MapRenderingSystem(
                 }
             }
         }
+
+        logger.debug { "Map layers $layers rendered" }
     }
 
     class Background : MapRenderingSystem(layerNames) {

@@ -11,6 +11,7 @@ import pro.piechowski.highschoolstory.exterior.ExteriorTexture
 import pro.piechowski.highschoolstory.input.GameInputModule
 import pro.piechowski.highschoolstory.input.GameInputMultiplexer
 import pro.piechowski.highschoolstory.interaction.InteractionModule
+import pro.piechowski.highschoolstory.light.LightModule
 import pro.piechowski.highschoolstory.map.MapModule
 import pro.piechowski.highschoolstory.physics.PhysicsModule
 import pro.piechowski.highschoolstory.physics.movement.MovementModule
@@ -18,8 +19,10 @@ import pro.piechowski.highschoolstory.place.PlaceModule
 import pro.piechowski.highschoolstory.rendering.RenderingModule
 import pro.piechowski.highschoolstory.scene.SceneModule
 import pro.piechowski.highschoolstory.state.GameStateManager
-import pro.piechowski.highschoolstory.transition.FadeModule
+import pro.piechowski.highschoolstory.time.TimeModule
+import pro.piechowski.highschoolstory.transition.TransitionModule
 import pro.piechowski.highschoolstory.ui.UserInterfaceModule
+import pro.piechowski.highschoolstory.weather.WeatherModule
 
 val gameModuleQualifier = StringQualifier("gameModule")
 
@@ -37,7 +40,10 @@ fun gameModule() =
         includes(DebugModule)
         includes(PlaceModule)
         includes(SceneModule)
-        includes(FadeModule)
+        includes(TransitionModule)
+        includes(WeatherModule)
+        includes(TimeModule)
+        includes(LightModule)
         single { GameScreen() }
 
         single<ExteriorTexture> { ExteriorTexture() }
