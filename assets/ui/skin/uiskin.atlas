@@ -1,0 +1,256 @@
+
+uiskin.png
+size: 512, 512
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+born2bsporty
+  rotate: false
+  xy: 1, 420
+  size: 506, 91
+  orig: 506, 91
+  offset: 0, 0
+  index: -1
+karma_future
+  rotate: false
+  xy: 1, 221
+  size: 506, 197
+  orig: 506, 197
+  offset: 0, 0
+  index: -1
+nihonium
+  rotate: false
+  xy: 1, 131
+  size: 505, 88
+  orig: 505, 88
+  offset: 0, 0
+  index: -1
+button_1
+  rotate: false
+  xy: 286, 60
+  size: 66, 69
+  split: 10, 10, 10, 13
+  pad: 0, 0, 0, 0
+  orig: 66, 69
+  offset: 0, 0
+  index: -1
+checkbox_off
+  rotate: false
+  xy: 187, 10
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+checkbox_on
+  rotate: false
+  xy: 422, 85
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+frame_1
+  rotate: false
+  xy: 117, 33
+  size: 96, 96
+  split: 16, 16, 22, 19
+  pad: 0, 0, 0, 0
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+frame_2
+  rotate: false
+  xy: 354, 57
+  size: 66, 72
+  split: 10, 10, 13, 13
+  pad: 0, 0, 0, 0
+  orig: 66, 72
+  offset: 0, 0
+  index: -1
+list_background
+  rotate: false
+  xy: 354, 1
+  size: 54, 54
+  split: 4, 4, 4, 4
+  pad: 0, 0, 0, 0
+  orig: 54, 54
+  offset: 0, 0
+  index: -1
+list_selected
+  rotate: false
+  xy: 354, 1
+  size: 54, 54
+  split: 4, 4, 4, 4
+  pad: 0, 0, 0, 0
+  orig: 54, 54
+  offset: 0, 0
+  index: -1
+progress_knob_before_blue
+  rotate: false
+  xy: 78, 64
+  size: 36, 21
+  split: 4, 0, 4, 4
+  pad: 0, 0, 0, 0
+  orig: 36, 21
+  offset: 0, 0
+  index: -1
+progress_knob_before_brown
+  rotate: false
+  xy: 422, 108
+  size: 36, 21
+  split: 4, 0, 4, 4
+  pad: 0, 0, 0, 0
+  orig: 36, 21
+  offset: 0, 0
+  index: -1
+progress_knob_before_green
+  rotate: false
+  xy: 78, 41
+  size: 36, 21
+  split: 4, 0, 4, 4
+  pad: 0, 0, 0, 0
+  orig: 36, 21
+  offset: 0, 0
+  index: -1
+progress_knob_before_red
+  rotate: false
+  xy: 410, 11
+  size: 36, 21
+  split: 4, 0, 4, 4
+  pad: 0, 0, 0, 0
+  orig: 36, 21
+  offset: 0, 0
+  index: -1
+progress_knob_before_yellow
+  rotate: false
+  xy: 410, 34
+  size: 36, 21
+  split: 4, 0, 4, 4
+  pad: 0, 0, 0, 0
+  orig: 36, 21
+  offset: 0, 0
+  index: -1
+progress_background
+  rotate: false
+  xy: 215, 34
+  size: 54, 21
+  split: 4, 4, 4, 4
+  pad: 0, 0, 0, 0
+  orig: 54, 21
+  offset: 0, 0
+  index: -1
+progress_knob
+  rotate: false
+  xy: 460, 108
+  size: 3, 21
+  orig: 3, 21
+  offset: 0, 0
+  index: -1
+progress_knob_after
+  rotate: false
+  xy: 134, 10
+  size: 51, 21
+  split: 0, 4, 4, 4
+  pad: 0, 0, 0, 0
+  orig: 51, 21
+  offset: 0, 0
+  index: -1
+scroll_corner
+  rotate: false
+  xy: 422, 62
+  size: 21, 21
+  split: 4, 4, 4, 4
+  pad: 0, 0, 0, 0
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+scroll_h
+  rotate: false
+  xy: 215, 17
+  size: 54, 15
+  split: 4, 4, 4, 4
+  pad: 0, 0, 0, 0
+  orig: 54, 15
+  offset: 0, 0
+  index: -1
+scroll_h_knob
+  rotate: false
+  xy: 78, 16
+  size: 54, 15
+  split: 4, 4, 4, 4
+  pad: 0, 0, 0, 0
+  orig: 54, 15
+  offset: 0, 0
+  index: -1
+scroll_v
+  rotate: false
+  xy: 465, 75
+  size: 15, 54
+  split: 4, 4, 4, 4
+  pad: 0, 0, 0, 0
+  orig: 15, 54
+  offset: 0, 0
+  index: -1
+scroll_v_knob
+  rotate: false
+  xy: 448, 23
+  size: 15, 54
+  split: 4, 4, 4, 4
+  pad: 0, 0, 0, 0
+  orig: 15, 54
+  offset: 0, 0
+  index: -1
+slider_knob
+  rotate: false
+  xy: 445, 79
+  size: 18, 27
+  split: 7, 7, 7, 10
+  pad: 0, 0, 0, 0
+  orig: 18, 27
+  offset: 0, 0
+  index: -1
+text_field
+  rotate: false
+  xy: 1, 87
+  size: 114, 42
+  split: 25, 16, 4, 13
+  pad: 0, 0, 0, 0
+  orig: 114, 42
+  offset: 0, 0
+  index: -1
+text_field_selection
+  rotate: false
+  xy: 286, 10
+  size: 66, 48
+  split: 4, 4, 0, 0
+  pad: 0, 0, 0, 0
+  orig: 66, 48
+  offset: 0, 0
+  index: -1
+touchpad
+  rotate: false
+  xy: 1, 10
+  size: 75, 75
+  orig: 75, 75
+  offset: 0, 0
+  index: -1
+touchpad_knob
+  rotate: false
+  xy: 215, 57
+  size: 69, 72
+  orig: 69, 72
+  offset: 0, 0
+  index: -1
+tree_minus
+  rotate: false
+  xy: 465, 58
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+tree_plus
+  rotate: false
+  xy: 448, 6
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
