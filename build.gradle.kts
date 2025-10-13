@@ -1,10 +1,10 @@
 plugins {
     idea
     eclipse
-    kotlin("jvm") version "2.2.0"
-    kotlin("plugin.serialization") version "2.2.0"
+    kotlin("jvm") version "2.2.20"
+    kotlin("plugin.serialization") version "2.2.20"
     id("org.jlleitschuh.gradle.ktlint") version "13.0.0"
-    id("com.google.devtools.ksp") version "2.2.0-2.0.2"
+    id("com.google.devtools.ksp") version "2.2.20-2.0.4"
 }
 
 repositories {
@@ -28,7 +28,7 @@ buildscript {
         maven { url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/") }
     }
     dependencies {
-        val kotlinVersion = "2.2.0"
+        val kotlinVersion = "2.2.20"
 
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
     }
