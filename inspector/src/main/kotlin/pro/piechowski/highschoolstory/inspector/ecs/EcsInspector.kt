@@ -1,41 +1,40 @@
 ﻿package pro.piechowski.highschoolstory.inspector.ecs
 
-import com.github.quillraven.fleks.Family
-import com.github.quillraven.fleks.World
-import javafx.scene.Scene
+import javafx.stage.Screen
 import javafx.stage.Stage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import org.koin.core.context.GlobalContext
-import kotlin.reflect.KProperty1
-import kotlin.reflect.full.memberProperties
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.javafx.asFlow
+import org.koin.core.Koin
 
 class EcsInspector(
-    private val gameScope: CoroutineScope,
+    koin: StateFlow<Koin?>,
 ) {
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 
-    private val model = EcsInspectorModel()
+    private val model = EcsInspectorModel(koin)
+
     private val viewModel = EcsInspectorViewModel(model)
     private val view = EcsInspectorView(viewModel)
-
     private val stage =
         Stage().apply {
+            width = 500.0
+            height = 300.0
             scene = view.scene
+        }
+
+    fun show() =
+        stage.apply {
             show()
+            x = Screen.getPrimary().visualBounds.width - view.scene.width
+            y = Screen.getPrimary().visualBounds.height - view.scene.height
         }
 
-    init {
+    val focused = stage.focusedProperty().asFlow()
 
-        coroutineScope.launch {
-            while (true) {
-                // TODO(refresh families)
-                delay(2000)
-            }
-        }
-    }
+    fun toFront() = stage.toFront()
 }

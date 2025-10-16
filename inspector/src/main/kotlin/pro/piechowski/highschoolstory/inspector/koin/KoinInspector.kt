@@ -6,6 +6,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.javafx.asFlow
 import kotlinx.coroutines.launch
 import org.koin.core.annotation.KoinInternalApi
 import org.koin.core.component.KoinComponent
@@ -17,6 +20,8 @@ import kotlin.reflect.jvm.isAccessible
 
 @KoinInternalApi
 class KoinInspector : KoinComponent {
+    private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
+
     private val model = KoinInspectorModel()
     private val viewModel = KoinInspectorViewModel(model)
     private val view = KoinInspectorView(viewModel)
@@ -30,4 +35,8 @@ class KoinInspector : KoinComponent {
         }
 
     fun show() = stage.show()
+
+    val focused = stage.focusedProperty().asFlow()
+
+    fun toFront() = stage.toFront()
 }

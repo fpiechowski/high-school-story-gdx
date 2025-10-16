@@ -4,6 +4,7 @@ import com.github.quillraven.fleks.IntervalSystem
 import com.github.quillraven.fleks.SystemConfiguration
 import com.github.quillraven.fleks.World
 import com.github.quillraven.fleks.configureWorld
+import kotlinx.coroutines.flow.MutableStateFlow
 import org.koin.core.scope.Scope
 import pro.piechowski.highschoolstory.Config
 import pro.piechowski.highschoolstory.ecs.debug.debugSystems
@@ -29,6 +30,8 @@ operator fun World.Companion.invoke() =
                     debugSystems.forEach { add(it) }
                 }
             }
+        }.also {
+            get<WorldManager>().worldInitialized.value = true
         }
     }
 
@@ -41,3 +44,7 @@ inline fun <reified BEGIN : IntervalSystem, reified END : IntervalSystem> system
             add(get<END>())
         }
     }
+
+class WorldManager {
+    val worldInitialized = MutableStateFlow(false)
+}

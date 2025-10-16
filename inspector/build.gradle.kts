@@ -37,6 +37,7 @@ dependencies {
     implementation(project(":lwjgl3"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-javafx:1.10.2")
     implementation("org.jetbrains.kotlinx:atomicfu:0.29.0")
+    implementation("io.github.classgraph:classgraph:4.8.165")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
