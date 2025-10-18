@@ -10,10 +10,12 @@ import javafx.scene.control.TextField
 import javafx.scene.layout.Priority
 import javafx.scene.layout.Region.USE_COMPUTED_SIZE
 import javafx.scene.layout.VBox
+import javafx.stage.Stage
 import javafx.util.Callback
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import org.koin.core.annotation.KoinInternalApi
 import org.koin.core.instance.SingleInstanceFactory
 import pro.piechowski.highschoolstory.inspector.asObservableValue
@@ -76,4 +78,16 @@ class KoinInspectorView(
         }
 
     val scene = Scene(root)
+
+    private val stage =
+        Stage().apply {
+            scene = this@KoinInspectorView.scene
+            title = "Koin"
+            x = 0.0
+            y = 0.0
+
+            focusedProperty().addListener { _, _, newValue ->
+                coroutineScope.launch { if (newValue) viewModel.focus() else viewModel.clearFocus() }
+            }
+        }
 }

@@ -22,21 +22,7 @@ import kotlin.reflect.jvm.isAccessible
 class KoinInspector : KoinComponent {
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 
-    private val model = KoinInspectorModel()
-    private val viewModel = KoinInspectorViewModel(model)
+    val model = KoinInspectorModel()
+    val viewModel = KoinInspectorViewModel(model)
     private val view = KoinInspectorView(viewModel)
-
-    private val stage =
-        Stage().apply {
-            scene = view.scene
-            title = "Koin"
-            x = 0.0
-            y = 0.0
-        }
-
-    fun show() = stage.show()
-
-    val focused = stage.focusedProperty().asFlow()
-
-    fun toFront() = stage.toFront()
 }

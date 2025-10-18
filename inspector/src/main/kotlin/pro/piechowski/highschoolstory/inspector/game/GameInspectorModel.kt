@@ -2,7 +2,9 @@
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import pro.piechowski.highschoolstory.lwjgl3.launchLwjgl3
@@ -28,4 +30,9 @@ class GameInspectorModel(
                     }
                 }
     }
+
+    private val _showIntents = MutableSharedFlow<Unit>()
+    val showIntents: SharedFlow<Unit> = _showIntents
+
+    suspend fun show() = _showIntents.emit(Unit)
 }

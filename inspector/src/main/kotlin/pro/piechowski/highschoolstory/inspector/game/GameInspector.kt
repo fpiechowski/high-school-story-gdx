@@ -20,34 +20,7 @@ class GameInspector(
 ) {
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 
-    private val model = GameInspectorModel(gameScope)
-    private val viewModel = GameInspectorViewModel(model)
+    val model = GameInspectorModel(gameScope)
+    val viewModel = GameInspectorViewModel(model)
     private val view = GameInspectorView(viewModel)
-    private val stage =
-        Stage().apply {
-            minWidth = 300.0
-            minHeight = 100.0
-            scene = view.scene
-            title = "Game"
-            onCloseRequest =
-                EventHandler {
-                    Platform.exit()
-                }
-        }
-
-    fun show() =
-        stage.apply {
-            show()
-            centerOnScreen()
-            y = 0.0
-        }
-
-    val focused =
-        stage
-            .focusedProperty()
-            .asFlow()
-
-    fun toFront() =
-        stage
-            .toFront()
 }

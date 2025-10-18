@@ -22,4 +22,6 @@ class KoinInspectorModel {
                     valueProp?.isAccessible = true
                     factory to (valueProp as? KProperty1<Any, *>)?.get(factory)
                 }?.sortedBy { it.first.beanDefinition.primaryType.simpleName } ?: emptyList()
+
+    fun show() = stage.show()
 }

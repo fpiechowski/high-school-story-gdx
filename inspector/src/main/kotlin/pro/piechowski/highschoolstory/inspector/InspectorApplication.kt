@@ -8,15 +8,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.combineTransform
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
@@ -51,10 +47,14 @@ class InspectorApplication : Application() {
     private val koinInspector = KoinInspector()
     private val ecsInspector = EcsInspector(koin)
 
+    private val inspectorViewModel = InspectorViewModel()
+
     override fun start(primaryStage: Stage?) {
-        gameInspector.show()
-        koinInspector.show()
-        ecsInspector.show()
+        coroutineScope.launch {
+            gameInspector.model.show()
+            koinInspector.model.show()
+            ecsInspector.show()
+        }
 
         bringAllStagesToFrontWhenAnyOfThemIsFocused()
     }
@@ -62,16 +62,16 @@ class InspectorApplication : Application() {
     private fun bringAllStagesToFrontWhenAnyOfThemIsFocused() {
         coroutineScope.launch {
             combine(
-                gameInspector.focused,
-                koinInspector.focused,
+                gameInspector.viewModel.focused,
+                koinInspector.viewModel.focused,
                 ecsInspector.focused,
-            ) { game, koin, ecs ->
-                game || koin || ecs
+            ) { gameInspectorFocused, koinInspectorFocused, ecsInspectorFocused ->
+                gameInspectorFocused || koinInspectorFocused || ecsInspectorFocused
             }.stateIn(coroutineScope)
                 .filter { it }
                 .collect {
                     withContext(Dispatchers.JavaFx) {
-                        gameInspector.toFront()
+                        gameInspector.viewModel.toFront()
                         koinInspector.toFront()
                         ecsInspector.toFront()
                     }
