@@ -1,7 +1,7 @@
 plugins {
     java
     application
-    id("org.jetbrains.kotlin.jvm") version "2.2.20"
+    kotlin("jvm")
     id("org.openjfx.javafxplugin") version "0.0.13"
     id("org.beryx.jlink") version "2.25.0"
     id("io.github.fpiechowski.hex") version "1.0.3"
@@ -22,10 +22,11 @@ tasks.withType<JavaCompile> {
 
 application {
     mainClass.set("pro.piechowski.highschoolstory.inspector.InspectorLauncherKt")
+    applicationDefaultJvmArgs = listOf("-XX:+AllowEnhancedClassRedefinition", "-XX:HotswapAgent=fatjar")
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(17)
 }
 
 javafx {
@@ -33,14 +34,30 @@ javafx {
     modules = listOf("javafx.controls", "javafx.fxml")
 }
 
+tasks.compileDomainJava
+
 dependencies {
+    val kotlinVersion: String by project
+
+    domainImplementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
+    domainImplementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
     domainImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
+    domainImplementation(project(":inspector:runtime"))
+
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
 
     implementation(project(":core"))
     implementation(project(":lwjgl3"))
+    implementation(project(":inspector:runtime"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-javafx:1.10.2")
     implementation("org.jetbrains.kotlinx:atomicfu:0.29.0")
     implementation("io.github.classgraph:classgraph:4.8.165")
+
+    implementation("com.github.mouse0w0:darculafx:9.0.0")
+
+    implementation("org.kordamp.ikonli:ikonli-javafx:12.4.0")
+    implementation("org.kordamp.ikonli:ikonli-fontawesome6-pack:12.4.0")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")

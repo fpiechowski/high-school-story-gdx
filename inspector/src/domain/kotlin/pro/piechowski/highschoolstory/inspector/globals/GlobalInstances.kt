@@ -1,5 +1,6 @@
 ﻿package pro.piechowski.highschoolstory.inspector.globals
 
+import kotlinx.coroutines.flow.Flow
 import kotlin.reflect.KClass
 
 data class GlobalInstance<T : Any>(
@@ -8,5 +9,5 @@ data class GlobalInstance<T : Any>(
 )
 
 interface GlobalInstances {
-    val instances: List<GlobalInstance<Any>>
+    val instances: Flow<List<GlobalInstance<Any>>>
 }

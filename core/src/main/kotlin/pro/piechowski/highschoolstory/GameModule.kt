@@ -6,7 +6,6 @@ import org.koin.dsl.module
 import pro.piechowski.highschoolstory.camera.GameCameraModule
 import pro.piechowski.highschoolstory.debug.DebugModule
 import pro.piechowski.highschoolstory.dialogue.DialogueModule
-import pro.piechowski.highschoolstory.ecs.WorldManager
 import pro.piechowski.highschoolstory.ecs.invoke
 import pro.piechowski.highschoolstory.exterior.ExteriorTexture
 import pro.piechowski.highschoolstory.input.GameInputModule
@@ -55,7 +54,7 @@ fun gameModule() =
 
         single { GameStateManager() }
 
-        single { WorldManager() }
-
-        single<World> { World() }
+        single<World> {
+            World()
+        }
     }

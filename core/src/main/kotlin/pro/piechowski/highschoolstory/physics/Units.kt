@@ -14,6 +14,8 @@ value class Pixel(
     operator fun plus(other: Pixel) = Pixel(value + other.value)
 
     operator fun minus(other: Pixel) = Pixel(value - other.value)
+
+    override fun toString() = "$value px"
 }
 
 @JvmInline
@@ -31,12 +33,16 @@ value class Meter(
     operator fun div(float: Float) = Meter(value / float)
 
     operator fun div(seconds: Second): MetersPerSeconds = MetersPerSeconds(value / seconds.value)
+
+    override fun toString() = "$value m"
 }
 
 @JvmInline
 value class Second(
     val value: Float,
-)
+) {
+    override fun toString() = "$value s"
+}
 
 @JvmInline
 value class MetersPerSeconds(
@@ -45,6 +51,8 @@ value class MetersPerSeconds(
     operator fun times(seconds: Second) = Meter(value * seconds.value)
 
     operator fun times(float: Float) = MetersPerSeconds(value * float)
+
+    override fun toString(): String = "$value m/s"
 }
 
 val Float.m get() = Meter(this)

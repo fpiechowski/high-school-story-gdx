@@ -4,23 +4,41 @@ import javafx.beans.property.SimpleObjectProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
 import javafx.event.EventHandler
+import javafx.geometry.Insets
+import javafx.scene.control.Label
+import javafx.scene.control.OverrunStyle
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafx.scene.control.TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS
+import javafx.scene.control.TitledPane
 import javafx.scene.input.MouseButton
 import javafx.scene.input.MouseEvent
+import javafx.scene.layout.Border
+import javafx.scene.layout.BorderStroke
+import javafx.scene.layout.BorderStrokeStyle
+import javafx.scene.layout.BorderWidths
+import javafx.scene.layout.CornerRadii
+import javafx.scene.layout.Priority
 import javafx.scene.layout.Region.USE_COMPUTED_SIZE
+import javafx.scene.layout.VBox
+import javafx.scene.paint.Color
+import javafx.scene.paint.Paint
+import javafx.scene.text.Font
 import javafx.stage.Stage
 import javafx.util.Callback
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 import pro.piechowski.highschoolstory.inspector.InspectorView
 import pro.piechowski.highschoolstory.inspector.asObservableValue
 import kotlin.reflect.KProperty1
 
+@ExperimentalCoroutinesApi
 class ObjectInspectorView(
     viewModel: ObjectInspectorViewModel,
 ) : InspectorView<ObjectInspectorViewModel>(viewModel) {
-    val propertyColumn =
-        TableColumn<KProperty1<Any, Any?>, String>()
+    private val propertyColumn =
+        TableColumn<ObjectInspectorViewModel.ObjectProperty, String>()
             .apply {
                 minWidth = 100.0
                 prefWidth = USE_COMPUTED_SIZE
@@ -32,8 +50,8 @@ class ObjectInspectorView(
                     }
             }
 
-    val valueColumn =
-        TableColumn<KProperty1<Any, Any?>, Any>()
+    private val valueColumn =
+        TableColumn<ObjectInspectorViewModel.ObjectProperty, Any>()
             .apply {
                 minWidth = 100.0
                 prefWidth = USE_COMPUTED_SIZE
@@ -43,16 +61,18 @@ class ObjectInspectorView(
                     Callback { ObjectTableCell(viewModel) }
                 cellValueFactory =
                     Callback {
-                        SimpleObjectProperty(viewModel.tryGetPropertyValue(it.value))
+                        SimpleObjectProperty(it.value.value)
                     }
             }
 
-    override val root =
-        TableView<KProperty1<Any, Any?>>()
+    private val propertiesTable =
+        TableView<ObjectInspectorViewModel.ObjectProperty>()
             .apply {
                 prefWidth = 400.0
                 columnResizePolicy = CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS
                 columns.addAll(propertyColumn, valueColumn)
+                maxHeight = Double.MAX_VALUE
+                prefHeight = USE_COMPUTED_SIZE
 
                 addEventHandler(MouseEvent.MOUSE_CLICKED) { event ->
                     when (event.button) {
@@ -62,6 +82,34 @@ class ObjectInspectorView(
                     }
                 }
 
-                itemsProperty().bind(viewModel.properties.asObservableValue(coroutineScope, FXCollections.emptyObservableList()))
+                itemsProperty().bind(
+                    viewModel.properties.asObservableValue(
+                        coroutineScope,
+                        FXCollections.emptyObservableList(),
+                    ),
+                )
             }
+
+    override val root =
+        VBox().apply {
+            maxWidth = 400.0
+            maxHeight = Double.MAX_VALUE
+
+            children +=
+                listOf(
+                    Label().apply {
+                        textProperty().bind(
+                            viewModel.currentObject
+                                .map { it?.name ?: "Object" }
+                                .asObservableValue(coroutineScope, "Object"),
+                        )
+                        textOverrun = OverrunStyle.ELLIPSIS
+                        font = Font.font(16.0)
+                        padding = Insets(2.0)
+                    },
+                    propertiesTable,
+                )
+
+            VBox.setVgrow(propertiesTable, Priority.ALWAYS)
+        }
 }

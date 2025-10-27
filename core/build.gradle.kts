@@ -1,6 +1,22 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     kotlin("plugin.serialization")
     id("com.google.devtools.ksp")
+}
+
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xcontext-parameters")
+        jvmTarget.set(JvmTarget.JVM_17)
+    }
+
+    jvmToolchain(17)
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 tasks {
@@ -66,17 +82,19 @@ dependencies {
     api("io.github.libktx:ktx-vis:$ktxVersion")
     api("io.github.quillraven.fleks:Fleks:$fleksVersion")
     api("net.onedaybeard.artemis:artemis-odb:$artemisOdbVersion")
-    api("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
-    api("org.jetbrains.kotlinx:kotlinx-datetime:0.7.1")
 
     api("io.insert-koin:koin-core:$koinVersion")
-    api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
     api("io.github.oshai:kotlin-logging-jvm:7.0.7")
     api("org.slf4j:slf4j-api:2.0.17")
     api("ch.qos.logback:logback-classic:1.5.18")
-    api("com.sksamuel.hoplite:hoplite-core:2.9.0")
-    api("com.sksamuel.hoplite:hoplite-yaml:2.9.0")
+
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.7.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
+
+    implementation("com.sksamuel.hoplite:hoplite-core:2.9.0")
+    implementation("com.sksamuel.hoplite:hoplite-yaml:2.9.0")
 
     if (enableGraalNative == "true") {
         implementation("io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion")
@@ -85,12 +103,6 @@ dependencies {
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter:5.13.4")
     testImplementation("io.kotest:kotest-assertions-core:5.9.1")
-}
-
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xcontext-parameters")
-    }
 }
 
 tasks.test {

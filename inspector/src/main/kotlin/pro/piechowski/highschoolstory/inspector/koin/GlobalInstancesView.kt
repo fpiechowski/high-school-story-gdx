@@ -2,6 +2,7 @@
 
 import javafx.beans.property.SimpleObjectProperty
 import javafx.beans.property.SimpleStringProperty
+import javafx.collections.FXCollections
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafx.scene.control.TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS
@@ -10,13 +11,16 @@ import javafx.scene.layout.Priority
 import javafx.scene.layout.Region.USE_COMPUTED_SIZE
 import javafx.scene.layout.VBox
 import javafx.util.Callback
+import kotlinx.coroutines.flow.map
 import org.koin.core.annotation.KoinInternalApi
 import pro.piechowski.highschoolstory.inspector.InspectorView
+import pro.piechowski.highschoolstory.inspector.asBidirectionalObservableValue
 import pro.piechowski.highschoolstory.inspector.asObservableValue
 import pro.piechowski.highschoolstory.inspector.fullTypeName
 import pro.piechowski.highschoolstory.inspector.globals.GlobalInstance
 import pro.piechowski.highschoolstory.inspector.`object`.ObjectInspectorViewModel
 import pro.piechowski.highschoolstory.inspector.`object`.ObjectTableCell
+import pro.piechowski.highschoolstory.inspector.toObservableList
 
 @KoinInternalApi
 class GlobalInstancesView(
@@ -57,12 +61,20 @@ class GlobalInstancesView(
 
             columns += listOf(typeColumn, valueColumn)
 
-            itemsProperty().bind(viewModel.instances.asObservableValue(coroutineScope))
+            itemsProperty().bind(
+                viewModel.filteredInstances
+                    .map { it.toObservableList() }
+                    .asObservableValue(
+                        coroutineScope,
+                        FXCollections.emptyObservableList(),
+                    ),
+            )
         }
 
     private val searchTextField =
         TextField().apply {
             promptText = "Search..."
+            textProperty().bindBidirectional(viewModel.searchText.asBidirectionalObservableValue(coroutineScope))
         }
 
     override val root =

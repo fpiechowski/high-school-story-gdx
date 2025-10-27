@@ -11,8 +11,18 @@ class RuntimeViewModel(
 ) : InspectorViewModel() {
     val gameRunning: Flow<Boolean> = runtime.launchedGameJob.map { it != null && it.isActive }
 
-    val launchGameButtonEventHandler =
+    val startButtonEventHandler =
         EventHandler<ActionEvent> {
-            runtime.launchGame()
+            runtime.start()
+        }
+
+    val stopButtonEventHandler =
+        EventHandler<ActionEvent> {
+            runtime.stop()
+        }
+
+    val pauseButtonEventHandler =
+        EventHandler<ActionEvent> {
+            runtime.pause()
         }
 }

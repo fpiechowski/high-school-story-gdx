@@ -30,8 +30,6 @@ operator fun World.Companion.invoke() =
                     debugSystems.forEach { add(it) }
                 }
             }
-        }.also {
-            get<WorldManager>().worldInitialized.value = true
         }
     }
 
@@ -44,7 +42,3 @@ inline fun <reified BEGIN : IntervalSystem, reified END : IntervalSystem> system
             add(get<END>())
         }
     }
-
-class WorldManager {
-    val worldInitialized = MutableStateFlow(false)
-}

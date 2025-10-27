@@ -11,6 +11,8 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import pro.piechowski.highschoolstory.inspector.InspectorViewModel
+import pro.piechowski.highschoolstory.inspector.tickerFlow
+import kotlin.time.Duration.Companion.seconds
 
 @ExperimentalCoroutinesApi
 class EcsViewModel(
@@ -19,12 +21,9 @@ class EcsViewModel(
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 
     val componentTypes =
-        flow {
-            while (true) {
-                emit(FXCollections.observableList(ecs.componentTypes))
-                delay(2000)
-            }
-        }.stateIn(coroutineScope, SharingStarted.Eagerly, emptyList())
+        tickerFlow(2.seconds)
+            .map { FXCollections.observableList(ecs.componentTypes) }
+            .stateIn(coroutineScope, SharingStarted.Eagerly, emptyList())
 
     val entityComponents =
         ecs.entityComponents

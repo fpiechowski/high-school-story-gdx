@@ -17,13 +17,7 @@ class ObjectTableCell<T : Any, S : Any?>(
             if (empty) {
                 null
             } else {
-                item?.let {
-                    if (item::class.isData) {
-                        "${item::class.fullTypeName}${item.toString().substringAfter("(").let { "($it" }}"
-                    } else {
-                        "${item::class.fullTypeName}@${Integer.toHexString(item.hashCode())}"
-                    }
-                }
+                item?.name
             }
     }
 

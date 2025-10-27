@@ -53,7 +53,7 @@ configure(subprojects) {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
 
     java {
-        sourceCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_17
     }
 
     // From https://lyze.dev/2021/04/29/libGDX-Internal-Assets-List/
@@ -85,11 +85,11 @@ configure(subprojects) {
         }
 
         compileKotlin {
-            compilerOptions.jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+            compilerOptions.jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
         }
 
         compileTestKotlin {
-            compilerOptions.jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+            compilerOptions.jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
         }
     }
 }

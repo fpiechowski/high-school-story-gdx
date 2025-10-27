@@ -11,8 +11,11 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import pro.piechowski.highschoolstory.inspector.fullTypeName
 import pro.piechowski.highschoolstory.inspector.propertyValue
+import pro.piechowski.highschoolstory.inspector.tickerFlow
+import kotlin.time.Duration.Companion.seconds
 import com.github.quillraven.fleks.Component as FleksComponent
 import com.github.quillraven.fleks.ComponentType as FleksComponentType
 
@@ -41,49 +44,37 @@ class FleksECS(
                 .enableSystemJarsAndModules()
                 .scan()
                 .use { scan ->
-                    scan.allClasses
-                        .filter { it.superclasses.any { superclass -> superclass.name == FleksComponentType::class.qualifiedName } }
-                        .filter { it.packageName != "com.github.quillraven.fleks" }
-                        .mapNotNull { classInfo ->
-                            classInfo.loadClass() as Class<FleksComponentType<Any>>
-                        }
+                    scan
+                        .getSubclasses(FleksComponentType::class.java)
+                        .loadClasses()
                 }.map { ECS.ComponentType(it.name) }
-                .also {
-                    logger.info { "Found ${it.size} component types" }
-                }
 
     override val entityComponents: Flow<Map<ECS.Entity, List<ECS.Component>>> =
         world.flatMapLatest { world ->
-            flow {
-                while (true) {
-                    val entityComponents =
-                        world
-                            ?.let { world ->
-                                world.componentService
-                                    .holdersBag
-                                    .values
-                                    .filterNotNull()
-                                    .flatMap { holder ->
-                                        world.asEntityBag().map { entity ->
-                                            entity to holder.getOrNull(entity)
-                                        }
-                                    }.filter { it.second != null }
-                                    .map { it.first to it.second!! }
-                                    .map {
-                                        ECS.Entity(it.first.id) to
-                                            ECS.Component(
-                                                ECS.ComponentType(it.second::class.fullTypeName),
-                                                it.second,
-                                            )
-                                    }.groupBy(keySelector = { it.first }) {
-                                        it.second
+            tickerFlow(2.seconds)
+                .map {
+                    world
+                        ?.let { world ->
+                            world.componentService
+                                .holdersBag
+                                .values
+                                .filterNotNull()
+                                .flatMap { holder ->
+                                    world.asEntityBag().map { entity ->
+                                        entity to holder.getOrNull(entity)
                                     }
-                            } ?: emptyMap()
-
-                    emit(entityComponents)
-
-                    delay(2000)
+                                }.filter { it.second != null }
+                                .map { it.first to it.second!! }
+                                .map {
+                                    ECS.Entity(it.first.id) to
+                                        ECS.Component(
+                                            ECS.ComponentType(it.second::class.fullTypeName),
+                                            it.second,
+                                        )
+                                }.groupBy(keySelector = { it.first }) {
+                                    it.second
+                                }
+                        } ?: emptyMap()
                 }
-            }
         }
 }

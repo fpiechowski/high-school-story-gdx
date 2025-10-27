@@ -19,9 +19,9 @@ eclipse.project.name = "$appName-lwjgl3"
 java.sourceCompatibility = JavaVersion.VERSION_21
 java.targetCompatibility = JavaVersion.VERSION_21
 if (JavaVersion.current().isJava9Compatible) {
-    tasks.compileJava { options.release.set(21) }
+    tasks.compileJava { options.release.set(17) }
 }
-kotlin.compilerOptions.jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+kotlin.compilerOptions.jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
 
 dependencies {
     val gdxControllersVersion: String by project
@@ -32,6 +32,7 @@ dependencies {
     implementation("com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop")
     implementation("com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop")
     implementation(project(":core"))
+    implementation(project(":inspector:runtime"))
     implementation("com.badlogicgames.gdx:gdx-tools:$gdxVersion") {
         exclude(group = "com.badlogicgames.gdx", module = "gdx-backend-lwjgl")
     }

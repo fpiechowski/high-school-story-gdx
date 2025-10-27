@@ -1,5 +1,6 @@
 ﻿package pro.piechowski.highschoolstory.inspector
 
+import com.github.mouse0w0.darculafx.DarculaFX
 import io.github.oshai.kotlinlogging.KotlinLogging
 import javafx.application.Application
 import javafx.scene.Scene
@@ -47,6 +48,7 @@ class InspectorApplication : Application() {
 
     override fun start(primaryStage: Stage) {
         primaryStage.scene = Scene(inspectorApplicationView.root)
+        DarculaFX.applyDarculaStyle(primaryStage.scene)
         primaryStage.isMaximized = true
         primaryStage.show()
     }

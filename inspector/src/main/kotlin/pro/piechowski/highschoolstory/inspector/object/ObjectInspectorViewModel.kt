@@ -4,6 +4,7 @@ import io.github.oshai.kotlinlogging.KotlinLogging
 import javafx.collections.FXCollections
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.delay
@@ -12,13 +13,16 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import pro.piechowski.highschoolstory.inspector.InspectorViewModel
+import pro.piechowski.highschoolstory.inspector.tickerFlow
 import kotlin.collections.plus
 import kotlin.math.PI
 import kotlin.reflect.KProperty1
@@ -26,7 +30,9 @@ import kotlin.reflect.full.isSubtypeOf
 import kotlin.reflect.full.memberProperties
 import kotlin.reflect.jvm.isAccessible
 import kotlin.reflect.typeOf
+import kotlin.time.Duration.Companion.seconds
 
+@ExperimentalCoroutinesApi
 class ObjectInspectorViewModel(
     initialObject: Any?,
 ) : InspectorViewModel() {
@@ -35,7 +41,6 @@ class ObjectInspectorViewModel(
 
     private val objects =
         MutableStateFlow(ArrayDeque(initialObject?.let { listOf(it) } ?: emptyList()))
-            .also { logger.info { "objects: $it" } }
 
     private val currentIndex =
         MutableStateFlow<Int?>(null)
@@ -47,29 +52,43 @@ class ObjectInspectorViewModel(
 
     val properties =
         currentObject
-            .filterNotNull()
-            .combine(
-                flow {
-                    while (true) {
-                        emit(Unit)
-                        delay(2000)
+            .flatMapLatest { currentObject ->
+                currentObject?.let { currentObject ->
+                    tickerFlow(2.seconds).map {
+                        currentObject::class
+                            .memberProperties
+                            .mapNotNull { it as? KProperty1<Any, Any?> }
+                            .map { ObjectProperty(it.name, tryGetPropertyValue(it)) }
+                            .let {
+                                when {
+                                    currentObject is Iterable<*> ->
+                                        it +
+                                            currentObject.mapIndexed { idx, value -> ObjectProperty(idx.toString(), value) }
+                                    currentObject is Array<*> ->
+                                        it +
+                                            currentObject.mapIndexed { idx, value -> ObjectProperty(idx.toString(), value) }
+                                    else -> it
+                                }
+                            }
                     }
-                },
-            ) { currentObject, _ ->
-                currentObject::class.memberProperties.mapNotNull { it as? KProperty1<Any, Any?> }
+                } ?: flowOf(FXCollections.emptyObservableList())
             }.map { FXCollections.observableList(it) }
 
     fun tryGetPropertyValue(property: KProperty1<Any, Any?>): Any? =
         currentObject.value?.let { currentObject ->
             try {
-                property.isAccessible = true
+                if (currentObject is Array<*> && property.name == "size") {
+                    currentObject.size
+                } else {
+                    property.isAccessible = true
 
-                when {
-                    property.returnType.isSubtypeOf(typeOf<StateFlow<*>>()) -> {
-                        (property.get(currentObject) as StateFlow<*>).value
+                    when {
+                        property.returnType.isSubtypeOf(typeOf<StateFlow<*>>()) -> {
+                            (property.get(currentObject) as StateFlow<*>).value
+                        }
+
+                        else -> property.get(currentObject)
                     }
-
-                    else -> property.get(currentObject)
                 }
             } catch (e: Throwable) {
                 logger.error(e) { "Error while getting value for property $property" }
@@ -112,4 +131,9 @@ class ObjectInspectorViewModel(
             index?.let { it + 1 } ?: 0
         }
     }
+
+    data class ObjectProperty(
+        val name: String,
+        val value: Any?,
+    )
 }

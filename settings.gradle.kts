@@ -5,4 +5,4 @@ plugins {
 // A list of which subprojects to load as part of the same larger project.
 // You can remove Strings from the list and reload the Gradle project
 // if you want to temporarily disable a subproject.
-include("lwjgl3", "core", "inspector")
+include("lwjgl3", "core", "inspector", "inspector:runtime", "inspector:runtime:libgdx")
