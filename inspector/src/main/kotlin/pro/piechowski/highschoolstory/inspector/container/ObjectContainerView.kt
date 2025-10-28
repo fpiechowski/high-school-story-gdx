@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox
 import javafx.util.Callback
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.map
-import pro.piechowski.highschoolstory.inspector.InspectorView
+import pro.piechowski.highschoolstory.inspector.View
 import pro.piechowski.highschoolstory.inspector.asBidirectionalObservableValue
 import pro.piechowski.highschoolstory.inspector.asObservableValue
 import pro.piechowski.highschoolstory.inspector.fullTypeName
@@ -25,7 +25,7 @@ import pro.piechowski.highschoolstory.inspector.toObservableList
 class ObjectContainerView(
     viewModel: ObjectContainerViewModel,
     objectInspectorViewModel: ObjectInspectorViewModel,
-) : InspectorView<ObjectContainerViewModel>(viewModel) {
+) : View() {
     private val typeColumn =
         TableColumn<Object<Any>, String>().apply {
             minWidth = 100.0

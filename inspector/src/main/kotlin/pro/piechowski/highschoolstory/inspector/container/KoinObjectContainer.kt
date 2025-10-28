@@ -14,11 +14,9 @@ import org.koin.core.Koin
 import org.koin.core.annotation.KoinInternalApi
 import org.koin.core.context.GlobalContext
 import org.koin.core.instance.SingleInstanceFactory
+import pro.piechowski.highschoolstory.inspector.propertyValue
 import pro.piechowski.highschoolstory.inspector.tickerFlow
 import kotlin.reflect.KClass
-import kotlin.reflect.KProperty1
-import kotlin.reflect.full.memberProperties
-import kotlin.reflect.jvm.isAccessible
 import kotlin.time.Duration.Companion.seconds
 
 @ExperimentalCoroutinesApi
@@ -30,9 +28,8 @@ class KoinObjectContainer : ObjectContainer {
 
     val koin: Flow<Koin?> =
         tickerFlow(2.seconds)
-            .map {
-                GlobalContext.getOrNull()
-            }.stateIn(coroutineScope, SharingStarted.Eagerly, null)
+            .map { GlobalContext.getOrNull() }
+            .stateIn(coroutineScope, SharingStarted.Eagerly, null)
             .also { logger.info { "Koin = ${it.value}" } }
 
     override val objects =
@@ -45,9 +42,7 @@ class KoinObjectContainer : ObjectContainer {
                         ?.values
                         ?.filterIsInstance<SingleInstanceFactory<*>>()
                         ?.map { factory ->
-                            val valueProp = factory::class.memberProperties.find { it.name == "value" }
-                            valueProp?.isAccessible = true
-                            factory to (valueProp as? KProperty1<Any, *>)?.get(factory)
+                            factory to factory.propertyValue<SingleInstanceFactory<*>, Any?>("value")
                         }?.sortedBy { it.first.beanDefinition.primaryType.simpleName }
                         ?.map { Object(it.first.beanDefinition.primaryType as KClass<Any>, it.second) }
                         ?: emptyList()

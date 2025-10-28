@@ -1,7 +1,6 @@
 ﻿package pro.piechowski.highschoolstory.inspector.runtime
 
 import com.badlogic.gdx.Gdx
-import io.github.classgraph.ClassGraph
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -10,6 +9,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.newSingleThreadContext
+import pro.piechowski.highschoolstory.inspector.classGraph
+import kotlin.reflect.KFunction
 import kotlin.reflect.jvm.kotlinFunction
 
 @DelicateCoroutinesApi
@@ -22,25 +23,20 @@ class LibGDXRuntime : Runtime {
 
     override val launcher: Runtime.Launcher
         get() =
-            ClassGraph()
-                .enableAllInfo()
-                .enableClassInfo()
-                .enableExternalClasses()
-                .ignoreClassVisibility()
-                .enableSystemJarsAndModules()
+            classGraph
                 .scan()
                 .use { scan ->
-                    val clazz =
+                    fun launchRuntimeFunction(): KFunction<*> =
                         scan
                             .getClassesWithMethodAnnotation(RuntimeLauncher::class.java)
                             .first()
                             .loadClass()
+                            .methods
+                            .find { method -> method.annotations.any { it.annotationClass == RuntimeLauncher::class } }
+                            ?.kotlinFunction ?: throw RuntimeLauncherNotFoundException()
 
                     Runtime.Launcher {
-                        clazz.methods
-                            .find { it.annotations.any { it.annotationClass == RuntimeLauncher::class } }
-                            ?.kotlinFunction
-                            ?.call() ?: throw RuntimeLauncherNotFoundException()
+                        launchRuntimeFunction().call()
                     }
                 }
 

@@ -15,7 +15,7 @@ import pro.piechowski.highschoolstory.inspector.container.ObjectContainer
 import pro.piechowski.highschoolstory.inspector.tickerFlow
 import kotlin.time.Duration.Companion.seconds
 
-class GlobalFleksWorldInstanceProvider(
+class FleksWorldObjectContainerProvider(
     private val objectContainer: ObjectContainer,
 ) {
     private val logger = KotlinLogging.logger { }

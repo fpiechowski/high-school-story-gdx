@@ -8,14 +8,13 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
-import pro.piechowski.highschoolstory.inspector.InspectorViewModel
 import pro.piechowski.highschoolstory.inspector.tickerFlow
 import kotlin.time.Duration.Companion.seconds
 
 @ExperimentalCoroutinesApi
 class ECSViewModel(
     private val ecs: ECS,
-) : InspectorViewModel() {
+) {
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 
     val componentTypes =

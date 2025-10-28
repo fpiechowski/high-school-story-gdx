@@ -12,12 +12,11 @@ import pro.piechowski.highschoolstory.inspector.runtime.RuntimeView
 @ExperimentalCoroutinesApi
 @KoinInternalApi
 class InspectorApplicationView(
-    viewModel: InspectorApplicationViewModel,
     private val objectContainerView: ObjectContainerView,
     private val ecsView: ECSView,
     private val runtimeView: RuntimeView,
     private val objectInspectorView: ObjectInspectorView,
-) : InspectorView<InspectorApplicationViewModel>(viewModel) {
+) : View() {
     private val borderPane =
         BorderPane()
             .apply {

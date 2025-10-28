@@ -8,28 +8,23 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
-import pro.piechowski.highschoolstory.inspector.InspectorViewModel
 import pro.piechowski.highschoolstory.inspector.container.Object
 import pro.piechowski.highschoolstory.inspector.tickerFlow
-import kotlin.collections.plus
+import pro.piechowski.highschoolstory.inspector.tryGetPropertyValue
 import kotlin.reflect.KProperty1
-import kotlin.reflect.full.isSubtypeOf
 import kotlin.reflect.full.memberProperties
-import kotlin.reflect.jvm.isAccessible
-import kotlin.reflect.typeOf
 import kotlin.time.Duration.Companion.seconds
 
 @ExperimentalCoroutinesApi
 class ObjectInspectorViewModel(
     initialObject: Object<Any>?,
-) : InspectorViewModel() {
+) {
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
     private val logger = KotlinLogging.logger { }
 
@@ -49,53 +44,10 @@ class ObjectInspectorViewModel(
             .flatMapLatest { currentObject ->
                 currentObject?.let { currentObject ->
                     tickerFlow(2.seconds).map {
-                        currentObject.type
-                            .memberProperties
-                            .map { ObjectProperty(it.name, tryGetPropertyValue(it)) }
-                            .let { objectProperties ->
-                                currentObject.instance?.let { instance ->
-                                    when (instance) {
-                                        is Iterable<*> ->
-                                            objectProperties +
-                                                instance
-                                                    .mapIndexed { idx, value -> ObjectProperty(idx.toString(), value) }
-
-                                        is Array<*> ->
-                                            objectProperties +
-                                                instance
-                                                    .mapIndexed { idx, value -> ObjectProperty(idx.toString(), value) }
-
-                                        else -> objectProperties
-                                    }
-                                } ?: objectProperties
-                            }
+                        currentObject.properties
                     }
                 } ?: flowOf(FXCollections.emptyObservableList())
             }.map { FXCollections.observableList(it) }
-
-    fun tryGetPropertyValue(property: KProperty1<Any, Any?>): Any? =
-        currentObject.value?.let { currentObject ->
-            try {
-                currentObject.instance?.let { instance ->
-                    if (instance is Array<*> && property.name == "size") {
-                        instance.size
-                    } else {
-                        property.isAccessible = true
-
-                        when {
-                            property.returnType.isSubtypeOf(typeOf<StateFlow<*>>()) -> {
-                                (property.get(instance) as StateFlow<*>).value
-                            }
-
-                            else -> property.get(instance)
-                        }
-                    }
-                }
-            } catch (e: Throwable) {
-                logger.error(e) { "Error while getting value for property $property" }
-                "error"
-            }
-        }
 
     fun navigateBack() {
         currentIndex.update { currentIndex ->
@@ -132,6 +84,34 @@ class ObjectInspectorViewModel(
             index?.let { it + 1 } ?: 0
         }
     }
+
+    private val Object<*>.properties
+        get() =
+            type
+                .memberProperties
+                .map {
+                    ObjectProperty(
+                        it.name,
+                        try {
+                            this.tryGetPropertyValue<Any>(it as KProperty1<Any, Any?>)
+                        } catch (_: Throwable) {
+                            "error"
+                        },
+                    )
+                }.let { objectProperties ->
+                    objectProperties + (instance?.mapElementsToObjectProperties() ?: emptyList())
+                }
+
+    private fun Any.mapElementsToObjectProperties() =
+        when (this) {
+            is Iterable<*> ->
+                mapIndexed { idx, value -> ObjectProperty(idx.toString(), value) }
+
+            is Array<*> ->
+                mapIndexed { idx, value -> ObjectProperty(idx.toString(), value) }
+
+            else -> listOf()
+        }
 
     data class ObjectProperty(
         val name: String,

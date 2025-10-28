@@ -18,13 +18,13 @@ import javafx.scene.text.Font
 import javafx.util.Callback
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.map
-import pro.piechowski.highschoolstory.inspector.InspectorView
+import pro.piechowski.highschoolstory.inspector.View
 import pro.piechowski.highschoolstory.inspector.asObservableValue
 
 @ExperimentalCoroutinesApi
 class ObjectInspectorView(
     viewModel: ObjectInspectorViewModel,
-) : InspectorView<ObjectInspectorViewModel>(viewModel) {
+) : View() {
     private val propertyColumn =
         TableColumn<ObjectInspectorViewModel.ObjectProperty, String>()
             .apply {

@@ -5,7 +5,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.core.annotation.KoinInternalApi
 import pro.piechowski.highschoolstory.inspector.container.KoinObjectContainer
 import pro.piechowski.highschoolstory.inspector.ecs.FleksECS
-import pro.piechowski.highschoolstory.inspector.ecs.GlobalFleksWorldInstanceProvider
+import pro.piechowski.highschoolstory.inspector.ecs.FleksWorldObjectContainerProvider
 import pro.piechowski.highschoolstory.inspector.runtime.LibGDXRuntime
 
 @DelicateCoroutinesApi
@@ -17,6 +17,6 @@ class Adapters {
     private val koinGlobalInstances = KoinObjectContainer()
     val globalInstances = koinGlobalInstances
 
-    private val globalFleksWorldInstanceProvider = GlobalFleksWorldInstanceProvider(globalInstances)
-    val ecs = FleksECS(globalFleksWorldInstanceProvider.world)
+    private val fleksWorldObjectContainerProvider = FleksWorldObjectContainerProvider(globalInstances)
+    val ecs = FleksECS(fleksWorldObjectContainerProvider.world)
 }

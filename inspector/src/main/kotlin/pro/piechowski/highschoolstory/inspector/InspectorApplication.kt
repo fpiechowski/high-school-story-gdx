@@ -39,7 +39,6 @@ class InspectorApplication : Application() {
 
     private val inspectorApplicationView =
         InspectorApplicationView(
-            InspectorApplicationViewModel(),
             objectContainerView,
             ecsView,
             runtimeView,

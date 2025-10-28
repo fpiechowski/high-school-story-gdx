@@ -7,7 +7,6 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
-import pro.piechowski.highschoolstory.inspector.InspectorViewModel
 import pro.piechowski.highschoolstory.inspector.fullTypeName
 import pro.piechowski.highschoolstory.inspector.tickerFlow
 import kotlin.time.Duration.Companion.seconds
@@ -15,7 +14,7 @@ import kotlin.time.Duration.Companion.seconds
 @ExperimentalCoroutinesApi
 class ObjectContainerViewModel(
     private val objectContainer: ObjectContainer,
-) : InspectorViewModel() {
+) {
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 
     val instances =

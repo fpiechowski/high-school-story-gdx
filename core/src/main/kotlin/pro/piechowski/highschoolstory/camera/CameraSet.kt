@@ -1,6 +1,5 @@
 ﻿package pro.piechowski.highschoolstory.camera
 
-import com.badlogic.gdx.graphics.Camera
 import com.badlogic.gdx.math.Vector2
 import ktx.graphics.moveTo
 import pro.piechowski.highschoolstory.physics.Meter

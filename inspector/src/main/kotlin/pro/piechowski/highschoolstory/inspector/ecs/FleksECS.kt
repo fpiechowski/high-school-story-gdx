@@ -4,14 +4,12 @@ import com.github.quillraven.fleks.ComponentService
 import com.github.quillraven.fleks.ComponentsHolder
 import com.github.quillraven.fleks.World
 import com.github.quillraven.fleks.collection.Bag
-import io.github.classgraph.ClassGraph
 import io.github.oshai.kotlinlogging.KotlinLogging
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import pro.piechowski.highschoolstory.inspector.classGraph
 import pro.piechowski.highschoolstory.inspector.fullTypeName
 import pro.piechowski.highschoolstory.inspector.propertyValue
 import pro.piechowski.highschoolstory.inspector.tickerFlow
@@ -36,12 +34,7 @@ class FleksECS(
 
     override val componentTypes: List<ECS.ComponentType>
         get() =
-            ClassGraph()
-                .enableAllInfo()
-                .enableClassInfo()
-                .enableExternalClasses()
-                .ignoreClassVisibility()
-                .enableSystemJarsAndModules()
+            classGraph
                 .scan()
                 .use { scan ->
                     scan
@@ -53,28 +46,28 @@ class FleksECS(
         world.flatMapLatest { world ->
             tickerFlow(2.seconds)
                 .map {
-                    world
-                        ?.let { world ->
-                            world.componentService
-                                .holdersBag
-                                .values
-                                .filterNotNull()
-                                .flatMap { holder ->
-                                    world.asEntityBag().map { entity ->
-                                        entity to holder.getOrNull(entity)
-                                    }
-                                }.filter { it.second != null }
-                                .map { it.first to it.second!! }
-                                .map {
-                                    ECS.Entity(it.first.id) to
-                                        ECS.Component(
-                                            ECS.ComponentType(it.second::class.fullTypeName),
-                                            it.second,
-                                        )
-                                }.groupBy(keySelector = { it.first }) {
-                                    it.second
-                                }
-                        } ?: emptyMap()
+                    world?.entityComponents ?: emptyMap()
                 }
         }
+
+    private val World.entityComponents get() =
+        componentService
+            .holdersBag
+            .values
+            .filterNotNull()
+            .flatMap { holder ->
+                asEntityBag().map { entity ->
+                    entity to holder.getOrNull(entity)
+                }
+            }.filter { it.second != null }
+            .map { it.first to it.second!! }
+            .map {
+                ECS.Entity(it.first.id) to
+                    ECS.Component(
+                        ECS.ComponentType(it.second::class.fullTypeName),
+                        it.second,
+                    )
+            }.groupBy(keySelector = { it.first }) {
+                it.second
+            }
 }

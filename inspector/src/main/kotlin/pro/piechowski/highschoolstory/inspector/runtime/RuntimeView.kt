@@ -4,34 +4,36 @@ import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.control.Button
 import javafx.scene.layout.HBox
+import javafx.scene.paint.Color
 import kotlinx.coroutines.flow.map
-import org.kordamp.ikonli.javafx.FontIcon
-import pro.piechowski.highschoolstory.inspector.InspectorView
+import org.kordamp.ikonli.fontawesome6.FontAwesomeSolid
+import pro.piechowski.highschoolstory.inspector.View
 import pro.piechowski.highschoolstory.inspector.asObservableValue
+import pro.piechowski.highschoolstory.inspector.iconProperty
 
 class RuntimeView(
     viewModel: RuntimeViewModel,
-) : InspectorView<RuntimeViewModel>(viewModel) {
+) : View() {
     private val playButton: Button =
-        Button("", FontIcon("fas-play:24:GREEN"))
+        Button()
             .apply {
-                graphicProperty().bind(disableProperty().map { if (it) FontIcon("fas-play:24:GRAY") else FontIcon("fas-play:24:GREEN") })
+                graphicProperty().bind(iconProperty(FontAwesomeSolid.PLAY, 24, Color.GREEN, disableProperty()))
                 onAction = viewModel.startButtonEventHandler
                 disableProperty().bind(viewModel.gameRunning.asObservableValue(coroutineScope, false))
             }
 
     private val pauseButton: Button =
-        Button("", FontIcon("fas-pause:24:ORANGE"))
+        Button()
             .apply {
-                graphicProperty().bind(disableProperty().map { if (it) FontIcon("fas-pause:24:GRAY") else FontIcon("fas-pause:24:ORANGE") })
+                graphicProperty().bind(iconProperty(FontAwesomeSolid.PAUSE, 24, Color.ORANGE, disableProperty()))
                 onAction = viewModel.pauseButtonEventHandler
                 disableProperty().bind(viewModel.gameRunning.map { !it }.asObservableValue(coroutineScope, false))
             }
 
     private val stopButton: Button =
-        Button("", FontIcon("fas-stop:24:RED"))
+        Button()
             .apply {
-                graphicProperty().bind(disableProperty().map { if (it) FontIcon("fas-stop:24:GRAY") else FontIcon("fas-stop:24:RED") })
+                graphicProperty().bind(iconProperty(FontAwesomeSolid.STOP, 24, Color.RED, disableProperty()))
                 onAction = viewModel.stopButtonEventHandler
                 disableProperty().bind(viewModel.gameRunning.map { !it }.asObservableValue(coroutineScope, false))
             }
