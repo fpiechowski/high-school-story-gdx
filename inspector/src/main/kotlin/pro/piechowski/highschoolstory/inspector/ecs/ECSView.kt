@@ -16,10 +16,10 @@ import pro.piechowski.highschoolstory.inspector.`object`.ObjectInspectorViewMode
 import pro.piechowski.highschoolstory.inspector.`object`.ObjectTableCell
 
 @ExperimentalCoroutinesApi
-class EcsView(
-    viewModel: EcsViewModel,
+class ECSView(
+    viewModel: ECSViewModel,
     objectInspectorViewModel: ObjectInspectorViewModel,
-) : InspectorView<EcsViewModel>(viewModel) {
+) : InspectorView<ECSViewModel>(viewModel) {
     private val entityColumn =
         TableColumn<Pair<ECS.Entity, List<ECS.Component>>, ECS.Entity>()
             .apply {

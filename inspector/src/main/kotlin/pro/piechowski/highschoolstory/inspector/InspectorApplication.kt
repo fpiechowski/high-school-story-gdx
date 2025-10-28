@@ -8,10 +8,10 @@ import javafx.stage.Stage
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.core.annotation.KoinInternalApi
-import pro.piechowski.highschoolstory.inspector.ecs.EcsView
-import pro.piechowski.highschoolstory.inspector.ecs.EcsViewModel
-import pro.piechowski.highschoolstory.inspector.koin.GlobalInstancesView
-import pro.piechowski.highschoolstory.inspector.koin.GlobalInstancesViewModel
+import pro.piechowski.highschoolstory.inspector.container.ObjectContainerView
+import pro.piechowski.highschoolstory.inspector.container.ObjectContainerViewModel
+import pro.piechowski.highschoolstory.inspector.ecs.ECSView
+import pro.piechowski.highschoolstory.inspector.ecs.ECSViewModel
 import pro.piechowski.highschoolstory.inspector.`object`.ObjectInspectorView
 import pro.piechowski.highschoolstory.inspector.`object`.ObjectInspectorViewModel
 import pro.piechowski.highschoolstory.inspector.runtime.RuntimeView
@@ -28,11 +28,11 @@ class InspectorApplication : Application() {
     private val objectInspectorViewModel by lazy { ObjectInspectorViewModel(null) }
     private val objectInspectorView by lazy { ObjectInspectorView(objectInspectorViewModel) }
 
-    private val globalInstancesViewModel by lazy { GlobalInstancesViewModel(adapters.globalInstances) }
-    private val globalInstancesView by lazy { GlobalInstancesView(globalInstancesViewModel, objectInspectorViewModel) }
+    private val objectContainerViewModel by lazy { ObjectContainerViewModel(adapters.globalInstances) }
+    private val objectContainerView by lazy { ObjectContainerView(objectContainerViewModel, objectInspectorViewModel) }
 
-    private val ecsViewModel by lazy { EcsViewModel(adapters.ecs) }
-    private val ecsView by lazy { EcsView(ecsViewModel, objectInspectorViewModel) }
+    private val ecsViewModel by lazy { ECSViewModel(adapters.ecs) }
+    private val ecsView by lazy { ECSView(ecsViewModel, objectInspectorViewModel) }
 
     private val runtimeViewModel by lazy { RuntimeViewModel(adapters.runtime) }
     private val runtimeView by lazy { RuntimeView(runtimeViewModel) }
@@ -40,7 +40,7 @@ class InspectorApplication : Application() {
     private val inspectorApplicationView =
         InspectorApplicationView(
             InspectorApplicationViewModel(),
-            globalInstancesView,
+            objectContainerView,
             ecsView,
             runtimeView,
             objectInspectorView,

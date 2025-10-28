@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory.inspector.koin
+﻿package pro.piechowski.highschoolstory.inspector.container
 
 import io.github.oshai.kotlinlogging.KotlinLogging
 import kotlinx.coroutines.CoroutineScope
@@ -8,17 +8,12 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.stateIn
 import org.koin.core.Koin
 import org.koin.core.annotation.KoinInternalApi
 import org.koin.core.context.GlobalContext
 import org.koin.core.instance.SingleInstanceFactory
-import pro.piechowski.highschoolstory.inspector.globals.GlobalInstance
-import pro.piechowski.highschoolstory.inspector.globals.GlobalInstances
-import pro.piechowski.highschoolstory.inspector.runtime.Runtime
 import pro.piechowski.highschoolstory.inspector.tickerFlow
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty1
@@ -28,7 +23,7 @@ import kotlin.time.Duration.Companion.seconds
 
 @ExperimentalCoroutinesApi
 @KoinInternalApi
-class KoinGlobalInstances : GlobalInstances {
+class KoinObjectContainer : ObjectContainer {
     private val logger = KotlinLogging.logger {}
 
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
@@ -40,7 +35,7 @@ class KoinGlobalInstances : GlobalInstances {
             }.stateIn(coroutineScope, SharingStarted.Eagerly, null)
             .also { logger.info { "Koin = ${it.value}" } }
 
-    override val instances =
+    override val objects =
         koin.flatMapLatest { koin ->
             tickerFlow(2.seconds)
                 .map {
@@ -54,7 +49,7 @@ class KoinGlobalInstances : GlobalInstances {
                             valueProp?.isAccessible = true
                             factory to (valueProp as? KProperty1<Any, *>)?.get(factory)
                         }?.sortedBy { it.first.beanDefinition.primaryType.simpleName }
-                        ?.map { GlobalInstance(it.first.beanDefinition.primaryType as KClass<Any>, it.second) }
+                        ?.map { Object(it.first.beanDefinition.primaryType as KClass<Any>, it.second) }
                         ?: emptyList()
                 }
         }

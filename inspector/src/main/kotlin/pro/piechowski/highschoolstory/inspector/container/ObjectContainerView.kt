@@ -1,4 +1,4 @@
-﻿package pro.piechowski.highschoolstory.inspector.koin
+﻿package pro.piechowski.highschoolstory.inspector.container
 
 import javafx.beans.property.SimpleObjectProperty
 import javafx.beans.property.SimpleStringProperty
@@ -11,24 +11,23 @@ import javafx.scene.layout.Priority
 import javafx.scene.layout.Region.USE_COMPUTED_SIZE
 import javafx.scene.layout.VBox
 import javafx.util.Callback
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.map
-import org.koin.core.annotation.KoinInternalApi
 import pro.piechowski.highschoolstory.inspector.InspectorView
 import pro.piechowski.highschoolstory.inspector.asBidirectionalObservableValue
 import pro.piechowski.highschoolstory.inspector.asObservableValue
 import pro.piechowski.highschoolstory.inspector.fullTypeName
-import pro.piechowski.highschoolstory.inspector.globals.GlobalInstance
 import pro.piechowski.highschoolstory.inspector.`object`.ObjectInspectorViewModel
 import pro.piechowski.highschoolstory.inspector.`object`.ObjectTableCell
 import pro.piechowski.highschoolstory.inspector.toObservableList
 
-@KoinInternalApi
-class GlobalInstancesView(
-    viewModel: GlobalInstancesViewModel,
+@ExperimentalCoroutinesApi
+class ObjectContainerView(
+    viewModel: ObjectContainerViewModel,
     objectInspectorViewModel: ObjectInspectorViewModel,
-) : InspectorView<GlobalInstancesViewModel>(viewModel) {
+) : InspectorView<ObjectContainerViewModel>(viewModel) {
     private val typeColumn =
-        TableColumn<GlobalInstance<Any>, String>().apply {
+        TableColumn<Object<Any>, String>().apply {
             minWidth = 100.0
             prefWidth = USE_COMPUTED_SIZE
             maxWidth = Double.MAX_VALUE
@@ -40,7 +39,7 @@ class GlobalInstancesView(
         }
 
     private val valueColumn =
-        TableColumn<GlobalInstance<Any>, Any?>().apply {
+        TableColumn<Object<Any>, Any?>().apply {
             minWidth = 100.0
             prefWidth = USE_COMPUTED_SIZE
             maxWidth = Double.MAX_VALUE
@@ -49,12 +48,12 @@ class GlobalInstancesView(
                 Callback { ObjectTableCell(objectInspectorViewModel) }
             cellValueFactory =
                 Callback {
-                    SimpleObjectProperty(it.value.value ?: "null")
+                    SimpleObjectProperty(it.value.instance ?: "null")
                 }
         }
 
     private val instancesTable =
-        TableView<GlobalInstance<Any>>().apply {
+        TableView<Object<Any>>().apply {
             columnResizePolicy = CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS
             maxHeight = Double.MAX_VALUE
             VBox.setVgrow(this, Priority.ALWAYS)

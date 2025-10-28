@@ -3,8 +3,11 @@
 import javafx.event.EventHandler
 import javafx.scene.control.TableCell
 import javafx.scene.input.MouseButton
-import pro.piechowski.highschoolstory.inspector.fullTypeName
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import pro.piechowski.highschoolstory.inspector.container.Object
+import kotlin.reflect.KClass
 
+@ExperimentalCoroutinesApi
 class ObjectTableCell<T : Any, S : Any?>(
     objectInspectorViewModel: ObjectInspectorViewModel? = null,
 ) : TableCell<T, S>() {
@@ -28,7 +31,7 @@ class ObjectTableCell<T : Any, S : Any?>(
                     if (item::class.javaPrimitiveType == null) {
                         when (event.button) {
                             MouseButton.PRIMARY if event.clickCount == 2 && !isEmpty ->
-                                objectInspectorViewModel?.pushObject(item)
+                                objectInspectorViewModel?.pushObject(Object<Any>(item::class as KClass<Any>, item))
                                     ?: TODO("implement opening new object inspector instance")
 
                             MouseButton.MIDDLE ->

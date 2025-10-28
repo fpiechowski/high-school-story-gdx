@@ -1,5 +1,5 @@
 ﻿package pro.piechowski.highschoolstory.inspector.runtime
 
-fun interface RuntimeLauncher {
-    fun launch()
-}
+@Target(AnnotationTarget.FUNCTION)
+@Retention(AnnotationRetention.RUNTIME)
+annotation class RuntimeLauncher

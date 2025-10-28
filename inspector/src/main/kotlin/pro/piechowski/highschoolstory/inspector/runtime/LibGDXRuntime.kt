@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.newSingleThreadContext
+import kotlin.reflect.jvm.kotlinFunction
 
 @DelicateCoroutinesApi
 @ExperimentalCoroutinesApi
@@ -19,7 +20,7 @@ class LibGDXRuntime : Runtime {
     private val _launchedGameJob = MutableStateFlow<Job?>(null)
     override val launchedGameJob: StateFlow<Job?> = _launchedGameJob
 
-    override val runtimeLauncher: RuntimeLauncher
+    override val launcher: Runtime.Launcher
         get() =
             ClassGraph()
                 .enableAllInfo()
@@ -29,13 +30,18 @@ class LibGDXRuntime : Runtime {
                 .enableSystemJarsAndModules()
                 .scan()
                 .use { scan ->
-                    val classes =
+                    val clazz =
                         scan
-                            .getClassesImplementing(RuntimeLauncher::class.qualifiedName!!)
-                            .loadClasses(RuntimeLauncher::class.java)
+                            .getClassesWithMethodAnnotation(RuntimeLauncher::class.java)
+                            .first()
+                            .loadClass()
 
-                    val instances = classes.map { it.getDeclaredConstructor().newInstance() }
-                    instances.first()
+                    Runtime.Launcher {
+                        clazz.methods
+                            .find { it.annotations.any { it.annotationClass == RuntimeLauncher::class } }
+                            ?.kotlinFunction
+                            ?.call() ?: throw RuntimeLauncherNotFoundException()
+                    }
                 }
 
     override fun start() {
@@ -46,7 +52,7 @@ class LibGDXRuntime : Runtime {
         _launchedGameJob.value =
             gameScope
                 .launch {
-                    runtimeLauncher.launch()
+                    launcher.launch()
                 }.also {
                     it.invokeOnCompletion {
                         _launchedGameJob.value = null

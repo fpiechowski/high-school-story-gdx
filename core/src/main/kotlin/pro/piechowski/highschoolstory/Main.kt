@@ -16,15 +16,6 @@ import org.koin.core.context.stopKoin
 import org.koin.core.module.Module
 
 class Main : KtxGame<KtxScreen>() {
-    companion object {
-        private val _initialized = MutableStateFlow(false)
-        val initialized: StateFlow<Boolean> = _initialized
-
-        fun setInitialized(initialized: Boolean) {
-            _initialized.value = initialized
-        }
-    }
-
     override fun create() {
         val koin =
             startKoin {}
@@ -38,8 +29,6 @@ class Main : KtxGame<KtxScreen>() {
 
         Scene2DSkin.defaultSkin = Skin(Gdx.files.internal("ui/skin/uiskin.json"))
 
-        setInitialized(true)
-
         with(koin) {
             startGame()
         }
@@ -49,7 +38,6 @@ class Main : KtxGame<KtxScreen>() {
         super.dispose()
 
         stopKoin()
-        setInitialized(false)
     }
 
     context(koin: Koin)

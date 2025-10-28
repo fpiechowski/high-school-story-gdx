@@ -9,11 +9,17 @@ interface Runtime {
 
     val launchedGameJob: StateFlow<Job?>
 
-    val runtimeLauncher: RuntimeLauncher
+    val launcher: Launcher
 
     fun start()
 
     fun stop()
 
     fun pause()
+
+    fun interface Launcher {
+        fun launch()
+    }
 }
+
+class RuntimeLauncherNotFoundException : Exception("RuntimeLauncher not found")

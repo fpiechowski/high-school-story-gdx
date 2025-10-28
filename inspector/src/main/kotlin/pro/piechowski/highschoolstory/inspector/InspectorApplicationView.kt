@@ -4,8 +4,8 @@ import javafx.scene.Parent
 import javafx.scene.layout.BorderPane
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.core.annotation.KoinInternalApi
-import pro.piechowski.highschoolstory.inspector.ecs.EcsView
-import pro.piechowski.highschoolstory.inspector.koin.GlobalInstancesView
+import pro.piechowski.highschoolstory.inspector.container.ObjectContainerView
+import pro.piechowski.highschoolstory.inspector.ecs.ECSView
 import pro.piechowski.highschoolstory.inspector.`object`.ObjectInspectorView
 import pro.piechowski.highschoolstory.inspector.runtime.RuntimeView
 
@@ -13,8 +13,8 @@ import pro.piechowski.highschoolstory.inspector.runtime.RuntimeView
 @KoinInternalApi
 class InspectorApplicationView(
     viewModel: InspectorApplicationViewModel,
-    private val globalInstancesView: GlobalInstancesView,
-    private val ecsView: EcsView,
+    private val objectContainerView: ObjectContainerView,
+    private val ecsView: ECSView,
     private val runtimeView: RuntimeView,
     private val objectInspectorView: ObjectInspectorView,
 ) : InspectorView<InspectorApplicationViewModel>(viewModel) {
@@ -22,7 +22,7 @@ class InspectorApplicationView(
         BorderPane()
             .apply {
                 top = runtimeView.root
-                left = globalInstancesView.root
+                left = objectContainerView.root
                 center = ecsView.root
                 right = objectInspectorView.root
             }

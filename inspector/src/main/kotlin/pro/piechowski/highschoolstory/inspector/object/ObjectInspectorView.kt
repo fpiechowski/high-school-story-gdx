@@ -3,35 +3,23 @@
 import javafx.beans.property.SimpleObjectProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections
-import javafx.event.EventHandler
 import javafx.geometry.Insets
 import javafx.scene.control.Label
 import javafx.scene.control.OverrunStyle
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafx.scene.control.TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS
-import javafx.scene.control.TitledPane
 import javafx.scene.input.MouseButton
 import javafx.scene.input.MouseEvent
-import javafx.scene.layout.Border
-import javafx.scene.layout.BorderStroke
-import javafx.scene.layout.BorderStrokeStyle
-import javafx.scene.layout.BorderWidths
-import javafx.scene.layout.CornerRadii
 import javafx.scene.layout.Priority
 import javafx.scene.layout.Region.USE_COMPUTED_SIZE
 import javafx.scene.layout.VBox
-import javafx.scene.paint.Color
-import javafx.scene.paint.Paint
 import javafx.scene.text.Font
-import javafx.stage.Stage
 import javafx.util.Callback
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.mapNotNull
 import pro.piechowski.highschoolstory.inspector.InspectorView
 import pro.piechowski.highschoolstory.inspector.asObservableValue
-import kotlin.reflect.KProperty1
 
 @ExperimentalCoroutinesApi
 class ObjectInspectorView(
