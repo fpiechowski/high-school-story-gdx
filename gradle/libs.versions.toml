@@ -1,0 +1,126 @@
+[versions]
+fleks = "2.11"
+libgdx = "1.13.1"
+libgdx-box2dlights = "1.5"
+libgdx-controllers-core = "2.2.3"
+libgdx-ai = "1.8.2"
+libgdx-visui = "1.5.5"
+ktx = "1.13.1-rc1"
+koin = "4.0.3"
+kotlin-logging = "7.0.7"
+slf4j = "2.0.17"
+logback-classic = "1.5.18"
+kotlin = "2.2.20"
+kotlinx-datetime = "0.7.1"
+kotlinx-serialization-json = "1.9.0"
+kotlinx-coroutines = "1.10.2"
+hoplite = "2.9.0"
+junit = "5.13.4"
+kotest = "5.9.1"
+
+[plugins]
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+[libraries]
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
+
+libgdx-box2dlights = { module = "com.badlogicgames.box2dlights:box2dlights", version.ref = "libgdx-box2dlights" }
+libgdx-controllers-core = { module = "com.badlogicgames.gdx-controllers:gdx-controllers-core", version.ref = "libgdx-controllers-core" }
+libgdx-ai = { module = "com.badlogicgames.gdx:gdx-ai", version.ref = "libgdx-ai" }
+libgdx-box2d = { module = "com.badlogicgames.gdx:gdx-box2d", version.ref = "libgdx" }
+libgdx-freetype = { module = "com.badlogicgames.gdx:gdx-freetype", version.ref = "libgdx" }
+libgdx = { module = "com.badlogicgames.gdx:gdx", version.ref = "libgdx" }
+libgdx-visui = { module = "com.kotcrab.vis:vis-ui", version.ref = "libgdx-visui" }
+
+ktx-actors = { module = "io.github.libktx:ktx-actors", version.ref = "ktx" }
+ktx-ai = { module = "io.github.libktx:ktx-ai", version.ref = "ktx" }
+ktx-app = { module = "io.github.libktx:ktx-app", version.ref = "ktx" }
+ktx-assets-async = { module = "io.github.libktx:ktx-assets-async", version.ref = "ktx" }
+ktx-assets = { module = "io.github.libktx:ktx-assets", version.ref = "ktx" }
+ktx-async = { module = "io.github.libktx:ktx-async", version.ref = "ktx" }
+ktx-box2d = { module = "io.github.libktx:ktx-box2d", version.ref = "ktx" }
+ktx-collections = { module = "io.github.libktx:ktx-collections", version.ref = "ktx" }
+ktx-freetype-async = { module = "io.github.libktx:ktx-freetype-async", version.ref = "ktx" }
+ktx-freetype = { module = "io.github.libktx:ktx-freetype", version.ref = "ktx" }
+ktx-graphics = { module = "io.github.libktx:ktx-graphics", version.ref = "ktx" }
+ktx-i18n = { module = "io.github.libktx:ktx-i18n", version.ref = "ktx" }
+ktx-inject = { module = "io.github.libktx:ktx-inject", version.ref = "ktx" }
+ktx-json = { module = "io.github.libktx:ktx-json", version.ref = "ktx" }
+ktx-log = { module = "io.github.libktx:ktx-log", version.ref = "ktx" }
+ktx-math = { module = "io.github.libktx:ktx-math", version.ref = "ktx" }
+ktx-preferences = { module = "io.github.libktx:ktx-preferences", version.ref = "ktx" }
+ktx-reflect = { module = "io.github.libktx:ktx-reflect", version.ref = "ktx" }
+ktx-scene2d = { module = "io.github.libktx:ktx-scene2d", version.ref = "ktx" }
+ktx-style = { module = "io.github.libktx:ktx-style", version.ref = "ktx" }
+ktx-tiled = { module = "io.github.libktx:ktx-tiled", version.ref = "ktx" }
+ktx-vis-style = { module = "io.github.libktx:ktx-vis-style", version.ref = "ktx" }
+ktx-vis = { module = "io.github.libktx:ktx-vis", version.ref = "ktx" }
+
+fleks = { module = "io.github.quillraven.fleks:Fleks", version.ref = "fleks" }
+koin = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+kotlin-logging = { module = "io.github.oshai:kotlin-logging-jvm", version.ref = "kotlin-logging" }
+slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback-classic" }
+hoplite-core = { module = "com.sksamuel.hoplite:hoplite-core", version.ref = "hoplite" }
+hoplite-yaml = { module = "com.sksamuel.hoplite:hoplite-yaml", version.ref = "hoplite" }
+
+junit = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+kotest-assertions = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+
+[bundles]
+kotlin = [
+    "kotlin-stdlib",
+    "kotlinx-coroutines",
+    "kotlinx-datetime",
+    "kotlinx-serialization-json"
+]
+
+libgdx = [
+    "libgdx",
+    "libgdx-box2d",
+    "libgdx-box2dlights",
+    "libgdx-ai",
+    "libgdx-controllers-core",
+    "libgdx-freetype",
+    "libgdx-visui"
+]
+
+ktx = [
+    "ktx-actors",
+    "ktx-ai",
+    "ktx-app",
+    "ktx-assets-async",
+    "ktx-assets",
+    "ktx-async",
+    "ktx-box2d",
+    "ktx-collections",
+    "ktx-freetype-async",
+    "ktx-freetype",
+    "ktx-graphics",
+    "ktx-i18n",
+    "ktx-inject",
+    "ktx-json",
+    "ktx-log",
+    "ktx-math",
+    "ktx-preferences",
+    "ktx-reflect",
+    "ktx-scene2d",
+    "ktx-style",
+    "ktx-tiled",
+    "ktx-vis-style",
+    "ktx-vis"
+]
+
+logging = [
+    "kotlin-logging",
+    "logback-classic",
+    "slf4j"
+]
+
+hoplite = [
+    "hoplite-core",
+    "hoplite-yaml"
+]
