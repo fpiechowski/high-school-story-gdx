@@ -18,20 +18,22 @@ sealed class MapRenderingSystem(
     override fun onTick() {
         mapManager.mapRenderer.value?.let { renderer ->
             renderer.setView(meterCamera)
-            mapManager.currentTiledMap.value?.let { map ->
-                val layerIndices =
-                    map.layers
-                        .mapIndexed { idx, layer -> idx to layer }
-                        .toMap()
-                        .filterValues { layer -> layer.name in layers.map { it.name } }
-                        .map { it.key }
+            mapManager.currentMap.value?.let { map ->
+                mapManager.currentTiledMap.value?.let { tiledMap ->
+                    val layerIndices =
+                        tiledMap.layers
+                            .mapIndexed { idx, layer -> idx to layer }
+                            .toMap()
+                            .filterValues { layer -> layer.name in layers.map { it.name } }
+                            .map { it.key }
 
-                when (renderer) {
-                    is ScrollingMapRenderer ->
-                        renderer
-                            .renderLooped(meterCamera, layerIndices.toIntArray())
-                            .also { renderer.update(deltaTime) }
-                    else -> renderer.render(layerIndices.toIntArray())
+                    when (renderer) {
+                        is EndlessMapRenderer ->
+                            renderer
+                                .renderEndless(meterCamera, layerIndices.toIntArray())
+
+                        else -> renderer.render(layerIndices.toIntArray())
+                    }
                 }
             }
         }

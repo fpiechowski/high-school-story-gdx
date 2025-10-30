@@ -2,31 +2,28 @@
 
 import com.badlogic.gdx.maps.tiled.TiledMap
 import kotlinx.coroutines.CompletableDeferred
+import kotlinx.coroutines.Deferred
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
+import ktx.assets.async.AssetStorage
 import ktx.assets.async.Identifier
+import org.koin.core.Koin
 import pro.piechowski.highschoolstory.asset.TiledMapIdentifierSerializer
-import pro.piechowski.highschoolstory.physics.MetersPerSeconds
 
 @Serializable
-class Map(
+open class Map(
     @Serializable(with = TiledMapIdentifierSerializer::class)
-    val assetIdentifier: Identifier<TiledMap>,
-    val scrolling: Scrolling? = null,
+    open val assetIdentifier: Identifier<TiledMap>,
 ) {
     @Transient
-    val tiledMap: CompletableDeferred<TiledMap> = CompletableDeferred()
+    context(koin: Koin)
+    val tiledMap: Deferred<TiledMap> get() = koin.get<AssetStorage>().loadAsync(assetIdentifier)
+}
 
-    @Serializable
-    sealed class Scrolling(
-        val speed: MetersPerSeconds,
-    ) {
-        class Horizontal(
-            speed: MetersPerSeconds,
-        ) : Scrolling(speed)
-
-        class Vertical(
-            speed: MetersPerSeconds,
-        ) : Scrolling(speed)
-    }
+class EndlessMap(
+    @Serializable(with = TiledMapIdentifierSerializer::class)
+    override val assetIdentifier: Identifier<TiledMap>,
+    val orientation: Orientation = Orientation.HORIZONTAL,
+) : Map(assetIdentifier) {
+    enum class Orientation { HORIZONTAL, VERTICAL }
 }

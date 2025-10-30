@@ -14,24 +14,26 @@ import kotlin.reflect.jvm.jvmName
 @Serializable
 sealed class Direction(
     @Contextual open val vector: Vector2,
+    open val angleDegrees: Float,
 ) : Vector2(vector.x, vector.y)
 
 sealed class Direction4(
     override val vector: Vector2,
-) : Direction(vector) {
-    data object Up : Direction4(Vector2(0f, 1f)) {
+    override val angleDegrees: Float,
+) : Direction(vector, angleDegrees) {
+    data object Up : Direction4(Vector2(0f, 1f), 0f) {
         private fun readResolve(): Any = Up
     }
 
-    data object Down : Direction4(Vector2(0f, -1f)) {
+    data object Down : Direction4(Vector2(0f, -1f), 180f) {
         private fun readResolve(): Any = Down
     }
 
-    data object Left : Direction4(Vector2(-1f, 0f)) {
+    data object Left : Direction4(Vector2(-1f, 0f), 90f) {
         private fun readResolve(): Any = Left
     }
 
-    data object Right : Direction4(Vector2(1f, 0f)) {
+    data object Right : Direction4(Vector2(1f, 0f), 270f) {
         private fun readResolve(): Any = Right
     }
 
@@ -69,36 +71,37 @@ sealed class Direction4(
 
 sealed class Direction8(
     override val vector: Vector2,
-) : Direction(vector) {
-    data object Up : Direction8(Vector2(0f, 1f)) {
+    override val angleDegrees: Float,
+) : Direction(vector, angleDegrees) {
+    data object Up : Direction8(Vector2(0f, 1f), 0f) {
         private fun readResolve(): Any = Up
     }
 
-    data object Down : Direction8(Vector2(0f, -1f)) {
+    data object Down : Direction8(Vector2(0f, -1f), 180f) {
         private fun readResolve(): Any = Down
     }
 
-    data object Left : Direction8(Vector2(-1f, 0f)) {
+    data object Left : Direction8(Vector2(-1f, 0f), 90f) {
         private fun readResolve(): Any = Left
     }
 
-    data object Right : Direction8(Vector2(1f, 0f)) {
+    data object Right : Direction8(Vector2(1f, 0f), 270f) {
         private fun readResolve(): Any = Right
     }
 
-    data object UpLeft : Direction8(Vector2(-1f, 1f)) {
+    data object UpLeft : Direction8(Vector2(-1f, 1f), 45f) {
         private fun readResolve(): Any = UpLeft
     }
 
-    data object UpRight : Direction8(Vector2(1f, 1f)) {
+    data object UpRight : Direction8(Vector2(1f, 1f), 315f) {
         private fun readResolve(): Any = UpRight
     }
 
-    data object DownLeft : Direction8(Vector2(-1f, -1f)) {
+    data object DownLeft : Direction8(Vector2(-1f, -1f), 135f) {
         private fun readResolve(): Any = DownLeft
     }
 
-    data object DownRight : Direction8(Vector2(1f, -1f)) {
+    data object DownRight : Direction8(Vector2(1f, -1f), 225f) {
         private fun readResolve(): Any = DownRight
     }
 

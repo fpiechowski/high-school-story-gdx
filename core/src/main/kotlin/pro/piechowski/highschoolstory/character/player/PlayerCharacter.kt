@@ -6,6 +6,7 @@ import com.github.quillraven.fleks.EntityCreateContext
 import com.github.quillraven.fleks.World
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import ktx.assets.async.AssetStorage

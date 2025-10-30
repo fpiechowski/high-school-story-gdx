@@ -2,12 +2,12 @@
 
 import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.graphics.g2d.TextureRegion
+import org.koin.core.Koin
 import pro.piechowski.highschoolstory.character.Character.Companion.HEIGHT_TO_DEPTH_RATIO
-import pro.piechowski.highschoolstory.character.rendering.CharacterSprite.Companion.ORIGIN_X
-import pro.piechowski.highschoolstory.character.rendering.CharacterSprite.Companion.ORIGIN_Y
+import pro.piechowski.highschoolstory.direction.Direction4
 import pro.piechowski.highschoolstory.exterior.ExteriorTexture
-import pro.piechowski.highschoolstory.physics.PIXELS_PER_METER
 import pro.piechowski.highschoolstory.physics.px
+import pro.piechowski.highschoolstory.sprite.CurrentSprite
 
 sealed class BusSprite(
     textureRegion: TextureRegion,
@@ -16,6 +16,37 @@ sealed class BusSprite(
         setOrigin(regionWidth.px.toMeter().value / 2, regionHeight.px.toMeter().value / HEIGHT_TO_DEPTH_RATIO)
         setOriginBasedPosition(0f, 0f)
         setSize(regionWidth.px.toMeter().value, regionHeight.px.toMeter().value)
+    }
+
+    companion object {
+        context(koin: Koin)
+        suspend operator fun invoke(
+            color: BusColor,
+            direction4: Direction4,
+        ) = with(koin) {
+            when (direction4) {
+                Direction4.Right ->
+                    when (color) {
+                        // TODO other colors than yellow
+                        else -> CurrentSprite(Yellow.Right(get<ExteriorTexture>()))
+                    }
+
+                Direction4.Down ->
+                    when (color) {
+                        else -> CurrentSprite(Yellow.Down(get<ExteriorTexture>()))
+                    }
+
+                Direction4.Left ->
+                    when (color) {
+                        else -> CurrentSprite(Yellow.Left(get<ExteriorTexture>()))
+                    }
+
+                Direction4.Up ->
+                    when (color) {
+                        else -> CurrentSprite(Yellow.Up(get<ExteriorTexture>()))
+                    }
+            }
+        }
     }
 
     sealed class Yellow(

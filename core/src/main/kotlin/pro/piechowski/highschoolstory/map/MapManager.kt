@@ -39,30 +39,36 @@ class MapManager : KoinComponent {
         placeManager.currentPlace
             .map { it?.map }
             .runningFold(null, ::replaceLoadedMapAsset)
-            .map { it?.apply { tiledMap.complete(assetStorage[it.assetIdentifier]) } }
             .flowOn(CoroutineContexts.IO)
-            .stateIn(coroutineScope, SharingStarted.Companion.Eagerly, null)
+            .stateIn(coroutineScope, SharingStarted.Eagerly, null)
 
     val currentTiledMap =
-        currentMap
-            .map { it?.tiledMap?.await() }
-            .stateIn(coroutineScope, SharingStarted.Companion.Eagerly, null)
+        with(getKoin()) {
+            currentMap
+                .map { it?.tiledMap?.await() }
+                .stateIn(coroutineScope, SharingStarted.Eagerly, null)
+        }
 
     val currentMapBodies =
         currentTiledMap
             .runningFold(
                 emptyList(),
                 ::replaceBodies,
-            ).stateIn(coroutineScope, SharingStarted.Companion.Eagerly, emptyList())
+            ).stateIn(coroutineScope, SharingStarted.Eagerly, emptyList())
 
     val mapRenderer =
-        currentMap
-            .filterNotNull()
-            .map { map ->
-                map.scrolling?.let { scroll ->
-                    ScrollingMapRenderer(map.tiledMap.await(), scroll, METERS_PER_PIXEL)
-                } ?: OrthogonalTiledMapRenderer(map.tiledMap.await(), METERS_PER_PIXEL)
-            }.stateIn(coroutineScope, SharingStarted.Companion.Eagerly, null)
+        with(getKoin()) {
+            currentMap
+                .filterNotNull()
+                .map { map ->
+                    when (map) {
+                        is EndlessMap ->
+                            EndlessMapRenderer(map, METERS_PER_PIXEL, map.orientation)
+
+                        else -> OrthogonalTiledMapRenderer(map.tiledMap.await(), METERS_PER_PIXEL)
+                    }
+                }.stateIn(coroutineScope, SharingStarted.Eagerly, null)
+        }
 
     private suspend fun replaceLoadedMapAsset(
         previousMap: Map?,
