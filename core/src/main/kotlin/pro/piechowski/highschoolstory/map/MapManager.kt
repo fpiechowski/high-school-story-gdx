@@ -62,8 +62,8 @@ class MapManager : KoinComponent {
                 .filterNotNull()
                 .map { map ->
                     when (map) {
-                        is EndlessMap ->
-                            EndlessMapRenderer(map, METERS_PER_PIXEL, map.orientation)
+                        is RepeatingMap ->
+                            RepeatingMapRenderer(map, METERS_PER_PIXEL, map.orientation)
 
                         else -> OrthogonalTiledMapRenderer(map.tiledMap.await(), METERS_PER_PIXEL)
                     }

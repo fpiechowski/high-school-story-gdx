@@ -1,8 +1,6 @@
 ﻿package pro.piechowski.highschoolstory.place
 
 import pro.piechowski.highschoolstory.asset.AssetIdentifiers
-import pro.piechowski.highschoolstory.map.EndlessMap
-import pro.piechowski.highschoolstory.map.Map
-import pro.piechowski.highschoolstory.physics.mps
+import pro.piechowski.highschoolstory.map.RepeatingMap
 
-object Road : Place("Road", EndlessMap(AssetIdentifiers.Maps.Road, EndlessMap.Orientation.HORIZONTAL))
+object Road : Place("Road", RepeatingMap(AssetIdentifiers.Maps.Road, RepeatingMap.Orientation.HORIZONTAL))

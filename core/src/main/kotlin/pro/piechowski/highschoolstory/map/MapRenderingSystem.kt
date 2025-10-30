@@ -28,7 +28,7 @@ sealed class MapRenderingSystem(
                             .map { it.key }
 
                     when (renderer) {
-                        is EndlessMapRenderer ->
+                        is RepeatingMapRenderer ->
                             renderer
                                 .renderEndless(meterCamera, layerIndices.toIntArray())
 

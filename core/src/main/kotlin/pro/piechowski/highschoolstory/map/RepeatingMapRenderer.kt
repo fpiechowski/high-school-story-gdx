@@ -16,18 +16,18 @@ import pro.piechowski.highschoolstory.physics.px
  * It renders three segments (head, middle, tail) along the chosen axis.
  * When the camera crosses a segment boundary, positions wrap seamlessly.
  */
-class EndlessMapRenderer(
+class RepeatingMapRenderer(
     tiledMap: TiledMap,
     unitScale: Float = 1f,
-    private val orientation: EndlessMap.Orientation = EndlessMap.Orientation.HORIZONTAL,
+    private val orientation: RepeatingMap.Orientation = RepeatingMap.Orientation.HORIZONTAL,
 ) : OrthogonalTiledMapRenderer(tiledMap, unitScale) {
     companion object {
         context(koin: Koin)
         suspend operator fun invoke(
-            endlessMap: EndlessMap,
+            repeatingMap: RepeatingMap,
             unitScale: Float = 1f,
-            orientation: EndlessMap.Orientation = EndlessMap.Orientation.HORIZONTAL,
-        ) = EndlessMapRenderer(endlessMap.tiledMap.await(), unitScale, orientation)
+            orientation: RepeatingMap.Orientation = RepeatingMap.Orientation.HORIZONTAL,
+        ) = RepeatingMapRenderer(repeatingMap.tiledMap.await(), unitScale, orientation)
     }
 
     private val mapWidth: Meter
@@ -48,12 +48,12 @@ class EndlessMapRenderer(
         mapHeight = (heightInTiles * tileHeight).px.toMeter()
 
         when (orientation) {
-            EndlessMap.Orientation.HORIZONTAL -> {
+            RepeatingMap.Orientation.HORIZONTAL -> {
                 midPos.set(0f, 0f)
                 headPos.set(-mapWidth.value, 0f)
                 tailPos.set(mapWidth.value, 0f)
             }
-            EndlessMap.Orientation.VERTICAL -> {
+            RepeatingMap.Orientation.VERTICAL -> {
                 midPos.set(0f, 0f)
                 headPos.set(0f, mapHeight.value)
                 tailPos.set(0f, -mapHeight.value)
@@ -67,8 +67,8 @@ class EndlessMapRenderer(
      */
     fun update(camera: OrthographicCamera) {
         when (orientation) {
-            EndlessMap.Orientation.HORIZONTAL -> updateHorizontal(camera)
-            EndlessMap.Orientation.VERTICAL -> updateVertical(camera)
+            RepeatingMap.Orientation.HORIZONTAL -> updateHorizontal(camera)
+            RepeatingMap.Orientation.VERTICAL -> updateVertical(camera)
         }
     }
 

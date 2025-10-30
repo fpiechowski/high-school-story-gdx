@@ -1,7 +1,6 @@
 ﻿package pro.piechowski.highschoolstory.map
 
 import com.badlogic.gdx.maps.tiled.TiledMap
-import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Deferred
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
@@ -20,7 +19,7 @@ open class Map(
     val tiledMap: Deferred<TiledMap> get() = koin.get<AssetStorage>().loadAsync(assetIdentifier)
 }
 
-class EndlessMap(
+class RepeatingMap(
     @Serializable(with = TiledMapIdentifierSerializer::class)
     override val assetIdentifier: Identifier<TiledMap>,
     val orientation: Orientation = Orientation.HORIZONTAL,
