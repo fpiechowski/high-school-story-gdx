@@ -11,4 +11,6 @@ dependencies {
     implementation(libs.bundles.hoplite)
     implementation(libs.koin)
     implementation(libs.fleks)
+    implementation(libs.junit)
+    implementation(libs.kotest.assertions)
 }

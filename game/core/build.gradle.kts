@@ -24,7 +24,7 @@ val koinVersion: String by project
 val koinAnnotationsVersion: String by project
 
 dependencies {
-    implementation(project(":engine:core"))
+    api(project(":engine:core"))
 
     api("com.badlogicgames.ashley:ashley:$ashleyVersion")
     api("com.badlogicgames.box2dlights:box2dlights:$box2dlightsVersion")
