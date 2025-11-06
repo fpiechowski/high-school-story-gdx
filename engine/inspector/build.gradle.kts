@@ -2,9 +2,9 @@ plugins {
     java
     application
     kotlin("jvm")
-    id("org.openjfx.javafxplugin") version "0.0.13"
-    id("org.beryx.jlink") version "2.25.0"
-    id("io.github.fpiechowski.hex") version "1.0.3"
+    alias(libs.plugins.javafx)
+    alias(libs.plugins.jlink)
+    alias(libs.plugins.hex)
 }
 
 group = "pro.piechowski.highschoolstory"
@@ -37,30 +37,24 @@ javafx {
 tasks.compileDomainJava
 
 dependencies {
-    val kotlinVersion: String by project
 
-    domainImplementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
-    domainImplementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
-    domainImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
+    domainImplementation(libs.bundles.kotlin)
     domainImplementation(project(":engine:inspector:runtime"))
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
+    implementation(libs.bundles.kotlin)
 
     implementation(project(":game:core"))
     implementation(project(":game:lwjgl3"))
     implementation(project(":engine:inspector:runtime"))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-javafx:1.10.2")
-    implementation("org.jetbrains.kotlinx:atomicfu:0.29.0")
-    implementation("io.github.classgraph:classgraph:4.8.165")
+    implementation(libs.kotlinx.coroutines.javafx)
+    implementation(libs.classgraph)
 
-    implementation("com.github.mouse0w0:darculafx:9.0.0")
+    implementation(libs.draculafx)
 
-    implementation("org.kordamp.ikonli:ikonli-javafx:12.4.0")
-    implementation("org.kordamp.ikonli:ikonli-fontawesome6-pack:12.4.0")
+    implementation(libs.ikonli.javafx)
+    implementation(libs.ikonli.fontawesome)
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+    testImplementation(libs.junit)
 }
 
 tasks.withType<Test> {

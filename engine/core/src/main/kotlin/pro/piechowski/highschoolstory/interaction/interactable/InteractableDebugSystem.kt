@@ -8,7 +8,7 @@ import com.github.quillraven.fleks.World
 import ktx.graphics.use
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import pro.piechowski.highschoolstory.interaction.interactor.InteractorEntity
+import pro.piechowski.highschoolstory.interaction.interactor.Interactor
 import pro.piechowski.highschoolstory.interaction.interactor.Interactors
 import pro.piechowski.highschoolstory.interaction.isInInteractionRangeOf
 import pro.piechowski.highschoolstory.physics.m
@@ -42,7 +42,7 @@ class InteractableDebugSystem :
         }
 
         world.Interactors.forEach {
-            val interactor = InteractorEntity(it)
+            val interactor = Interactor(it)
 
             if (interactable.isInInteractionRangeOf(interactor)) {
                 shaperRenderer.use(ShapeRenderer.ShapeType.Line) {

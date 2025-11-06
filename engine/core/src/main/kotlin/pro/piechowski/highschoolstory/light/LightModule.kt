@@ -2,6 +2,7 @@
 
 import box2dLight.RayHandler
 import org.koin.dsl.module
+import pro.piechowski.highschoolstory.rendering.light.LightRenderingSystem
 
 val LightModule =
     module {

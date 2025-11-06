@@ -7,11 +7,8 @@ import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.contextual
 import kotlinx.serialization.modules.polymorphic
 import pro.piechowski.highschoolstory.character.player.PlayerCharacterTag
-import pro.piechowski.highschoolstory.direction.Direction
-import pro.piechowski.highschoolstory.direction.Direction4
-import pro.piechowski.highschoolstory.physics.movement.facedirection.FaceDirection
-import pro.piechowski.highschoolstory.physics.movement.facedirection.FaceDirection4
-import pro.piechowski.highschoolstory.physics.movement.facedirection.FaceDirection8
+import pro.piechowski.highschoolstory.facedirection.FaceDirection4
+import pro.piechowski.highschoolstory.facedirection.FaceDirection8
 
 fun Json() =
     Json {

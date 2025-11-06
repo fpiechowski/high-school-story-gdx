@@ -1,9 +1,9 @@
 ﻿package pro.piechowski.highschoolstory.dialogue
 
 import org.koin.dsl.module
-import pro.piechowski.highschoolstory.dialogue.input.DialogueInputProcessor
-import pro.piechowski.highschoolstory.dialogue.ui.DialogueUserInterface
-import pro.piechowski.highschoolstory.dialogue.ui.DialogueUserInterfaceUpdater
+import pro.piechowski.highschoolstory.input.dialogue.DialogueInputProcessor
+import pro.piechowski.highschoolstory.ui.dialogue.DialogueUserInterface
+import pro.piechowski.highschoolstory.ui.dialogue.DialogueUserInterfaceUpdater
 
 val DialogueModule =
     module {

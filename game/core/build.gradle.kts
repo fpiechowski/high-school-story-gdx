@@ -26,6 +26,12 @@ val koinAnnotationsVersion: String by project
 dependencies {
     api(project(":engine:core"))
 
+    api(libs.bundles.kotlin)
+    api(libs.bundles.libgdx)
+    api(libs.bundles.ktx)
+    api(libs.bundles.logging)
+    api(libs.bundles.hoplite)
+
     api("com.badlogicgames.ashley:ashley:$ashleyVersion")
     api("com.badlogicgames.box2dlights:box2dlights:$box2dlightsVersion")
     api("com.badlogicgames.gdx-controllers:gdx-controllers-core:$gdxControllersVersion")

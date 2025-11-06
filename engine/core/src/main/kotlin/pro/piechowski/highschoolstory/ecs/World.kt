@@ -1,44 +1,67 @@
 ﻿package pro.piechowski.highschoolstory.ecs
 
 import com.github.quillraven.fleks.IntervalSystem
-import com.github.quillraven.fleks.SystemConfiguration
 import com.github.quillraven.fleks.World
 import com.github.quillraven.fleks.configureWorld
-import kotlinx.coroutines.flow.MutableStateFlow
 import org.koin.core.scope.Scope
 import pro.piechowski.highschoolstory.Config
 import pro.piechowski.highschoolstory.ecs.debug.debugSystems
 import pro.piechowski.highschoolstory.ecs.game.gameSystems
-import pro.piechowski.highschoolstory.ecs.input.inputSystems
 import pro.piechowski.highschoolstory.ecs.physics.physicsSystems
-import pro.piechowski.highschoolstory.ecs.rendering.setupRenderingSystems
+import pro.piechowski.highschoolstory.ecs.rendering.renderingSystems
+import pro.piechowski.highschoolstory.input.inputSystems
+import kotlin.collections.buildList
 
 context(scope: Scope)
 operator fun World.Companion.invoke() =
     with(scope) {
         configureWorld {
             systems {
-                inputSystems.forEach { add(it) }
+                val engineSystems =
+                    inputSystems + gameSystems + physicsSystems + renderingSystems +
+                        if (get<Config>().debug.enabled) {
+                            debugSystems
+                        } else {
+                            emptyList()
+                        }
 
-                gameSystems.forEach { add(it) }
+                val allSystems =
+                    getOrNull<SystemComposer>()
+                        ?.compose(engineSystems)
+                        ?: engineSystems
 
-                physicsSystems.forEach { add(it) }
-
-                setupRenderingSystems()
-
-                if (get<Config>().debug) {
-                    debugSystems.forEach { add(it) }
-                }
+                allSystems.forEach { add(it) }
             }
         }
     }
 
-context(scope: Scope, systemConfiguration: SystemConfiguration)
-inline fun <reified BEGIN : IntervalSystem, reified END : IntervalSystem> systemWrapper(block: () -> Unit) =
-    with(scope) {
-        with(systemConfiguration) {
-            add(get<BEGIN>())
-            block()
-            add(get<END>())
+fun interface SystemComposer {
+    fun compose(systems: List<IntervalSystem>): List<IntervalSystem>
+
+    companion object {
+        inline fun <reified T : IntervalSystem> List<IntervalSystem>.withAddedAfter(system: IntervalSystem): List<IntervalSystem> {
+            val index = indexOfFirst { it is T }
+
+            return if (index == -1) {
+                this
+            } else {
+                buildList(size + 1) {
+                    addAll(subList(0, index + 1))
+                    add(system)
+                    addAll(subList(index + 1, size))
+                }
+            }
+        }
+
+        inline fun <reified T : IntervalSystem> List<IntervalSystem>.withAddedBefore(newSystem: IntervalSystem): List<IntervalSystem> {
+            val index = indexOfFirst { it is T }
+            if (index == -1) return this
+
+            return buildList(size + 1) {
+                addAll(subList(0, index))
+                add(newSystem)
+                addAll(subList(index, size))
+            }
         }
     }
+}

@@ -17,13 +17,31 @@ kotlinx-coroutines = "1.10.2"
 hoplite = "2.9.0"
 junit = "5.13.4"
 kotest = "5.9.1"
+classgraph = "4.8.165"
+draculafx = "9.0.0"
+ikonli = "12.4.0"
+javafx-plugin = "0.0.13"
+jlink = "2.25.0"
+hex = "1.0.3"
+ktor = "3.3.1"
+ktlint = "13.1.0"
+ksp = "2.2.20-2.0.4"
+construo = "1.7.1"
 
 [plugins]
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+javafx = { id = "org.openjfx.javafxplugin", version.ref = "javafx-plugin" }
+jlink = { id = "org.beryx.jlink", version.ref = "jlink" }
+hex = { id = "io.github.fpiechowski.hex", version.ref = "hex" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+construo = { id = "io.github.fourlastor.construo", version.ref = "construo" }
 
 [libraries]
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-javafx = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-javafx", version.ref = "kotlinx-coroutines" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
 
@@ -34,6 +52,7 @@ libgdx-box2d = { module = "com.badlogicgames.gdx:gdx-box2d", version.ref = "libg
 libgdx-freetype = { module = "com.badlogicgames.gdx:gdx-freetype", version.ref = "libgdx" }
 libgdx = { module = "com.badlogicgames.gdx:gdx", version.ref = "libgdx" }
 libgdx-visui = { module = "com.kotcrab.vis:vis-ui", version.ref = "libgdx-visui" }
+libgdx-lwjgl3 = { module = "com.badlogicgames.gdx:gdx-backend-lwjgl3", version.ref = "libgdx" }
 
 ktx-actors = { module = "io.github.libktx:ktx-actors", version.ref = "ktx" }
 ktx-ai = { module = "io.github.libktx:ktx-ai", version.ref = "ktx" }
@@ -66,6 +85,14 @@ slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback-classic" }
 hoplite-core = { module = "com.sksamuel.hoplite:hoplite-core", version.ref = "hoplite" }
 hoplite-yaml = { module = "com.sksamuel.hoplite:hoplite-yaml", version.ref = "hoplite" }
+classgraph = { module = "io.github.classgraph:classgraph", version.ref = "classgraph" }
+draculafx = { module = "com.github.mouse0w0:darculafx", version.ref = "draculafx" }
+ikonli-javafx = { module = "org.kordamp.ikonli:ikonli-javafx", version.ref = "ikonli" }
+ikonli-fontawesome = { module = "org.kordamp.ikonli:ikonli-fontawesome6-pack", version.ref = "ikonli" }
+ktor-server-core = {module = "io.ktor:ktor-server-core", version.ref = "ktor"}
+ktor-server-netty = {module = "io.ktor:ktor-server-netty", version.ref = "ktor"}
+ktor-server-content-negotiation = {module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor"}
+ktor-serialization-kotlinx-json = {module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor"}
 
 junit = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
 kotest-assertions = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
@@ -73,6 +100,7 @@ kotest-assertions = { module = "io.kotest:kotest-assertions-core", version.ref =
 [bundles]
 kotlin = [
     "kotlin-stdlib",
+    "kotlin-reflect",
     "kotlinx-coroutines",
     "kotlinx-datetime",
     "kotlinx-serialization-json"
@@ -123,4 +151,11 @@ logging = [
 hoplite = [
     "hoplite-core",
     "hoplite-yaml"
+]
+
+ktor-server = [
+    "ktor-server-core",
+    "ktor-server-netty",
+    "ktor-server-content-negotiation",
+    "ktor-serialization-kotlinx-json"
 ]

@@ -26,7 +26,7 @@ class InteractorDebugSystem :
         Gdx.gl.glEnable(GL20.GL_BLEND)
         Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA)
 
-        val interactor = InteractorEntity(entity)
+        val interactor = Interactor(entity)
 
         shapeRenderer.use(ShapeRenderer.ShapeType.Filled, meterCamera) {
             it.color = Color.BLUE.cpy().also { it.a = 0.1f }

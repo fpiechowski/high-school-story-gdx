@@ -9,8 +9,8 @@ import pro.piechowski.highschoolstory.Config
 import pro.piechowski.highschoolstory.debug.camera.DebugCameraControlInputProcessor
 import pro.piechowski.highschoolstory.debug.highlight.DebugEntityHighlightInputProcessor
 import pro.piechowski.highschoolstory.debug.selection.DebugSelectionInputProcessor
-import pro.piechowski.highschoolstory.dialogue.input.DialogueInputProcessor
-import pro.piechowski.highschoolstory.interaction.input.InteractionInputProcessor
+import pro.piechowski.highschoolstory.input.dialogue.DialogueInputProcessor
+import pro.piechowski.highschoolstory.input.interaction.InteractionInputProcessor
 
 class GameInputMultiplexer :
     InputMultiplexer(),
@@ -27,7 +27,7 @@ class GameInputMultiplexer :
     private val logger = KotlinLogging.logger { }
 
     init {
-        if (config.debug) {
+        if (config.debug.enabled) {
             addProcessor(debugSelectionInputProcessor)
             addProcessor(debugEntityHighlightInputProcessor)
             addProcessor(debugCameraMovementInputProcessor)

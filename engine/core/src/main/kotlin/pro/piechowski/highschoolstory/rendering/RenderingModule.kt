@@ -2,10 +2,11 @@
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import org.koin.dsl.module
-import pro.piechowski.highschoolstory.animation.SpriteAnimationSystem
+import pro.piechowski.highschoolstory.animation.sprite.SpriteAnimationSystem
+import pro.piechowski.highschoolstory.rendering.sprite.SpriteRenderingSystem
 import pro.piechowski.highschoolstory.shader.ShaderManager
 import pro.piechowski.highschoolstory.sprite.CurrentSpritePositionSystem
-import pro.piechowski.highschoolstory.sprite.SpriteRenderingSystem
+import pro.piechowski.highschoolstory.ui.UserInterfaceSystem
 
 val RenderingModule =
     module {
@@ -14,4 +15,5 @@ val RenderingModule =
         single { SpriteAnimationSystem() }
         single { ShapeRenderer() }
         single { ShaderManager() }
+        single { UserInterfaceSystem() }
     }

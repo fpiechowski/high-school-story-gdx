@@ -4,9 +4,9 @@ plugins {
     idea
     eclipse
     kotlin("jvm") version "2.2.20"
-    kotlin("plugin.serialization") version "2.2.20"
-    id("org.jlleitschuh.gradle.ktlint") version "13.0.0"
-    id("com.google.devtools.ksp") version "2.2.20-2.0.4"
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ktlint)
+    alias(libs.plugins.ksp)
 }
 
 allprojects {

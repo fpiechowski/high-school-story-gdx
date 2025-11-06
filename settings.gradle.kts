@@ -3,4 +3,4 @@ plugins {
 }
 
 include(":game:core", ":game:lwjgl3")
-include(":engine:inspector", ":engine:inspector:runtime", ":engine:core")
+include(":engine:inspector", ":engine:inspector:runtime", ":engine:core", ":engine:inspector:plugin")

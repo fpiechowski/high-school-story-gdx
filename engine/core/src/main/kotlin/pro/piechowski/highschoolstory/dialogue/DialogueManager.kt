@@ -1,37 +1,37 @@
 ﻿package pro.piechowski.highschoolstory.dialogue
 
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.flow.updateAndGet
 import kotlinx.coroutines.launch
 import ktx.async.KtxAsync
-import ktx.async.onRenderingThread
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import pro.piechowski.highschoolstory.CoroutineContexts
-import pro.piechowski.highschoolstory.dialogue.ui.DialogueUserInterfaceUpdater
-import pro.piechowski.highschoolstory.input.InputState
+import pro.piechowski.highschoolstory.input.InputManager
+import pro.piechowski.highschoolstory.input.InputOwner
+import pro.piechowski.highschoolstory.ui.dialogue.DialogueUserInterfaceUpdater
 
-class DialogueManager : KoinComponent {
+class DialogueManager :
+    KoinComponent,
+    InputOwner {
     private val _currentDialogueState = MutableStateFlow<DialogueState?>(null)
     val currentDialogueState = _currentDialogueState.asStateFlow()
 
-    private val inputState: InputState by inject()
-    private val dialogueUserInterfaceUpdater: DialogueUserInterfaceUpdater by inject()
+    private val inputManager: InputManager by inject()
 
     init {
         KtxAsync.launch(CoroutineContexts.Logic) {
             _currentDialogueState.collect { currentDialogueState ->
-                if (currentDialogueState == null) {
-                    inputState.mode.value = InputState.Mode.EXPLORATION
-                } else {
-                    inputState.mode.value = InputState.Mode.DIALOGUE
+                when {
+                    currentDialogueState == null && inputManager.owner.value == this -> inputManager.revokeOwnership()
+                    currentDialogueState != null -> {
+                        inputManager.passOwnership(this@DialogueManager)
 
-                    if (currentDialogueState.currentNode is Dialogue.Node.End) {
-                        _currentDialogueState.value = null
-                        currentDialogueState.job.complete()
+                        if (currentDialogueState.currentNode is Dialogue.Node.End) {
+                            _currentDialogueState.value = null
+                            currentDialogueState.job.complete()
+                        }
                     }
                 }
             }

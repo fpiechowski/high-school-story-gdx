@@ -1,7 +1,7 @@
 ﻿package pro.piechowski.highschoolstory.map
 
 import org.koin.dsl.module
-import pro.piechowski.highschoolstory.place.PlaceManager
+import pro.piechowski.highschoolstory.rendering.map.MapRenderingSystem
 
 val MapModule =
     module {

@@ -2,6 +2,8 @@
 
 import com.github.quillraven.fleks.Entity
 
-interface GameObject {
+interface GameObject
+
+interface EntityGameObject {
     val entity: Entity
 }

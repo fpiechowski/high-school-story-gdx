@@ -1,12 +1,12 @@
 import io.github.fourlastor.construo.Target
-import java.util.*
+import java.util.Locale
 
 val enableGraalNative: String by project
 
 plugins {
     application
     kotlin("jvm")
-    id("io.github.fourlastor.construo") version "1.7.1"
+    alias(libs.plugins.construo)
 }
 
 sourceSets.main { resources.srcDirs(parent!!.file("assets").path) }
@@ -29,7 +29,7 @@ dependencies {
     implementation("com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop")
     implementation("com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop")
     implementation("com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop")
-    implementation(project(":game:core"))
+    api(project(":game:core"))
     implementation(project(":engine:inspector:runtime"))
     implementation("com.badlogicgames.gdx:gdx-tools:$gdxVersion") {
         exclude(group = "com.badlogicgames.gdx", module = "gdx-backend-lwjgl")
@@ -228,7 +228,7 @@ distributions {
 }
 
 tasks.named<CreateStartScripts>("startScripts") {
-    dependsOn(":lwjgl3:jar")
+    dependsOn(":game:lwjgl3:jar")
     classpath =
         files(
             project.tasks

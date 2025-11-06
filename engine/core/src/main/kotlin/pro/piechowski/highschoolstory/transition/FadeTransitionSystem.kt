@@ -8,14 +8,14 @@ import com.github.quillraven.fleks.IntervalSystem
 import ktx.graphics.use
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import pro.piechowski.highschoolstory.camera.CameraSet
+import pro.piechowski.highschoolstory.camera.MeterCamera
 
 class FadeTransitionSystem :
     IntervalSystem(),
     KoinComponent {
     private val transitionManager by inject<TransitionManager>()
     private val shapeRenderer by inject<ShapeRenderer>()
-    private val cameraSet by inject<CameraSet>()
+    private val meterCamera by inject<MeterCamera>()
 
     override fun onTick() {
         Gdx.gl.glEnable(GL20.GL_BLEND)
@@ -25,10 +25,10 @@ class FadeTransitionSystem :
             if (currentTransition is Transition.FadeBlack) {
                 transitionManager.update(deltaTime)
 
-                val rectX = cameraSet.meterCamera.position.x - cameraSet.meterCamera.viewportWidth / 2
-                val rectY = cameraSet.meterCamera.position.y - cameraSet.meterCamera.viewportHeight / 2
+                val rectX = meterCamera.position.x - meterCamera.viewportWidth / 2
+                val rectY = meterCamera.position.y - meterCamera.viewportHeight / 2
 
-                shapeRenderer.use(ShapeRenderer.ShapeType.Filled, cameraSet.meterCamera) {
+                shapeRenderer.use(ShapeRenderer.ShapeType.Filled, meterCamera) {
                     it.color =
                         Color.BLACK.cpy().apply {
                             a =
@@ -38,7 +38,7 @@ class FadeTransitionSystem :
                                 }
                         }
 
-                    it.rect(rectX, rectY, cameraSet.meterCamera.viewportWidth, cameraSet.meterCamera.viewportHeight)
+                    it.rect(rectX, rectY, meterCamera.viewportWidth, meterCamera.viewportHeight)
                 }
             }
         }

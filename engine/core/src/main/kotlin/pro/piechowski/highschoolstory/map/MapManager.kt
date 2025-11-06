@@ -28,6 +28,7 @@ import pro.piechowski.highschoolstory.gdx.PhysicsWorld
 import pro.piechowski.highschoolstory.physics.METERS_PER_PIXEL
 import pro.piechowski.highschoolstory.physics.px
 import pro.piechowski.highschoolstory.place.PlaceManager
+import pro.piechowski.highschoolstory.rendering.map.RepeatingMapRenderer
 
 class MapManager : KoinComponent {
     private val placeManager by inject<PlaceManager>()

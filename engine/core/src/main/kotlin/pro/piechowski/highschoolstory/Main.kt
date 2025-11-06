@@ -2,9 +2,8 @@ package pro.piechowski.highschoolstory
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.scenes.scene2d.ui.Skin
+import com.github.quillraven.fleks.IntervalSystem
 import com.kotcrab.vis.ui.VisUI
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import ktx.app.KtxGame
 import ktx.app.KtxScreen
 import ktx.async.KtxAsync
@@ -15,14 +14,10 @@ import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
 import org.koin.core.module.Module
 
-class Main : KtxGame<KtxScreen>() {
+class Main(
+    private val koin: Koin,
+) : KtxGame<KtxScreen>() {
     override fun create() {
-        val koin =
-            startKoin {}
-                .koin
-
-        koin.loadModules(listOf(mainModule()))
-
         KtxAsync.initiate()
 
         if (!VisUI.isLoaded()) VisUI.load()
@@ -41,9 +36,9 @@ class Main : KtxGame<KtxScreen>() {
     }
 
     context(koin: Koin)
-    fun startGame() {
-        loadKoinModules(koin.get<Module>(gameModuleQualifier))
-        addScreen(koin.get<GameScreen>())
+    private fun startGame() {
+        loadKoinModules(get<Module>(gameModuleQualifier))
+        addScreen(get<GameScreen>())
         setScreen<GameScreen>()
     }
 }

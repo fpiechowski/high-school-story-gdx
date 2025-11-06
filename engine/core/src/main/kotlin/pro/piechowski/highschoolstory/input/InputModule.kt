@@ -4,8 +4,9 @@ import org.koin.dsl.module
 
 val MainInputModule =
     module {
-        single { InputState() }
+        single { InputManager() }
         single { GameInputMultiplexer() }
+        single { InputMapping() }
     }
 
 val GameInputModule =

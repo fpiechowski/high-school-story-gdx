@@ -5,12 +5,12 @@ import com.github.quillraven.fleks.EntityComponentContext
 import com.github.quillraven.fleks.IteratingSystem
 import com.github.quillraven.fleks.World
 import ktx.math.minus
+import pro.piechowski.highschoolstory.input.interaction.InteractionInput
 import pro.piechowski.highschoolstory.interaction.InteractionSystem.Companion.interactionRange
-import pro.piechowski.highschoolstory.interaction.input.InteractionInput
 import pro.piechowski.highschoolstory.interaction.interactable.Interactable
 import pro.piechowski.highschoolstory.interaction.interactable.InteractableEntity
 import pro.piechowski.highschoolstory.interaction.interactable.Interactables
-import pro.piechowski.highschoolstory.interaction.interactor.InteractorEntity
+import pro.piechowski.highschoolstory.interaction.interactor.Interactor
 import pro.piechowski.highschoolstory.interaction.interactor.Interactors
 import pro.piechowski.highschoolstory.physics.m
 
@@ -24,7 +24,7 @@ class InteractionSystem :
         if (interactionInput.interacting) {
             val interactables =
                 world.Interactables.filter {
-                    InteractableEntity(it).isInInteractionRangeOf(InteractorEntity(entity))
+                    InteractableEntity(it).isInInteractionRangeOf(Interactor(entity))
                 }
 
             interactables.forEach {
@@ -41,12 +41,12 @@ class InteractionSystem :
 }
 
 context(ecc: EntityComponentContext)
-fun InteractableEntity.isInInteractionRangeOf(interactorEntity: InteractorEntity): Boolean =
+fun InteractableEntity.isInInteractionRangeOf(interactor: Interactor): Boolean =
     with(ecc) {
         val interactablePosition = this@isInInteractionRangeOf.position
-        val interactorFaceDirection = interactorEntity.faceDirection
+        val interactorFaceDirection = interactor.faceDirection
 
-        val fromInteractorToInteractable = (interactablePosition - interactorEntity.position)
+        val fromInteractorToInteractable = (interactablePosition - interactor.position)
 
         val inRange = fromInteractorToInteractable.len() <= interactionRange.value
 

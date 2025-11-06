@@ -3,9 +3,10 @@
 import com.badlogic.gdx.Input
 import com.badlogic.gdx.math.Vector2
 import ktx.app.KtxInputAdapter
+import ktx.graphics.moveTo
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import pro.piechowski.highschoolstory.camera.CameraSet
+import pro.piechowski.highschoolstory.camera.MeterCamera
 import pro.piechowski.highschoolstory.physics.m
 import pro.piechowski.highschoolstory.physics.px
 import pro.piechowski.highschoolstory.physics.times
@@ -13,7 +14,7 @@ import pro.piechowski.highschoolstory.physics.times
 class DebugCameraControlInputProcessor :
     KtxInputAdapter,
     KoinComponent {
-    private val cameraSet by inject<CameraSet>()
+    private val meterCamera by inject<MeterCamera>()
 
     private var dragging = false
     private var previousDragPosition: Vector2? = null
@@ -64,8 +65,8 @@ class DebugCameraControlInputProcessor :
                 delta.y = -delta.y
 
                 // Move camera by delta
-                val camPos = cameraSet.meterCamera.position
-                cameraSet.moveTo((camPos.x - delta.x) * m, (camPos.y - delta.y) * m)
+                val camPos = meterCamera.position
+                meterCamera.moveTo((camPos.x - delta.x) * m, (camPos.y - delta.y) * m)
 
                 // Update previous position for next frame
                 previousDragPosition = current
@@ -79,7 +80,7 @@ class DebugCameraControlInputProcessor :
         amountX: Float,
         amountY: Float,
     ): Boolean {
-        cameraSet.zoom(1f + amountY * ZOOM_AMOUNT_MODIFIER)
+        meterCamera.zoom(1f + amountY * ZOOM_AMOUNT_MODIFIER)
 
         return true
     }
