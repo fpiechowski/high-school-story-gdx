@@ -64,25 +64,25 @@ sealed class CharacterAnimation(
         class Up(
             spriteSheet: CharacterSpriteSheet,
         ) : Walk(
-                spriteSheet.getAnimationFrames(Idle.Companion.kind, Direction4.Right),
+                spriteSheet.getAnimationFrames(Idle.kind, Direction4.Right),
             )
 
         class Down(
             spriteSheet: CharacterSpriteSheet,
         ) : Walk(
-                spriteSheet.getAnimationFrames(Idle.Companion.kind, Direction4.Right),
+                spriteSheet.getAnimationFrames(Idle.kind, Direction4.Right),
             )
 
         class Left(
             spriteSheet: CharacterSpriteSheet,
         ) : Walk(
-                spriteSheet.getAnimationFrames(Idle.Companion.kind, Direction4.Right),
+                spriteSheet.getAnimationFrames(Idle.kind, Direction4.Right),
             )
 
         class Right(
             spriteSheet: CharacterSpriteSheet,
         ) : Walk(
-                spriteSheet.getAnimationFrames(Idle.Companion.kind, Direction4.Right),
+                spriteSheet.getAnimationFrames(Idle.kind, Direction4.Right),
             )
     }
 }
