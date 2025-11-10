@@ -7,6 +7,7 @@ include(":game:core", ":game:lwjgl3")
 include(":engine:core")
 include(":engine:inspector", ":engine:inspector:runtime", ":engine:inspector:plugin")
 include(
+    ":engine:gameplay",
     ":engine:gameplay:story",
     ":engine:gameplay:character",
     ":engine:gameplay:dialogue",

@@ -5,19 +5,12 @@ import kotlinx.coroutines.flow.asStateFlow
 import org.koin.core.component.KoinComponent
 
 class CameraManager : KoinComponent {
-    private val _followingPlayerCharacter = MutableStateFlow(false)
+    interface Mode
 
-    val followingPlayerCharacter = _followingPlayerCharacter.asStateFlow()
-    var followingPlayerCharacterValue get() = _followingPlayerCharacter.value
-        set(value) {
-            _followingPlayerCharacter.value = value
-        }
+    private val _strategy = MutableStateFlow<Mode>(DefaultCameraMode)
+    val strategy = _strategy.asStateFlow()
 
-    fun followPlayerCharacter() {
-        followingPlayerCharacterValue = true
-    }
-
-    fun stopFollowingPlayerCharacter() {
-        followingPlayerCharacterValue = false
+    fun setStrategy(mode: Mode) {
+        _strategy.value = mode
     }
 }

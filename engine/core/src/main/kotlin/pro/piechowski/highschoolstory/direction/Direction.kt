@@ -49,7 +49,8 @@ sealed class Direction4(
     }
 
     object Serializer : KSerializer<Direction4> {
-        override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor(Direction4::class.jvmName, PrimitiveKind.STRING)
+        override val descriptor: SerialDescriptor =
+            PrimitiveSerialDescriptor(Direction4::class.jvmName, PrimitiveKind.STRING)
 
         override fun serialize(
             encoder: Encoder,
@@ -134,7 +135,8 @@ sealed class Direction8(
     }
 
     object Serializer : KSerializer<Direction8> {
-        override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor(Direction8::class.jvmName, PrimitiveKind.STRING)
+        override val descriptor: SerialDescriptor =
+            PrimitiveSerialDescriptor(Direction8::class.jvmName, PrimitiveKind.STRING)
 
         override fun serialize(
             encoder: Encoder,

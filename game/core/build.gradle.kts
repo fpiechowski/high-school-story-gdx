@@ -36,6 +36,8 @@ dependencies {
     api(libs.bundles.ktx)
     api(libs.bundles.logging)
     api(libs.bundles.hoplite)
+    api(libs.koin)
+    api(libs.fleks)
 }
 
 tasks.test {

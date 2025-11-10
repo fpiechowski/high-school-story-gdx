@@ -1,10 +1,8 @@
 ﻿package pro.piechowski.highschoolstory.input
 
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
@@ -16,7 +14,8 @@ class InputManager {
 
     private val owners: MutableStateFlow<ArrayDeque<InputOwner>> = MutableStateFlow(ArrayDeque())
 
-    val owner = owners.map { it.lastOrNull() }.stateIn(coroutineScope, SharingStarted.Eagerly, owners.value.firstOrNull())
+    val owner =
+        owners.map { it.lastOrNull() }.stateIn(coroutineScope, SharingStarted.Eagerly, owners.value.firstOrNull())
 
     fun passOwnership(owner: InputOwner) {
         if (owner != this.owner.value) {

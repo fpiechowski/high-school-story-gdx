@@ -7,7 +7,6 @@ import com.github.quillraven.fleks.World
 import pro.piechowski.highschoolstory.facedirection.FaceDirection
 import pro.piechowski.highschoolstory.facedirection.FaceDirection4
 import pro.piechowski.highschoolstory.facedirection.FaceDirection8
-import pro.piechowski.highschoolstory.facedirection.get
 import pro.piechowski.highschoolstory.input.InputOwner
 import pro.piechowski.highschoolstory.input.interaction.InteractionInput
 import pro.piechowski.highschoolstory.physics.body.PhysicsBody

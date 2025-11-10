@@ -50,24 +50,25 @@ class FleksECS(
                 }
         }
 
-    private val World.entityComponents get() =
-        componentService
-            .holdersBag
-            .values
-            .filterNotNull()
-            .flatMap { holder ->
-                asEntityBag().map { entity ->
-                    entity to holder.getOrNull(entity)
+    private val World.entityComponents
+        get() =
+            componentService
+                .holdersBag
+                .values
+                .filterNotNull()
+                .flatMap { holder ->
+                    asEntityBag().map { entity ->
+                        entity to holder.getOrNull(entity)
+                    }
+                }.filter { it.second != null }
+                .map { it.first to it.second!! }
+                .map {
+                    ECS.Entity(it.first.id) to
+                        ECS.Component(
+                            ECS.ComponentType(it.second::class.fullTypeName),
+                            it.second,
+                        )
+                }.groupBy(keySelector = { it.first }) {
+                    it.second
                 }
-            }.filter { it.second != null }
-            .map { it.first to it.second!! }
-            .map {
-                ECS.Entity(it.first.id) to
-                    ECS.Component(
-                        ECS.ComponentType(it.second::class.fullTypeName),
-                        it.second,
-                    )
-            }.groupBy(keySelector = { it.first }) {
-                it.second
-            }
 }

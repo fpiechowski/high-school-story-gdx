@@ -1,6 +1,7 @@
 ﻿# 📦 Game Modules Outline – *High School Story*
 
-This document outlines the major gameplay systems and modules used in *High School Story*. Each module represents an isolated mechanic or system that can be documented, designed, implemented, and iterated independently.
+This document outlines the major gameplay systems and modules used in *High School Story*. Each module represents an
+isolated mechanic or system that can be documented, designed, implemented, and iterated independently.
 
 ---
 

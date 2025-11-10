@@ -19,5 +19,6 @@ dependencies {
 
     implementation(project(":engine:core"))
     implementation(project(":engine:gameplay:dialogue"))
+    implementation(project(":engine:gameplay:interaction"))
     implementation(project(":engine:inspector:runtime"))
 }

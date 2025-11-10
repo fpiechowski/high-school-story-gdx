@@ -9,6 +9,5 @@ import pro.piechowski.highschoolstory.lwjgl3.Launcher
 @ExperimentalContextParameters
 fun main() {
     Launcher.launch {
-
     }
 }

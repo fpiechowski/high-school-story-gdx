@@ -24,14 +24,12 @@ import ktx.box2d.loop
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import pro.piechowski.highschoolstory.CoroutineContexts
-import pro.piechowski.highschoolstory.gdx.PhysicsWorld
 import pro.piechowski.highschoolstory.physics.METERS_PER_PIXEL
+import pro.piechowski.highschoolstory.physics.PhysicsWorld
 import pro.piechowski.highschoolstory.physics.px
-import pro.piechowski.highschoolstory.place.PlaceManager
 import pro.piechowski.highschoolstory.rendering.map.RepeatingMapRenderer
 
 class MapManager : KoinComponent {
-    private val placeManager by inject<PlaceManager>()
     private val assetStorage by inject<AssetStorage>()
     private val physicsWorld by inject<PhysicsWorld>()
     private val coroutineScope = RenderingScope()

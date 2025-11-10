@@ -2,5 +2,6 @@
 
 import kotlin.reflect.KClass
 
-val KClass<*>.fullTypeName get() =
-    this.qualifiedName?.removePrefix(this.java.packageName + ".") ?: "Unknown"
+val KClass<*>.fullTypeName
+    get() =
+        this.qualifiedName?.removePrefix(this.java.packageName + ".") ?: "Unknown"

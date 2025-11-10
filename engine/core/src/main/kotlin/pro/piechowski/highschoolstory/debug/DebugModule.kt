@@ -1,5 +1,8 @@
 ﻿package pro.piechowski.highschoolstory.debug
 
+import com.badlogic.gdx.InputProcessor
+import ktx.app.KtxInputAdapter
+import org.koin.dsl.bind
 import org.koin.dsl.module
 import pro.piechowski.highschoolstory.debug.camera.DebugCameraControlInputProcessor
 import pro.piechowski.highschoolstory.debug.highlight.DebugEntityHighlightInputProcessor
@@ -13,11 +16,11 @@ import pro.piechowski.highschoolstory.debug.ui.DebugUserInterface
 val DebugModule =
     module {
         single { DebugEntitySelectionManager() }
-        single { DebugSelectionInputProcessor() }
+        single { DebugSelectionInputProcessor() } bind InputProcessor::class
         single { DebugSelectionIndicatorRenderingSystem() }
 
         single { DebugEntityHighlightManager() }
-        single { DebugEntityHighlightInputProcessor() }
+        single { DebugEntityHighlightInputProcessor() } bind InputProcessor::class
         single { DebugEntityHighlightRenderingSystem() }
 
         single { DebugCameraControlInputProcessor() }

@@ -26,40 +26,41 @@ class FleksEntityComponentsProvider : KoinComponent {
     private val <T> Bag<T>.values
         get() = propertyValue<Bag<T>, Array<T>>("values")
 
-    val entityComponents get() =
-        with(world) {
-            ObjectGraph.Builder().let { graphBuilder ->
-                val entityComponents =
-                    componentService
-                        .holdersBag
-                        .values
-                        .filterNotNull()
-                        .flatMap { holder ->
-                            asEntityBag().map { entity ->
-                                entity to holder.getOrNull(entity)
-                            }
-                        }.filter { it.second != null }
-                        .map { it.first to it.second!! }
-                        .map {
-                            with(getKoin()) {
-                                with(graphBuilder) {
-                                    with(this@FleksEntityComponentsProvider.logger) {
-                                        Entity(it.first.id) to
-                                            Component(
-                                                ComponentType(it.second::class.fullTypeName),
-                                                Object.from(it.second),
-                                            )
+    val entityComponents
+        get() =
+            with(world) {
+                ObjectGraph.Builder().let { graphBuilder ->
+                    val entityComponents =
+                        componentService
+                            .holdersBag
+                            .values
+                            .filterNotNull()
+                            .flatMap { holder ->
+                                asEntityBag().map { entity ->
+                                    entity to holder.getOrNull(entity)
+                                }
+                            }.filter { it.second != null }
+                            .map { it.first to it.second!! }
+                            .map {
+                                with(getKoin()) {
+                                    with(graphBuilder) {
+                                        with(this@FleksEntityComponentsProvider.logger) {
+                                            Entity(it.first.id) to
+                                                Component(
+                                                    ComponentType(it.second::class.fullTypeName),
+                                                    Object.from(it.second),
+                                                )
+                                        }
                                     }
                                 }
+                            }.groupBy(keySelector = { it.first }) {
+                                it.second
                             }
-                        }.groupBy(keySelector = { it.first }) {
-                            it.second
-                        }
 
-                EntityComponents(
-                    graphBuilder.build(),
-                    entityComponents,
-                )
+                    EntityComponents(
+                        graphBuilder.build(),
+                        entityComponents,
+                    )
+                }
             }
-        }
 }

@@ -1,21 +1,16 @@
 ﻿package pro.piechowski.highschoolstory.inspector
 
-import com.github.quillraven.fleks.EntityComponentContext
 import com.github.quillraven.fleks.World
 import io.github.oshai.kotlinlogging.KLogger
 import io.github.oshai.kotlinlogging.KotlinLogging
 import kotlinx.coroutines.flow.StateFlow
 import org.koin.core.Koin
-import org.koin.core.scope.Scope
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty
 import kotlin.reflect.KProperty1
-import kotlin.reflect.full.contextParameters
-import kotlin.reflect.full.isSubclassOf
 import kotlin.reflect.full.isSubtypeOf
 import kotlin.reflect.full.isSuperclassOf
 import kotlin.reflect.full.memberProperties
-import kotlin.reflect.full.starProjectedType
 import kotlin.reflect.jvm.isAccessible
 import kotlin.reflect.typeOf
 

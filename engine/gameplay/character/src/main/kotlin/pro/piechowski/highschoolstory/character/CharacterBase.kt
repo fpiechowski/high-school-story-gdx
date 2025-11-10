@@ -10,15 +10,15 @@ import org.koin.core.Koin
 import pro.piechowski.highschoolstory.Name
 import pro.piechowski.highschoolstory.animation.CurrentAnimation
 import pro.piechowski.highschoolstory.animation.Direction4AnimationSet
-import pro.piechowski.highschoolstory.animation.character.CharacterAnimation
 import pro.piechowski.highschoolstory.animation.movement.MovementAnimationSet
+import pro.piechowski.highschoolstory.character.animation.CharacterAnimationBase
+import pro.piechowski.highschoolstory.character.physics.body.CharacterBody
 import pro.piechowski.highschoolstory.dialogue.Dialogue
 import pro.piechowski.highschoolstory.dialogue.DialogueBuilder
 import pro.piechowski.highschoolstory.direction.Direction8
 import pro.piechowski.highschoolstory.ecs.Archetype
 import pro.piechowski.highschoolstory.ecs.get
 import pro.piechowski.highschoolstory.facedirection.FaceDirection8
-import pro.piechowski.highschoolstory.gdx.PhysicsWorld
 import pro.piechowski.highschoolstory.get
 import pro.piechowski.highschoolstory.input.interaction.InteractionInput
 import pro.piechowski.highschoolstory.input.movement.MovementInput
@@ -27,8 +27,8 @@ import pro.piechowski.highschoolstory.movement.Speed
 import pro.piechowski.highschoolstory.`object`.Kinetic
 import pro.piechowski.highschoolstory.`object`.Spatial
 import pro.piechowski.highschoolstory.`object`.Visual
+import pro.piechowski.highschoolstory.physics.PhysicsWorld
 import pro.piechowski.highschoolstory.physics.body.PhysicsBody
-import pro.piechowski.highschoolstory.physics.body.character.CharacterBody
 import pro.piechowski.highschoolstory.sprite.CurrentSprite
 
 @Serializable
@@ -54,14 +54,14 @@ open class CharacterBase(
                     PhysicsBody(CharacterBody())
 
                 val characterTexture = get<AssetStorage>().load(spriteSheetIdentifier)
-                val downIdleAnimation = CharacterAnimation.Idle.Down(characterTexture)
+                val downIdleAnimation = CharacterAnimationBase.Idle.Down(characterTexture)
                 this +=
                     MovementAnimationSet.Idle(
                         animations =
                             Direction4AnimationSet(
-                                right = CharacterAnimation.Idle.Right(characterTexture),
-                                up = CharacterAnimation.Idle.Up(characterTexture),
-                                left = CharacterAnimation.Idle.Left(characterTexture),
+                                right = CharacterAnimationBase.Idle.Right(characterTexture),
+                                up = CharacterAnimationBase.Idle.Up(characterTexture),
+                                left = CharacterAnimationBase.Idle.Left(characterTexture),
                                 down = downIdleAnimation,
                             ),
                     )
@@ -69,10 +69,10 @@ open class CharacterBase(
                     MovementAnimationSet.Walk(
                         animations =
                             Direction4AnimationSet(
-                                right = CharacterAnimation.Walk.Right(characterTexture),
-                                up = CharacterAnimation.Walk.Up(characterTexture),
-                                left = CharacterAnimation.Walk.Left(characterTexture),
-                                down = CharacterAnimation.Walk.Down(characterTexture),
+                                right = CharaAni.Walk.Right(characterTexture),
+                                up = CharacterAnimationBase.Walk.Up(characterTexture),
+                                left = CharacterAnimationBase.Walk.Left(characterTexture),
+                                down = CharacterAnimationBase.Walk.Down(characterTexture),
                             ),
                     )
                 this += CurrentSprite(downIdleAnimation.keyFrames.first())

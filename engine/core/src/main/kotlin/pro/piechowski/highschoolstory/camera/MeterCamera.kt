@@ -6,8 +6,6 @@ import com.badlogic.gdx.utils.viewport.FitViewport
 import ktx.graphics.moveTo
 import pro.piechowski.highschoolstory.Config
 import pro.piechowski.highschoolstory.physics.Meter
-import pro.piechowski.highschoolstory.physics.m
-import pro.piechowski.highschoolstory.physics.px
 
 class MeterCamera(
     viewportWidth: Meter,

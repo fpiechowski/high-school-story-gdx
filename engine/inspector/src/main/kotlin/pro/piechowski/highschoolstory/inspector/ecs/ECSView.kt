@@ -15,7 +15,6 @@ import pro.piechowski.highschoolstory.inspector.View
 import pro.piechowski.highschoolstory.inspector.asObservableValue
 import pro.piechowski.highschoolstory.inspector.`object`.ObjectInspectorViewModel
 import pro.piechowski.highschoolstory.inspector.`object`.ObjectTableCell
-import kotlin.collections.associateWith
 
 @ExperimentalContextParameters
 @ExperimentalCoroutinesApi

@@ -1,15 +1,18 @@
 ﻿package pro.piechowski.highschoolstory
 
 import com.github.quillraven.fleks.Component
-import com.github.quillraven.fleks.UniqueId
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule
+import kotlinx.serialization.modules.SerializersModuleBuilder
 import kotlinx.serialization.modules.contextual
 import kotlinx.serialization.modules.polymorphic
-import pro.piechowski.highschoolstory.character.player.PlayerCharacterTag
+import org.koin.core.Koin
 import pro.piechowski.highschoolstory.facedirection.FaceDirection4
 import pro.piechowski.highschoolstory.facedirection.FaceDirection8
 
+typealias SerializersModuleBuilderAction = SerializersModuleBuilder.() -> Unit
+
+context(koin: Koin)
 fun Json() =
     Json {
         serializersModule =
@@ -21,9 +24,9 @@ fun Json() =
                     subclass(FaceDirection8::class, FaceDirection8.Serializer)
                 }
 
-                polymorphic(UniqueId::class) {
-                    subclass(PlayerCharacterTag::class, PlayerCharacterTag.serializer())
-                }
+                val serializersModuleConfigs = koin.getAll<SerializersModuleBuilderAction>()
+
+                serializersModuleConfigs.forEach { it.invoke(this) }
             }
 
         allowStructuredMapKeys = true

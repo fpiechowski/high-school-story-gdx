@@ -9,8 +9,6 @@ import pro.piechowski.highschoolstory.debug
 import pro.piechowski.highschoolstory.ecs.ReadOnly
 import pro.piechowski.highschoolstory.ecs.Write
 import pro.piechowski.highschoolstory.physics.body.PhysicsBody
-import pro.piechowski.highschoolstory.physics.m
-import pro.piechowski.highschoolstory.physics.times
 
 class CurrentSpritePositionSystem :
     IteratingSystem(

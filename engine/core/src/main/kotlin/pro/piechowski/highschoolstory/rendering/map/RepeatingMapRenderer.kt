@@ -54,6 +54,7 @@ class RepeatingMapRenderer(
                 headPos.set(-mapWidth.value, 0f)
                 tailPos.set(mapWidth.value, 0f)
             }
+
             RepeatingMap.Orientation.VERTICAL -> {
                 midPos.set(0f, 0f)
                 headPos.set(0f, mapHeight.value)

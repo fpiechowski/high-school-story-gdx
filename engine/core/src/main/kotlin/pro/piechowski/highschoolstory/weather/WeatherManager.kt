@@ -9,7 +9,8 @@ class WeatherManager : KoinComponent {
 
     val weather = _weather.asStateFlow()
 
-    var currentWeather get() = weather.value
+    var currentWeather
+        get() = weather.value
         set(value) {
             _weather.value = value
         }

@@ -2,7 +2,7 @@
 
 import org.koin.dsl.module
 
-val MainInputModule =
+val CoreInputModule =
     module {
         single { InputManager() }
         single { GameInputMultiplexer() }

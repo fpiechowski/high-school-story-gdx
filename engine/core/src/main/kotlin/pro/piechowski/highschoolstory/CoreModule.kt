@@ -8,19 +8,18 @@ import com.github.quillraven.fleks.World
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import ktx.assets.async.AssetStorage
 import org.koin.core.annotation.KoinInternalApi
-import org.koin.core.qualifier.StringQualifier
 import org.koin.dsl.module
+import pro.piechowski.highschoolstory.camera.CoreCameraModule
 import pro.piechowski.highschoolstory.camera.GameCameraModule
-import pro.piechowski.highschoolstory.camera.MainCameraModule
 import pro.piechowski.highschoolstory.debug.DebugModule
 import pro.piechowski.highschoolstory.debug.server.DebugServer
 import pro.piechowski.highschoolstory.debug.server.FleksEntityComponentsProvider
 import pro.piechowski.highschoolstory.debug.server.KoinObjectsProvider
 import pro.piechowski.highschoolstory.debug.text.DebugTextSystem
 import pro.piechowski.highschoolstory.ecs.invoke
+import pro.piechowski.highschoolstory.input.CoreInputModule
 import pro.piechowski.highschoolstory.input.GameInputModule
 import pro.piechowski.highschoolstory.input.GameInputMultiplexer
-import pro.piechowski.highschoolstory.input.MainInputModule
 import pro.piechowski.highschoolstory.light.LightModule
 import pro.piechowski.highschoolstory.map.MapModule
 import pro.piechowski.highschoolstory.movement.MovementModule
@@ -51,8 +50,8 @@ fun coreModule() =
         single { KoinObjectsProvider() }
         single { FleksEntityComponentsProvider() }
 
-        includes(MainInputModule)
-        includes(MainCameraModule)
+        includes(CoreInputModule)
+        includes(CoreCameraModule)
         includes(GameInputModule)
         includes(PhysicsModule)
         includes(MovementModule)

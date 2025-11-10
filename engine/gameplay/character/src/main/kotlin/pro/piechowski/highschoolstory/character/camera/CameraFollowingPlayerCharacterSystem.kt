@@ -1,4 +1,4 @@
-package pro.piechowski.highschoolstory.camera.character
+package pro.piechowski.highschoolstory.character.camera
 
 import com.github.quillraven.fleks.IntervalSystem
 import io.github.oshai.kotlinlogging.KotlinLogging
@@ -19,7 +19,7 @@ class CameraFollowingPlayerCharacterSystem :
     private val playerCharacterManager: PlayerCharacterManager by inject()
 
     override fun onTick() {
-        if (cameraManager.followingPlayerCharacterValue) {
+        if (cameraManager.strategy.value == CameraFollowingPlayerCharacterMode) {
             playerCharacterManager.playerCharacter.value?.let { playerCharacter ->
                 meterCamera.moveTo(
                     playerCharacter.body.body.position.x.m,

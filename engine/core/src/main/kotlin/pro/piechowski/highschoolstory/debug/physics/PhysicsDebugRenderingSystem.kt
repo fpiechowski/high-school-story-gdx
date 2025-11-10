@@ -6,7 +6,7 @@ import com.github.quillraven.fleks.IntervalSystem
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import pro.piechowski.highschoolstory.camera.MeterCamera
-import pro.piechowski.highschoolstory.gdx.PhysicsWorld
+import pro.piechowski.highschoolstory.physics.PhysicsWorld
 import pro.piechowski.highschoolstory.physics.body.PHYSICS_STEP
 
 class PhysicsDebugRenderingSystem :

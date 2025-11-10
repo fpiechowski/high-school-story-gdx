@@ -4,7 +4,6 @@ import com.sksamuel.hoplite.ConfigAlias
 import com.sksamuel.hoplite.ConfigLoaderBuilder
 import com.sksamuel.hoplite.ConfigSource
 import com.sksamuel.hoplite.PropertySource
-import com.sksamuel.hoplite.addResourceSource
 import com.sksamuel.hoplite.sources.ConfigFilePropertySource
 import org.koin.core.Koin
 import pro.piechowski.highschoolstory.physics.m

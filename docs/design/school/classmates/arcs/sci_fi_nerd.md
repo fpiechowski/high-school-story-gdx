@@ -1,7 +1,9 @@
 ﻿# ❤️ Relationship Arc – Alex Morris
 
 ## 🎭 Stereotype / Role
-> "The Sci-Fi Nerd" – obsessed with Star Wars, space travel, and alternate realities. Alex lives in fandoms but secretly dreams of living her own heroic story.
+
+> "The Sci-Fi Nerd" – obsessed with Star Wars, space travel, and alternate realities. Alex lives in fandoms but secretly
+> dreams of living her own heroic story.
 
 ---
 
@@ -15,19 +17,23 @@
 ---
 
 ## 🔐 Hidden Trait
-> Alex was bullied at her last school and uses fiction to create a world where she always wins, always belongs — and never gets hurt.
+
+> Alex was bullied at her last school and uses fiction to create a world where she always wins, always belongs — and
+> never gets hurt.
 
 ---
 
 ## 📈 Relationship Progression Stages
 
 ### 🧩 Stage 1 – Acquaintance
+
 - **Stat Requirement:** None
 - **Trigger:** Player joins a casual lunchtime D&D game
 - **Scene Summary:** Alex plays a rogue hacker elf and instantly critiques everyone's backstory
 - **Player Choice Impact:** Compliment her lore = +Rel, roll your eyes = neutral, ignore = –Rel
 
 ### 🧩 Stage 2 – Budding Friendship
+
 - **Stat Requirement:** Relationship ≥ 10
 - **Trigger:** Help her set up a sci-fi movie night
 - **Scene Summary:** Alex starts rambling about plot holes in a Star Trek episode
@@ -35,6 +41,7 @@
 - **Reward:** Access to "movie marathons" for Mood and Stress recovery
 
 ### 🧩 Stage 3 – Vulnerability
+
 - **Stat Requirement:** Relationship ≥ 25
 - **Trigger:** Notice a scar on her arm during cosplay prep
 - **Scene Summary:** She avoids the topic, then later admits she was bullied badly at her last school
@@ -42,6 +49,7 @@
 - **Reward:** Unlocks “Holodeck Hangouts” — themed study spots where her comfort stat rises
 
 ### 🧩 Stage 4 – Trust
+
 - **Stat Requirement:** Relationship ≥ 50
 - **Trigger:** She asks the player to co-write a fanfic or world-build a campaign
 - **Scene Summary:** You become the first person she lets shape her story
@@ -49,12 +57,14 @@
 - **Reward:** Custom item — “Shared World Map,” increasing Mood when kept in dorm
 
 ### 🧩 Stage 5 – Emotional Climax
+
 - **Stat Requirement:** Relationship ≥ 75, during Spring Trip
 - **Scene Summary:** Alex gets publicly mocked for her cosplay and freezes
 - **Player Choice:** Defend her, distract, or stand by silently
 - **Reward:** Heartfelt scene where she thanks the player, calling them her “real crew”
 
 ### 🧩 Stage 6 – Relationship Resolution
+
 - **Stat Requirement:** Relationship ≥ 90
 - **Trigger:** Final club meeting or Graduation
 - **Scene Summary:** Alex gives you a sealed letter — a story where you're the protagonist
@@ -64,6 +74,7 @@
 ---
 
 ## 🔁 Optional Recurring Events
+
 - School Comic-Con cosplay contest
 - Valentine’s: Hand-made D&D stat sheet about the player
 - D&D One-Shot Event with Alex as DM

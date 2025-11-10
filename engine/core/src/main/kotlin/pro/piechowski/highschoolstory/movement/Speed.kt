@@ -4,7 +4,6 @@ import com.github.quillraven.fleks.Component
 import com.github.quillraven.fleks.ComponentType
 import pro.piechowski.highschoolstory.physics.MetersPerSeconds
 import pro.piechowski.highschoolstory.physics.mps
-import pro.piechowski.highschoolstory.physics.times
 
 data class Speed(
     var speed: MetersPerSeconds = 0f.mps,

@@ -1,6 +1,7 @@
 ﻿package pro.piechowski.highschoolstory.input
 
 import com.badlogic.gdx.InputMultiplexer
+import com.badlogic.gdx.InputProcessor
 import com.badlogic.gdx.scenes.scene2d.Stage
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.koin.core.component.KoinComponent
@@ -9,15 +10,13 @@ import pro.piechowski.highschoolstory.Config
 import pro.piechowski.highschoolstory.debug.camera.DebugCameraControlInputProcessor
 import pro.piechowski.highschoolstory.debug.highlight.DebugEntityHighlightInputProcessor
 import pro.piechowski.highschoolstory.debug.selection.DebugSelectionInputProcessor
-import pro.piechowski.highschoolstory.input.dialogue.DialogueInputProcessor
-import pro.piechowski.highschoolstory.input.interaction.InteractionInputProcessor
 
 class GameInputMultiplexer :
     InputMultiplexer(),
     KoinComponent {
-    val interactionInputProcessor by inject<InteractionInputProcessor>()
-    val dialogueInputProcessor by inject<DialogueInputProcessor>()
     val debugSelectionInputProcessor by inject<DebugSelectionInputProcessor>()
+
+    val inputProcessors = getKoin().getAll<InputProcessor>()
 
     val debugEntityHighlightInputProcessor by inject<DebugEntityHighlightInputProcessor>()
     val debugCameraMovementInputProcessor by inject<DebugCameraControlInputProcessor>()
@@ -34,8 +33,8 @@ class GameInputMultiplexer :
         }
 
         addProcessor(stage)
-        addProcessor(interactionInputProcessor)
-        addProcessor(dialogueInputProcessor)
+
+        inputProcessors.forEach(::addProcessor)
 
         logger.debug { "Input multiplexer initialized" }
     }

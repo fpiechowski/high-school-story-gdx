@@ -3,7 +3,6 @@
 import com.badlogic.gdx.Input
 import com.badlogic.gdx.math.Vector2
 import ktx.app.KtxInputAdapter
-import ktx.graphics.moveTo
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import pro.piechowski.highschoolstory.camera.MeterCamera

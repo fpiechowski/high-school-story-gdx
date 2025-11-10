@@ -4,6 +4,8 @@
 }
 
 dependencies {
+    implementation(project(":engine:core"))
+
     implementation(libs.bundles.kotlin)
     implementation(libs.bundles.libgdx)
     implementation(libs.libgdx.lwjgl3)

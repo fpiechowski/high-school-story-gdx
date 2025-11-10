@@ -4,7 +4,7 @@ import org.koin.dsl.module
 import pro.piechowski.highschoolstory.Config
 import pro.piechowski.highschoolstory.ui.UserInterfaceViewport
 
-val MainCameraModule =
+val CoreCameraModule =
     module {
         single { CameraManager() }
 
@@ -15,6 +15,4 @@ val GameCameraModule =
     module {
         single<MeterCamera> { MeterCamera(get<Config>().meterCamera) }
         single<MeterViewport> { MeterViewport(get()) }
-
-        single { CameraFollowingPlayerCharacterSystem() }
     }

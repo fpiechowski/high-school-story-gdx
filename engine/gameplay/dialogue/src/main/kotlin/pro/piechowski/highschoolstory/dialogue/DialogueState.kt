@@ -16,6 +16,7 @@ data class DialogueState(
                 is Dialogue.Node.Sentence -> currentNode.nextNode
                 is Dialogue.Node.Choice ->
                     currentNode.options[currentOptionIdx].nextNode
+
                 else -> currentNode
             }
 
@@ -24,6 +25,7 @@ data class DialogueState(
                 is Dialogue.Node.GoTo ->
                     dialogue.allNodes[eventualNextSentenceOrChoiceNode.targetId]
                         ?: error("No node with id ${eventualNextSentenceOrChoiceNode.targetId}")
+
                 else -> eventualNextSentenceOrChoiceNode
             }
 

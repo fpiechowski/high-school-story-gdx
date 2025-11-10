@@ -10,7 +10,6 @@ import pro.piechowski.highschoolstory.ecs.game.gameSystems
 import pro.piechowski.highschoolstory.ecs.physics.physicsSystems
 import pro.piechowski.highschoolstory.ecs.rendering.renderingSystems
 import pro.piechowski.highschoolstory.input.inputSystems
-import kotlin.collections.buildList
 
 context(scope: Scope)
 operator fun World.Companion.invoke() =

@@ -1,6 +1,7 @@
 ﻿# ❤️ Relationship Arc Template – [NPC Full Name]
 
 ## 🎭 Stereotype / Role
+
 > Example: "The Class Clown" – known for humor and chaos, but hides insecurity.
 
 ---
@@ -15,6 +16,7 @@
 ---
 
 ## 🔐 Hidden Trait
+
 > [Revealed only in later relationship levels – emotional truth or vulnerability]
 
 ---
@@ -22,6 +24,7 @@
 ## 📈 Relationship Progression Stages
 
 Each stage has:
+
 - A minimum relationship stat requirement
 - A narrative beat (story revelation)
 - Optional stat or time-gated choices

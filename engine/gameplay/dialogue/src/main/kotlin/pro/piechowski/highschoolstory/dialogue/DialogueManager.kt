@@ -10,7 +10,6 @@ import org.koin.core.component.inject
 import pro.piechowski.highschoolstory.CoroutineContexts
 import pro.piechowski.highschoolstory.input.InputManager
 import pro.piechowski.highschoolstory.input.InputOwner
-import pro.piechowski.highschoolstory.ui.dialogue.DialogueUserInterfaceUpdater
 
 class DialogueManager :
     KoinComponent,

@@ -2,7 +2,6 @@
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.LocalTime
 import org.koin.core.component.KoinComponent
 import kotlin.time.Duration.Companion.minutes
@@ -12,7 +11,8 @@ class Clock : KoinComponent {
 
     val time = _time.asStateFlow()
 
-    var currentTime get() = time.value
+    var currentTime
+        get() = time.value
         set(value) {
             _time.value = value
         }

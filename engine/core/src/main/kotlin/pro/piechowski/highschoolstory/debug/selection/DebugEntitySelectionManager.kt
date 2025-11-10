@@ -16,7 +16,8 @@ class DebugEntitySelectionManager : KoinComponent {
 
     val selectedEntity: StateFlow<Entity?> get() = _selectedEntity.asStateFlow()
 
-    var currentSelectedEntity get() = selectedEntity.value
+    var currentSelectedEntity
+        get() = selectedEntity.value
         set(value) {
             _selectedEntity.value = value
         }

@@ -10,7 +10,8 @@ class Calendar : KoinComponent {
 
     val date = _date.asStateFlow()
 
-    var currentDate get() = date.value
+    var currentDate
+        get() = date.value
         set(value) {
             _date.value = value
         }

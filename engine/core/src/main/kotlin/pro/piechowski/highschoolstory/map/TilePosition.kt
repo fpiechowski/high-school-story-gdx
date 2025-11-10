@@ -4,7 +4,6 @@ import com.badlogic.gdx.math.Vector2
 import ktx.math.times
 
 class Tile {
-
     companion object {
         const val SIZE = 48
     }

@@ -3,8 +3,8 @@ package pro.piechowski.highschoolstory
 import com.sksamuel.hoplite.PropertySource
 import org.koin.dsl.module
 import pro.piechowski.highschoolstory.exterior.ExteriorTexture
+import pro.piechowski.highschoolstory.scene.intro.IntroScene
 import pro.piechowski.highschoolstory.ui.UserInterface
-import pro.piechowski.kge.scene.IntroScene
 
 val highSchoolStoryModule =
     module {

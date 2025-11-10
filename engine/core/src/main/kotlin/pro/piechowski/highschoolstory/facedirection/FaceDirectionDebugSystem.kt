@@ -7,10 +7,10 @@ import com.github.quillraven.fleks.IteratingSystem
 import com.github.quillraven.fleks.World
 import ktx.graphics.use
 import ktx.math.plus
+import ktx.math.times
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import pro.piechowski.highschoolstory.camera.MeterCamera
-import pro.piechowski.highschoolstory.interaction.InteractionSystem
 import pro.piechowski.highschoolstory.physics.body.PhysicsBody
 import pro.piechowski.highschoolstory.physics.times
 
@@ -27,8 +27,12 @@ class FaceDirectionDebugSystem :
             it.color = Color.YELLOW.cpy()
             it.line(
                 position,
-                position + entity[FaceDirection].faceDirection.nor() * InteractionSystem.interactionRange,
+                position + entity[FaceDirection].faceDirection.nor() * LINE_LENGTH,
             )
         }
+    }
+
+    companion object {
+        const val LINE_LENGTH = 5f
     }
 }

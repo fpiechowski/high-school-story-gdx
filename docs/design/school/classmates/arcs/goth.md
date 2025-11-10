@@ -1,7 +1,9 @@
 ﻿# ❤️ Relationship Arc – Raven Black
 
 ## 🎭 Stereotype / Role
-> "The Goth" – sarcastic, dressed in black, makes morbid jokes, and keeps others at a distance. Most students find her intimidating or weird.
+
+> "The Goth" – sarcastic, dressed in black, makes morbid jokes, and keeps others at a distance. Most students find her
+> intimidating or weird.
 
 ---
 
@@ -15,7 +17,9 @@
 ---
 
 ## 🔐 Hidden Trait
-> Raven volunteers at a local animal shelter on weekends and is obsessed with cuddly animals — especially cats. She's terrified of anyone discovering this softer side.
+
+> Raven volunteers at a local animal shelter on weekends and is obsessed with cuddly animals — especially cats. She's
+> terrified of anyone discovering this softer side.
 
 ---
 
@@ -57,7 +61,8 @@
 
 - **Stat Requirement:** Relationship ≥ 50
 - **Trigger:** She invites the player to visit the shelter “only if you promise not to laugh”
-- **Scene Summary:** She melts while playing with kittens, confesses it’s the only time she feels safe showing her real self
+- **Scene Summary:** She melts while playing with kittens, confesses it’s the only time she feels safe showing her real
+  self
 - **Player Choice:** Express admiration or joke to lighten the mood
 - **Reward:** Shelter becomes a recurring hangout (boosts Mood), custom gift option unlocked (cat charm, coffee beans)
 
@@ -66,7 +71,8 @@
 ### 🧩 Stage 5 – Emotional Climax
 
 - **Stat Requirement:** Relationship ≥ 75, triggered during Winter Trip
-- **Scene Summary:** She opens up during a quiet night walk about feeling fake — her goth persona started as a defense mechanism after a traumatic friendship breakup
+- **Scene Summary:** She opens up during a quiet night walk about feeling fake — her goth persona started as a defense
+  mechanism after a traumatic friendship breakup
 - **Player Choice:** Encourage her to stay herself or explore other sides
 - **Reward:** Unique cutscene unlocked, player can now see her in casual (non-goth) clothes during weekends
 

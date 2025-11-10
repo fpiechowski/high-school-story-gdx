@@ -1,4 +1,3 @@
-
 /*
  * Copyright 2020 damios
  *
@@ -25,7 +24,7 @@ import java.io.BufferedReader
 import java.io.File
 import java.io.InputStreamReader
 import java.lang.management.ManagementFactory
-import java.util.*
+import java.util.Locale
 
 /**
  * Adds some utilities to ensure that the JVM was started with the
@@ -83,7 +82,10 @@ class StartupHelper private constructor() {
                     val prevTmpDir = System.getProperty("java.io.tmpdir", programData)
                     val prevUser = System.getProperty("user.name", "libGDX_User")
                     System.setProperty("java.io.tmpdir", "$programData/libGDX-temp")
-                    System.setProperty("user.name", "User_${prevUser.hashCode()}_GDX${Version.VERSION}".replace('.', '_'))
+                    System.setProperty(
+                        "user.name",
+                        "User_${prevUser.hashCode()}_GDX${Version.VERSION}".replace('.', '_'),
+                    )
                     Lwjgl3NativesLoader.load()
                     System.setProperty("java.io.tmpdir", prevTmpDir)
                     System.setProperty("user.name", prevUser)

@@ -13,11 +13,9 @@ import org.koin.core.annotation.KoinInternalApi
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.context.unloadKoinModules
-import org.koin.core.module.Module
 import pro.piechowski.highschoolstory.camera.MeterCamera
 import pro.piechowski.highschoolstory.camera.MeterViewport
 import pro.piechowski.highschoolstory.input.GameInputMultiplexer
-import pro.piechowski.highschoolstory.input.InputManager
 import pro.piechowski.highschoolstory.ui.UserInterfaceViewport
 
 @ExperimentalCoroutinesApi
