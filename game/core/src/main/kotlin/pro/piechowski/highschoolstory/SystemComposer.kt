@@ -1,6 +1,6 @@
 package pro.piechowski.highschoolstory
 
-import pro.piechowski.highschoolstory.ecs.SystemComposer
+import pro.piechowski.kge.ecs.SystemComposer
 
 val systemComposer =
     SystemComposer {

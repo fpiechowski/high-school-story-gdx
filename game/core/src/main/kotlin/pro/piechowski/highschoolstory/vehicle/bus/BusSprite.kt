@@ -3,12 +3,12 @@
 import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import org.koin.core.Koin
-import pro.piechowski.highschoolstory.character.CharacterBase.Companion.HEIGHT_TO_DEPTH_RATIO
-import pro.piechowski.highschoolstory.direction.Direction4
 import pro.piechowski.highschoolstory.exterior.ExteriorTexture
-import pro.piechowski.highschoolstory.get
-import pro.piechowski.highschoolstory.physics.px
-import pro.piechowski.highschoolstory.sprite.CurrentSprite
+import pro.piechowski.highschoolstory.physics.body.character.CharacterBody.HEIGHT_TO_DEPTH_RATIO
+import pro.piechowski.kge.direction.Direction4
+import pro.piechowski.kge.get
+import pro.piechowski.kge.physics.px
+import pro.piechowski.kge.sprite.CurrentSprite
 
 sealed class BusSprite(
     textureRegion: TextureRegion,

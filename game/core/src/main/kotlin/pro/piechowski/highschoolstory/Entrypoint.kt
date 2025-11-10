@@ -1,7 +1,8 @@
 package pro.piechowski.highschoolstory
 
 import pro.piechowski.highschoolstory.character.player.PlayerCharacter
-import pro.piechowski.highschoolstory.input.InputManager
+import pro.piechowski.kge.Entrypoint
+import pro.piechowski.kge.input.InputManager
 
 class SandboxEntrypoint : Entrypoint {
     override suspend fun run(): Unit =

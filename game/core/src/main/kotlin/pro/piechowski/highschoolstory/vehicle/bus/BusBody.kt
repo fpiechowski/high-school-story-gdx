@@ -3,10 +3,10 @@
 import ktx.box2d.body
 import ktx.box2d.box
 import org.koin.core.Koin
-import pro.piechowski.highschoolstory.direction.Direction4
-import pro.piechowski.highschoolstory.gdx.PhysicsWorld
-import pro.piechowski.highschoolstory.physics.body.PhysicsBody
-import pro.piechowski.highschoolstory.physics.px
+import pro.piechowski.kge.direction.Direction4
+import pro.piechowski.kge.physics.PhysicsWorld
+import pro.piechowski.kge.physics.body.PhysicsBody
+import pro.piechowski.kge.physics.px
 
 object BusBody {
     context(koin: Koin)

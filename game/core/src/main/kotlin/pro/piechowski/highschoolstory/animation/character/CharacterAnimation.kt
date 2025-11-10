@@ -1,11 +1,11 @@
 package pro.piechowski.highschoolstory.animation.character
 
 import ktx.collections.toGdxArray
-import pro.piechowski.highschoolstory.character.animation.CharacterAnimationBase
-import pro.piechowski.highschoolstory.direction.Direction4
-import pro.piechowski.highschoolstory.physics.s
 import pro.piechowski.highschoolstory.sprite.character.CharacterSprite
 import pro.piechowski.highschoolstory.sprite.character.CharacterSpriteSheet
+import pro.piechowski.kge.character.animation.CharacterAnimationBase
+import pro.piechowski.kge.direction.Direction4
+import pro.piechowski.kge.physics.s
 
 sealed class CharacterAnimation(
     keyFrames: List<CharacterSprite>,

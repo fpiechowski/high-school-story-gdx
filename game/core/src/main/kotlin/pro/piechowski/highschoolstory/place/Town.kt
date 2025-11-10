@@ -1,6 +1,6 @@
 ﻿package pro.piechowski.highschoolstory.place
 
 import pro.piechowski.highschoolstory.asset.AssetIdentifiers
-import pro.piechowski.highschoolstory.map.Map
+import pro.piechowski.kge.map.Map
 
-object Town : Place("Town", Map(AssetIdentifiers.Maps.Town))
+object Town : Map("Town", AssetIdentifiers.Maps.Town)

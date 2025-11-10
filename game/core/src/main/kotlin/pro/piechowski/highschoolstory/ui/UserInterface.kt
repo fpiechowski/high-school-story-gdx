@@ -5,9 +5,9 @@ import ktx.scene2d.actors
 import ktx.scene2d.table
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import pro.piechowski.highschoolstory.Config
-import pro.piechowski.highschoolstory.debug.ui.DebugUserInterface
-import pro.piechowski.highschoolstory.ui.dialogue.DialogueUserInterface
+import pro.piechowski.kge.Config
+import pro.piechowski.kge.debug.ui.DebugUserInterface
+import pro.piechowski.kge.ui.dialogue.DialogueUserInterface
 
 class UserInterface : KoinComponent {
     private val stage by inject<Stage>()

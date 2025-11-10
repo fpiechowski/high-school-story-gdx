@@ -2,10 +2,10 @@ package pro.piechowski.highschoolstory.sprite.character
 
 import com.badlogic.gdx.graphics.Texture
 import pro.piechowski.highschoolstory.animation.character.CharacterAnimation
-import pro.piechowski.highschoolstory.direction.Direction4
-import pro.piechowski.highschoolstory.sprite.SpriteSheet
+import pro.piechowski.kge.direction.Direction4
+import pro.piechowski.kge.sprite.SpriteSheet
 
-class CharacterSpriteSheet(
+open class CharacterSpriteSheet(
     texture: Texture,
 ) : SpriteSheet<CharacterSprite>(
         split(

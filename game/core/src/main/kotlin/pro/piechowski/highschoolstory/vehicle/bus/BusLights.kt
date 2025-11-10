@@ -3,10 +3,10 @@
 import box2dLight.ConeLight
 import com.badlogic.gdx.graphics.Color
 import org.koin.core.Koin
-import pro.piechowski.highschoolstory.direction.Direction4
-import pro.piechowski.highschoolstory.get
-import pro.piechowski.highschoolstory.physics.body.PhysicsBody
-import pro.piechowski.highschoolstory.vehicle.VehicleLights
+import pro.piechowski.kge.direction.Direction4
+import pro.piechowski.kge.get
+import pro.piechowski.kge.physics.body.PhysicsBody
+import pro.piechowski.kge.vehicle.VehicleLights
 
 object BusLights {
     object Headlights {

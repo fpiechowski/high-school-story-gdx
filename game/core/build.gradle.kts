@@ -24,12 +24,12 @@ val koinVersion: String by project
 val koinAnnotationsVersion: String by project
 
 dependencies {
-    api(project(":engine:core"))
-    api(project(":engine:gameplay:character"))
-    api(project(":engine:gameplay:story"))
-    api(project(":engine:gameplay:dialogue"))
-    api(project(":engine:gameplay:time"))
-    api(project(":engine:gameplay:scene"))
+    api("pro.piechowski.kge:core")
+    api("pro.piechowski.kge:character")
+    api("pro.piechowski.kge:story")
+    api("pro.piechowski.kge:dialogue")
+    api("pro.piechowski.kge:time")
+    api("pro.piechowski.kge:scene")
 
     api(libs.bundles.kotlin)
     api(libs.bundles.libgdx)

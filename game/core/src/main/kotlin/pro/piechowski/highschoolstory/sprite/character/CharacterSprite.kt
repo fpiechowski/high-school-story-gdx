@@ -2,8 +2,8 @@ package pro.piechowski.highschoolstory.sprite.character
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import com.badlogic.gdx.math.Vector2
-import pro.piechowski.highschoolstory.character.sprite.CharacterSpriteBase
-import pro.piechowski.highschoolstory.physics.px
+import pro.piechowski.kge.character.sprite.CharacterSpriteBase
+import pro.piechowski.kge.physics.px
 
 class CharacterSprite(
     textureRegion: TextureRegion,

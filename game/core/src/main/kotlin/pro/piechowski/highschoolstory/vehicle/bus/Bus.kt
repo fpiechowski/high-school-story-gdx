@@ -3,16 +3,16 @@
 import com.github.quillraven.fleks.Entity
 import com.github.quillraven.fleks.World
 import org.koin.core.Koin
-import pro.piechowski.highschoolstory.direction.Direction4
-import pro.piechowski.highschoolstory.ecs.Archetype
-import pro.piechowski.highschoolstory.ecs.plusAssign
-import pro.piechowski.highschoolstory.facedirection.FaceDirection4
-import pro.piechowski.highschoolstory.input.movement.MovementInput
-import pro.piechowski.highschoolstory.movement.Speed
-import pro.piechowski.highschoolstory.`object`.Spatial
-import pro.piechowski.highschoolstory.`object`.Visual
-import pro.piechowski.highschoolstory.physics.MetersPerSeconds
-import pro.piechowski.highschoolstory.power.Powered
+import pro.piechowski.kge.direction.Direction4
+import pro.piechowski.kge.ecs.Archetype
+import pro.piechowski.kge.ecs.plusAssign
+import pro.piechowski.kge.facedirection.FaceDirection4
+import pro.piechowski.kge.input.movement.MovementInput
+import pro.piechowski.kge.movement.Speed
+import pro.piechowski.kge.`object`.Spatial
+import pro.piechowski.kge.`object`.Visual
+import pro.piechowski.kge.physics.MetersPerSeconds
+import pro.piechowski.kge.power.Powered
 
 class Bus(
     override val entity: Entity,
