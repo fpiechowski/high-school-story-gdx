@@ -28,6 +28,8 @@ allprojects {
         google()
         maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots/") }
         maven { url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/") }
+        maven { url = uri("https://maven.scijava.org/content/repositories/public/") }
+        maven { url = uri("https://raw.githubusercontent.com/kotlin-graphics/mary/master") }
     }
 
     plugins.withId("org.jetbrains.kotlin.jvm") {

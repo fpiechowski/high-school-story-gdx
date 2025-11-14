@@ -11,7 +11,7 @@ import pro.piechowski.highschoolstory.vehicle.bus.Bus
 import pro.piechowski.highschoolstory.vehicle.bus.BusColor
 import pro.piechowski.kge.camera.CameraManager
 import pro.piechowski.kge.camera.MeterCamera
-import pro.piechowski.kge.character.camera.FollowingCameraStrategy
+import pro.piechowski.kge.camera.following.FollowingCameraStrategy
 import pro.piechowski.kge.character.player.PlayerCharacterManager
 import pro.piechowski.kge.character.says
 import pro.piechowski.kge.debug.text.DebugText
@@ -19,10 +19,8 @@ import pro.piechowski.kge.dialogue.DialogueManager
 import pro.piechowski.kge.dialogue.await
 import pro.piechowski.kge.dialogue.dialogue
 import pro.piechowski.kge.direction.Direction4
-import pro.piechowski.kge.ecs.plusAssign
 import pro.piechowski.kge.map.MapManager
 import pro.piechowski.kge.map.Tile
-import pro.piechowski.kge.physics.m
 import pro.piechowski.kge.physics.mps
 import pro.piechowski.kge.physics.px
 import pro.piechowski.kge.physics.times

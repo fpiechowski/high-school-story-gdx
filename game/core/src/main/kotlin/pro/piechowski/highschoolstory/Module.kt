@@ -1,5 +1,7 @@
 package pro.piechowski.highschoolstory
 
+import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.scenes.scene2d.ui.Skin
 import com.sksamuel.hoplite.PropertySource
 import org.koin.dsl.module
 import pro.piechowski.highschoolstory.exterior.ExteriorTexture
@@ -13,6 +15,7 @@ import pro.piechowski.kge.interaction.InteractionModule
 import pro.piechowski.kge.scene.SceneModule
 import pro.piechowski.kge.story.StoryModule
 import pro.piechowski.kge.time.TimeModule
+import pro.piechowski.kge.weather.WeatherModule
 
 val highSchoolStoryModule =
     module {
@@ -23,6 +26,7 @@ val highSchoolStoryModule =
         single { ExteriorTexture() }
         single { UserInterface() }
         single { PlayerCharacterSpriteSheet() }
+        single { Skin(Gdx.files.internal("ui/skin/uiskin.json")) }
 
         includes(CharacterModule)
         includes(DialogueModule)
@@ -30,4 +34,5 @@ val highSchoolStoryModule =
         includes(InteractionModule)
         includes(StoryModule)
         includes(SceneModule)
+        includes(WeatherModule)
     }

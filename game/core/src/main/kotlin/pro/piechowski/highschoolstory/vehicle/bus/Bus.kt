@@ -2,7 +2,6 @@
 
 import com.github.quillraven.fleks.Entity
 import com.github.quillraven.fleks.World
-import org.koin.core.Koin
 import pro.piechowski.kge.direction.Direction4
 import pro.piechowski.kge.ecs.Archetype
 import pro.piechowski.kge.ecs.plusAssign

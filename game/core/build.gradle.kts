@@ -31,6 +31,9 @@ dependencies {
     api("pro.piechowski.kge:interaction")
     api("pro.piechowski.kge:time")
     api("pro.piechowski.kge:scene")
+    api("pro.piechowski.kge:weather")
+    api("pro.piechowski.kge:vehicle")
+    api("pro.piechowski.kge:power")
 
     api(libs.bundles.kotlin)
     api(libs.bundles.libgdx)
