@@ -1,5 +1,6 @@
 ﻿package pro.piechowski.highschoolstory.vehicle.bus
 
+import com.badlogic.gdx.physics.box2d.BodyDef
 import ktx.box2d.body
 import ktx.box2d.box
 import org.koin.core.Koin
@@ -22,7 +23,7 @@ object BusBody {
             PhysicsBody(
                 koin
                     .get<PhysicsWorld>()
-                    .body {
+                    .body(BodyDef.BodyType.DynamicBody) {
                         box(
                             336f.px.toMeter().value,
                             192f.px.toMeter().value / 2,

@@ -30,7 +30,6 @@ dependencies {
     implementation("com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop")
     implementation("com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop")
     api(project(":game:core"))
-    implementation("pro.piechowski.kge:runtime")
     implementation("com.badlogicgames.gdx:gdx-tools:$gdxVersion") {
         exclude(group = "com.badlogicgames.gdx", module = "gdx-backend-lwjgl")
     }

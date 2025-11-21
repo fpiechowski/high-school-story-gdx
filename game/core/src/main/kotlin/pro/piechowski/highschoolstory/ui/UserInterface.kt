@@ -6,14 +6,11 @@ import ktx.scene2d.table
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import pro.piechowski.kge.Config
-import pro.piechowski.kge.debug.ui.DebugUserInterface
 import pro.piechowski.kge.ui.dialogue.DialogueUserInterface
 
 class UserInterface : KoinComponent {
     private val stage by inject<Stage>()
     private val dialogueUserInterface by inject<DialogueUserInterface>()
-    private val debugUserInterface by inject<DebugUserInterface>()
-    private val config by inject<Config>()
 
     init {
         stage.actors {
@@ -29,15 +26,6 @@ class UserInterface : KoinComponent {
                     .height(stage.viewport.worldHeight * 0.25f)
                     .expandX()
                     .fill()
-            }
-
-            if (config.debug.enabled) {
-                table {
-                    setFillParent(true)
-                    top().left().pad(10f)
-
-                    add(debugUserInterface.debugLabel)
-                }
             }
         }
     }
