@@ -16,7 +16,9 @@ import pro.piechowski.kge.scene.SceneModule
 import pro.piechowski.kge.story.StoryModule
 import pro.piechowski.kge.time.TimeModule
 import pro.piechowski.kge.weather.WeatherModule
+import kotlin.time.ExperimentalTime
 
+@ExperimentalTime
 val highSchoolStoryModule =
     module {
         single<PropertySource> { PropertySource.resource("/config.yml") }

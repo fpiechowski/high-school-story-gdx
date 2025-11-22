@@ -2,7 +2,6 @@
 
 import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.graphics.g2d.TextureRegion
-import org.koin.core.Koin
 import pro.piechowski.highschoolstory.exterior.ExteriorTexture
 import pro.piechowski.highschoolstory.physics.body.character.CharacterBody.HEIGHT_TO_DEPTH_RATIO
 import pro.piechowski.kge.direction.Direction4
@@ -20,7 +19,6 @@ sealed class BusSprite(
     }
 
     companion object {
-        context(koin: Koin)
         suspend operator fun invoke(
             color: BusColor,
             direction4: Direction4,

@@ -14,7 +14,6 @@ import pro.piechowski.kge.camera.MeterCamera
 import pro.piechowski.kge.camera.following.FollowingCameraStrategy
 import pro.piechowski.kge.character.player.PlayerCharacterManager
 import pro.piechowski.kge.character.says
-import pro.piechowski.kge.debug.text.DebugText
 import pro.piechowski.kge.dialogue.DialogueManager
 import pro.piechowski.kge.dialogue.await
 import pro.piechowski.kge.dialogue.dialogue
@@ -53,13 +52,6 @@ class IntroScene :
                     .apply {
                         position = Tile.Position(15, 8).toPixel() * px.toMeter()
                         aiMovementInput.movementInput = Direction4.Right.vector
-                        speed.speed = 20f.mps
-                        entity.configure {
-                            it +=
-                                DebugText {
-                                    "${aiMovementInput.movementInput}"
-                                }
-                        }
                     }
 
             cameraManager.currentStrategy = FollowingCameraStrategy(bus.body)

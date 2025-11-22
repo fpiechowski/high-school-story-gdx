@@ -3,14 +3,13 @@
 import com.badlogic.gdx.physics.box2d.BodyDef
 import ktx.box2d.body
 import ktx.box2d.box
-import org.koin.core.Koin
 import pro.piechowski.kge.direction.Direction4
+import pro.piechowski.kge.koin
 import pro.piechowski.kge.physics.PhysicsWorld
 import pro.piechowski.kge.physics.body.PhysicsBody
 import pro.piechowski.kge.physics.px
 
 object BusBody {
-    context(koin: Koin)
     operator fun invoke(direction4: Direction4) =
         when (direction4) {
             Direction4.Left, Direction4.Right -> Horizontal()
@@ -18,7 +17,6 @@ object BusBody {
         }
 
     object Horizontal {
-        context(koin: Koin)
         operator fun invoke() =
             PhysicsBody(
                 koin
@@ -33,7 +31,6 @@ object BusBody {
     }
 
     object Vertical {
-        context(koin: Koin)
         operator fun invoke() =
             PhysicsBody(
                 koin

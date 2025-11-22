@@ -5,7 +5,7 @@ debug:
 
 application:
   title: High School Story
-  useVsync: true
+  useVsync: false
   displayMode: WINDOWED
   resolution:
     width: 1270
@@ -15,3 +15,5 @@ application:
 meterCamera:
   viewportWidth: 23
   viewportHeight: 13
+
+frameRateLimit: 120

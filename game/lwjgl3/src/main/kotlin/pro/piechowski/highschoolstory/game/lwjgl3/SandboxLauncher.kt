@@ -9,7 +9,9 @@ import pro.piechowski.highschoolstory.highSchoolStoryModule
 import pro.piechowski.highschoolstory.scene.intro.IntroScene
 import pro.piechowski.kge.get
 import pro.piechowski.kge.lwjgl3.Launcher
+import kotlin.time.ExperimentalTime
 
+@ExperimentalTime
 @KoinInternalApi
 @ExperimentalCoroutinesApi
 @ExperimentalContextParameters

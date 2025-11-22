@@ -2,7 +2,6 @@
 
 import box2dLight.ConeLight
 import com.badlogic.gdx.graphics.Color
-import org.koin.core.Koin
 import pro.piechowski.kge.direction.Direction4
 import pro.piechowski.kge.get
 import pro.piechowski.kge.physics.body.PhysicsBody
@@ -10,7 +9,6 @@ import pro.piechowski.kge.vehicle.VehicleLights
 
 object BusLights {
     object Headlights {
-        context(koin: Koin)
         operator fun invoke(
             direction4: Direction4,
             physicsBody: PhysicsBody,
