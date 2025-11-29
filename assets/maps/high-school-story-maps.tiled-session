@@ -1,0 +1,87 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "road.tmx",
+    "automapping.whileDrawing": true,
+    "expandedProjectPaths": [
+        "."
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        ":/automap-tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "Modern_Exteriors_Complete_Tileset_48x48.tsx": {
+            "scaleInDock": 0.33,
+            "scaleInEditor": 0.75
+        },
+        "exteriors_rulemap.tmx": {
+            "scale": 3,
+            "selectedLayer": -1,
+            "viewCenter": {
+                "x": 177.99999999999997,
+                "y": 168
+            }
+        },
+        "road.tmx": {
+            "expandedGroupLayers": [
+                3
+            ],
+            "scale": 0.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1969,
+                "y": 911
+            }
+        },
+        "test.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 697.3333333333334,
+                "y": 557.3333333333334
+            }
+        },
+        "town.tmx": {
+            "expandedGroupLayers": [
+                8,
+                7
+            ],
+            "expandedObjectLayers": [
+                5
+            ],
+            "scale": 1.5,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 12646.333333333332,
+                "y": 8777.666666666666
+            }
+        }
+    },
+    "last.exportedFilePath": "C:/Users/fpiec/IdeaProjects/high-school-story/assets/maps",
+    "last.imagePath": "C:/Users/fpiec/IdeaProjects/high-school-story/assets/tilesets",
+    "map.fixedSize": true,
+    "map.lastUsedExportFilter": "Tiled map files (*.tmx *.xml)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 48,
+    "map.tileWidth": 48,
+    "openFiles": [
+        "town.tmx",
+        "road.tmx"
+    ],
+    "project": "high-school-story-maps.tiled-project",
+    "recentFiles": [
+        "town.tmx",
+        "road.tmx",
+        "Modern_Exteriors_Complete_Tileset_48x48.tsx",
+        "exteriors_rulemap.tmx",
+        "test.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 48,
+        "width": 48
+    }
+}

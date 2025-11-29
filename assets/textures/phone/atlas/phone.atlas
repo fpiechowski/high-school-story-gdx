@@ -1,0 +1,4589 @@
+phone.png
+size:2048,4096
+repeat:none
+Android_Black
+bounds:1940,3056,24,24
+Android_Blue
+bounds:1836,3108,24,24
+Android_Gray
+bounds:860,756,24,24
+Android_Green
+bounds:964,886,24,24
+Android_Lightblue
+bounds:1732,2926,24,24
+Android_Lightgreen
+bounds:912,912,24,24
+Android_Orange
+bounds:236,600,24,24
+Android_Pink
+bounds:80,314,24,24
+Android_Purple
+bounds:574,262,24,24
+Android_Red
+bounds:106,340,24,24
+Android_White
+bounds:1680,3056,24,24
+Android_Yellow
+bounds:496,886,24,24
+Apple_Black
+bounds:28,132,24,24
+Apple_Blue
+bounds:106,184,24,24
+Apple_Gray
+bounds:1732,3160,24,24
+Apple_Green
+bounds:2,314,24,24
+Apple_Lightblue
+bounds:678,600,24,24
+Apple_Lightgreen
+bounds:1862,3498,24,24
+Apple_Orange
+bounds:938,782,24,24
+Apple_Pink
+bounds:80,522,24,24
+Apple_Purple
+bounds:366,652,24,24
+Apple_Red
+bounds:470,444,24,24
+Apple_White
+bounds:106,522,24,24
+Apple_Yellow
+bounds:262,106,24,24
+Arrow Down_Black
+bounds:1302,990,24,24
+Arrow Down_Blue
+bounds:1120,808,24,24
+Arrow Down_Gray
+bounds:366,2,24,24
+Arrow Down_Green
+bounds:522,366,24,24
+Arrow Down_Lightblue
+bounds:262,314,24,24
+Arrow Down_Lightgreen
+bounds:184,184,24,24
+Arrow Down_Orange
+bounds:236,938,24,24
+Arrow Down_Pink
+bounds:1680,3030,24,24
+Arrow Down_Purple
+bounds:158,54,24,24
+Arrow Down_Red
+bounds:1758,3940,24,24
+Arrow Down_White
+bounds:236,158,24,24
+Arrow Down_Yellow
+bounds:262,990,24,24
+Arrow Left_Black
+bounds:80,2,24,24
+Arrow Left_Blue
+bounds:834,990,24,24
+Arrow Left_Gray
+bounds:470,600,24,24
+Arrow Left_Green
+bounds:210,340,24,24
+Arrow Left_Lightblue
+bounds:574,184,24,24
+Arrow Left_Lightgreen
+bounds:236,522,24,24
+Arrow Left_Orange
+bounds:28,574,24,24
+Arrow Left_Pink
+bounds:1706,3602,24,24
+Arrow Left_Purple
+bounds:522,340,24,24
+Arrow Left_Red
+bounds:1094,730,24,24
+Arrow Left_White
+bounds:626,860,24,24
+Arrow Left_Yellow
+bounds:314,886,24,24
+Arrow Right_Black
+bounds:210,2,24,24
+Arrow Right_Blue
+bounds:80,886,24,24
+Arrow Right_Gray
+bounds:1758,3888,24,24
+Arrow Right_Green
+bounds:288,288,24,24
+Arrow Right_Lightblue
+bounds:236,262,24,24
+Arrow Right_Lightgreen
+bounds:600,938,24,24
+Arrow Right_Orange
+bounds:288,340,24,24
+Arrow Right_Pink
+bounds:418,262,24,24
+Arrow Right_Purple
+bounds:236,808,24,24
+Arrow Right_Red
+bounds:834,704,24,24
+Arrow Right_White
+bounds:1784,3238,24,24
+Arrow Right_Yellow
+bounds:834,912,24,24
+Arrow Up_Black
+bounds:366,262,24,24
+Arrow Up_Blue
+bounds:548,756,24,24
+Arrow Up_Gray
+bounds:80,262,24,24
+Arrow Up_Green
+bounds:1966,3420,24,24
+Arrow Up_Lightblue
+bounds:938,652,24,24
+Arrow Up_Lightgreen
+bounds:1940,3654,24,24
+Arrow Up_Orange
+bounds:1914,3966,24,24
+Arrow Up_Pink
+bounds:132,756,24,24
+Arrow Up_Purple
+bounds:730,626,24,24
+Arrow Up_Red
+bounds:1276,1042,24,24
+Arrow Up_White
+bounds:574,756,24,24
+Arrow Up_Yellow
+bounds:132,834,24,24
+Bell_Black
+bounds:1966,3004,24,24
+Bell_Blue
+bounds:1706,3680,24,24
+Bell_Gray
+bounds:2,574,24,24
+Bell_Green
+bounds:1120,964,24,24
+Bell_Lightblue
+bounds:28,678,24,24
+Bell_Lightgreen
+bounds:1784,3914,24,24
+Bell_Orange
+bounds:2018,3680,24,24
+Bell_Pink
+bounds:834,574,24,24
+Bell_Purple
+bounds:704,340,24,24
+Bell_Red
+bounds:1680,2874,24,24
+Bell_White
+bounds:938,860,24,24
+Bell_Yellow
+bounds:418,730,24,24
+Book_Black
+bounds:262,2,24,24
+Book_Blue
+bounds:54,964,24,24
+Book_Gray
+bounds:1732,3940,24,24
+Book_Green
+bounds:1042,990,24,24
+Book_Lightblue
+bounds:236,418,24,24
+Book_Lightgreen
+bounds:444,444,24,24
+Book_Orange
+bounds:28,470,24,24
+Book_Pink
+bounds:314,184,24,24
+Book_Purple
+bounds:1992,3108,24,24
+Book_Red
+bounds:2,54,24,24
+Book_White
+bounds:314,340,24,24
+Book_Yellow
+bounds:106,574,24,24
+Bus_Black
+bounds:1758,3368,24,24
+Bus_Blue
+bounds:392,652,24,24
+Bus_Gray
+bounds:158,392,24,24
+Bus_Green
+bounds:184,652,24,24
+Bus_Lightblue
+bounds:158,756,24,24
+Bus_Lightgreen
+bounds:1888,3446,24,24
+Bus_Orange
+bounds:496,262,24,24
+Bus_Pink
+bounds:1888,3940,24,24
+Bus_Purple
+bounds:2018,3576,24,24
+Bus_Red
+bounds:730,912,24,24
+Bus_White
+bounds:236,834,24,24
+Bus_Yellow
+bounds:1836,2978,24,24
+Calculator_Black
+bounds:496,522,24,24
+Calculator_Blue
+bounds:522,418,24,24
+Calculator_Gray
+bounds:1810,3056,24,24
+Calculator_Green
+bounds:366,574,24,24
+Calculator_Lightblue
+bounds:1784,3056,24,24
+Calculator_Lightgreen
+bounds:704,600,24,24
+Calculator_Orange
+bounds:1172,1068,24,24
+Calculator_Pink
+bounds:1680,3264,24,24
+Calculator_Purple
+bounds:80,418,24,24
+Calculator_Red
+bounds:1654,3004,24,24
+Calculator_White
+bounds:1940,3628,24,24
+Calculator_Yellow
+bounds:652,548,24,24
+Calendar_Black
+bounds:366,834,24,24
+Calendar_Blue
+bounds:340,756,24,24
+Calendar_Gray
+bounds:210,600,24,24
+Calendar_Green
+bounds:1758,3862,24,24
+Calendar_Lightblue
+bounds:1172,912,24,24
+Calendar_Lightgreen
+bounds:236,184,24,24
+Calendar_Orange
+bounds:756,600,24,24
+Calendar_Pink
+bounds:1432,1068,24,24
+Calendar_Purple
+bounds:106,392,24,24
+Calendar_Red
+bounds:1940,3758,24,24
+Calendar_White
+bounds:652,262,24,24
+Calendar_Yellow
+bounds:1966,3186,24,24
+Camera_Black
+bounds:1836,2874,24,24
+Camera_Blue
+bounds:340,1016,24,24
+Camera_Gray
+bounds:1758,3758,24,24
+Camera_Green
+bounds:964,808,24,24
+Camera_Lightblue
+bounds:1654,3732,24,24
+Camera_Lightgreen
+bounds:496,964,24,24
+Camera_Orange
+bounds:1888,3082,24,24
+Camera_Pink
+bounds:1654,2796,24,24
+Camera_Purple
+bounds:1758,3394,24,24
+Camera_Red
+bounds:1810,2978,24,24
+Camera_White
+bounds:860,782,24,24
+Camera_Yellow
+bounds:678,522,24,24
+Checkmark_Black
+bounds:1862,2952,24,24
+Checkmark_Blue
+bounds:184,392,24,24
+Checkmark_Gray
+bounds:1732,3290,24,24
+Checkmark_Green
+bounds:886,782,24,24
+Checkmark_Lightblue
+bounds:574,990,24,24
+Checkmark_Lightgreen
+bounds:236,782,24,24
+Checkmark_Orange
+bounds:600,678,24,24
+Checkmark_Pink
+bounds:1784,3784,24,24
+Checkmark_Purple
+bounds:1836,3810,24,24
+Checkmark_Red
+bounds:1836,3940,24,24
+Checkmark_White
+bounds:1042,1042,24,24
+Checkmark_Yellow
+bounds:1758,3212,24,24
+Chip_Black
+bounds:392,626,24,24
+Chip_Blue
+bounds:392,678,24,24
+Chip_Gray
+bounds:262,522,24,24
+Chip_Green
+bounds:1784,3602,24,24
+Chip_Lightblue
+bounds:314,678,24,24
+Chip_Lightgreen
+bounds:1992,3966,24,24
+Chip_Orange
+bounds:496,600,24,24
+Chip_Pink
+bounds:1732,3810,24,24
+Chip_Purple
+bounds:2,652,24,24
+Chip_Red
+bounds:1862,3290,24,24
+Chip_White
+bounds:1810,3758,24,24
+Chip_Yellow
+bounds:1784,3264,24,24
+Circle Base_Black
+bounds:1354,1068,24,24
+Circle Base_Blue
+bounds:314,964,24,24
+Circle Base_Gray
+bounds:444,1068,24,24
+Circle Base_Green
+bounds:704,574,24,24
+Circle Base_Lightblue
+bounds:210,262,24,24
+Circle Base_Lightgreen
+bounds:626,652,24,24
+Circle Base_Orange
+bounds:1966,3732,24,24
+Circle Base_Pink
+bounds:808,574,24,24
+Circle Base_Purple
+bounds:808,522,24,24
+Circle Base_Red
+bounds:1706,3498,24,24
+Circle Base_Yellow
+bounds:418,834,24,24
+Circle Frame 2_Black
+bounds:314,756,24,24
+Circle Frame 2_Blue
+bounds:522,652,24,24
+Circle Frame 2_Gray
+bounds:54,158,24,24
+Circle Frame 2_Green
+bounds:1862,3940,24,24
+Circle Frame 2_Lightblue
+bounds:158,2,24,24
+Circle Frame 2_Lightgreen
+bounds:1888,3290,24,24
+Circle Frame 2_Orange
+bounds:1094,1016,24,24
+Circle Frame 2_Pink
+bounds:314,834,24,24
+Circle Frame 2_Purple
+bounds:548,938,24,24
+Circle Frame 2_Red
+bounds:132,1068,24,24
+Circle Frame 2_White
+bounds:1680,4018,24,24
+Circle Base_White
+bounds:1680,4018,24,24
+Circle Frame_White
+bounds:1680,4018,24,24
+Circle Half_White
+bounds:1680,4018,24,24
+Circle Quarter 2_White
+bounds:1680,4018,24,24
+Circle Quarter_White
+bounds:1680,4018,24,24
+Circle Frame 2_Yellow
+bounds:262,184,24,24
+Circle Frame_Black
+bounds:1224,1042,24,24
+Circle Frame_Blue
+bounds:860,652,24,24
+Circle Frame_Gray
+bounds:470,236,24,24
+Circle Frame_Green
+bounds:1914,3264,24,24
+Circle Frame_Lightblue
+bounds:1224,1016,24,24
+Circle Frame_Lightgreen
+bounds:1810,3550,24,24
+Circle Frame_Orange
+bounds:1992,3316,24,24
+Circle Frame_Pink
+bounds:1836,3290,24,24
+Circle Frame_Purple
+bounds:1862,3654,24,24
+Circle Frame_Red
+bounds:314,652,24,24
+Circle Frame_Yellow
+bounds:808,782,24,24
+Circle Half_Black
+bounds:236,314,24,24
+Circle Half_Blue
+bounds:54,1016,24,24
+Circle Half_Gray
+bounds:80,964,24,24
+Circle Half_Green
+bounds:522,808,24,24
+Circle Half_Lightblue
+bounds:522,314,24,24
+Circle Half_Lightgreen
+bounds:912,548,24,24
+Circle Half_Orange
+bounds:652,704,24,24
+Circle Half_Pink
+bounds:1094,990,24,24
+Circle Half_Purple
+bounds:1680,3602,24,24
+Circle Half_Red
+bounds:1146,990,24,24
+Circle Half_Yellow
+bounds:1966,3394,24,24
+Circle Open_Black
+bounds:262,340,24,24
+Circle Open_Blue
+bounds:834,470,24,24
+Circle Open_Gray
+bounds:496,106,24,24
+Circle Open_Green
+bounds:626,912,24,24
+Circle Open_Lightblue
+bounds:1016,990,24,24
+Circle Open_Lightgreen
+bounds:262,158,24,24
+Circle Open_Orange
+bounds:132,808,24,24
+Circle Open_Pink
+bounds:782,704,24,24
+Circle Open_Purple
+bounds:1706,2952,24,24
+Circle Open_Red
+bounds:600,392,24,24
+Circle Open_White
+bounds:418,808,24,24
+Circle Open_Yellow
+bounds:1836,3888,24,24
+Circle Quarter 2_Black
+bounds:262,262,24,24
+Circle Quarter 2_Blue
+bounds:886,808,24,24
+Circle Quarter 2_Gray
+bounds:496,392,24,24
+Circle Quarter 2_Green
+bounds:210,392,24,24
+Circle Quarter 2_Lightblue
+bounds:496,288,24,24
+Circle Quarter 2_Lightgreen
+bounds:678,340,24,24
+Circle Quarter 2_Orange
+bounds:1224,886,24,24
+Circle Quarter 2_Pink
+bounds:652,912,24,24
+Circle Quarter 2_Purple
+bounds:2018,3446,24,24
+Circle Quarter 2_Red
+bounds:652,392,24,24
+Circle Quarter 2_Yellow
+bounds:600,262,24,24
+Circle Quarter_Black
+bounds:262,886,24,24
+Circle Quarter_Blue
+bounds:522,860,24,24
+Circle Quarter_Gray
+bounds:80,392,24,24
+Circle Quarter_Green
+bounds:1120,756,24,24
+Circle Quarter_Lightblue
+bounds:314,366,24,24
+Circle Quarter_Lightgreen
+bounds:470,496,24,24
+Circle Quarter_Orange
+bounds:1862,3550,24,24
+Circle Quarter_Pink
+bounds:1836,4018,24,24
+Circle Quarter_Purple
+bounds:912,574,24,24
+Circle Quarter_Red
+bounds:1732,3056,24,24
+Circle Quarter_Yellow
+bounds:1914,3056,24,24
+Circle_Black
+bounds:626,288,24,24
+Circle_Blue
+bounds:1810,3628,24,24
+Circle_Gray
+bounds:1914,3706,24,24
+Circle_Green
+bounds:1940,3134,24,24
+Circle_Lightblue
+bounds:158,704,24,24
+Circle_Lightgreen
+bounds:470,704,24,24
+Circle_Orange
+bounds:574,678,24,24
+Circle_Pink
+bounds:1380,1042,24,24
+Circle_Purple
+bounds:80,730,24,24
+Circle_Red
+bounds:236,28,24,24
+Circle_White
+bounds:2018,3290,24,24
+Circle_Yellow
+bounds:1836,3316,24,24
+Clock_Black
+bounds:1042,808,24,24
+Clock_Blue
+bounds:548,1042,24,24
+Clock_Gray
+bounds:1732,3550,24,24
+Clock_Green
+bounds:392,314,24,24
+Clock_Lightblue
+bounds:2,262,24,24
+Clock_Lightgreen
+bounds:1810,3264,24,24
+Clock_Orange
+bounds:210,210,24,24
+Clock_Pink
+bounds:418,80,24,24
+Clock_Purple
+bounds:80,574,24,24
+Clock_Red
+bounds:548,730,24,24
+Clock_White
+bounds:678,704,24,24
+Clock_Yellow
+bounds:886,912,24,24
+Cloud_Black
+bounds:1758,3342,24,24
+Cloud_Blue
+bounds:2,990,24,24
+Cloud_Gray
+bounds:1654,3914,24,24
+Cloud_Green
+bounds:132,574,24,24
+Cloud_Lightblue
+bounds:756,912,24,24
+Cloud_Lightgreen
+bounds:1784,4044,24,24
+Cloud_Orange
+bounds:522,392,24,24
+Cloud_Pink
+bounds:912,808,24,24
+Cloud_Purple
+bounds:678,1016,24,24
+Cloud_Red
+bounds:1654,2770,24,24
+Cloud_White
+bounds:184,756,24,24
+Cloud_Yellow
+bounds:1836,3082,24,24
+Coffee_Black
+bounds:1146,808,24,24
+Coffee_Blue
+bounds:496,418,24,24
+Coffee_Gray
+bounds:236,132,24,24
+Coffee_Green
+bounds:470,288,24,24
+Coffee_Lightblue
+bounds:964,730,24,24
+Coffee_Lightgreen
+bounds:392,158,24,24
+Coffee_Orange
+bounds:834,1068,24,24
+Coffee_Pink
+bounds:444,704,24,24
+Coffee_Purple
+bounds:1680,3940,24,24
+Coffee_Red
+bounds:314,600,24,24
+Coffee_White
+bounds:574,470,24,24
+Coffee_Yellow
+bounds:1732,3342,24,24
+Contacts_Black
+bounds:1198,1068,24,24
+Contacts_Blue
+bounds:184,54,24,24
+Contacts_Gray
+bounds:990,860,24,24
+Contacts_Green
+bounds:1862,3264,24,24
+Contacts_Lightblue
+bounds:366,210,24,24
+Contacts_Lightgreen
+bounds:600,600,24,24
+Contacts_Orange
+bounds:1862,3368,24,24
+Contacts_Pink
+bounds:730,938,24,24
+Contacts_Purple
+bounds:80,782,24,24
+Contacts_Red
+bounds:1940,3004,24,24
+Contacts_White
+bounds:730,860,24,24
+Contacts_Yellow
+bounds:444,600,24,24
+Controller Retro_Black
+bounds:340,418,24,24
+Controller Retro_Blue
+bounds:730,574,24,24
+Controller Retro_Gray
+bounds:236,54,24,24
+Controller Retro_Green
+bounds:704,990,24,24
+Controller Retro_Lightblue
+bounds:444,184,24,24
+Controller Retro_Lightgreen
+bounds:1654,2874,24,24
+Controller Retro_Orange
+bounds:808,704,24,24
+Controller Retro_Pink
+bounds:548,704,24,24
+Controller Retro_Purple
+bounds:704,1068,24,24
+Controller Retro_Red
+bounds:444,366,24,24
+Controller Retro_White
+bounds:626,1016,24,24
+Controller Retro_Yellow
+bounds:184,80,24,24
+Controller_Black
+bounds:860,704,24,24
+Controller_Blue
+bounds:626,444,24,24
+Controller_Gray
+bounds:1862,3030,24,24
+Controller_Green
+bounds:860,886,24,24
+Controller_Lightblue
+bounds:80,652,24,24
+Controller_Lightgreen
+bounds:340,834,24,24
+Controller_Orange
+bounds:756,756,24,24
+Controller_Pink
+bounds:808,938,24,24
+Controller_Purple
+bounds:1888,3732,24,24
+Controller_Red
+bounds:158,184,24,24
+Controller_White
+bounds:444,548,24,24
+Controller_Yellow
+bounds:80,80,24,24
+Crown_Black
+bounds:1276,1068,24,24
+Crown_Blue
+bounds:444,756,24,24
+Crown_Gray
+bounds:184,470,24,24
+Crown_Green
+bounds:600,548,24,24
+Crown_Lightblue
+bounds:158,834,24,24
+Crown_Lightgreen
+bounds:1654,3576,24,24
+Crown_Orange
+bounds:548,652,24,24
+Crown_Pink
+bounds:1836,3966,24,24
+Crown_Purple
+bounds:54,704,24,24
+Crown_Red
+bounds:1810,3134,24,24
+Crown_White
+bounds:1992,3394,24,24
+Crown_Yellow
+bounds:1810,3290,24,24
+Document_Black
+bounds:704,782,24,24
+Document_Blue
+bounds:600,860,24,24
+Document_Gray
+bounds:730,964,24,24
+Document_Green
+bounds:1836,3472,24,24
+Document_Lightblue
+bounds:210,834,24,24
+Document_Lightgreen
+bounds:990,1068,24,24
+Document_Orange
+bounds:132,444,24,24
+Document_Pink
+bounds:1992,4044,24,24
+Document_Purple
+bounds:1250,912,24,24
+Document_Red
+bounds:1862,3004,24,24
+Document_White
+bounds:1966,3706,24,24
+Document_Yellow
+bounds:626,964,24,24
+Email_Black
+bounds:782,470,24,24
+Email_Blue
+bounds:366,470,24,24
+Email_Gray
+bounds:2018,3472,24,24
+Email_Green
+bounds:1862,3082,24,24
+Email_Lightblue
+bounds:1992,3784,24,24
+Email_Lightgreen
+bounds:288,652,24,24
+Email_Orange
+bounds:366,860,24,24
+Email_Pink
+bounds:1862,3706,24,24
+Email_Purple
+bounds:1680,2822,24,24
+Email_Red
+bounds:1888,3914,24,24
+Email_White
+bounds:912,860,24,24
+Email_Yellow
+bounds:418,938,24,24
+Exclamation Black_Black
+bounds:1940,3992,24,24
+Exclamation Black_Blue
+bounds:1810,3992,24,24
+Exclamation Black_Gray
+bounds:106,886,24,24
+Exclamation Black_Green
+bounds:392,54,24,24
+Exclamation Black_Lightblue
+bounds:1680,3550,24,24
+Exclamation Black_Lightgreen
+bounds:2,522,24,24
+Exclamation Black_Orange
+bounds:262,1016,24,24
+Exclamation Black_Pink
+bounds:184,28,24,24
+Exclamation Black_Purple
+bounds:132,54,24,24
+Exclamation Black_Red
+bounds:262,782,24,24
+Exclamation Black_White
+bounds:418,158,24,24
+Exclamation Black_Yellow
+bounds:80,860,24,24
+Exclamation Yellow_Black
+bounds:1354,1016,24,24
+Exclamation Yellow_Blue
+bounds:548,418,24,24
+Exclamation Yellow_Gray
+bounds:1784,3004,24,24
+Exclamation Yellow_Green
+bounds:678,496,24,24
+Exclamation Yellow_Lightblue
+bounds:1966,3446,24,24
+Exclamation Yellow_Lightgreen
+bounds:756,834,24,24
+Exclamation Yellow_Orange
+bounds:1654,3992,24,24
+Exclamation Yellow_Pink
+bounds:1836,3394,24,24
+Exclamation Yellow_Purple
+bounds:1940,3316,24,24
+Exclamation Yellow_Red
+bounds:158,366,24,24
+Exclamation Yellow_White
+bounds:756,652,24,24
+Exclamation Yellow_Yellow
+bounds:678,288,24,24
+Exclamation_Black
+bounds:2,600,24,24
+Exclamation_Blue
+bounds:340,782,24,24
+Exclamation_Gray
+bounds:158,574,24,24
+Exclamation_Green
+bounds:1836,2822,24,24
+Exclamation_Lightblue
+bounds:1810,3914,24,24
+Exclamation_Lightgreen
+bounds:522,730,24,24
+Exclamation_Orange
+bounds:860,912,24,24
+Exclamation_Pink
+bounds:1940,2952,24,24
+Exclamation_Purple
+bounds:1862,3784,24,24
+Exclamation_Red
+bounds:1680,3160,24,24
+Exclamation_White
+bounds:1966,3030,24,24
+Exclamation_Yellow
+bounds:158,210,24,24
+File_Black
+bounds:1914,4018,24,24
+File_Blue
+bounds:418,756,24,24
+File_Gray
+bounds:1992,3680,24,24
+File_Green
+bounds:444,132,24,24
+File_Lightblue
+bounds:860,522,24,24
+File_Lightgreen
+bounds:1758,3264,24,24
+File_Orange
+bounds:522,1042,24,24
+File_Pink
+bounds:1654,3836,24,24
+File_Purple
+bounds:444,236,24,24
+File_Red
+bounds:990,1016,24,24
+File_White
+bounds:1732,2874,24,24
+File_Yellow
+bounds:1914,3810,24,24
+Gallery 2_Black
+bounds:600,418,24,24
+Gallery 2_Blue
+bounds:1198,860,24,24
+Gallery 2_Gray
+bounds:600,236,24,24
+Gallery 2_Green
+bounds:730,730,24,24
+Gallery 2_Lightblue
+bounds:652,678,24,24
+Gallery 2_Lightgreen
+bounds:574,522,24,24
+Gallery 2_Orange
+bounds:1068,834,24,24
+Gallery 2_Pink
+bounds:652,600,24,24
+Gallery 2_Purple
+bounds:418,600,24,24
+Gallery 2_Red
+bounds:2,184,24,24
+Gallery 2_White
+bounds:418,496,24,24
+Gallery 2_Yellow
+bounds:1966,3108,24,24
+Hammer_Black
+bounds:470,964,24,24
+Hammer_Blue
+bounds:522,600,24,24
+Hammer_Gray
+bounds:106,158,24,24
+Hammer_Green
+bounds:54,834,24,24
+Hammer_Lightblue
+bounds:132,626,24,24
+Hammer_Lightgreen
+bounds:262,444,24,24
+Hammer_Orange
+bounds:1680,2848,24,24
+Hammer_Pink
+bounds:548,990,24,24
+Hammer_Purple
+bounds:184,418,24,24
+Hammer_Red
+bounds:678,470,24,24
+Hammer_White
+bounds:990,626,24,24
+Hammer_Yellow
+bounds:574,392,24,24
+Handbag_Black
+bounds:496,184,24,24
+Handbag_Blue
+bounds:2018,3966,24,24
+Handbag_Gray
+bounds:1940,3862,24,24
+Handbag_Green
+bounds:1120,990,24,24
+Handbag_Lightblue
+bounds:522,236,24,24
+Handbag_Lightgreen
+bounds:1914,3316,24,24
+Handbag_Orange
+bounds:1966,3290,24,24
+Handbag_Pink
+bounds:1706,2796,24,24
+Handbag_Purple
+bounds:1836,3628,24,24
+Handbag_Red
+bounds:1836,3758,24,24
+Handbag_White
+bounds:678,626,24,24
+Handbag_Yellow
+bounds:834,808,24,24
+Heart_Black
+bounds:1914,3498,24,24
+Heart_Blue
+bounds:288,964,24,24
+Heart_Gray
+bounds:1706,3706,24,24
+Heart_Green
+bounds:262,704,24,24
+Heart_Lightblue
+bounds:1888,2978,24,24
+Heart_Lightgreen
+bounds:184,496,24,24
+Heart_Orange
+bounds:340,704,24,24
+Heart_Pink
+bounds:1146,938,24,24
+Heart_Purple
+bounds:652,340,24,24
+Heart_Red
+bounds:1706,2692,24,24
+Heart_White
+bounds:288,860,24,24
+Heart_Yellow
+bounds:1654,3394,24,24
+House_Black
+bounds:1862,3394,24,24
+House_Blue
+bounds:652,1042,24,24
+House_Gray
+bounds:574,938,24,24
+House_Green
+bounds:1836,3576,24,24
+House_Lightblue
+bounds:158,444,24,24
+House_Lightgreen
+bounds:1888,3264,24,24
+House_Orange
+bounds:938,834,24,24
+House_Pink
+bounds:28,990,24,24
+House_Purple
+bounds:1862,3576,24,24
+House_Red
+bounds:964,990,24,24
+House_White
+bounds:1888,3758,24,24
+House_Yellow
+bounds:314,210,24,24
+Internet_Black
+bounds:288,1016,24,24
+Internet_Blue
+bounds:1966,4018,24,24
+Internet_Gray
+bounds:392,1068,24,24
+Internet_Green
+bounds:834,522,24,24
+Internet_Lightblue
+bounds:1732,3914,24,24
+Internet_Lightgreen
+bounds:392,2,24,24
+Internet_Orange
+bounds:1914,3550,24,24
+Internet_Pink
+bounds:366,158,24,24
+Internet_Purple
+bounds:1888,2874,24,24
+Internet_Red
+bounds:1732,4018,24,24
+Internet_White
+bounds:1940,3082,24,24
+Internet_Yellow
+bounds:444,730,24,24
+Keyboard_Black
+bounds:28,964,24,24
+Keyboard_Blue
+bounds:1836,3056,24,24
+Keyboard_Gray
+bounds:782,626,24,24
+Keyboard_Green
+bounds:990,756,24,24
+Keyboard_Lightblue
+bounds:522,522,24,24
+Keyboard_Lightgreen
+bounds:470,834,24,24
+Keyboard_Orange
+bounds:2018,3992,24,24
+Keyboard_Pink
+bounds:860,1042,24,24
+Keyboard_Purple
+bounds:340,184,24,24
+Keyboard_Red
+bounds:1992,3940,24,24
+Keyboard_White
+bounds:652,496,24,24
+Keyboard_Yellow
+bounds:54,678,24,24
+Laptop_Black
+bounds:1732,3212,24,24
+Laptop_Blue
+bounds:808,548,24,24
+Laptop_Gray
+bounds:1784,2874,24,24
+Laptop_Green
+bounds:1810,3498,24,24
+Laptop_Lightblue
+bounds:210,652,24,24
+Laptop_Lightgreen
+bounds:1914,3004,24,24
+Laptop_Orange
+bounds:132,184,24,24
+Laptop_Pink
+bounds:704,756,24,24
+Laptop_Purple
+bounds:158,730,24,24
+Laptop_Red
+bounds:184,1068,24,24
+Laptop_White
+bounds:1784,3576,24,24
+Laptop_Yellow
+bounds:1706,3862,24,24
+Letter A Black_Black
+bounds:1966,3524,24,24
+Letter A Black_Blue
+bounds:860,626,24,24
+Letter A Black_Gray
+bounds:756,496,24,24
+Letter A Black_Green
+bounds:1758,3524,24,24
+Letter A Black_Lightblue
+bounds:2,808,24,24
+Letter A Black_Lightgreen
+bounds:1966,3992,24,24
+Letter A Black_Orange
+bounds:522,496,24,24
+Letter A Black_Pink
+bounds:1758,3186,24,24
+Letter A Black_Purple
+bounds:2018,3836,24,24
+Letter A Black_Red
+bounds:1732,4044,24,24
+Letter A Black_White
+bounds:1888,3784,24,24
+Letter A Black_Yellow
+bounds:1068,1068,24,24
+Letter A Yellow_Black
+bounds:808,912,24,24
+Letter A Yellow_Blue
+bounds:1680,3784,24,24
+Letter A Yellow_Gray
+bounds:28,730,24,24
+Letter A Yellow_Green
+bounds:730,1042,24,24
+Letter A Yellow_Lightblue
+bounds:470,132,24,24
+Letter A Yellow_Lightgreen
+bounds:1654,3446,24,24
+Letter A Yellow_Orange
+bounds:2,496,24,24
+Letter A Yellow_Pink
+bounds:340,158,24,24
+Letter A Yellow_Purple
+bounds:886,678,24,24
+Letter A Yellow_Red
+bounds:444,938,24,24
+Letter A Yellow_White
+bounds:1784,3550,24,24
+Letter A Yellow_Yellow
+bounds:236,756,24,24
+Letter A_Black
+bounds:834,782,24,24
+Letter A_Blue
+bounds:54,912,24,24
+Letter A_Gray
+bounds:1888,4070,24,24
+Letter A_Green
+bounds:782,912,24,24
+Letter A_Lightblue
+bounds:340,626,24,24
+Letter A_Lightgreen
+bounds:1836,3680,24,24
+Letter A_Orange
+bounds:1732,3264,24,24
+Letter A_Pink
+bounds:808,678,24,24
+Letter A_Purple
+bounds:1940,4070,24,24
+Letter A_Red
+bounds:548,522,24,24
+Letter A_White
+bounds:2018,3602,24,24
+Letter A_Yellow
+bounds:158,340,24,24
+Letter B Black_Black
+bounds:1120,1016,24,24
+Letter B Black_Blue
+bounds:626,704,24,24
+Letter B Black_Gray
+bounds:184,236,24,24
+Letter B Black_Green
+bounds:912,990,24,24
+Letter B Black_Lightblue
+bounds:808,834,24,24
+Letter B Black_Lightgreen
+bounds:418,288,24,24
+Letter B Black_Orange
+bounds:1888,3966,24,24
+Letter B Black_Pink
+bounds:1680,3472,24,24
+Letter B Black_Purple
+bounds:1654,2926,24,24
+Letter B Black_Red
+bounds:80,184,24,24
+Letter B Black_White
+bounds:262,418,24,24
+Letter B Black_Yellow
+bounds:1888,3992,24,24
+Letter B Yellow_Black
+bounds:652,288,24,24
+Letter B Yellow_Blue
+bounds:782,548,24,24
+Letter B Yellow_Gray
+bounds:678,418,24,24
+Letter B Yellow_Green
+bounds:1784,2952,24,24
+Letter B Yellow_Lightblue
+bounds:158,990,24,24
+Letter B Yellow_Lightgreen
+bounds:704,912,24,24
+Letter B Yellow_Orange
+bounds:1888,3394,24,24
+Letter B Yellow_Pink
+bounds:1680,3108,24,24
+Letter B Yellow_Purple
+bounds:106,808,24,24
+Letter B Yellow_Red
+bounds:1276,964,24,24
+Letter B Yellow_White
+bounds:158,28,24,24
+Letter B Yellow_Yellow
+bounds:470,626,24,24
+Letter B_Black
+bounds:704,652,24,24
+Letter B_Blue
+bounds:1836,3420,24,24
+Letter B_Gray
+bounds:574,782,24,24
+Letter B_Green
+bounds:626,756,24,24
+Letter B_Lightblue
+bounds:1706,3342,24,24
+Letter B_Lightgreen
+bounds:1914,2952,24,24
+Letter B_Orange
+bounds:782,990,24,24
+Letter B_Pink
+bounds:1914,3940,24,24
+Letter B_Purple
+bounds:1706,3888,24,24
+Letter B_Red
+bounds:2,938,24,24
+Letter B_White
+bounds:1940,3524,24,24
+Letter B_Yellow
+bounds:210,418,24,24
+Letter C Black_Black
+bounds:2018,3004,24,24
+Letter C Black_Blue
+bounds:2,444,24,24
+Letter C Black_Gray
+bounds:2,418,24,24
+Letter C Black_Green
+bounds:964,756,24,24
+Letter C Black_Lightblue
+bounds:1706,3030,24,24
+Letter C Black_Lightgreen
+bounds:1784,2926,24,24
+Letter C Black_Orange
+bounds:1654,3108,24,24
+Letter C Black_Pink
+bounds:1732,2744,24,24
+Letter C Black_Purple
+bounds:1836,3836,24,24
+Letter C Black_Red
+bounds:392,496,24,24
+Letter C Black_White
+bounds:1042,912,24,24
+Letter C Black_Yellow
+bounds:184,288,24,24
+Letter C Yellow_Black
+bounds:1810,3394,24,24
+Letter C Yellow_Blue
+bounds:210,886,24,24
+Letter C Yellow_Gray
+bounds:340,990,24,24
+Letter C Yellow_Green
+bounds:158,600,24,24
+Letter C Yellow_Lightblue
+bounds:600,574,24,24
+Letter C Yellow_Lightgreen
+bounds:54,730,24,24
+Letter C Yellow_Orange
+bounds:54,496,24,24
+Letter C Yellow_Pink
+bounds:1068,860,24,24
+Letter C Yellow_Purple
+bounds:2018,3134,24,24
+Letter C Yellow_Red
+bounds:834,834,24,24
+Letter C Yellow_White
+bounds:210,782,24,24
+Letter C Yellow_Yellow
+bounds:132,600,24,24
+Letter C_Black
+bounds:548,496,24,24
+Letter C_Blue
+bounds:1654,2822,24,24
+Letter C_Gray
+bounds:626,418,24,24
+Letter C_Green
+bounds:548,678,24,24
+Letter C_Lightblue
+bounds:210,470,24,24
+Letter C_Lightgreen
+bounds:1836,3186,24,24
+Letter C_Orange
+bounds:704,392,24,24
+Letter C_Pink
+bounds:2,106,24,24
+Letter C_Purple
+bounds:210,314,24,24
+Letter C_Red
+bounds:756,1042,24,24
+Letter C_White
+bounds:1888,3472,24,24
+Letter C_Yellow
+bounds:1328,1042,24,24
+Letter D Black_Black
+bounds:1940,3732,24,24
+Letter D Black_Blue
+bounds:1042,704,24,24
+Letter D Black_Gray
+bounds:470,106,24,24
+Letter D Black_Green
+bounds:1680,3732,24,24
+Letter D Black_Lightblue
+bounds:444,340,24,24
+Letter D Black_Lightgreen
+bounds:600,808,24,24
+Letter D Black_Orange
+bounds:860,496,24,24
+Letter D Black_Pink
+bounds:496,444,24,24
+Letter D Black_Purple
+bounds:1784,3186,24,24
+Letter D Black_Red
+bounds:1784,4018,24,24
+Letter D Black_White
+bounds:1758,4044,24,24
+Letter D Black_Yellow
+bounds:1914,2926,24,24
+Letter D Yellow_Black
+bounds:730,470,24,24
+Letter D Yellow_Blue
+bounds:158,418,24,24
+Letter D Yellow_Gray
+bounds:1940,3550,24,24
+Letter D Yellow_Green
+bounds:1732,3004,24,24
+Letter D Yellow_Lightblue
+bounds:1914,3732,24,24
+Letter D Yellow_Lightgreen
+bounds:236,626,24,24
+Letter D Yellow_Orange
+bounds:106,1042,24,24
+Letter D Yellow_Pink
+bounds:1758,3810,24,24
+Letter D Yellow_Purple
+bounds:366,366,24,24
+Letter D Yellow_Red
+bounds:392,730,24,24
+Letter D Yellow_White
+bounds:28,2,24,24
+Letter D Yellow_Yellow
+bounds:1654,4044,24,24
+Letter D_Black
+bounds:470,418,24,24
+Letter D_Blue
+bounds:418,964,24,24
+Letter D_Gray
+bounds:158,678,24,24
+Letter D_Green
+bounds:444,574,24,24
+Letter D_Lightblue
+bounds:912,626,24,24
+Letter D_Lightgreen
+bounds:730,1068,24,24
+Letter D_Orange
+bounds:730,444,24,24
+Letter D_Pink
+bounds:1250,964,24,24
+Letter D_Purple
+bounds:314,444,24,24
+Letter D_Red
+bounds:1094,964,24,24
+Letter D_White
+bounds:1706,3290,24,24
+Letter D_Yellow
+bounds:1758,2848,24,24
+Letter E Black_Black
+bounds:1862,3316,24,24
+Letter E Black_Blue
+bounds:1784,3108,24,24
+Letter E Black_Gray
+bounds:1016,964,24,24
+Letter E Black_Green
+bounds:80,366,24,24
+Letter E Black_Lightblue
+bounds:626,1068,24,24
+Letter E Black_Lightgreen
+bounds:1836,4044,24,24
+Letter E Black_Orange
+bounds:2,210,24,24
+Letter E Black_Pink
+bounds:1706,3368,24,24
+Letter E Black_Purple
+bounds:1732,3966,24,24
+Letter E Black_Red
+bounds:1706,3914,24,24
+Letter E Black_White
+bounds:106,496,24,24
+Letter E Black_Yellow
+bounds:678,912,24,24
+Letter E Yellow_Black
+bounds:184,548,24,24
+Letter E Yellow_Blue
+bounds:392,340,24,24
+Letter E Yellow_Gray
+bounds:2018,3316,24,24
+Letter E Yellow_Green
+bounds:1940,3940,24,24
+Letter E Yellow_Lightblue
+bounds:1784,2900,24,24
+Letter E Yellow_Lightgreen
+bounds:80,236,24,24
+Letter E Yellow_Orange
+bounds:1654,3420,24,24
+Letter E Yellow_Pink
+bounds:262,548,24,24
+Letter E Yellow_Purple
+bounds:418,132,24,24
+Letter E Yellow_Red
+bounds:210,1068,24,24
+Letter E Yellow_White
+bounds:1862,4018,24,24
+Letter E Yellow_Yellow
+bounds:54,470,24,24
+Letter E_Black
+bounds:366,314,24,24
+Letter E_Blue
+bounds:964,1016,24,24
+Letter E_Gray
+bounds:548,574,24,24
+Letter E_Green
+bounds:392,522,24,24
+Letter E_Lightblue
+bounds:1302,1016,24,24
+Letter E_Lightgreen
+bounds:132,964,24,24
+Letter E_Orange
+bounds:1836,3498,24,24
+Letter E_Pink
+bounds:80,470,24,24
+Letter E_Purple
+bounds:678,314,24,24
+Letter E_Red
+bounds:80,756,24,24
+Letter E_White
+bounds:1654,3238,24,24
+Letter E_Yellow
+bounds:366,678,24,24
+Letter F Black_Black
+bounds:1888,3056,24,24
+Letter F Black_Blue
+bounds:470,782,24,24
+Letter F Black_Gray
+bounds:210,496,24,24
+Letter F Black_Green
+bounds:496,470,24,24
+Letter F Black_Lightblue
+bounds:210,574,24,24
+Letter F Black_Lightgreen
+bounds:184,158,24,24
+Letter F Black_Orange
+bounds:964,704,24,24
+Letter F Black_Pink
+bounds:1862,3992,24,24
+Letter F Black_Purple
+bounds:210,366,24,24
+Letter F Black_Red
+bounds:158,236,24,24
+Letter F Black_White
+bounds:80,132,24,24
+Letter F Black_Yellow
+bounds:1836,2952,24,24
+Letter F Yellow_Black
+bounds:1758,2978,24,24
+Letter F Yellow_Blue
+bounds:1862,2900,24,24
+Letter F Yellow_Gray
+bounds:1016,678,24,24
+Letter F Yellow_Green
+bounds:2,28,24,24
+Letter F Yellow_Lightblue
+bounds:470,652,24,24
+Letter F Yellow_Lightgreen
+bounds:938,912,24,24
+Letter F Yellow_Orange
+bounds:236,1068,24,24
+Letter F Yellow_Pink
+bounds:626,600,24,24
+Letter F Yellow_Purple
+bounds:860,834,24,24
+Letter F Yellow_Red
+bounds:678,548,24,24
+Letter F Yellow_White
+bounds:834,964,24,24
+Letter F Yellow_Yellow
+bounds:80,938,24,24
+Letter F_Black
+bounds:1784,3732,24,24
+Letter F_Blue
+bounds:1992,3004,24,24
+Letter F_Gray
+bounds:1146,782,24,24
+Letter F_Green
+bounds:860,470,24,24
+Letter F_Lightblue
+bounds:28,262,24,24
+Letter F_Lightgreen
+bounds:1016,886,24,24
+Letter F_Orange
+bounds:1706,3394,24,24
+Letter F_Pink
+bounds:1862,3160,24,24
+Letter F_Purple
+bounds:730,392,24,24
+Letter F_Red
+bounds:782,938,24,24
+Letter F_White
+bounds:756,444,24,24
+Letter F_Yellow
+bounds:184,522,24,24
+Letter G Black_Black
+bounds:1016,1068,24,24
+Letter G Black_Blue
+bounds:1888,4044,24,24
+Letter G Black_Gray
+bounds:1732,3836,24,24
+Letter G Black_Green
+bounds:704,938,24,24
+Letter G Black_Lightblue
+bounds:574,886,24,24
+Letter G Black_Lightgreen
+bounds:860,730,24,24
+Letter G Black_Orange
+bounds:366,730,24,24
+Letter G Black_Pink
+bounds:1016,860,24,24
+Letter G Black_Purple
+bounds:730,418,24,24
+Letter G Black_Red
+bounds:652,730,24,24
+Letter G Black_White
+bounds:444,782,24,24
+Letter G Black_Yellow
+bounds:1784,3524,24,24
+Letter G Yellow_Black
+bounds:1784,3680,24,24
+Letter G Yellow_Blue
+bounds:132,652,24,24
+Letter G Yellow_Gray
+bounds:236,730,24,24
+Letter G Yellow_Green
+bounds:1836,4070,24,24
+Letter G Yellow_Lightblue
+bounds:1654,3082,24,24
+Letter G Yellow_Lightgreen
+bounds:1042,834,24,24
+Letter G Yellow_Orange
+bounds:1732,2900,24,24
+Letter G Yellow_Pink
+bounds:912,600,24,24
+Letter G Yellow_Purple
+bounds:496,730,24,24
+Letter G Yellow_Red
+bounds:808,1016,24,24
+Letter G Yellow_White
+bounds:756,418,24,24
+Letter G Yellow_Yellow
+bounds:522,912,24,24
+Letter G_Black
+bounds:1732,3680,24,24
+Letter G_Blue
+bounds:210,522,24,24
+Letter G_Gray
+bounds:1940,3602,24,24
+Letter G_Green
+bounds:782,392,24,24
+Letter G_Lightblue
+bounds:782,1016,24,24
+Letter G_Lightgreen
+bounds:1940,3498,24,24
+Letter G_Orange
+bounds:1680,3394,24,24
+Letter G_Pink
+bounds:158,938,24,24
+Letter G_Purple
+bounds:1016,704,24,24
+Letter G_Red
+bounds:1120,886,24,24
+Letter G_White
+bounds:678,366,24,24
+Letter G_Yellow
+bounds:54,418,24,24
+Letter H Black_Black
+bounds:1680,2796,24,24
+Letter H Black_Blue
+bounds:392,236,24,24
+Letter H Black_Gray
+bounds:1836,3030,24,24
+Letter H Black_Green
+bounds:730,652,24,24
+Letter H Black_Lightblue
+bounds:288,522,24,24
+Letter H Black_Lightgreen
+bounds:1888,3576,24,24
+Letter H Black_Orange
+bounds:1992,3212,24,24
+Letter H Black_Pink
+bounds:236,392,24,24
+Letter H Black_Purple
+bounds:626,938,24,24
+Letter H Black_Red
+bounds:1888,3316,24,24
+Letter H Black_White
+bounds:1016,1042,24,24
+Letter H Black_Yellow
+bounds:886,756,24,24
+Letter H Yellow_Black
+bounds:2018,3368,24,24
+Letter H Yellow_Blue
+bounds:626,782,24,24
+Letter H Yellow_Gray
+bounds:366,496,24,24
+Letter H Yellow_Green
+bounds:366,522,24,24
+Letter H Yellow_Lightblue
+bounds:314,912,24,24
+Letter H Yellow_Lightgreen
+bounds:860,990,24,24
+Letter H Yellow_Orange
+bounds:184,938,24,24
+Letter H Yellow_Pink
+bounds:470,1016,24,24
+Letter H Yellow_Purple
+bounds:1992,3290,24,24
+Letter H Yellow_Red
+bounds:2018,4018,24,24
+Letter H Yellow_White
+bounds:314,574,24,24
+Letter H Yellow_Yellow
+bounds:2,782,24,24
+Letter H_Black
+bounds:1706,3654,24,24
+Letter H_Blue
+bounds:730,600,24,24
+Letter H_Gray
+bounds:184,2,24,24
+Letter H_Green
+bounds:730,340,24,24
+Letter H_Lightblue
+bounds:106,314,24,24
+Letter H_Lightgreen
+bounds:392,1016,24,24
+Letter H_Orange
+bounds:782,600,24,24
+Letter H_Pink
+bounds:106,288,24,24
+Letter H_Purple
+bounds:678,938,24,24
+Letter H_Red
+bounds:1758,3628,24,24
+Letter H_White
+bounds:600,288,24,24
+Letter H_Yellow
+bounds:210,28,24,24
+Letter I Black_Black
+bounds:1758,3784,24,24
+Letter I Black_Blue
+bounds:1706,3238,24,24
+Letter I Black_Gray
+bounds:600,756,24,24
+Letter I Black_Green
+bounds:1680,2692,24,24
+Letter I Black_Lightblue
+bounds:1836,2848,24,24
+Letter I Black_Lightgreen
+bounds:782,444,24,24
+Letter I Black_Orange
+bounds:1862,3134,24,24
+Letter I Black_Pink
+bounds:340,912,24,24
+Letter I Black_Purple
+bounds:1914,3654,24,24
+Letter I Black_Red
+bounds:28,808,24,24
+Letter I Black_White
+bounds:1732,2822,24,24
+Letter I Black_Yellow
+bounds:470,392,24,24
+Letter I Yellow_Black
+bounds:1654,3056,24,24
+Letter I Yellow_Blue
+bounds:1888,3108,24,24
+Letter I Yellow_Gray
+bounds:886,730,24,24
+Letter I Yellow_Green
+bounds:808,1042,24,24
+Letter I Yellow_Lightblue
+bounds:444,288,24,24
+Letter I Yellow_Lightgreen
+bounds:340,262,24,24
+Letter I Yellow_Orange
+bounds:288,54,24,24
+Letter I Yellow_Pink
+bounds:1680,3212,24,24
+Letter I Yellow_Purple
+bounds:1706,3264,24,24
+Letter I Yellow_Red
+bounds:652,418,24,24
+Letter I Yellow_White
+bounds:470,808,24,24
+Letter I Yellow_Yellow
+bounds:808,600,24,24
+Letter I_Black
+bounds:392,990,24,24
+Letter I_Blue
+bounds:1836,3862,24,24
+Letter I_Gray
+bounds:80,704,24,24
+Letter I_Green
+bounds:600,210,24,24
+Letter I_Lightblue
+bounds:1328,1016,24,24
+Letter I_Lightgreen
+bounds:1250,1016,24,24
+Letter I_Orange
+bounds:912,756,24,24
+Letter I_Pink
+bounds:314,80,24,24
+Letter I_Purple
+bounds:288,574,24,24
+Letter I_Red
+bounds:1836,3238,24,24
+Letter I_White
+bounds:418,106,24,24
+Letter I_Yellow
+bounds:236,80,24,24
+Letter J Black_Black
+bounds:574,834,24,24
+Letter J Black_Blue
+bounds:1914,3862,24,24
+Letter J Black_Gray
+bounds:1888,3810,24,24
+Letter J Black_Green
+bounds:1784,3628,24,24
+Letter J Black_Lightblue
+bounds:1654,3940,24,24
+Letter J Black_Lightgreen
+bounds:808,886,24,24
+Letter J Black_Orange
+bounds:1966,3966,24,24
+Letter J Black_Pink
+bounds:1654,2744,24,24
+Letter J Black_Purple
+bounds:1068,938,24,24
+Letter J Black_Red
+bounds:1888,4018,24,24
+Letter J Black_White
+bounds:1680,3654,24,24
+Letter J Black_Yellow
+bounds:1940,3966,24,24
+Letter J Yellow_Black
+bounds:54,938,24,24
+Letter J Yellow_Blue
+bounds:106,990,24,24
+Letter J Yellow_Gray
+bounds:106,938,24,24
+Letter J Yellow_Green
+bounds:548,288,24,24
+Letter J Yellow_Lightblue
+bounds:1680,3342,24,24
+Letter J Yellow_Lightgreen
+bounds:704,444,24,24
+Letter J Yellow_Orange
+bounds:1862,3914,24,24
+Letter J Yellow_Pink
+bounds:652,522,24,24
+Letter J Yellow_Purple
+bounds:626,522,24,24
+Letter J Yellow_Red
+bounds:496,574,24,24
+Letter J Yellow_White
+bounds:1862,3056,24,24
+Letter J Yellow_Yellow
+bounds:1914,3992,24,24
+Letter J_Black
+bounds:262,860,24,24
+Letter J_Blue
+bounds:1914,3394,24,24
+Letter J_Gray
+bounds:860,964,24,24
+Letter J_Green
+bounds:444,54,24,24
+Letter J_Lightblue
+bounds:1888,2926,24,24
+Letter J_Lightgreen
+bounds:860,938,24,24
+Letter J_Orange
+bounds:1706,3524,24,24
+Letter J_Pink
+bounds:314,808,24,24
+Letter J_Purple
+bounds:1302,1068,24,24
+Letter J_Red
+bounds:964,626,24,24
+Letter J_White
+bounds:340,2,24,24
+Letter J_Yellow
+bounds:1940,3784,24,24
+Letter K Black_Black
+bounds:938,886,24,24
+Letter K Black_Blue
+bounds:1042,782,24,24
+Letter K Black_Gray
+bounds:392,106,24,24
+Letter K Black_Green
+bounds:912,1042,24,24
+Letter K Black_Lightblue
+bounds:288,1068,24,24
+Letter K Black_Lightgreen
+bounds:1966,3940,24,24
+Letter K Black_Orange
+bounds:28,54,24,24
+Letter K Black_Pink
+bounds:990,1042,24,24
+Letter K Black_Purple
+bounds:314,860,24,24
+Letter K Black_Red
+bounds:730,782,24,24
+Letter K Black_White
+bounds:54,262,24,24
+Letter K Black_Yellow
+bounds:626,678,24,24
+Letter K Yellow_Black
+bounds:28,184,24,24
+Letter K Yellow_Blue
+bounds:678,1068,24,24
+Letter K Yellow_Gray
+bounds:600,964,24,24
+Letter K Yellow_Green
+bounds:2,366,24,24
+Letter K Yellow_Lightblue
+bounds:1888,3420,24,24
+Letter K Yellow_Lightgreen
+bounds:80,912,24,24
+Letter K Yellow_Orange
+bounds:938,678,24,24
+Letter K Yellow_Pink
+bounds:1654,3966,24,24
+Letter K Yellow_Purple
+bounds:132,288,24,24
+Letter K Yellow_Red
+bounds:1836,3654,24,24
+Letter K Yellow_White
+bounds:106,600,24,24
+Letter K Yellow_Yellow
+bounds:1862,2978,24,24
+Letter K_Black
+bounds:158,106,24,24
+Letter K_Blue
+bounds:1146,860,24,24
+Letter K_Gray
+bounds:808,496,24,24
+Letter K_Green
+bounds:236,366,24,24
+Letter K_Lightblue
+bounds:1654,3212,24,24
+Letter K_Lightgreen
+bounds:418,860,24,24
+Letter K_Orange
+bounds:28,522,24,24
+Letter K_Pink
+bounds:1862,3238,24,24
+Letter K_Purple
+bounds:912,704,24,24
+Letter K_Red
+bounds:1784,3498,24,24
+Letter K_White
+bounds:600,834,24,24
+Letter K_Yellow
+bounds:288,808,24,24
+Letter L Black_Black
+bounds:496,158,24,24
+Letter L Black_Blue
+bounds:444,496,24,24
+Letter L Black_Gray
+bounds:106,132,24,24
+Letter L Black_Green
+bounds:1810,3004,24,24
+Letter L Black_Lightblue
+bounds:392,392,24,24
+Letter L Black_Lightgreen
+bounds:392,834,24,24
+Letter L Black_Orange
+bounds:2,860,24,24
+Letter L Black_Pink
+bounds:1680,3446,24,24
+Letter L Black_Purple
+bounds:1706,3056,24,24
+Letter L Black_Red
+bounds:1680,3082,24,24
+Letter L Black_White
+bounds:1680,2952,24,24
+Letter L Black_Yellow
+bounds:1706,3992,24,24
+Letter L Yellow_Black
+bounds:522,210,24,24
+Letter L Yellow_Blue
+bounds:470,522,24,24
+Letter L Yellow_Gray
+bounds:132,158,24,24
+Letter L Yellow_Green
+bounds:1146,1016,24,24
+Letter L Yellow_Lightblue
+bounds:1914,4044,24,24
+Letter L Yellow_Lightgreen
+bounds:1966,3836,24,24
+Letter L Yellow_Orange
+bounds:808,808,24,24
+Letter L Yellow_Pink
+bounds:1732,3498,24,24
+Letter L Yellow_Purple
+bounds:1992,3836,24,24
+Letter L Yellow_Red
+bounds:938,600,24,24
+Letter L Yellow_White
+bounds:808,756,24,24
+Letter L Yellow_Yellow
+bounds:236,236,24,24
+Letter L_Black
+bounds:2018,3342,24,24
+Letter L_Blue
+bounds:1992,3758,24,24
+Letter L_Gray
+bounds:28,392,24,24
+Letter L_Green
+bounds:158,288,24,24
+Letter L_Lightblue
+bounds:28,210,24,24
+Letter L_Lightgreen
+bounds:1302,964,24,24
+Letter L_Orange
+bounds:1810,3706,24,24
+Letter L_Pink
+bounds:2,1068,24,24
+Letter L_Purple
+bounds:1146,964,24,24
+Letter L_Red
+bounds:548,470,24,24
+Letter L_White
+bounds:340,574,24,24
+Letter L_Yellow
+bounds:1914,3836,24,24
+Letter M Black_Black
+bounds:1706,3576,24,24
+Letter M Black_Blue
+bounds:184,600,24,24
+Letter M Black_Gray
+bounds:54,444,24,24
+Letter M Black_Green
+bounds:54,860,24,24
+Letter M Black_Lightblue
+bounds:964,912,24,24
+Letter M Black_Lightgreen
+bounds:392,132,24,24
+Letter M Black_Orange
+bounds:392,548,24,24
+Letter M Black_Pink
+bounds:1250,886,24,24
+Letter M Black_Purple
+bounds:54,782,24,24
+Letter M Black_Red
+bounds:1706,3784,24,24
+Letter M Black_White
+bounds:444,80,24,24
+Letter M Black_Yellow
+bounds:756,938,24,24
+Letter M Yellow_Black
+bounds:522,834,24,24
+Letter M Yellow_Blue
+bounds:600,366,24,24
+Letter M Yellow_Gray
+bounds:496,236,24,24
+Letter M Yellow_Green
+bounds:522,1068,24,24
+Letter M Yellow_Lightblue
+bounds:1068,1016,24,24
+Letter M Yellow_Lightgreen
+bounds:964,678,24,24
+Letter M Yellow_Orange
+bounds:990,704,24,24
+Letter M Yellow_Pink
+bounds:886,964,24,24
+Letter M Yellow_Purple
+bounds:600,730,24,24
+Letter M Yellow_Red
+bounds:1654,2978,24,24
+Letter M Yellow_White
+bounds:2018,4070,24,24
+Letter M Yellow_Yellow
+bounds:314,28,24,24
+Letter M_Black
+bounds:1914,3238,24,24
+Letter M_Blue
+bounds:1784,3082,24,24
+Letter M_Gray
+bounds:1068,990,24,24
+Letter M_Green
+bounds:80,210,24,24
+Letter M_Lightblue
+bounds:1094,756,24,24
+Letter M_Lightgreen
+bounds:184,132,24,24
+Letter M_Orange
+bounds:1706,3004,24,24
+Letter M_Pink
+bounds:1966,3602,24,24
+Letter M_Purple
+bounds:522,938,24,24
+Letter M_Red
+bounds:236,1042,24,24
+Letter M_White
+bounds:236,470,24,24
+Letter M_Yellow
+bounds:340,288,24,24
+Letter N Black_Black
+bounds:1940,3446,24,24
+Letter N Black_Blue
+bounds:756,392,24,24
+Letter N Black_Gray
+bounds:1940,2926,24,24
+Letter N Black_Green
+bounds:2018,3732,24,24
+Letter N Black_Lightblue
+bounds:1732,2978,24,24
+Letter N Black_Lightgreen
+bounds:782,964,24,24
+Letter N Black_Orange
+bounds:886,574,24,24
+Letter N Black_Pink
+bounds:600,522,24,24
+Letter N Black_Purple
+bounds:522,626,24,24
+Letter N Black_Red
+bounds:210,912,24,24
+Letter N Black_White
+bounds:392,860,24,24
+Letter N Black_Yellow
+bounds:1862,2926,24,24
+Letter N Yellow_Black
+bounds:1198,1016,24,24
+Letter N Yellow_Blue
+bounds:184,860,24,24
+Letter N Yellow_Gray
+bounds:210,860,24,24
+Letter N Yellow_Green
+bounds:1810,3160,24,24
+Letter N Yellow_Lightblue
+bounds:366,782,24,24
+Letter N Yellow_Lightgreen
+bounds:236,990,24,24
+Letter N Yellow_Orange
+bounds:80,28,24,24
+Letter N Yellow_Pink
+bounds:938,730,24,24
+Letter N Yellow_Purple
+bounds:1888,3680,24,24
+Letter N Yellow_Red
+bounds:340,80,24,24
+Letter N Yellow_White
+bounds:964,1042,24,24
+Letter N Yellow_Yellow
+bounds:886,860,24,24
+Letter N_Black
+bounds:1836,3160,24,24
+Letter N_Blue
+bounds:132,912,24,24
+Letter N_Gray
+bounds:1966,4070,24,24
+Letter N_Green
+bounds:54,184,24,24
+Letter N_Lightblue
+bounds:1706,2718,24,24
+Letter N_Lightgreen
+bounds:652,964,24,24
+Letter N_Orange
+bounds:756,730,24,24
+Letter N_Pink
+bounds:1198,1042,24,24
+Letter N_Purple
+bounds:236,678,24,24
+Letter N_Red
+bounds:1992,3576,24,24
+Letter N_White
+bounds:54,288,24,24
+Letter N_Yellow
+bounds:1732,3082,24,24
+Letter O Black_Lightblue
+bounds:288,704,24,24
+Number 0 Black_Lightblue
+bounds:288,704,24,24
+Letter O Black_Lightgreen
+bounds:236,1016,24,24
+Number 0 Black_Lightgreen
+bounds:236,1016,24,24
+Letter O Black_Orange
+bounds:704,1016,24,24
+Number 0 Black_Orange
+bounds:704,1016,24,24
+Letter O Black_Red
+bounds:1810,3862,24,24
+Number 0 Black_Red
+bounds:1810,3862,24,24
+Letter O Black_Yellow
+bounds:2018,3706,24,24
+Number 0 Black_Yellow
+bounds:2018,3706,24,24
+Letter O Yellow_Black
+bounds:1758,3576,24,24
+Number 0 Yellow_Black
+bounds:1758,3576,24,24
+Letter O Yellow_Blue
+bounds:80,340,24,24
+Number 0 Yellow_Blue
+bounds:80,340,24,24
+Letter O Yellow_Gray
+bounds:1810,3420,24,24
+Number 0 Yellow_Gray
+bounds:1810,3420,24,24
+Letter O Yellow_Green
+bounds:158,886,24,24
+Number 0 Yellow_Green
+bounds:158,886,24,24
+Letter O Yellow_Orange
+bounds:28,236,24,24
+Number 0 Yellow_Orange
+bounds:28,236,24,24
+Letter O Yellow_Pink
+bounds:1654,3706,24,24
+Number 0 Yellow_Pink
+bounds:1654,3706,24,24
+Letter O Yellow_Purple
+bounds:1706,3940,24,24
+Number 0 Yellow_Purple
+bounds:1706,3940,24,24
+Letter O Yellow_Red
+bounds:1940,3368,24,24
+Number 0 Yellow_Red
+bounds:1940,3368,24,24
+Letter O Yellow_White
+bounds:1654,4070,24,24
+Number 0 Yellow_White
+bounds:1654,4070,24,24
+Letter O_Black
+bounds:1758,3082,24,24
+Number 0_Black
+bounds:1758,3082,24,24
+Letter O_Green
+bounds:2,132,24,24
+Number 0_Green
+bounds:2,132,24,24
+Letter O_Lightgreen
+bounds:210,990,24,24
+Number 0_Lightgreen
+bounds:210,990,24,24
+Letter O_Orange
+bounds:1784,3810,24,24
+Number 0_Orange
+bounds:1784,3810,24,24
+Letter O_Pink
+bounds:418,1016,24,24
+Number 0_Pink
+bounds:418,1016,24,24
+Letter O_White
+bounds:132,366,24,24
+Number 0_White
+bounds:132,366,24,24
+Letter O_Yellow
+bounds:28,704,24,24
+Number 0_Yellow
+bounds:28,704,24,24
+Letter P Black_Black
+bounds:132,990,24,24
+Letter P Black_Blue
+bounds:730,1016,24,24
+Letter P Black_Gray
+bounds:496,756,24,24
+Letter P Black_Green
+bounds:1016,756,24,24
+Letter P Black_Lightblue
+bounds:54,392,24,24
+Letter P Black_Lightgreen
+bounds:1836,3784,24,24
+Letter P Black_Orange
+bounds:1758,2926,24,24
+Letter P Black_Pink
+bounds:1992,4070,24,24
+Letter P Black_Purple
+bounds:522,756,24,24
+Letter P Black_Red
+bounds:1042,1068,24,24
+Letter P Black_White
+bounds:314,132,24,24
+Letter P Black_Yellow
+bounds:808,626,24,24
+Letter P Yellow_Black
+bounds:1042,964,24,24
+Letter P Yellow_Blue
+bounds:288,236,24,24
+Letter P Yellow_Gray
+bounds:1888,3186,24,24
+Letter P Yellow_Green
+bounds:600,704,24,24
+Letter P Yellow_Lightblue
+bounds:964,600,24,24
+Letter P Yellow_Lightgreen
+bounds:496,704,24,24
+Letter P Yellow_Orange
+bounds:808,730,24,24
+Letter P Yellow_Pink
+bounds:54,340,24,24
+Letter P Yellow_Purple
+bounds:366,756,24,24
+Letter P Yellow_Red
+bounds:1758,3550,24,24
+Letter P Yellow_White
+bounds:1810,3368,24,24
+Letter P Yellow_Yellow
+bounds:1810,3108,24,24
+Letter P_Black
+bounds:28,626,24,24
+Letter P_Blue
+bounds:1992,3134,24,24
+Letter P_Gray
+bounds:1706,2822,24,24
+Letter P_Green
+bounds:1862,2848,24,24
+Letter P_Lightblue
+bounds:340,496,24,24
+Letter P_Lightgreen
+bounds:704,548,24,24
+Letter P_Orange
+bounds:1732,3784,24,24
+Letter P_Pink
+bounds:548,626,24,24
+Letter P_Purple
+bounds:470,366,24,24
+Letter P_Red
+bounds:1940,3914,24,24
+Letter P_White
+bounds:2018,3082,24,24
+Letter P_Yellow
+bounds:1836,3914,24,24
+Letter Q Black_Black
+bounds:132,496,24,24
+Letter Q Black_Blue
+bounds:184,912,24,24
+Letter Q Black_Gray
+bounds:366,1068,24,24
+Letter Q Black_Green
+bounds:1914,3914,24,24
+Letter Q Black_Lightblue
+bounds:496,782,24,24
+Letter Q Black_Lightgreen
+bounds:808,652,24,24
+Letter Q Black_Orange
+bounds:1680,2900,24,24
+Letter Q Black_Pink
+bounds:652,470,24,24
+Letter Q Black_Purple
+bounds:236,548,24,24
+Letter Q Black_Red
+bounds:1992,3368,24,24
+Letter Q Black_White
+bounds:1836,3992,24,24
+Letter Q Black_Yellow
+bounds:236,704,24,24
+Letter Q Yellow_Black
+bounds:938,938,24,24
+Letter Q Yellow_Blue
+bounds:418,626,24,24
+Letter Q Yellow_Gray
+bounds:1992,3550,24,24
+Letter Q Yellow_Green
+bounds:1940,3472,24,24
+Letter Q Yellow_Lightblue
+bounds:1732,3134,24,24
+Letter Q Yellow_Lightgreen
+bounds:1810,3186,24,24
+Letter Q Yellow_Orange
+bounds:184,366,24,24
+Letter Q Yellow_Pink
+bounds:1992,3992,24,24
+Letter Q Yellow_Purple
+bounds:1810,3966,24,24
+Letter Q Yellow_Red
+bounds:1888,2900,24,24
+Letter Q Yellow_White
+bounds:1888,3524,24,24
+Letter Q Yellow_Yellow
+bounds:834,1042,24,24
+Letter Q_Black
+bounds:1914,3888,24,24
+Letter Q_Blue
+bounds:184,678,24,24
+Letter Q_Gray
+bounds:262,730,24,24
+Letter Q_Green
+bounds:1810,2796,24,24
+Letter Q_Lightblue
+bounds:704,860,24,24
+Letter Q_Lightgreen
+bounds:2,158,24,24
+Letter Q_Orange
+bounds:288,1042,24,24
+Letter Q_Pink
+bounds:1810,2848,24,24
+Letter Q_Purple
+bounds:158,80,24,24
+Letter Q_Red
+bounds:418,522,24,24
+Letter Q_White
+bounds:1888,2952,24,24
+Letter Q_Yellow
+bounds:236,288,24,24
+Letter R Black_Black
+bounds:938,990,24,24
+Letter R Black_Blue
+bounds:262,80,24,24
+Letter R Black_Gray
+bounds:1068,886,24,24
+Letter R Black_Green
+bounds:548,782,24,24
+Letter R Black_Lightblue
+bounds:1706,2744,24,24
+Letter R Black_Lightgreen
+bounds:28,314,24,24
+Letter R Black_Orange
+bounds:1654,3550,24,24
+Letter R Black_Pink
+bounds:262,392,24,24
+Letter R Black_Purple
+bounds:990,808,24,24
+Letter R Black_Red
+bounds:314,990,24,24
+Letter R Black_White
+bounds:288,626,24,24
+Letter R Black_Yellow
+bounds:1810,3732,24,24
+Letter R Yellow_Black
+bounds:1862,3966,24,24
+Letter R Yellow_Blue
+bounds:340,236,24,24
+Letter R Yellow_Gray
+bounds:1146,1042,24,24
+Letter R Yellow_Green
+bounds:392,80,24,24
+Letter R Yellow_Lightblue
+bounds:2018,3940,24,24
+Letter R Yellow_Lightgreen
+bounds:1914,3680,24,24
+Letter R Yellow_Orange
+bounds:1732,3602,24,24
+Letter R Yellow_Pink
+bounds:652,886,24,24
+Letter R Yellow_Purple
+bounds:548,340,24,24
+Letter R Yellow_Red
+bounds:782,730,24,24
+Letter R Yellow_White
+bounds:1172,964,24,24
+Letter R Yellow_Yellow
+bounds:1992,3888,24,24
+Letter R_Black
+bounds:1888,3862,24,24
+Letter R_Blue
+bounds:1784,3160,24,24
+Letter R_Gray
+bounds:704,704,24,24
+Letter R_Green
+bounds:1732,2718,24,24
+Letter R_Lightblue
+bounds:1354,990,24,24
+Letter R_Lightgreen
+bounds:262,834,24,24
+Letter R_Orange
+bounds:782,860,24,24
+Letter R_Pink
+bounds:1888,3602,24,24
+Letter R_Purple
+bounds:210,808,24,24
+Letter R_Red
+bounds:652,366,24,24
+Letter R_White
+bounds:1784,2848,24,24
+Letter R_Yellow
+bounds:80,158,24,24
+Letter S Black_Black
+bounds:1224,990,24,24
+Letter S Black_Blue
+bounds:1784,3290,24,24
+Letter S Black_Gray
+bounds:756,886,24,24
+Letter S Black_Green
+bounds:574,496,24,24
+Letter S Black_Lightblue
+bounds:1068,704,24,24
+Letter S Black_Lightgreen
+bounds:730,366,24,24
+Letter S Black_Orange
+bounds:1862,3212,24,24
+Letter S Black_Pink
+bounds:1836,3732,24,24
+Letter S Black_Purple
+bounds:470,938,24,24
+Letter S Black_Red
+bounds:1810,3836,24,24
+Letter S Black_White
+bounds:834,860,24,24
+Letter S Black_Yellow
+bounds:626,626,24,24
+Letter S Yellow_Black
+bounds:236,340,24,24
+Letter S Yellow_Blue
+bounds:782,418,24,24
+Letter S Yellow_Gray
+bounds:418,28,24,24
+Letter S Yellow_Green
+bounds:392,704,24,24
+Letter S Yellow_Lightblue
+bounds:1862,3628,24,24
+Letter S Yellow_Lightgreen
+bounds:1836,3368,24,24
+Letter S Yellow_Orange
+bounds:730,886,24,24
+Letter S Yellow_Pink
+bounds:756,678,24,24
+Letter S Yellow_Purple
+bounds:1758,3836,24,24
+Letter S Yellow_Red
+bounds:1914,3576,24,24
+Letter S Yellow_White
+bounds:236,652,24,24
+Letter S Yellow_Yellow
+bounds:1992,3524,24,24
+Letter S_Black
+bounds:1758,3732,24,24
+Letter S_Blue
+bounds:808,418,24,24
+Letter S_Gray
+bounds:80,1016,24,24
+Letter S_Green
+bounds:1406,1042,24,24
+Letter S_Lightblue
+bounds:548,158,24,24
+Letter S_Lightgreen
+bounds:1198,938,24,24
+Letter S_Orange
+bounds:652,756,24,24
+Letter S_Pink
+bounds:678,574,24,24
+Letter S_Purple
+bounds:106,756,24,24
+Letter S_Red
+bounds:522,964,24,24
+Letter S_White
+bounds:1654,2718,24,24
+Letter S_Yellow
+bounds:1862,3342,24,24
+Letter T Black_Black
+bounds:1654,3680,24,24
+Letter T Black_Blue
+bounds:132,678,24,24
+Letter T Black_Gray
+bounds:54,574,24,24
+Letter T Black_Green
+bounds:1328,990,24,24
+Letter T Black_Lightblue
+bounds:106,964,24,24
+Letter T Black_Lightgreen
+bounds:1654,3758,24,24
+Letter T Black_Orange
+bounds:210,938,24,24
+Letter T Black_Pink
+bounds:1068,782,24,24
+Letter T Black_Purple
+bounds:834,756,24,24
+Letter T Black_Red
+bounds:1680,3680,24,24
+Letter T Black_White
+bounds:1302,1042,24,24
+Letter T Black_Yellow
+bounds:28,782,24,24
+Letter T Yellow_Black
+bounds:1966,2978,24,24
+Letter T Yellow_Blue
+bounds:1862,3680,24,24
+Letter T Yellow_Gray
+bounds:1966,3758,24,24
+Letter T Yellow_Green
+bounds:1094,912,24,24
+Letter T Yellow_Lightblue
+bounds:626,340,24,24
+Letter T Yellow_Lightgreen
+bounds:418,392,24,24
+Letter T Yellow_Orange
+bounds:548,1016,24,24
+Letter T Yellow_Pink
+bounds:1654,2666,24,24
+Letter T Yellow_Purple
+bounds:1146,912,24,24
+Letter T Yellow_Red
+bounds:106,860,24,24
+Letter T Yellow_White
+bounds:1068,964,24,24
+Letter T Yellow_Yellow
+bounds:1732,3576,24,24
+Letter T_Black
+bounds:1680,3004,24,24
+Letter T_Blue
+bounds:1810,3446,24,24
+Letter T_Gray
+bounds:756,1016,24,24
+Letter T_Green
+bounds:1966,3472,24,24
+Letter T_Lightblue
+bounds:1680,4070,24,24
+Letter T_Lightgreen
+bounds:834,886,24,24
+Letter T_Orange
+bounds:1706,4070,24,24
+Letter T_Pink
+bounds:314,1016,24,24
+Letter T_Purple
+bounds:1706,3082,24,24
+Letter T_Red
+bounds:574,574,24,24
+Letter T_White
+bounds:1862,3472,24,24
+Letter T_Yellow
+bounds:1992,2978,24,24
+Letter U Black_Black
+bounds:834,548,24,24
+Letter U Black_Blue
+bounds:782,496,24,24
+Letter U Black_Gray
+bounds:1914,2978,24,24
+Letter U Black_Green
+bounds:210,80,24,24
+Letter U Black_Lightblue
+bounds:2,2,24,24
+Letter U Black_Lightgreen
+bounds:1966,3264,24,24
+Letter U Black_Orange
+bounds:678,782,24,24
+Letter U Black_Pink
+bounds:756,782,24,24
+Letter U Black_Purple
+bounds:132,782,24,24
+Letter U Black_Red
+bounds:1992,3342,24,24
+Letter U Black_White
+bounds:704,678,24,24
+Letter U Black_Yellow
+bounds:1888,3368,24,24
+Letter U Yellow_Black
+bounds:210,444,24,24
+Letter U Yellow_Blue
+bounds:262,366,24,24
+Letter U Yellow_Gray
+bounds:1888,3342,24,24
+Letter U Yellow_Green
+bounds:600,1068,24,24
+Letter U Yellow_Lightblue
+bounds:106,236,24,24
+Letter U Yellow_Lightgreen
+bounds:730,522,24,24
+Letter U Yellow_Orange
+bounds:1732,4070,24,24
+Letter U Yellow_Pink
+bounds:1706,3550,24,24
+Letter U Yellow_Purple
+bounds:1966,3342,24,24
+Letter U Yellow_Red
+bounds:1224,1068,24,24
+Letter U Yellow_White
+bounds:1758,3706,24,24
+Letter U Yellow_Yellow
+bounds:704,314,24,24
+Letter U_Black
+bounds:1094,1068,24,24
+Letter U_Blue
+bounds:1094,938,24,24
+Letter U_Gray
+bounds:392,210,24,24
+Letter U_Green
+bounds:1810,3316,24,24
+Letter U_Lightblue
+bounds:938,1068,24,24
+Letter U_Lightgreen
+bounds:496,912,24,24
+Letter U_Orange
+bounds:886,522,24,24
+Letter U_Pink
+bounds:808,964,24,24
+Letter U_Purple
+bounds:1810,3212,24,24
+Letter U_Red
+bounds:1914,2900,24,24
+Letter U_White
+bounds:1836,3446,24,24
+Letter U_Yellow
+bounds:2018,3030,24,24
+Letter V Black_Black
+bounds:1888,3836,24,24
+Letter V Black_Blue
+bounds:444,470,24,24
+Letter V Black_Gray
+bounds:1758,3134,24,24
+Letter V Black_Green
+bounds:2,1042,24,24
+Letter V Black_Lightblue
+bounds:1784,3134,24,24
+Letter V Black_Lightgreen
+bounds:1706,3472,24,24
+Letter V Black_Orange
+bounds:548,184,24,24
+Letter V Black_Pink
+bounds:2018,3758,24,24
+Letter V Black_Purple
+bounds:782,834,24,24
+Letter V Black_Red
+bounds:678,652,24,24
+Letter V Black_White
+bounds:860,548,24,24
+Letter V Black_Yellow
+bounds:1276,938,24,24
+Letter V Yellow_Black
+bounds:1888,3004,24,24
+Letter V Yellow_Blue
+bounds:730,548,24,24
+Letter V Yellow_Gray
+bounds:1914,3082,24,24
+Letter V Yellow_Green
+bounds:912,834,24,24
+Letter V Yellow_Lightblue
+bounds:262,964,24,24
+Letter V Yellow_Lightgreen
+bounds:2,1016,24,24
+Letter V Yellow_Orange
+bounds:262,678,24,24
+Letter V Yellow_Pink
+bounds:886,1016,24,24
+Letter V Yellow_Purple
+bounds:1836,2926,24,24
+Letter V Yellow_Red
+bounds:496,652,24,24
+Letter V Yellow_White
+bounds:1654,3030,24,24
+Letter V Yellow_Yellow
+bounds:1732,3524,24,24
+Letter V_Black
+bounds:990,964,24,24
+Letter V_Blue
+bounds:288,886,24,24
+Letter V_Gray
+bounds:366,938,24,24
+Letter V_Green
+bounds:1732,3238,24,24
+Letter V_Lightblue
+bounds:1940,3420,24,24
+Letter V_Lightgreen
+bounds:1016,652,24,24
+Letter V_Orange
+bounds:1068,730,24,24
+Letter V_Pink
+bounds:1068,808,24,24
+Letter V_Purple
+bounds:1836,3264,24,24
+Letter V_Red
+bounds:548,860,24,24
+Letter V_White
+bounds:1706,3316,24,24
+Letter V_Yellow
+bounds:1784,3342,24,24
+Letter W Black_Black
+bounds:756,964,24,24
+Letter W Black_Blue
+bounds:886,704,24,24
+Letter W Black_Gray
+bounds:314,106,24,24
+Letter W Black_Green
+bounds:210,626,24,24
+Letter W Black_Lightblue
+bounds:652,574,24,24
+Letter W Black_Lightgreen
+bounds:366,80,24,24
+Letter W Black_Orange
+bounds:756,990,24,24
+Letter W Black_Pink
+bounds:1706,3186,24,24
+Letter W Black_Purple
+bounds:80,990,24,24
+Letter W Black_Red
+bounds:1810,3784,24,24
+Letter W Black_White
+bounds:496,1042,24,24
+Letter W Black_Yellow
+bounds:1654,3264,24,24
+Letter W Yellow_Black
+bounds:1680,3420,24,24
+Letter W Yellow_Blue
+bounds:1680,3810,24,24
+Letter W Yellow_Gray
+bounds:314,1042,24,24
+Letter W Yellow_Green
+bounds:366,1016,24,24
+Letter W Yellow_Lightblue
+bounds:1888,3160,24,24
+Letter W Yellow_Lightgreen
+bounds:1784,3706,24,24
+Letter W Yellow_Orange
+bounds:1784,3992,24,24
+Letter W Yellow_Pink
+bounds:1758,2952,24,24
+Letter W Yellow_Purple
+bounds:262,236,24,24
+Letter W Yellow_Red
+bounds:1732,3654,24,24
+Letter W Yellow_White
+bounds:106,912,24,24
+Letter W Yellow_Yellow
+bounds:1758,3992,24,24
+Letter W_Black
+bounds:912,886,24,24
+Letter W_Blue
+bounds:444,522,24,24
+Letter W_Gray
+bounds:28,80,24,24
+Letter W_Green
+bounds:1654,3160,24,24
+Letter W_Lightblue
+bounds:28,938,24,24
+Letter W_Lightgreen
+bounds:2,548,24,24
+Letter W_Orange
+bounds:392,600,24,24
+Letter W_Pink
+bounds:496,938,24,24
+Letter W_Purple
+bounds:1680,3888,24,24
+Letter W_Red
+bounds:2018,3264,24,24
+Letter W_White
+bounds:808,1068,24,24
+Letter W_Yellow
+bounds:1784,3368,24,24
+Letter X Black_Black
+bounds:782,678,24,24
+Letter X Black_Blue
+bounds:574,704,24,24
+Letter X Black_Gray
+bounds:132,236,24,24
+Letter X Black_Green
+bounds:470,548,24,24
+Letter X Black_Lightblue
+bounds:288,756,24,24
+Letter X Black_Lightgreen
+bounds:1302,938,24,24
+Letter X Black_Orange
+bounds:470,210,24,24
+Letter X Black_Pink
+bounds:366,886,24,24
+Letter X Black_Purple
+bounds:1758,3290,24,24
+Letter X Black_Red
+bounds:470,1068,24,24
+Letter X Black_White
+bounds:1654,3186,24,24
+Letter X Black_Yellow
+bounds:912,678,24,24
+Letter X Yellow_Black
+bounds:938,808,24,24
+Letter X Yellow_Blue
+bounds:652,990,24,24
+Letter X Yellow_Gray
+bounds:340,652,24,24
+Letter X Yellow_Green
+bounds:912,964,24,24
+Letter X Yellow_Lightblue
+bounds:938,756,24,24
+Letter X Yellow_Lightgreen
+bounds:288,28,24,24
+Letter X Yellow_Orange
+bounds:1120,938,24,24
+Letter X Yellow_Pink
+bounds:28,834,24,24
+Letter X Yellow_Purple
+bounds:1888,3498,24,24
+Letter X Yellow_Red
+bounds:1940,3030,24,24
+Letter X Yellow_White
+bounds:340,470,24,24
+Letter X Yellow_Yellow
+bounds:444,262,24,24
+Letter X_Black
+bounds:782,756,24,24
+Letter X_Blue
+bounds:1784,2822,24,24
+Letter X_Gray
+bounds:834,496,24,24
+Letter X_Green
+bounds:886,1042,24,24
+Letter X_Lightblue
+bounds:1654,3888,24,24
+Letter X_Lightgreen
+bounds:574,288,24,24
+Letter X_Orange
+bounds:1784,3394,24,24
+Letter X_Pink
+bounds:340,314,24,24
+Letter X_Purple
+bounds:1680,3992,24,24
+Letter X_Red
+bounds:158,860,24,24
+Letter X_White
+bounds:704,964,24,24
+Letter X_Yellow
+bounds:340,600,24,24
+Letter Y Black_Black
+bounds:1224,860,24,24
+Letter Y Black_Blue
+bounds:2018,3914,24,24
+Letter Y Black_Gray
+bounds:1940,3810,24,24
+Letter Y Black_Green
+bounds:418,210,24,24
+Letter Y Black_Lightblue
+bounds:184,574,24,24
+Letter Y Black_Lightgreen
+bounds:184,210,24,24
+Letter Y Black_Orange
+bounds:1992,3732,24,24
+Letter Y Black_Pink
+bounds:548,236,24,24
+Letter Y Black_Purple
+bounds:1992,3056,24,24
+Letter Y Black_Red
+bounds:522,470,24,24
+Letter Y Black_White
+bounds:626,496,24,24
+Letter Y Black_Yellow
+bounds:158,548,24,24
+Letter Y Yellow_Black
+bounds:80,626,24,24
+Letter Y Yellow_Blue
+bounds:1836,3212,24,24
+Letter Y Yellow_Gray
+bounds:782,782,24,24
+Letter Y Yellow_Green
+bounds:1706,3966,24,24
+Letter Y Yellow_Lightblue
+bounds:782,1042,24,24
+Letter Y Yellow_Lightgreen
+bounds:1654,3862,24,24
+Letter Y Yellow_Orange
+bounds:1732,3862,24,24
+Letter Y Yellow_Pink
+bounds:1966,3680,24,24
+Letter Y Yellow_Purple
+bounds:1094,1042,24,24
+Letter Y Yellow_Red
+bounds:1758,3160,24,24
+Letter Y Yellow_White
+bounds:366,28,24,24
+Letter Y Yellow_Yellow
+bounds:1758,3914,24,24
+Letter Y_Black
+bounds:418,1042,24,24
+Letter Y_Blue
+bounds:1836,3550,24,24
+Letter Y_Gray
+bounds:574,912,24,24
+Letter Y_Green
+bounds:1276,912,24,24
+Letter Y_Lightblue
+bounds:938,1042,24,24
+Letter Y_Lightgreen
+bounds:262,288,24,24
+Letter Y_Orange
+bounds:2018,3108,24,24
+Letter Y_Pink
+bounds:28,886,24,24
+Letter Y_Purple
+bounds:1914,3420,24,24
+Letter Y_Red
+bounds:704,886,24,24
+Letter Y_White
+bounds:1224,938,24,24
+Letter Y_Yellow
+bounds:1094,834,24,24
+Letter Z Black_Black
+bounds:470,912,24,24
+Letter Z Black_Blue
+bounds:1706,2770,24,24
+Letter Z Black_Gray
+bounds:990,678,24,24
+Letter Z Black_Green
+bounds:2,704,24,24
+Letter Z Black_Lightblue
+bounds:1680,3368,24,24
+Letter Z Black_Lightgreen
+bounds:366,912,24,24
+Letter Z Black_Orange
+bounds:1680,3498,24,24
+Letter Z Black_Pink
+bounds:106,106,24,24
+Letter Z Black_Purple
+bounds:1172,938,24,24
+Letter Z Black_Red
+bounds:1120,1068,24,24
+Letter Z Black_White
+bounds:1706,4018,24,24
+Letter Z Black_Yellow
+bounds:1758,3602,24,24
+Letter Z Yellow_Black
+bounds:1992,4018,24,24
+Letter Z Yellow_Blue
+bounds:340,54,24,24
+Letter Z Yellow_Gray
+bounds:1094,808,24,24
+Letter Z Yellow_Green
+bounds:1784,2796,24,24
+Letter Z Yellow_Lightblue
+bounds:28,1016,24,24
+Letter Z Yellow_Lightgreen
+bounds:548,1068,24,24
+Letter Z Yellow_Orange
+bounds:1250,1042,24,24
+Letter Z Yellow_Pink
+bounds:522,548,24,24
+Letter Z Yellow_Purple
+bounds:626,834,24,24
+Letter Z Yellow_Red
+bounds:1836,3602,24,24
+Letter Z Yellow_White
+bounds:1992,3082,24,24
+Letter Z Yellow_Yellow
+bounds:392,184,24,24
+Letter Z_Black
+bounds:314,938,24,24
+Letter Z_Blue
+bounds:600,496,24,24
+Letter Z_Gray
+bounds:1888,3134,24,24
+Letter Z_Green
+bounds:1198,834,24,24
+Letter Z_Lightblue
+bounds:28,106,24,24
+Letter Z_Lightgreen
+bounds:262,652,24,24
+Letter Z_Orange
+bounds:288,2,24,24
+Letter Z_Pink
+bounds:1862,3446,24,24
+Letter Z_Purple
+bounds:808,990,24,24
+Letter Z_Red
+bounds:1094,886,24,24
+Letter Z_White
+bounds:1198,912,24,24
+Letter Z_Yellow
+bounds:834,600,24,24
+Location_Black
+bounds:158,912,24,24
+Location_Blue
+bounds:1862,3186,24,24
+Location_Gray
+bounds:1654,2952,24,24
+Location_Green
+bounds:1836,2900,24,24
+Location_Lightblue
+bounds:1914,3368,24,24
+Location_Lightgreen
+bounds:574,418,24,24
+Location_Orange
+bounds:1654,3134,24,24
+Location_Pink
+bounds:1810,3472,24,24
+Location_Purple
+bounds:2,678,24,24
+Location_Red
+bounds:158,262,24,24
+Location_White
+bounds:834,626,24,24
+Location_Yellow
+bounds:184,314,24,24
+Messages_Black
+bounds:1992,3706,24,24
+Messages_Blue
+bounds:444,964,24,24
+Messages_Gray
+bounds:522,1016,24,24
+Messages_Green
+bounds:184,782,24,24
+Messages_Lightblue
+bounds:158,1016,24,24
+Messages_Lightgreen
+bounds:392,1042,24,24
+Messages_Orange
+bounds:132,522,24,24
+Messages_Pink
+bounds:1068,756,24,24
+Messages_Purple
+bounds:1016,730,24,24
+Messages_Red
+bounds:314,314,24,24
+Messages_White
+bounds:1706,3810,24,24
+Messages_Yellow
+bounds:444,860,24,24
+Metro_Black
+bounds:1732,3706,24,24
+Metro_Blue
+bounds:782,886,24,24
+Metro_Gray
+bounds:366,444,24,24
+Metro_Green
+bounds:1380,1016,24,24
+Metro_Lightblue
+bounds:626,392,24,24
+Metro_Lightgreen
+bounds:1914,3134,24,24
+Metro_Orange
+bounds:1758,4070,24,24
+Metro_Pink
+bounds:210,678,24,24
+Metro_Purple
+bounds:158,158,24,24
+Metro_Red
+bounds:1888,3550,24,24
+Metro_White
+bounds:1680,2744,24,24
+Metro_Yellow
+bounds:834,444,24,24
+Monitor_Black
+bounds:1784,4070,24,24
+Monitor_Blue
+bounds:548,912,24,24
+Monitor_Gray
+bounds:236,574,24,24
+Monitor_Green
+bounds:1758,2874,24,24
+Monitor_Lightblue
+bounds:1758,2822,24,24
+Monitor_Lightgreen
+bounds:418,990,24,24
+Monitor_Orange
+bounds:782,574,24,24
+Monitor_Pink
+bounds:158,1042,24,24
+Monitor_Purple
+bounds:314,522,24,24
+Monitor_Red
+bounds:1732,3472,24,24
+Monitor_White
+bounds:1068,912,24,24
+Monitor_Yellow
+bounds:1940,3108,24,24
+Mountains_Black
+bounds:1680,3290,24,24
+Mountains_Blue
+bounds:314,470,24,24
+Mountains_Gray
+bounds:28,158,24,24
+Mountains_Green
+bounds:54,522,24,24
+Mountains_Lightblue
+bounds:288,782,24,24
+Mountains_Lightgreen
+bounds:366,418,24,24
+Mountains_Orange
+bounds:1862,3602,24,24
+Mountains_Pink
+bounds:1966,3888,24,24
+Mountains_Purple
+bounds:1810,2874,24,24
+Mountains_Red
+bounds:756,366,24,24
+Mountains_White
+bounds:54,652,24,24
+Mountains_Yellow
+bounds:28,418,24,24
+Music_Black
+bounds:1784,3654,24,24
+Music_Blue
+bounds:1966,3628,24,24
+Music_Gray
+bounds:1940,3576,24,24
+Music_Green
+bounds:158,964,24,24
+Music_Lightblue
+bounds:1706,2900,24,24
+Music_Lightgreen
+bounds:132,80,24,24
+Music_Orange
+bounds:158,1068,24,24
+Music_Pink
+bounds:106,834,24,24
+Music_Purple
+bounds:652,652,24,24
+Music_Red
+bounds:366,392,24,24
+Music_White
+bounds:522,158,24,24
+Music_Yellow
+bounds:2,964,24,24
+Note_Black
+bounds:1940,3264,24,24
+Note_Blue
+bounds:106,54,24,24
+Note_Gray
+bounds:1836,3134,24,24
+Note_Green
+bounds:132,262,24,24
+Note_Lightblue
+bounds:366,808,24,24
+Note_Lightgreen
+bounds:444,106,24,24
+Note_Orange
+bounds:834,730,24,24
+Note_Pink
+bounds:2,288,24,24
+Note_Purple
+bounds:1654,3368,24,24
+Note_Red
+bounds:678,808,24,24
+Note_White
+bounds:366,600,24,24
+Note_Yellow
+bounds:210,106,24,24
+Number 0 Black_Black
+bounds:548,600,24,24
+Letter O Black_Black
+bounds:548,600,24,24
+Number 0 Black_Blue
+bounds:626,730,24,24
+Letter O Black_Blue
+bounds:626,730,24,24
+Number 0 Black_Gray
+bounds:288,366,24,24
+Letter O Black_Gray
+bounds:288,366,24,24
+Number 0 Black_Green
+bounds:2018,3628,24,24
+Letter O Black_Green
+bounds:2018,3628,24,24
+Number 0 Black_Pink
+bounds:2,470,24,24
+Letter O Black_Pink
+bounds:2,470,24,24
+Number 0 Black_Purple
+bounds:288,314,24,24
+Letter O Black_Purple
+bounds:288,314,24,24
+Number 0 Black_White
+bounds:2,340,24,24
+Letter O Black_White
+bounds:2,340,24,24
+Number 0 Yellow_Lightblue
+bounds:704,1042,24,24
+Letter O Yellow_Lightblue
+bounds:704,1042,24,24
+Number 0 Yellow_Lightgreen
+bounds:340,1042,24,24
+Letter O Yellow_Lightgreen
+bounds:340,1042,24,24
+Number 0 Yellow_Yellow
+bounds:184,626,24,24
+Letter O Yellow_Yellow
+bounds:184,626,24,24
+Number 0_Blue
+bounds:652,1068,24,24
+Letter O_Blue
+bounds:652,1068,24,24
+Number 0_Gray
+bounds:470,860,24,24
+Letter O_Gray
+bounds:470,860,24,24
+Number 0_Lightblue
+bounds:1680,2978,24,24
+Letter O_Lightblue
+bounds:1680,2978,24,24
+Number 0_Purple
+bounds:340,392,24,24
+Letter O_Purple
+bounds:340,392,24,24
+Number 0_Red
+bounds:158,496,24,24
+Letter O_Red
+bounds:158,496,24,24
+Number 1 Black_Black
+bounds:704,470,24,24
+Number 1 Black_Blue
+bounds:496,990,24,24
+Number 1 Black_Gray
+bounds:574,1042,24,24
+Number 1 Black_Green
+bounds:106,28,24,24
+Number 1 Black_Lightblue
+bounds:2018,3550,24,24
+Number 1 Black_Lightgreen
+bounds:2018,4044,24,24
+Number 1 Black_Orange
+bounds:340,548,24,24
+Number 1 Black_Pink
+bounds:2018,3056,24,24
+Number 1 Black_Purple
+bounds:184,1042,24,24
+Number 1 Black_Red
+bounds:392,756,24,24
+Number 1 Black_White
+bounds:600,626,24,24
+Number 1 Black_Yellow
+bounds:1732,3316,24,24
+Number 1 Yellow_Black
+bounds:496,860,24,24
+Number 1 Yellow_Blue
+bounds:496,132,24,24
+Number 1 Yellow_Gray
+bounds:1328,964,24,24
+Number 1 Yellow_Green
+bounds:340,964,24,24
+Number 1 Yellow_Lightblue
+bounds:548,210,24,24
+Number 1 Yellow_Lightgreen
+bounds:314,730,24,24
+Number 1 Yellow_Orange
+bounds:1810,4044,24,24
+Number 1 Yellow_Pink
+bounds:210,132,24,24
+Number 1 Yellow_Purple
+bounds:1016,1016,24,24
+Number 1 Yellow_Red
+bounds:1732,3108,24,24
+Number 1 Yellow_White
+bounds:262,1042,24,24
+Number 1 Yellow_Yellow
+bounds:1680,3966,24,24
+Number 1_Black
+bounds:756,470,24,24
+Number 1_Blue
+bounds:730,678,24,24
+Number 1_Gray
+bounds:366,288,24,24
+Number 1_Green
+bounds:1992,3238,24,24
+Number 1_Lightblue
+bounds:1706,3628,24,24
+Number 1_Lightgreen
+bounds:132,132,24,24
+Number 1_Orange
+bounds:1940,2978,24,24
+Number 1_Pink
+bounds:652,938,24,24
+Number 1_Purple
+bounds:184,262,24,24
+Number 1_Red
+bounds:1992,3264,24,24
+Number 1_White
+bounds:730,704,24,24
+Number 1_Yellow
+bounds:1094,782,24,24
+Number 2 Black_Black
+bounds:2018,3394,24,24
+Number 2 Black_Blue
+bounds:1758,2796,24,24
+Number 2 Black_Gray
+bounds:704,366,24,24
+Number 2 Black_Green
+bounds:54,236,24,24
+Number 2 Black_Lightblue
+bounds:1732,3992,24,24
+Number 2 Black_Lightgreen
+bounds:470,340,24,24
+Number 2 Black_Orange
+bounds:1250,990,24,24
+Number 2 Black_Pink
+bounds:210,184,24,24
+Number 2 Black_Purple
+bounds:574,730,24,24
+Number 2 Black_Red
+bounds:1810,3524,24,24
+Number 2 Black_White
+bounds:1758,3420,24,24
+Number 2 Black_Yellow
+bounds:886,626,24,24
+Number 2 Yellow_Black
+bounds:288,132,24,24
+Number 2 Yellow_Blue
+bounds:418,886,24,24
+Number 2 Yellow_Gray
+bounds:600,1042,24,24
+Number 2 Yellow_Green
+bounds:418,444,24,24
+Number 2 Yellow_Lightblue
+bounds:210,1042,24,24
+Number 2 Yellow_Lightgreen
+bounds:340,522,24,24
+Number 2 Yellow_Orange
+bounds:548,366,24,24
+Number 2 Yellow_Pink
+bounds:1120,782,24,24
+Number 2 Yellow_Purple
+bounds:522,782,24,24
+Number 2 Yellow_Red
+bounds:418,782,24,24
+Number 2 Yellow_White
+bounds:1758,3238,24,24
+Number 2 Yellow_Yellow
+bounds:1966,3160,24,24
+Number 2_Black
+bounds:678,392,24,24
+Number 2_Blue
+bounds:1654,3810,24,24
+Number 2_Gray
+bounds:54,808,24,24
+Number 2_Green
+bounds:1966,3212,24,24
+Number 2_Lightblue
+bounds:54,600,24,24
+Number 2_Lightgreen
+bounds:1758,3472,24,24
+Number 2_Orange
+bounds:574,808,24,24
+Number 2_Pink
+bounds:600,444,24,24
+Number 2_Purple
+bounds:2,912,24,24
+Number 2_Red
+bounds:184,964,24,24
+Number 2_White
+bounds:288,262,24,24
+Number 2_Yellow
+bounds:730,990,24,24
+Number 3 Black_Black
+bounds:496,210,24,24
+Number 3 Black_Blue
+bounds:990,990,24,24
+Number 3 Black_Gray
+bounds:964,938,24,24
+Number 3 Black_Green
+bounds:1758,3004,24,24
+Number 3 Black_Lightblue
+bounds:210,964,24,24
+Number 3 Black_Lightgreen
+bounds:1810,2952,24,24
+Number 3 Black_Orange
+bounds:1706,3420,24,24
+Number 3 Black_Pink
+bounds:1758,3446,24,24
+Number 3 Black_Purple
+bounds:1042,730,24,24
+Number 3 Black_Red
+bounds:756,548,24,24
+Number 3 Black_White
+bounds:54,28,24,24
+Number 3 Black_Yellow
+bounds:80,444,24,24
+Number 3 Yellow_Black
+bounds:1940,3836,24,24
+Number 3 Yellow_Blue
+bounds:1992,3472,24,24
+Number 3 Yellow_Gray
+bounds:912,1016,24,24
+Number 3 Yellow_Green
+bounds:1758,3966,24,24
+Number 3 Yellow_Lightblue
+bounds:652,626,24,24
+Number 3 Yellow_Lightgreen
+bounds:886,886,24,24
+Number 3 Yellow_Orange
+bounds:938,1016,24,24
+Number 3 Yellow_Pink
+bounds:392,886,24,24
+Number 3 Yellow_Purple
+bounds:444,1042,24,24
+Number 3 Yellow_Red
+bounds:106,210,24,24
+Number 3 Yellow_White
+bounds:1172,834,24,24
+Number 3 Yellow_Yellow
+bounds:1784,3966,24,24
+Number 3_Black
+bounds:236,496,24,24
+Number 3_Blue
+bounds:1680,3238,24,24
+Number 3_Gray
+bounds:626,808,24,24
+Number 3_Green
+bounds:418,912,24,24
+Number 3_Lightblue
+bounds:990,912,24,24
+Number 3_Lightgreen
+bounds:106,1016,24,24
+Number 3_Orange
+bounds:28,288,24,24
+Number 3_Pink
+bounds:1784,3758,24,24
+Number 3_Purple
+bounds:470,80,24,24
+Number 3_Red
+bounds:444,652,24,24
+Number 3_White
+bounds:106,730,24,24
+Number 3_Yellow
+bounds:548,834,24,24
+Number 4 Black_Black
+bounds:340,938,24,24
+Number 4 Black_Blue
+bounds:548,886,24,24
+Number 4 Black_Gray
+bounds:106,418,24,24
+Number 4 Black_Green
+bounds:522,132,24,24
+Number 4 Black_Lightblue
+bounds:1706,3732,24,24
+Number 4 Black_Lightgreen
+bounds:652,860,24,24
+Number 4 Black_Orange
+bounds:470,314,24,24
+Number 4 Black_Pink
+bounds:1862,4044,24,24
+Number 4 Black_Purple
+bounds:1784,3446,24,24
+Number 4 Black_Red
+bounds:1706,2848,24,24
+Number 4 Black_White
+bounds:366,54,24,24
+Number 4 Black_Yellow
+bounds:1732,2952,24,24
+Number 4 Yellow_Black
+bounds:574,548,24,24
+Number 4 Yellow_Blue
+bounds:366,184,24,24
+Number 4 Yellow_Gray
+bounds:1250,1068,24,24
+Number 4 Yellow_Green
+bounds:652,808,24,24
+Number 4 Yellow_Lightblue
+bounds:1992,3810,24,24
+Number 4 Yellow_Lightgreen
+bounds:1992,3160,24,24
+Number 4 Yellow_Orange
+bounds:652,444,24,24
+Number 4 Yellow_Pink
+bounds:418,548,24,24
+Number 4 Yellow_Purple
+bounds:236,444,24,24
+Number 4 Yellow_Red
+bounds:1862,3732,24,24
+Number 4 Yellow_White
+bounds:626,886,24,24
+Number 4 Yellow_Yellow
+bounds:1836,3004,24,24
+Number 4_Black
+bounds:106,366,24,24
+Number 4_Blue
+bounds:1016,808,24,24
+Number 4_Gray
+bounds:730,496,24,24
+Number 4_Green
+bounds:262,756,24,24
+Number 4_Lightblue
+bounds:1914,3186,24,24
+Number 4_Lightgreen
+bounds:1862,3108,24,24
+Number 4_Orange
+bounds:678,990,24,24
+Number 4_Pink
+bounds:1992,3446,24,24
+Number 4_Purple
+bounds:418,54,24,24
+Number 4_Red
+bounds:1016,834,24,24
+Number 4_White
+bounds:28,652,24,24
+Number 4_Yellow
+bounds:1914,3030,24,24
+Number 5 Black_Black
+bounds:470,678,24,24
+Number 5 Black_Blue
+bounds:1810,4018,24,24
+Number 5 Black_Gray
+bounds:1680,3836,24,24
+Number 5 Black_Green
+bounds:28,444,24,24
+Number 5 Black_Lightblue
+bounds:1940,3238,24,24
+Number 5 Black_Lightgreen
+bounds:1862,4070,24,24
+Number 5 Black_Orange
+bounds:106,626,24,24
+Number 5 Black_Pink
+bounds:1706,2926,24,24
+Number 5 Black_Purple
+bounds:2018,3186,24,24
+Number 5 Black_Red
+bounds:418,184,24,24
+Number 5 Black_White
+bounds:1992,3914,24,24
+Number 5 Black_Yellow
+bounds:1758,3654,24,24
+Number 5 Yellow_Black
+bounds:1940,4018,24,24
+Number 5 Yellow_Blue
+bounds:1914,4070,24,24
+Number 5 Yellow_Gray
+bounds:1784,3888,24,24
+Number 5 Yellow_Green
+bounds:1146,834,24,24
+Number 5 Yellow_Lightblue
+bounds:1810,2926,24,24
+Number 5 Yellow_Lightgreen
+bounds:1836,3342,24,24
+Number 5 Yellow_Orange
+bounds:1940,3342,24,24
+Number 5 Yellow_Pink
+bounds:1042,886,24,24
+Number 5 Yellow_Purple
+bounds:262,808,24,24
+Number 5 Yellow_Red
+bounds:938,626,24,24
+Number 5 Yellow_White
+bounds:574,340,24,24
+Number 5 Yellow_Yellow
+bounds:574,626,24,24
+Number 5_Black
+bounds:54,314,24,24
+Number 5_Blue
+bounds:1654,3524,24,24
+Number 5_Gray
+bounds:1680,3524,24,24
+Number 5_Green
+bounds:158,652,24,24
+Number 5_Lightblue
+bounds:548,444,24,24
+Number 5_Lightgreen
+bounds:132,340,24,24
+Number 5_Orange
+bounds:444,210,24,24
+Number 5_Pink
+bounds:1198,886,24,24
+Number 5_Purple
+bounds:1862,3420,24,24
+Number 5_Red
+bounds:132,704,24,24
+Number 5_White
+bounds:2,626,24,24
+Number 5_Yellow
+bounds:990,782,24,24
+Number 6 Black_Black
+bounds:418,314,24,24
+Number 6 Black_Blue
+bounds:756,626,24,24
+Number 6 Black_Gray
+bounds:210,54,24,24
+Number 6 Black_Green
+bounds:2,80,24,24
+Number 6 Black_Lightblue
+bounds:236,106,24,24
+Number 6 Black_Lightgreen
+bounds:236,210,24,24
+Number 6 Black_Orange
+bounds:1042,1016,24,24
+Number 6 Black_Pink
+bounds:132,314,24,24
+Number 6 Black_Purple
+bounds:444,886,24,24
+Number 6 Black_Red
+bounds:1732,3420,24,24
+Number 6 Black_White
+bounds:600,782,24,24
+Number 6 Black_Yellow
+bounds:1966,3316,24,24
+Number 6 Yellow_Black
+bounds:1706,3160,24,24
+Number 6 Yellow_Blue
+bounds:366,704,24,24
+Number 6 Yellow_Gray
+bounds:1966,3654,24,24
+Number 6 Yellow_Green
+bounds:1992,3654,24,24
+Number 6 Yellow_Lightblue
+bounds:496,678,24,24
+Number 6 Yellow_Lightgreen
+bounds:626,574,24,24
+Number 6 Yellow_Orange
+bounds:1198,964,24,24
+Number 6 Yellow_Pink
+bounds:1680,3862,24,24
+Number 6 Yellow_Purple
+bounds:522,704,24,24
+Number 6 Yellow_Red
+bounds:548,548,24,24
+Number 6 Yellow_White
+bounds:1940,3706,24,24
+Number 6 Yellow_Yellow
+bounds:366,132,24,24
+Number 6_Black
+bounds:2018,3654,24,24
+Number 6_Blue
+bounds:782,808,24,24
+Number 6_Gray
+bounds:340,340,24,24
+Number 6_Green
+bounds:54,548,24,24
+Number 6_Lightblue
+bounds:340,860,24,24
+Number 6_Lightgreen
+bounds:1862,3888,24,24
+Number 6_Orange
+bounds:340,132,24,24
+Number 6_Pink
+bounds:522,886,24,24
+Number 6_Purple
+bounds:1966,3550,24,24
+Number 6_Red
+bounds:1680,3134,24,24
+Number 6_White
+bounds:1862,3862,24,24
+Number 6_Yellow
+bounds:1172,990,24,24
+Number 7 Black_Black
+bounds:808,444,24,24
+Number 7 Black_Blue
+bounds:1758,3316,24,24
+Number 7 Black_Gray
+bounds:652,834,24,24
+Number 7 Black_Green
+bounds:236,2,24,24
+Number 7 Black_Lightblue
+bounds:1992,3186,24,24
+Number 7 Black_Lightgreen
+bounds:964,834,24,24
+Number 7 Black_Orange
+bounds:288,990,24,24
+Number 7 Black_Pink
+bounds:1862,3836,24,24
+Number 7 Black_Purple
+bounds:132,2,24,24
+Number 7 Black_Red
+bounds:158,470,24,24
+Number 7 Black_White
+bounds:288,158,24,24
+Number 7 Black_Yellow
+bounds:236,964,24,24
+Number 7 Yellow_Black
+bounds:938,574,24,24
+Number 7 Yellow_Blue
+bounds:912,938,24,24
+Number 7 Yellow_Gray
+bounds:470,470,24,24
+Number 7 Yellow_Green
+bounds:262,54,24,24
+Number 7 Yellow_Lightblue
+bounds:1706,3134,24,24
+Number 7 Yellow_Lightgreen
+bounds:756,522,24,24
+Number 7 Yellow_Orange
+bounds:28,28,24,24
+Number 7 Yellow_Pink
+bounds:652,1016,24,24
+Number 7 Yellow_Purple
+bounds:1992,3862,24,24
+Number 7 Yellow_Red
+bounds:28,366,24,24
+Number 7 Yellow_White
+bounds:392,262,24,24
+Number 7 Yellow_Yellow
+bounds:704,730,24,24
+Number 7_Black
+bounds:600,314,24,24
+Number 7_Blue
+bounds:1758,2744,24,24
+Number 7_Gray
+bounds:54,1042,24,24
+Number 7_Green
+bounds:1914,3160,24,24
+Number 7_Lightblue
+bounds:1914,3784,24,24
+Number 7_Lightgreen
+bounds:1120,912,24,24
+Number 7_Orange
+bounds:288,678,24,24
+Number 7_Pink
+bounds:132,28,24,24
+Number 7_Purple
+bounds:1042,756,24,24
+Number 7_Red
+bounds:1120,834,24,24
+Number 7_White
+bounds:132,106,24,24
+Number 7_Yellow
+bounds:626,1042,24,24
+Number 8 Black_Black
+bounds:1966,3784,24,24
+Number 8 Black_Blue
+bounds:158,782,24,24
+Number 8 Black_Gray
+bounds:1654,3602,24,24
+Number 8 Black_Green
+bounds:340,1068,24,24
+Number 8 Black_Lightblue
+bounds:1198,990,24,24
+Number 8 Black_Lightgreen
+bounds:1914,3602,24,24
+Number 8 Black_Orange
+bounds:54,132,24,24
+Number 8 Black_Pink
+bounds:1966,3082,24,24
+Number 8 Black_Purple
+bounds:184,808,24,24
+Number 8 Black_Red
+bounds:314,54,24,24
+Number 8 Black_White
+bounds:28,1042,24,24
+Number 8 Black_Yellow
+bounds:730,834,24,24
+Number 8 Yellow_Black
+bounds:80,288,24,24
+Number 8 Yellow_Blue
+bounds:1680,2770,24,24
+Number 8 Yellow_Gray
+bounds:860,574,24,24
+Number 8 Yellow_Green
+bounds:574,1016,24,24
+Number 8 Yellow_Lightblue
+bounds:366,964,24,24
+Number 8 Yellow_Lightgreen
+bounds:1758,4018,24,24
+Number 8 Yellow_Orange
+bounds:600,886,24,24
+Number 8 Yellow_Pink
+bounds:210,236,24,24
+Number 8 Yellow_Purple
+bounds:1172,808,24,24
+Number 8 Yellow_Red
+bounds:1680,3914,24,24
+Number 8 Yellow_White
+bounds:444,1016,24,24
+Number 8 Yellow_Yellow
+bounds:756,1068,24,24
+Number 8_Black
+bounds:548,262,24,24
+Number 8_Blue
+bounds:470,756,24,24
+Number 8_Gray
+bounds:366,626,24,24
+Number 8_Green
+bounds:1784,3030,24,24
+Number 8_Lightblue
+bounds:1940,3186,24,24
+Number 8_Lightgreen
+bounds:964,1068,24,24
+Number 8_Orange
+bounds:2018,3810,24,24
+Number 8_Pink
+bounds:1810,3888,24,24
+Number 8_Purple
+bounds:1146,886,24,24
+Number 8_Red
+bounds:80,496,24,24
+Number 8_White
+bounds:80,54,24,24
+Number 8_Yellow
+bounds:288,730,24,24
+Number 9 Black_Black
+bounds:314,418,24,24
+Number 9 Black_Blue
+bounds:938,704,24,24
+Number 9 Black_Gray
+bounds:860,600,24,24
+Number 9 Black_Green
+bounds:496,808,24,24
+Number 9 Black_Lightblue
+bounds:1784,3420,24,24
+Number 9 Black_Lightgreen
+bounds:886,548,24,24
+Number 9 Black_Orange
+bounds:678,834,24,24
+Number 9 Black_Pink
+bounds:1810,3238,24,24
+Number 9 Black_Purple
+bounds:1784,3862,24,24
+Number 9 Black_Red
+bounds:912,652,24,24
+Number 9 Black_White
+bounds:392,808,24,24
+Number 9 Black_Yellow
+bounds:1966,3498,24,24
+Number 9 Yellow_Black
+bounds:1654,3316,24,24
+Number 9 Yellow_Blue
+bounds:1654,3628,24,24
+Number 9 Yellow_Gray
+bounds:1966,3914,24,24
+Number 9 Yellow_Green
+bounds:1862,3758,24,24
+Number 9 Yellow_Lightblue
+bounds:496,340,24,24
+Number 9 Yellow_Lightgreen
+bounds:1966,3862,24,24
+Number 9 Yellow_Orange
+bounds:366,340,24,24
+Number 9 Yellow_Pink
+bounds:626,366,24,24
+Number 9 Yellow_Purple
+bounds:1888,3706,24,24
+Number 9 Yellow_Red
+bounds:262,132,24,24
+Number 9 Yellow_White
+bounds:236,912,24,24
+Number 9 Yellow_Yellow
+bounds:860,860,24,24
+Number 9_Black
+bounds:470,184,24,24
+Number 9_Blue
+bounds:548,392,24,24
+Number 9_Gray
+bounds:2018,3212,24,24
+Number 9_Green
+bounds:1654,2900,24,24
+Number 9_Lightblue
+bounds:366,236,24,24
+Number 9_Lightgreen
+bounds:1914,3758,24,24
+Number 9_Orange
+bounds:340,808,24,24
+Number 9_Pink
+bounds:418,574,24,24
+Number 9_Purple
+bounds:886,652,24,24
+Number 9_Red
+bounds:1758,3108,24,24
+Number 9_White
+bounds:1940,3290,24,24
+Number 9_Yellow
+bounds:340,210,24,24
+Phone_Black
+bounds:2,886,24,24
+Phone_Blue
+bounds:80,1042,24,24
+Phone_Gray
+bounds:132,1016,24,24
+Phone_Green
+bounds:574,314,24,24
+Phone_Lightblue
+bounds:1966,3810,24,24
+Phone_Lightgreen
+bounds:964,782,24,24
+Phone_Orange
+bounds:54,80,24,24
+Phone_Pink
+bounds:1680,2926,24,24
+Phone_Purple
+bounds:288,834,24,24
+Phone_Red
+bounds:704,496,24,24
+Phone_White
+bounds:1784,2978,24,24
+Phone_Yellow
+bounds:756,808,24,24
+Plus Black_Black
+bounds:1706,3446,24,24
+Plus Black_Blue
+bounds:366,106,24,24
+Plus Black_Gray
+bounds:1276,1016,24,24
+Plus Black_Green
+bounds:288,938,24,24
+Plus Black_Lightblue
+bounds:470,886,24,24
+Plus Black_Lightgreen
+bounds:418,366,24,24
+Plus Black_Orange
+bounds:28,756,24,24
+Plus Black_Pink
+bounds:418,470,24,24
+Plus Black_Purple
+bounds:522,444,24,24
+Plus Black_Red
+bounds:106,548,24,24
+Plus Black_White
+bounds:132,938,24,24
+Plus Black_Yellow
+bounds:1706,3836,24,24
+Plus Yellow_Black
+bounds:1758,2770,24,24
+Plus Yellow_Blue
+bounds:1224,912,24,24
+Plus Yellow_Gray
+bounds:522,184,24,24
+Plus Yellow_Green
+bounds:912,730,24,24
+Plus Yellow_Lightblue
+bounds:522,678,24,24
+Plus Yellow_Lightgreen
+bounds:262,600,24,24
+Plus Yellow_Orange
+bounds:444,392,24,24
+Plus Yellow_Pink
+bounds:1888,3238,24,24
+Plus Yellow_Purple
+bounds:132,548,24,24
+Plus Yellow_Red
+bounds:80,548,24,24
+Plus Yellow_White
+bounds:964,860,24,24
+Plus Yellow_Yellow
+bounds:1068,1042,24,24
+Plus_Black
+bounds:80,600,24,24
+Plus_Blue
+bounds:392,366,24,24
+Plus_Gray
+bounds:210,158,24,24
+Plus_Green
+bounds:54,886,24,24
+Plus_Lightblue
+bounds:262,938,24,24
+Plus_Lightgreen
+bounds:1654,3472,24,24
+Plus_Orange
+bounds:236,860,24,24
+Plus_Pink
+bounds:288,600,24,24
+Plus_Purple
+bounds:1810,3030,24,24
+Plus_Red
+bounds:1992,3498,24,24
+Plus_White
+bounds:1406,1068,24,24
+Plus_Yellow
+bounds:262,912,24,24
+Power_Black
+bounds:522,288,24,24
+Power_Blue
+bounds:2018,3420,24,24
+Power_Gray
+bounds:730,756,24,24
+Power_Green
+bounds:1914,3212,24,24
+Power_Lightblue
+bounds:288,106,24,24
+Power_Lightgreen
+bounds:1966,3056,24,24
+Power_Orange
+bounds:782,1068,24,24
+Power_Pink
+bounds:444,834,24,24
+Power_Purple
+bounds:1654,2640,24,24
+Power_Red
+bounds:678,886,24,24
+Power_White
+bounds:574,600,24,24
+Power_Yellow
+bounds:1120,860,24,24
+QR Black_Black
+bounds:132,730,24,24
+QR Black_Blue
+bounds:1172,1016,24,24
+QR Black_Gray
+bounds:496,314,24,24
+QR Black_Green
+bounds:1966,2952,24,24
+QR Black_Lightblue
+bounds:1706,3758,24,24
+QR Black_Lightgreen
+bounds:1680,3706,24,24
+QR Black_Orange
+bounds:392,938,24,24
+QR Black_Pink
+bounds:912,1068,24,24
+QR Black_Purple
+bounds:860,678,24,24
+QR Black_Red
+bounds:444,808,24,24
+QR Black_White
+bounds:340,28,24,24
+QR Black_Yellow
+bounds:1758,3680,24,24
+QR White_Black
+bounds:1810,3680,24,24
+QR White_Blue
+bounds:444,418,24,24
+QR White_Gray
+bounds:262,210,24,24
+QR White_Green
+bounds:184,990,24,24
+QR White_Lightblue
+bounds:392,574,24,24
+QR White_Lightgreen
+bounds:418,1068,24,24
+QR White_Orange
+bounds:210,1016,24,24
+QR White_Pink
+bounds:314,626,24,24
+QR White_Purple
+bounds:314,262,24,24
+QR White_Red
+bounds:184,340,24,24
+QR White_White
+bounds:574,210,24,24
+QR White_Yellow
+bounds:2,834,24,24
+Questionmark Black_Black
+bounds:392,418,24,24
+Questionmark Black_Blue
+bounds:1810,2822,24,24
+Questionmark Black_Gray
+bounds:1042,678,24,24
+Questionmark Black_Green
+bounds:262,470,24,24
+Questionmark Black_Lightblue
+bounds:834,652,24,24
+Questionmark Black_Lightgreen
+bounds:834,678,24,24
+Questionmark Black_Orange
+bounds:1120,1042,24,24
+Questionmark Black_Pink
+bounds:1758,3056,24,24
+Questionmark Black_Purple
+bounds:574,964,24,24
+Questionmark Black_Red
+bounds:392,470,24,24
+Questionmark Black_White
+bounds:1836,3524,24,24
+Questionmark Black_Yellow
+bounds:288,210,24,24
+Questionmark Yellow_Black
+bounds:808,860,24,24
+Questionmark Yellow_Blue
+bounds:2018,3888,24,24
+Questionmark Yellow_Gray
+bounds:2018,3862,24,24
+Questionmark Yellow_Green
+bounds:262,496,24,24
+Questionmark Yellow_Lightblue
+bounds:2,730,24,24
+Questionmark Yellow_Lightgreen
+bounds:1992,3420,24,24
+Questionmark Yellow_Orange
+bounds:106,2,24,24
+Questionmark Yellow_Pink
+bounds:1732,2770,24,24
+Questionmark Yellow_Purple
+bounds:1810,3576,24,24
+Questionmark Yellow_Red
+bounds:1784,3472,24,24
+Questionmark Yellow_White
+bounds:132,470,24,24
+Questionmark Yellow_Yellow
+bounds:860,808,24,24
+Questionmark_Black
+bounds:1654,4018,24,24
+Questionmark_Blue
+bounds:938,964,24,24
+Questionmark_Gray
+bounds:496,496,24,24
+Questionmark_Green
+bounds:340,106,24,24
+Questionmark_Lightblue
+bounds:418,652,24,24
+Questionmark_Lightgreen
+bounds:28,340,24,24
+Questionmark_Orange
+bounds:470,730,24,24
+Questionmark_Pink
+bounds:678,1042,24,24
+Questionmark_Purple
+bounds:28,1068,24,24
+Questionmark_Red
+bounds:132,418,24,24
+Questionmark_White
+bounds:2018,3238,24,24
+Questionmark_Yellow
+bounds:1732,3368,24,24
+Radio_Black
+bounds:1888,3628,24,24
+Radio_Blue
+bounds:912,782,24,24
+Radio_Gray
+bounds:314,158,24,24
+Radio_Green
+bounds:1810,3810,24,24
+Radio_Lightblue
+bounds:470,990,24,24
+Radio_Lightgreen
+bounds:106,782,24,24
+Radio_Orange
+bounds:106,652,24,24
+Radio_Pink
+bounds:366,548,24,24
+Radio_Purple
+bounds:704,522,24,24
+Radio_Red
+bounds:574,1068,24,24
+Radio_White
+bounds:1732,3888,24,24
+Radio_Yellow
+bounds:392,964,24,24
+Railway_Black
+bounds:678,730,24,24
+Railway_Blue
+bounds:1732,3446,24,24
+Railway_Gray
+bounds:496,834,24,24
+Railway_Green
+bounds:2,236,24,24
+Railway_Lightblue
+bounds:626,262,24,24
+Railway_Lightgreen
+bounds:990,886,24,24
+Railway_Orange
+bounds:184,886,24,24
+Railway_Purple
+bounds:1940,3212,24,24
+Railway_Pőnk
+bounds:574,236,24,24
+Railway_Red
+bounds:314,548,24,24
+Railway_White
+bounds:106,444,24,24
+Railway_Yellow
+bounds:132,860,24,24
+Rubik_Black
+bounds:132,210,24,24
+Rubik_Blue
+bounds:626,548,24,24
+Rubik_Gray
+bounds:288,184,24,24
+Rubik_Green
+bounds:418,704,24,24
+Rubik_Lightblue
+bounds:132,1042,24,24
+Rubik_Lightgreen
+bounds:28,548,24,24
+Rubik_Orange
+bounds:54,756,24,24
+Rubik_Pink
+bounds:548,808,24,24
+Rubik_Purple
+bounds:1966,3238,24,24
+Rubik_Red
+bounds:600,1016,24,24
+Rubik_White
+bounds:340,730,24,24
+Rubik_Yellow
+bounds:1706,3108,24,24
+Settings_Black
+bounds:28,600,24,24
+Settings_Blue
+bounds:574,366,24,24
+Settings_Gray
+bounds:262,28,24,24
+Settings_Green
+bounds:54,1068,24,24
+Settings_Lightblue
+bounds:288,444,24,24
+Settings_Lightgreen
+bounds:1042,938,24,24
+Settings_Orange
+bounds:704,808,24,24
+Settings_Pink
+bounds:886,990,24,24
+Settings_Purple
+bounds:236,886,24,24
+Settings_Red
+bounds:288,80,24,24
+Settings_White
+bounds:964,652,24,24
+Settings_Yellow
+bounds:2018,3498,24,24
+Square Base_Black
+bounds:1758,2900,24,24
+Square Base_Blue
+bounds:1224,964,24,24
+Square Base_Gray
+bounds:704,418,24,24
+Square Base_Green
+bounds:756,704,24,24
+Square Base_Lightblue
+bounds:1706,4044,24,24
+Square Base_Lightgreen
+bounds:1966,3134,24,24
+Square Base_Orange
+bounds:54,106,24,24
+Square Base_Pink
+bounds:1966,3368,24,24
+Square Base_Purple
+bounds:106,678,24,24
+Square Base_Red
+bounds:288,418,24,24
+Square Base_Yellow
+bounds:678,756,24,24
+Square Frame 2_Black
+bounds:886,1068,24,24
+Square Frame 2_Blue
+bounds:1810,4070,24,24
+Square Frame 2_Gray
+bounds:28,860,24,24
+Square Frame 2_Green
+bounds:600,990,24,24
+Square Frame 2_Lightblue
+bounds:314,782,24,24
+Square Frame 2_Lightgreen
+bounds:1680,4044,24,24
+Square Frame 2_Orange
+bounds:1654,3654,24,24
+Square Frame 2_Pink
+bounds:600,470,24,24
+Square Frame 2_Purple
+bounds:782,652,24,24
+Square Frame 2_Red
+bounds:2,392,24,24
+Square Frame 2_Yellow
+bounds:366,1042,24,24
+Square Frame_Black
+bounds:1940,4044,24,24
+Square Frame_Blue
+bounds:1940,3160,24,24
+Square Frame_Gray
+bounds:990,834,24,24
+Square Frame_Green
+bounds:470,158,24,24
+Square Frame_Lightblue
+bounds:184,1016,24,24
+Square Frame_Lightgreen
+bounds:1680,2718,24,24
+Square Frame_Orange
+bounds:184,106,24,24
+Square Frame_Pink
+bounds:1810,3342,24,24
+Square Frame_Purple
+bounds:1888,3654,24,24
+Square Frame_Red
+bounds:132,886,24,24
+Square Frame_Yellow
+bounds:886,834,24,24
+Square Half_Black
+bounds:54,210,24,24
+Square Half_Blue
+bounds:1172,1042,24,24
+Square Half_Gray
+bounds:626,470,24,24
+Square Half_Green
+bounds:106,470,24,24
+Square Half_Lightblue
+bounds:1810,3602,24,24
+Square Half_Lightgreen
+bounds:1146,1068,24,24
+Square Half_Orange
+bounds:1016,782,24,24
+Square Half_Pink
+bounds:678,860,24,24
+Square Half_Purple
+bounds:288,470,24,24
+Square Half_Red
+bounds:80,1068,24,24
+Square Half_Yellow
+bounds:1888,3030,24,24
+Square Open_Black
+bounds:158,314,24,24
+Square Open_Blue
+bounds:1016,912,24,24
+Square Open_Gray
+bounds:496,366,24,24
+Square Open_Green
+bounds:158,522,24,24
+Square Open_Lightblue
+bounds:340,366,24,24
+Square Open_Lightgreen
+bounds:626,314,24,24
+Square Open_Orange
+bounds:132,392,24,24
+Square Open_Pink
+bounds:288,496,24,24
+Square Open_Purple
+bounds:626,236,24,24
+Square Open_Red
+bounds:262,1068,24,24
+Square Open_White
+bounds:210,704,24,24
+Square Open_Yellow
+bounds:574,860,24,24
+Square Quarter 2_Black
+bounds:340,678,24,24
+Square Quarter 2_Blue
+bounds:184,834,24,24
+Square Quarter 2_Gray
+bounds:366,990,24,24
+Square Quarter 2_Green
+bounds:54,626,24,24
+Square Quarter 2_Lightblue
+bounds:626,990,24,24
+Square Quarter 2_Lightgreen
+bounds:600,912,24,24
+Square Quarter 2_Orange
+bounds:80,106,24,24
+Square Quarter 2_Pink
+bounds:548,314,24,24
+Square Quarter 2_Purple
+bounds:340,886,24,24
+Square Quarter 2_Red
+bounds:2,756,24,24
+Square Quarter 2_White
+bounds:1680,3758,24,24
+Square Base_White
+bounds:1680,3758,24,24
+Square Frame 2_White
+bounds:1680,3758,24,24
+Square Frame_White
+bounds:1680,3758,24,24
+Square Half_White
+bounds:1680,3758,24,24
+Square Quarter_White
+bounds:1680,3758,24,24
+Square Quarter 2_Yellow
+bounds:600,652,24,24
+Square Quarter_Black
+bounds:262,574,24,24
+Square Quarter_Blue
+bounds:522,262,24,24
+Square Quarter_Gray
+bounds:1328,1068,24,24
+Square Quarter_Green
+bounds:210,756,24,24
+Square Quarter_Lightblue
+bounds:80,808,24,24
+Square Quarter_Lightgreen
+bounds:54,990,24,24
+Square Quarter_Orange
+bounds:418,236,24,24
+Square Quarter_Pink
+bounds:522,574,24,24
+Square Quarter_Purple
+bounds:418,678,24,24
+Square Quarter_Red
+bounds:1380,1068,24,24
+Square Quarter_Yellow
+bounds:1654,2848,24,24
+Square_Black
+bounds:886,938,24,24
+Square_Blue
+bounds:1654,2692,24,24
+Square_Gray
+bounds:652,314,24,24
+Square_Green
+bounds:444,678,24,24
+Square_Lightblue
+bounds:1354,1042,24,24
+Square_Lightgreen
+bounds:1654,3342,24,24
+Square_Orange
+bounds:418,340,24,24
+Square_Pink
+bounds:54,2,24,24
+Square_Purple
+bounds:2018,3784,24,24
+Square_Red
+bounds:1732,3758,24,24
+Square_White
+bounds:210,548,24,24
+Square_Yellow
+bounds:990,938,24,24
+Taxi_Black
+bounds:1654,3784,24,24
+Taxi_Blue
+bounds:756,860,24,24
+Taxi_Gray
+bounds:314,392,24,24
+Taxi_Green
+bounds:1172,886,24,24
+Taxi_Lightblue
+bounds:1992,3030,24,24
+Taxi_Lightgreen
+bounds:392,912,24,24
+Taxi_Orange
+bounds:1654,3290,24,24
+Taxi_Pink
+bounds:158,626,24,24
+Taxi_Purple
+bounds:1680,2666,24,24
+Taxi_Red
+bounds:1992,3628,24,24
+Taxi_White
+bounds:470,262,24,24
+Taxi_Yellow
+bounds:1862,3524,24,24
+Train_Black
+bounds:1914,3628,24,24
+Train_Blue
+bounds:444,626,24,24
+Train_Gray
+bounds:106,262,24,24
+Train_Green
+bounds:80,678,24,24
+Train_Lightblue
+bounds:1862,2874,24,24
+Train_Lightgreen
+bounds:1784,3316,24,24
+Train_Orange
+bounds:522,990,24,24
+Train_Pink
+bounds:1862,3810,24,24
+Train_Purple
+bounds:1094,860,24,24
+Train_Red
+bounds:808,470,24,24
+Train_White
+bounds:314,1068,24,24
+Train_Yellow
+bounds:1654,3498,24,24
+Triangle Down_Black
+bounds:782,522,24,24
+Triangle Down_Blue
+bounds:184,444,24,24
+Triangle Down_Gray
+bounds:1966,3576,24,24
+Triangle Down_Green
+bounds:1758,3030,24,24
+Triangle Down_Lightblue
+bounds:496,1016,24,24
+Triangle Down_Lightgreen
+bounds:1732,3628,24,24
+Triangle Down_Orange
+bounds:210,288,24,24
+Triangle Down_Pink
+bounds:1784,3836,24,24
+Triangle Down_Purple
+bounds:288,912,24,24
+Triangle Down_Red
+bounds:1732,3394,24,24
+Triangle Down_White
+bounds:54,54,24,24
+Triangle Down_Yellow
+bounds:834,938,24,24
+Triangle Left_Black
+bounds:1966,4044,24,24
+Triangle Left_Blue
+bounds:1914,3472,24,24
+Triangle Left_Gray
+bounds:834,1016,24,24
+Triangle Left_Green
+bounds:1172,860,24,24
+Triangle Left_Lightblue
+bounds:158,132,24,24
+Triangle Left_Lightgreen
+bounds:990,652,24,24
+Triangle Left_Orange
+bounds:964,964,24,24
+Triangle Left_Pink
+bounds:106,704,24,24
+Triangle Left_Purple
+bounds:28,496,24,24
+Triangle Left_Red
+bounds:1940,3680,24,24
+Triangle Left_White
+bounds:678,444,24,24
+Triangle Left_Yellow
+bounds:418,418,24,24
+Triangle Right_Black
+bounds:444,314,24,24
+Triangle Right_Blue
+bounds:860,1016,24,24
+Triangle Right_Gray
+bounds:496,626,24,24
+Triangle Right_Green
+bounds:392,444,24,24
+Triangle Right_Lightblue
+bounds:1940,3888,24,24
+Triangle Right_Lightgreen
+bounds:574,444,24,24
+Triangle Right_Orange
+bounds:1914,3446,24,24
+Triangle Right_Pink
+bounds:1680,3576,24,24
+Triangle Right_Purple
+bounds:80,834,24,24
+Triangle Right_Red
+bounds:210,730,24,24
+Triangle Right_White
+bounds:1706,3212,24,24
+Triangle Right_Yellow
+bounds:314,496,24,24
+Triangle Up_Black
+bounds:28,912,24,24
+Triangle Up_Blue
+bounds:418,2,24,24
+Triangle Up_Gray
+bounds:106,1068,24,24
+Triangle Up_Green
+bounds:600,340,24,24
+Triangle Up_Lightblue
+bounds:314,704,24,24
+Triangle Up_Lightgreen
+bounds:314,236,24,24
+Triangle Up_Orange
+bounds:1810,3940,24,24
+Triangle Up_Pink
+bounds:392,288,24,24
+Triangle Up_Purple
+bounds:1732,3030,24,24
+Triangle Up_Red
+bounds:314,288,24,24
+Triangle Up_White
+bounds:1914,3108,24,24
+Triangle Up_Yellow
+bounds:1784,3940,24,24
+User_Black
+bounds:158,808,24,24
+User_Blue
+bounds:2018,3160,24,24
+User_Gray
+bounds:1732,2848,24,24
+User_Green
+bounds:392,28,24,24
+User_Lightblue
+bounds:704,834,24,24
+User_Lightgreen
+bounds:1914,3290,24,24
+User_Orange
+bounds:1810,2900,24,24
+User_Pink
+bounds:574,652,24,24
+User_Purple
+bounds:1680,3186,24,24
+User_Red
+bounds:1758,3498,24,24
+User_White
+bounds:444,158,24,24
+User_Yellow
+bounds:990,730,24,24
+Warning_Black
+bounds:1784,3212,24,24
+Warning_Blue
+bounds:106,80,24,24
+Warning_Gray
+bounds:1888,3212,24,24
+Warning_Green
+bounds:288,548,24,24
+Warning_Lightblue
+bounds:1810,3082,24,24
+Warning_Lightgreen
+bounds:1706,2978,24,24
+Warning_Orange
+bounds:1732,3186,24,24
+Warning_Pink
+bounds:54,366,24,24
+Warning_Purple
+bounds:1888,3888,24,24
+Warning_Red
+bounds:730,808,24,24
+Warning_White
+bounds:262,626,24,24
+Warning_Yellow
+bounds:470,574,24,24
+Weather_Black
+bounds:704,626,24,24
+Weather_Blue
+bounds:444,990,24,24
+Weather_Gray
+bounds:184,704,24,24
+Weather_Green
+bounds:340,444,24,24
+Weather_Lightblue
+bounds:678,678,24,24
+Weather_Lightgreen
+bounds:652,782,24,24
+Weather_Orange
+bounds:496,548,24,24
+Weather_Pink
+bounds:1276,990,24,24
+Weather_Purple
+bounds:470,1042,24,24
+Weather_Red
+bounds:1914,3524,24,24
+Weather_White
+bounds:860,1068,24,24
+Weather_Yellow
+bounds:1914,3342,24,24
+Wrench_Black
+bounds:1680,3316,24,24
+Wrench_Blue
+bounds:288,392,24,24
+Wrench_Gray
+bounds:1940,3394,24,24
+Wrench_Green
+bounds:1836,3706,24,24
+Wrench_Lightblue
+bounds:886,600,24,24
+Wrench_Lightgreen
+bounds:1706,2874,24,24
+Wrench_Orange
+bounds:184,730,24,24
+Wrench_Pink
+bounds:1810,3654,24,24
+Wrench_Purple
+bounds:756,574,24,24
+Wrench_Red
+bounds:1016,938,24,24
+Wrench_White
+bounds:1732,3732,24,24
+Wrench_Yellow
+bounds:496,1068,24,24
+Writing_Black
+bounds:1992,3602,24,24
+Writing_Blue
+bounds:548,964,24,24
+Writing_Gray
+bounds:392,782,24,24
+Writing_Green
+bounds:444,912,24,24
+Writing_Lightblue
+bounds:1042,860,24,24
+Writing_Lightgreen
+bounds:1732,2796,24,24
+Writing_Orange
+bounds:314,2,24,24
+Writing_Pink
+bounds:1784,2770,24,24
+Writing_Purple
+bounds:2018,3524,24,24
+Writing_Red
+bounds:1250,938,24,24
+Writing_White
+bounds:1680,3628,24,24
+Writing_Yellow
+bounds:678,964,24,24
+phone_frame
+bounds:2,1094,1650,3000
