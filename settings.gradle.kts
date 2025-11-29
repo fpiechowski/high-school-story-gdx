@@ -4,4 +4,4 @@ plugins {
 
 includeBuild("./engine")
 
-include(":game:core", ":game:lwjgl3")
+include(":core", ":lwjgl3")
