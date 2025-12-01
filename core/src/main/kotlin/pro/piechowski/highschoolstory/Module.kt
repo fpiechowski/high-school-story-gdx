@@ -25,9 +25,7 @@ val highSchoolStoryModule =
         single { IntroScene() }
         single<Entrypoint> { GameEntrypoint() }
         single { systemComposer }
-        single { ExteriorTexture() }
         single { UserInterface() }
-        single { PlayerCharacterSpriteSheet() }
         single { Skin(Gdx.files.internal("ui/skin/uiskin.json")) }
 
         includes(CharacterModule)

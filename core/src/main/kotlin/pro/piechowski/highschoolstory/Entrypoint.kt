@@ -1,16 +1,16 @@
 package pro.piechowski.highschoolstory
 
 import pro.piechowski.highschoolstory.character.player.PlayerCharacter
+import pro.piechowski.kge.DependencyInjection.Companion.get
 import pro.piechowski.kge.Entrypoint
 import pro.piechowski.kge.input.InputManager
 
 class SandboxEntrypoint : Entrypoint {
-    override suspend fun run(): Unit =
-        with(getKoin()) {
-            val playerCharacter = PlayerCharacter("Test", "Character")
+    override suspend fun run(): Unit {
+        val playerCharacter = PlayerCharacter("Test", "Character")
 
-            get<InputManager>().passOwnership(playerCharacter)
-        }
+        get<InputManager>().passOwnership(playerCharacter)
+    }
 }
 
 class GameEntrypoint : Entrypoint {
