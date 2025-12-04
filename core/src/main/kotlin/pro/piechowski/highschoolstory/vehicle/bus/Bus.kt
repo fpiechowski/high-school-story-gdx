@@ -6,7 +6,7 @@ import pro.piechowski.kge.direction.Direction4
 import pro.piechowski.kge.ecs.Archetype
 import pro.piechowski.kge.ecs.plusAssign
 import pro.piechowski.kge.facedirection.FaceDirection4
-import pro.piechowski.kge.input.movement.MovementInput
+import pro.piechowski.kge.movement.input.MovementInput
 import pro.piechowski.kge.koin
 import pro.piechowski.kge.movement.Speed
 import pro.piechowski.kge.`object`.Kinetic
@@ -45,7 +45,6 @@ class Bus(
                 this += Powered()
                 this += BusLights.Headlights(direction4, physicsBody)
                 this += Speed(speed)
-                this += MovementInput.Multiplex(entity)
                 this += MovementInput.AI(direction4)
             }
         }

@@ -16,14 +16,16 @@ import pro.piechowski.kge.input.InputManager
 @ExperimentalCoroutinesApi
 @ExperimentalAwaitAllApi
 class SandboxEntrypoint : Entrypoint {
+    private val inputManager by inject<InputManager>()
     private val playerCharacterManager by inject<PlayerCharacterManager>()
 
     override suspend fun run() {
         get<AssetsLoader>().load()
 
         playerCharacterManager.playerCharacter.value = PlayerCharacter("Test", "Character")
+        playerCharacterManager.playerCharacter.value?.let { inputManager.passOwnership(it) }
 
-        IntroScene().play()
+        //IntroScene().play()
     }
 }
 
