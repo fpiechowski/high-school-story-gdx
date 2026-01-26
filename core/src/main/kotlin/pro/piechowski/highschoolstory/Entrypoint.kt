@@ -3,10 +3,8 @@ package pro.piechowski.highschoolstory
 import arrow.fx.coroutines.await.ExperimentalAwaitAllApi
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import pro.piechowski.highschoolstory.asset.Assets
-import pro.piechowski.highschoolstory.asset.AssetsLoader
+import pro.piechowski.kge.asset.AssetsLoader
 import pro.piechowski.highschoolstory.character.player.PlayerCharacter
-import pro.piechowski.highschoolstory.scene.intro.IntroScene
-import pro.piechowski.highschoolstory.sprite.character.player.PlayerCharacterSpriteSheet
 import pro.piechowski.kge.di.DependencyInjection.Global.get
 import pro.piechowski.kge.Entrypoint
 import pro.piechowski.kge.character.player.PlayerCharacterManager
@@ -20,7 +18,7 @@ class SandboxEntrypoint : Entrypoint {
     private val playerCharacterManager by inject<PlayerCharacterManager>()
 
     override suspend fun run() {
-        get<AssetsLoader>().load()
+        get<AssetsLoader<Assets>>().load()
 
         playerCharacterManager.playerCharacter.value = PlayerCharacter("Test", "Character")
         playerCharacterManager.playerCharacter.value?.let { inputManager.passOwnership(it) }

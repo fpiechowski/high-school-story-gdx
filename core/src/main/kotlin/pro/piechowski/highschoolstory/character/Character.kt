@@ -20,7 +20,7 @@ class Character(
             spriteSheet: CharacterSpriteSheet,
         ) = world.entity {
             it +=
-                archetype(
+                prototype(
                     it,
                     firstName,
                     lastName,

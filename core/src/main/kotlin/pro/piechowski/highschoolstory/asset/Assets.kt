@@ -4,26 +4,9 @@ import arrow.fx.coroutines.await.ExperimentalAwaitAllApi
 import arrow.fx.coroutines.await.awaitAll
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.maps.tiled.TiledMap
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.async
 import ktx.assets.async.AssetStorage
 import ktx.assets.async.Identifier
-import ktx.async.KtxAsync
 import pro.piechowski.kge.di.DependencyInjection.Global.inject
-
-@ExperimentalCoroutinesApi
-@ExperimentalAwaitAllApi
-class AssetsLoader {
-    suspend fun load() = assetsDeferred.await()
-
-    private val assetsDeferred = KtxAsync.async { Assets() }
-
-    val assets: Assets get() = if (assetsDeferred.isCompleted) {
-        assetsDeferred.getCompleted()
-    } else {
-        error("Assets were requested before they finished loading.")
-    }
-}
 
 class Assets private constructor(
     val textures: Textures,

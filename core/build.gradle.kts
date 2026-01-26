@@ -43,8 +43,5 @@ dependencies {
     api(libs.koin)
     api(libs.fleks)
     api(libs.arrow.fx.coroutines)
-}
-
-tasks.test {
-    useJUnitPlatform()
+    api(libs.junit)
 }

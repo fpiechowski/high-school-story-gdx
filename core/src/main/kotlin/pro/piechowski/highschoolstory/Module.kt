@@ -8,7 +8,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin
 import com.sksamuel.hoplite.PropertySource
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.dsl.module
-import pro.piechowski.highschoolstory.asset.AssetsLoader
+import pro.piechowski.highschoolstory.asset.Assets
+import pro.piechowski.kge.asset.AssetsLoader
 import pro.piechowski.highschoolstory.exterior.ExteriorTexture
 import pro.piechowski.highschoolstory.scene.intro.IntroScene
 import pro.piechowski.highschoolstory.sprite.character.player.PlayerCharacterSpriteSheet
@@ -33,8 +34,8 @@ val highSchoolStoryModule =
         single { systemComposer }
         single { UserInterface() }
         single { Skin(Gdx.files.internal("ui/skin/uiskin.json")) }
-        single { AssetsLoader() }
-        single { get<AssetsLoader>().assets }
+        single { AssetsLoader { Assets() } }
+        single { get<AssetsLoader<Assets>>().assets }
         single { PlayerCharacterSpriteSheet() }
         single { ExteriorTexture() }
 

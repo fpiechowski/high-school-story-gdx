@@ -41,6 +41,10 @@ allprojects {
             compileTestKotlin {
                 compilerOptions.jvmTarget.set(JvmTarget.JVM_17)
             }
+
+            test {
+                useJUnitPlatform()
+            }
         }
 
         kotlin {
@@ -48,6 +52,20 @@ allprojects {
             compilerOptions {
                 freeCompilerArgs.add("-Xcontext-parameters")
                 jvmTarget.set(JvmTarget.JVM_17)
+            }
+
+            sourceSets.all {
+                listOf(
+                    "kotlin.time.ExperimentalTime",
+                    "kotlinx.coroutines.ExperimentalCoroutinesApi",
+                    "org.koin.core.annotation.KoinInternalApi",
+                    "kotlin.ExperimentalUnsignedTypes",
+                    "kotlinx.coroutines.ExperimentalCoroutinesApi",
+                    "kotlin.ExperimentalContextParameters",
+                    "arrow.fx.coroutines.await.ExperimentalAwaitAllApi"
+                ).forEach {
+                    languageSettings.optIn(it)
+                }
             }
         }
     }
@@ -67,6 +85,8 @@ allprojects {
             sourceCompatibility = JavaVersion.VERSION_17
             targetCompatibility = JavaVersion.VERSION_17
         }
+
+
     }
 }
 
