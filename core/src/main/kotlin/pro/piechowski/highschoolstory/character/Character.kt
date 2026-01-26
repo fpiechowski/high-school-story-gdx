@@ -2,6 +2,7 @@ package pro.piechowski.highschoolstory.character
 
 import com.github.quillraven.fleks.Entity
 import pro.piechowski.highschoolstory.animation.character.CharacterAnimation
+import pro.piechowski.highschoolstory.animation.character.CharacterMovementAnimationSet
 import pro.piechowski.highschoolstory.physics.body.character.CharacterBody
 import pro.piechowski.highschoolstory.sprite.character.CharacterSpriteSheet
 import pro.piechowski.kge.animation.Direction4AnimationSet
@@ -25,22 +26,8 @@ class Character(
                     firstName,
                     lastName,
                     CharacterBody(),
-                    MovementAnimationSet.Idle(
-                        Direction4AnimationSet(
-                            CharacterAnimation.Idle.Up(spriteSheet),
-                            CharacterAnimation.Idle.Down(spriteSheet),
-                            CharacterAnimation.Idle.Left(spriteSheet),
-                            CharacterAnimation.Idle.Right(spriteSheet),
-                        ),
-                    ),
-                    MovementAnimationSet.Walk(
-                        Direction4AnimationSet(
-                            CharacterAnimation.Walk.Up(spriteSheet),
-                            CharacterAnimation.Walk.Down(spriteSheet),
-                            CharacterAnimation.Walk.Left(spriteSheet),
-                            CharacterAnimation.Walk.Right(spriteSheet),
-                        ),
-                    ),
+                    CharacterMovementAnimationSet.Idle(),
+                    CharacterMovementAnimationSet.Walk(),
                 )
         }
     }

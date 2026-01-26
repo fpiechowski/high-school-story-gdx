@@ -1,10 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="SandboxLauncher" type="JetRunConfigurationType">
     <option name="MAIN_CLASS_NAME" value="pro.piechowski.highschoolstory.game.lwjgl3.SandboxLauncher" />
-    <module name="high-school-story.game.lwjgl3.main" />
+    <module name="high-school-story.lwjgl3.main" />
     <shortenClasspath name="NONE" />
     <option name="VM_PARAMETERS" value="-XX:+UseZGC -Xmx2g -Xms2g" />
-    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
