@@ -20,32 +20,29 @@ class Bus(
     Spatial,
     Kinetic {
     companion object {
-
-
         suspend operator fun invoke(
             direction4: Direction4,
             color: BusColor,
             speed: MetersPerSeconds,
         ) = Bus(
             world.entity {
-                it += archetype(it, direction4, color, speed)
+                it += prototype(direction4, color, speed)
             },
         )
 
-        suspend fun archetype(
-            entity: Entity,
+        fun prototype(
             direction4: Direction4,
             color: BusColor,
             speed: MetersPerSeconds,
         ) = Prototype {
-            this += FaceDirection4(direction4)
-            this += BusSprite(color, direction4)
+            it += FaceDirection4(direction4)
+            it += BusSprite(color, direction4)
             val physicsBody = BusBody(direction4)
-            this += physicsBody
-            this += Powered()
-            this += BusLights.Headlights(direction4, physicsBody)
-            this += Speed(speed)
-            this += MovementInput.AI(direction4)
+            it += physicsBody
+            it += Powered()
+            it += BusLights.Headlights(direction4, physicsBody)
+            it += Speed(speed)
+            it += MovementInput.AI(direction4)
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿@startuml
 
-!include structure.puml
+!include ../structure.puml
 
 GdxInput --> ControllerMovementInputSystem
 

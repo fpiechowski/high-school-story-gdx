@@ -47,6 +47,7 @@ dependencies {
         implementation("io.github.berstanio:gdx-svmhelper-extension-box2d:$graalHelperVersion")
         implementation("io.github.berstanio:gdx-svmhelper-extension-freetype:$graalHelperVersion")
     }
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 val os = System.getProperty("os.name").lowercase(Locale.getDefault())
@@ -241,4 +242,10 @@ tasks.named<CreateStartScripts>("startScripts") {
                 .get()
                 .outputs.files,
         )
+}
+repositories {
+    mavenCentral()
+}
+kotlin {
+    jvmToolchain(8)
 }

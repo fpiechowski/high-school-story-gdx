@@ -1,6 +1,7 @@
 plugins {
     kotlin("plugin.serialization")
     id("com.google.devtools.ksp")
+    kotlin("jvm")
 }
 
 val appName: String by project
@@ -44,4 +45,11 @@ dependencies {
     api(libs.fleks)
     api(libs.arrow.fx.coroutines)
     api(libs.junit)
+    implementation(kotlin("stdlib-jdk8"))
+}
+repositories {
+    mavenCentral()
+}
+kotlin {
+    jvmToolchain(8)
 }
