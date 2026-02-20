@@ -22,7 +22,6 @@ class Character(
         ) = world.entity {
             it +=
                 prototype(
-                    it,
                     firstName,
                     lastName,
                     CharacterBody(),

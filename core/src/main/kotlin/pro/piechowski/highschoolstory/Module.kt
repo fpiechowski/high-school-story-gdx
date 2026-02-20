@@ -11,8 +11,9 @@ import org.koin.dsl.module
 import pro.piechowski.highschoolstory.asset.Assets
 import pro.piechowski.kge.asset.AssetsLoader
 import pro.piechowski.highschoolstory.exterior.ExteriorTexture
-import pro.piechowski.highschoolstory.scene.intro.IntroScene
+import pro.piechowski.highschoolstory.scene.intro.RoadToLakeview
 import pro.piechowski.highschoolstory.sprite.character.player.PlayerCharacterSpriteSheet
+import pro.piechowski.highschoolstory.state.GameState
 import pro.piechowski.highschoolstory.ui.UserInterface
 import pro.piechowski.kge.Entrypoint
 import pro.piechowski.kge.character.CharacterModule
@@ -29,7 +30,7 @@ import kotlin.time.ExperimentalTime
 val highSchoolStoryModule =
     module {
         single<PropertySource> { PropertySource.resource("/config.yml") }
-        single { IntroScene() }
+        single { RoadToLakeview() }
         single<Entrypoint> { GameEntrypoint() }
         single { systemComposer }
         single { UserInterface() }
@@ -38,6 +39,7 @@ val highSchoolStoryModule =
         single { get<AssetsLoader<Assets>>().assets }
         single { PlayerCharacterSpriteSheet() }
         single { ExteriorTexture() }
+        single { GameState() }
 
         includes(CharacterModule)
         includes(DialogueModule)

@@ -4,13 +4,15 @@ import com.github.quillraven.fleks.World
 import kotlinx.coroutines.delay
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalTime
+import ktx.collections.GdxArray
 import pro.piechowski.highschoolstory.map.Road
+import pro.piechowski.highschoolstory.state.GameState
 import pro.piechowski.highschoolstory.vehicle.bus.Bus
 import pro.piechowski.highschoolstory.vehicle.bus.BusColor
 import pro.piechowski.kge.di.DependencyInjection.Global.inject
 import pro.piechowski.kge.camera.CameraManager
 import pro.piechowski.kge.camera.MeterCamera
-import pro.piechowski.kge.character.player.PlayerCharacterManager
+import pro.piechowski.kge.character.player.playerCharacter
 import pro.piechowski.kge.character.says
 import pro.piechowski.kge.dialogue.DialogueManager
 import pro.piechowski.kge.dialogue.await
@@ -21,12 +23,13 @@ import pro.piechowski.kge.map.TiledMapManagerAdapter
 import pro.piechowski.kge.physics.mps
 import pro.piechowski.kge.physics.px
 import pro.piechowski.kge.physics.times
-import pro.piechowski.kge.scene.Scene
+import pro.piechowski.kge.story.Story
 import pro.piechowski.kge.time.calendar.Calendar
 import pro.piechowski.kge.time.clock.Clock
+import kotlin.time.Duration.Companion.seconds
 
-class IntroScene :
-    Scene() {
+class RoadToLakeview :
+    Story.Beat<GameState> {
     private val meterCamera by inject<MeterCamera>()
 
     private val world by inject<World>()
@@ -35,7 +38,12 @@ class IntroScene :
     private val calendar by inject<Calendar>()
     private val mapManager by inject<TiledMapManagerAdapter>()
     private val cameraManager by inject<CameraManager>()
-    private val playerCharacterManager: PlayerCharacterManager by inject()
+
+    override fun shouldBePlayed(
+        state: GameState
+    ): Boolean {
+        TODO("Not yet implemented")
+    }
 
     override suspend fun play() =
         with(world) {
@@ -56,22 +64,25 @@ class IntroScene :
 
             delay(1000)
 
-            val playerCharacter = playerCharacterManager.playerCharacter.value!!
+            val playerCharacter = playerCharacter.value!!
 
             dialogueManager
                 .startDialogue(
                     dialogue {
                         playerCharacter.says("Ehhhh...")
-                    },
-                ).await()
-
-            delay(2000)
-
-            dialogueManager
-                .startDialogue(
-                    dialogue {
+                        wait(2.seconds)
                         playerCharacter.says("Trzy kolejne lata bez starych.")
                     },
                 ).await()
         }
+
+    companion object : Story.Beat.Spawner<RoadToLakeview, GameState> {
+        override fun shouldSpawn(state: GameState): Boolean {
+            TODO("Not yet implemented")
+        }
+
+        override suspend fun spawn(): Story.Beat<RoadToLakeview> {
+            TODO("Not yet implemented")
+        }
+    }
 }

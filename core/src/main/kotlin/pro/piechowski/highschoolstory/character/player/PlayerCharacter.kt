@@ -4,7 +4,10 @@ import com.github.quillraven.fleks.Entity
 import kotlinx.serialization.Serializable
 import pro.piechowski.highschoolstory.animation.character.player.PlayerCharacterMovementAnimationSet
 import pro.piechowski.highschoolstory.physics.body.character.CharacterBody
+import pro.piechowski.kge.GameObject
 import pro.piechowski.kge.character.player.PlayerCharacterBase
+import pro.piechowski.kge.ecs.plusAssign
+import pro.piechowski.kge.world
 
 @Serializable(with = PlayerCharacterBase.Serializer::class)
 class PlayerCharacter(
@@ -14,12 +17,17 @@ class PlayerCharacter(
         suspend operator fun invoke(
             firstName: String,
             lastName: String,
-        ) = PlayerCharacterBase(
-            firstName,
-            lastName,
-            CharacterBody(),
-            PlayerCharacterMovementAnimationSet.Idle(),
-            PlayerCharacterMovementAnimationSet.Walk(),
+        ) = PlayerCharacter(
+            world.entity {
+                it +=
+                    prototype(
+                        firstName,
+                        lastName,
+                        CharacterBody(),
+                        PlayerCharacterMovementAnimationSet.Idle(),
+                        PlayerCharacterMovementAnimationSet.Walk(),
+                    )
+            },
         )
     }
 }
