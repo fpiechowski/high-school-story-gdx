@@ -34,7 +34,6 @@ dependencies {
 
     implementation("pro.piechowski.kge:core")
     implementation("pro.piechowski.kge:character")
-    implementation("pro.piechowski.kge:scene")
 
     implementation("com.badlogicgames.gdx:gdx-tools:$gdxVersion") {
         exclude(group = "com.badlogicgames.gdx", module = "gdx-backend-lwjgl")
@@ -234,7 +233,7 @@ distributions {
 }
 
 tasks.named<CreateStartScripts>("startScripts") {
-    dependsOn(":game:lwjgl3:jar")
+    dependsOn(tasks.jar)
     classpath =
         files(
             project.tasks

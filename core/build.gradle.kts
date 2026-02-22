@@ -31,7 +31,6 @@ dependencies {
     implementation("pro.piechowski.kge:dialogue")
     implementation("pro.piechowski.kge:interaction")
     implementation("pro.piechowski.kge:time")
-    implementation("pro.piechowski.kge:scene")
     implementation("pro.piechowski.kge:weather")
     implementation("pro.piechowski.kge:vehicle")
     implementation("pro.piechowski.kge:power")

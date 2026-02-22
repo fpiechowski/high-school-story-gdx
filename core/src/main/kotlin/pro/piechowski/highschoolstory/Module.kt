@@ -19,7 +19,6 @@ import pro.piechowski.kge.Entrypoint
 import pro.piechowski.kge.character.CharacterModule
 import pro.piechowski.kge.dialogue.DialogueModule
 import pro.piechowski.kge.interaction.InteractionModule
-import pro.piechowski.kge.scene.SceneModule
 import pro.piechowski.kge.story.StoryModule
 import pro.piechowski.kge.time.TimeModule
 import pro.piechowski.kge.weather.WeatherModule
@@ -46,6 +45,5 @@ val highSchoolStoryModule =
         includes(TimeModule)
         includes(InteractionModule)
         includes(StoryModule)
-        includes(SceneModule)
         includes(WeatherModule)
     }

@@ -1,33 +1,46 @@
 package pro.piechowski.highschoolstory.character.player
 
 import com.github.quillraven.fleks.Entity
-import kotlinx.serialization.Serializable
 import pro.piechowski.highschoolstory.animation.character.player.PlayerCharacterMovementAnimationSet
 import pro.piechowski.highschoolstory.physics.body.character.CharacterBody
-import pro.piechowski.kge.GameObject
+import pro.piechowski.kge.gameobject.Archetype
+import pro.piechowski.kge.gameobject.BindableEntityGameObject
+import pro.piechowski.kge.gameobject.EntityGameObjectCompanion
 import pro.piechowski.kge.character.player.PlayerCharacterBase
-import pro.piechowski.kge.ecs.plusAssign
+import pro.piechowski.kge.gameobject.Prototype
+import pro.piechowski.kge.gameobject.from
 import pro.piechowski.kge.world
 
-@Serializable(with = PlayerCharacterBase.Serializer::class)
-class PlayerCharacter(
-    entity: Entity,
-) : PlayerCharacterBase(entity) {
-    companion object {
+interface PlayerCharacter : PlayerCharacterBase {
+
+    companion object : EntityGameObjectCompanion<PlayerCharacter>({ BindablePlayerCharacter(it) }) {
+        override val archetype = Archetype {
+            from(PlayerCharacterBase.archetype)
+        }
+
         suspend operator fun invoke(
             firstName: String,
             lastName: String,
-        ) = PlayerCharacter(
+        ): PlayerCharacter = invoke(
             world.entity {
-                it +=
-                    prototype(
-                        firstName,
-                        lastName,
-                        CharacterBody(),
-                        PlayerCharacterMovementAnimationSet.Idle(),
-                        PlayerCharacterMovementAnimationSet.Walk(),
-                    )
-            },
-        )
+                it.from(prototype(firstName, lastName))
+            })
+
+        fun prototype(
+            firstName: String,
+            lastName: String,
+        ) = Prototype {
+            it.from(
+                PlayerCharacterBase.prototype(
+                    firstName,
+                    lastName,
+                    CharacterBody(),
+                    PlayerCharacterMovementAnimationSet.Idle(),
+                    PlayerCharacterMovementAnimationSet.Walk(),
+                )
+            )
+        }
     }
 }
+
+class BindablePlayerCharacter(entity: Entity) : PlayerCharacter, BindableEntityGameObject<PlayerCharacter>(entity)

@@ -4,7 +4,6 @@ import com.github.quillraven.fleks.World
 import kotlinx.coroutines.delay
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalTime
-import ktx.collections.GdxArray
 import pro.piechowski.highschoolstory.map.Road
 import pro.piechowski.highschoolstory.state.GameState
 import pro.piechowski.highschoolstory.vehicle.bus.Bus
@@ -76,13 +75,11 @@ class RoadToLakeview :
                 ).await()
         }
 
-    companion object : Story.Beat.Spawner<RoadToLakeview, GameState> {
-        override fun shouldSpawn(state: GameState): Boolean {
-            TODO("Not yet implemented")
-        }
+    override fun shouldSpawn(state: GameState): Boolean {
+        TODO("Not yet implemented")
+    }
 
-        override suspend fun spawn(): Story.Beat<RoadToLakeview> {
-            TODO("Not yet implemented")
-        }
+    override suspend fun spawn() {
+        TODO("Not yet implemented")
     }
 }
