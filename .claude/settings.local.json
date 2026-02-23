@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(git:*)",
+      "Bash(tail:*)",
+      "Bash(echo EXIT: $?:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(head:*)",
+      "Bash(tee:*)",
+      "Bash(cat:*)",
+      "Bash(file:*)",
+      "Bash(cd:*)",
+      "Bash(grep \\\\[ksp\\\\]:*)",
+      "Bash(cd /c/Users/fpiec/IdeaProjects/high-school-story && ./gradlew :engine:annotation-processor:build --console=plain 2>&1)",
+      "Bash(echo EXIT CODE: $?:*)",
+      "Bash(echo EXIT_CODE:$?:*)",
+      "Bash(cd /c/Users/fpiec/IdeaProjects/high-school-story && ./gradlew :engine:core:compileKotlin --console=plain 2>&1)"
+    ]
+  }
+}

@@ -1,10 +1,8 @@
-﻿package pro.piechowski.highschoolstory.vehicle.bus
+package pro.piechowski.highschoolstory.vehicle.bus
 
-import com.github.quillraven.fleks.Entity
 import com.github.quillraven.fleks.EntityCreateContext
+import pro.piechowski.kge.GameObject
 import pro.piechowski.kge.gameobject.Archetype
-import pro.piechowski.kge.gameobject.BindableEntityGameObject
-import pro.piechowski.kge.gameobject.EntityGameObjectCompanion
 import pro.piechowski.kge.direction.Direction4
 import pro.piechowski.kge.gameobject.Prototype
 import pro.piechowski.kge.gameobject.from
@@ -21,12 +19,13 @@ import pro.piechowski.kge.sprite.CurrentSprite
 import pro.piechowski.kge.vehicle.VehicleLights
 import pro.piechowski.kge.world
 
+@GameObject
 interface Bus :
     Visual,
     Spatial,
     Kinetic {
 
-    companion object : EntityGameObjectCompanion<Bus>({ BindableBus(it) }) {
+    companion object : BusCompanion() {
         suspend operator fun invoke(
             direction4: Direction4,
             color: BusColor,
@@ -63,10 +62,8 @@ interface Bus :
                 Powered,
                 VehicleLights.Headlights,
                 Speed,
-                MovementInput.AI
+                MovementInput.AI,
             )
         }
     }
 }
-
-class BindableBus(_entity: Entity) : Bus, BindableEntityGameObject<Bus>(_entity)

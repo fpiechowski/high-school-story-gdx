@@ -25,6 +25,7 @@ val koinVersion: String by project
 val koinAnnotationsVersion: String by project
 
 dependencies {
+    ksp("pro.piechowski.kge:annotation-processor")
     implementation("pro.piechowski.kge:core")
     implementation("pro.piechowski.kge:character")
     implementation("pro.piechowski.kge:story")
