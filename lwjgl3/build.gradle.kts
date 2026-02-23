@@ -32,6 +32,8 @@ dependencies {
 
     implementation(project(":core"))
 
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
     implementation("pro.piechowski.kge:core")
     implementation("pro.piechowski.kge:character")
 
@@ -246,5 +248,5 @@ repositories {
     mavenCentral()
 }
 kotlin {
-    jvmToolchain(8)
+    jvmToolchain(17)
 }
