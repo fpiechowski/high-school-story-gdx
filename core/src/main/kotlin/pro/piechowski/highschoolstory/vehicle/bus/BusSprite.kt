@@ -4,8 +4,8 @@ import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import pro.piechowski.highschoolstory.exterior.ExteriorTexture
 import pro.piechowski.highschoolstory.physics.body.character.CharacterBody.HEIGHT_TO_DEPTH_RATIO
-import pro.piechowski.kge.direction.Direction4
 import pro.piechowski.kge.di.DependencyInjection.Global.get
+import pro.piechowski.kge.direction.Direction4
 import pro.piechowski.kge.physics.px
 import pro.piechowski.kge.sprite.CurrentSprite
 
@@ -23,26 +23,30 @@ sealed class BusSprite(
             color: BusColor,
             direction4: Direction4,
         ) = when (direction4) {
-            Direction4.Right ->
+            Direction4.Right -> {
                 when (color) {
                     // TODO other colors than yellow
                     else -> CurrentSprite(Yellow.Right(get<ExteriorTexture>()))
                 }
+            }
 
-            Direction4.Down ->
+            Direction4.Down -> {
                 when (color) {
                     else -> CurrentSprite(Yellow.Down(get<ExteriorTexture>()))
                 }
+            }
 
-            Direction4.Left ->
+            Direction4.Left -> {
                 when (color) {
                     else -> CurrentSprite(Yellow.Left(get<ExteriorTexture>()))
                 }
+            }
 
-            Direction4.Up ->
+            Direction4.Up -> {
                 when (color) {
                     else -> CurrentSprite(Yellow.Up(get<ExteriorTexture>()))
                 }
+            }
         }
     }
 

@@ -1,14 +1,13 @@
 package pro.piechowski.highschoolstory.animation.character
 
-import pro.piechowski.highschoolstory.sprite.character.CharacterSpriteSheet
 import pro.piechowski.highschoolstory.sprite.character.player.PlayerCharacterSpriteSheet
 import pro.piechowski.kge.animation.Direction4AnimationSet
 import pro.piechowski.kge.di.DependencyInjection.Global.get
 import pro.piechowski.kge.movement.MovementAnimationSet
-import pro.piechowski.kge.koin
 
 object CharacterMovementAnimationSet {
-    class Idle: MovementAnimationSet.Idle(
+    class Idle :
+        MovementAnimationSet.Idle(
             Direction4AnimationSet(
                 CharacterAnimation.Idle.Up(get<PlayerCharacterSpriteSheet>()),
                 CharacterAnimation.Idle.Down(get<PlayerCharacterSpriteSheet>()),

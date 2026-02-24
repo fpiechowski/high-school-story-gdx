@@ -5,7 +5,6 @@ import pro.piechowski.highschoolstory.sprite.character.player.PlayerCharacterSpr
 import pro.piechowski.kge.animation.Direction4AnimationSet
 import pro.piechowski.kge.di.DependencyInjection.Global.get
 import pro.piechowski.kge.movement.MovementAnimationSet
-import pro.piechowski.kge.koin
 
 object PlayerCharacterMovementAnimationSet {
     class Idle :

@@ -62,7 +62,7 @@ allprojects {
                     "kotlin.ExperimentalUnsignedTypes",
                     "kotlinx.coroutines.ExperimentalCoroutinesApi",
                     "kotlin.ExperimentalContextParameters",
-                    "arrow.fx.coroutines.await.ExperimentalAwaitAllApi"
+                    "arrow.fx.coroutines.await.ExperimentalAwaitAllApi",
                 ).forEach {
                     languageSettings.optIn(it)
                 }
@@ -85,8 +85,6 @@ allprojects {
             sourceCompatibility = JavaVersion.VERSION_17
             targetCompatibility = JavaVersion.VERSION_17
         }
-
-
     }
 }
 
@@ -120,4 +118,8 @@ subprojects {
 
     version = projectVersion
     ext["appName"] = "HighSchoolStory"
+
+    ktlint {
+        version.set("1.8.0")
+    }
 }

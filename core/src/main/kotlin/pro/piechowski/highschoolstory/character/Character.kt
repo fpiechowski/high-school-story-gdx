@@ -12,7 +12,6 @@ import pro.piechowski.kge.world
 @GameObject
 interface Character : CharacterBase {
     companion object : CharacterCompanion() {
-
         context(ecc: EntityCreateContext)
         suspend operator fun invoke(
             firstName: String,
@@ -27,8 +26,9 @@ interface Character : CharacterBase {
                         CharacterBody(),
                         CharacterMovementAnimationSet.Idle(),
                         CharacterMovementAnimationSet.Walk(),
-                    )
+                    ),
                 )
-            })
+            },
+        )
     }
 }

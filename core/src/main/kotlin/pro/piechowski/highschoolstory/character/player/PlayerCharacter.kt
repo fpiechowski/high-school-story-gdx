@@ -10,15 +10,16 @@ import pro.piechowski.kge.world
 
 @GameObject
 interface PlayerCharacter : PlayerCharacterBase {
-
     companion object : PlayerCharacterCompanion() {
         suspend operator fun invoke(
             firstName: String,
             lastName: String,
-        ): PlayerCharacter = invoke(
-            world.entity {
-                it.from(prototype(firstName, lastName))
-            })
+        ): PlayerCharacter =
+            invoke(
+                world.entity {
+                    it.from(prototype(firstName, lastName))
+                },
+            )
 
         fun prototype(
             firstName: String,
@@ -31,7 +32,7 @@ interface PlayerCharacter : PlayerCharacterBase {
                     CharacterBody(),
                     PlayerCharacterMovementAnimationSet.Idle(),
                     PlayerCharacterMovementAnimationSet.Walk(),
-                )
+                ),
             )
         }
     }

@@ -15,8 +15,9 @@ import kotlin.time.ExperimentalTime
 @KoinInternalApi
 fun main() {
     Lwjgl3Launcher.launch(
-        modules = listOf(
-            highSchoolStoryModule,
-        ),
+        modules =
+            listOf(
+                highSchoolStoryModule,
+            ),
     )
 }

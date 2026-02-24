@@ -14,12 +14,13 @@ class Assets private constructor(
 ) {
     @ExperimentalAwaitAllApi
     companion object {
-        suspend operator fun invoke() = awaitAll {
-            val textures = async { Textures() }
-            val maps = async { Maps() }
+        suspend operator fun invoke() =
+            awaitAll {
+                val textures = async { Textures() }
+                val maps = async { Maps() }
 
-            Assets(textures.await(), maps.await())
-        }
+                Assets(textures.await(), maps.await())
+            }
     }
 
     class Textures private constructor(
@@ -31,24 +32,23 @@ class Assets private constructor(
         companion object {
             private val assetStorage by inject<AssetStorage>()
 
-            suspend fun characterTexture(name: String) =
-                assetStorage.load(Identifier("textures/character/$name.png", Texture::class.java))
+            suspend fun characterTexture(name: String) = assetStorage.load(Identifier("textures/character/$name.png", Texture::class.java))
 
             suspend fun texture(name: String) = assetStorage.load(Identifier("textures/$name.png", Texture::class.java))
 
-            suspend operator fun invoke() = awaitAll {
-                val playerCharacterTexture = async { characterTexture("player_character") }
-                val characterTexture = async { characterTexture("character") }
-                val exteriorsTexture = async { texture("exteriors") }
+            suspend operator fun invoke() =
+                awaitAll {
+                    val playerCharacterTexture = async { characterTexture("player_character") }
+                    val characterTexture = async { characterTexture("character") }
+                    val exteriorsTexture = async { texture("exteriors") }
 
-                Textures(
-                    playerCharacterTexture = playerCharacterTexture.await(),
-                    characterTexture = characterTexture.await(),
-                    exteriorsTexture = exteriorsTexture.await(),
-                )
-            }
+                    Textures(
+                        playerCharacterTexture = playerCharacterTexture.await(),
+                        characterTexture = characterTexture.await(),
+                        exteriorsTexture = exteriorsTexture.await(),
+                    )
+                }
         }
-
     }
 
     class Maps private constructor(
@@ -61,15 +61,16 @@ class Assets private constructor(
 
             suspend fun map(name: String) = assetStorage.load(Identifier("maps/$name.tmx", TiledMap::class.java))
 
-            suspend operator fun invoke() = awaitAll {
-                val town = async { map("town") }
-                val road = async { map("road") }
+            suspend operator fun invoke() =
+                awaitAll {
+                    val town = async { map("town") }
+                    val road = async { map("road") }
 
-                Maps(
-                    town = town.await(),
-                    road = road.await(),
-                )
-            }
+                    Maps(
+                        town = town.await(),
+                        road = road.await(),
+                    )
+                }
         }
     }
 }
