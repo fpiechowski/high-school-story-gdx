@@ -17,6 +17,7 @@ import pro.piechowski.kge.dialogue.DialogueManager
 import pro.piechowski.kge.dialogue.await
 import pro.piechowski.kge.dialogue.dialogue
 import pro.piechowski.kge.direction.Direction4
+import pro.piechowski.kge.map.MapManager
 import pro.piechowski.kge.map.Tile
 import pro.piechowski.kge.map.TiledMapManagerAdapter
 import pro.piechowski.kge.physics.mps
@@ -28,8 +29,9 @@ import pro.piechowski.kge.time.clock.Clock
 import kotlin.time.Duration.Companion.seconds
 
 class RoadToLakeview : Story.Beat<GameState> {
-    private val meterCamera by inject<MeterCamera>()
+    override val definition: Story.Beat.Definition<GameState, *> = RoadToLakeview
 
+    private val meterCamera by inject<MeterCamera>()
     private val world by inject<World>()
     private val dialogueManager by inject<DialogueManager>()
     private val clock by inject<Clock>()
@@ -37,9 +39,7 @@ class RoadToLakeview : Story.Beat<GameState> {
     private val mapManager by inject<TiledMapManagerAdapter>()
     private val cameraManager by inject<CameraManager>()
 
-    override fun shouldBePlayed(state: GameState): Boolean {
-        TODO("Not yet implemented")
-    }
+    override fun shouldBePlayed(state: GameState): Boolean = true
 
     override suspend fun play() =
         with(world) {
@@ -71,11 +71,15 @@ class RoadToLakeview : Story.Beat<GameState> {
                 ).await()
         }
 
-    override fun shouldSpawn(state: GameState): Boolean {
-        TODO("Not yet implemented")
-    }
+    companion object : Story.Beat.Definition<GameState, RoadToLakeview> {
+        private val mapManager by inject<MapManager<*, *>>()
 
-    override suspend fun spawn() {
-        TODO("Not yet implemented")
+        override suspend fun invoke(state: GameState): RoadToLakeview {
+            return RoadToLakeview()
+        }
+
+        override fun shouldBeSpawned(state: GameState): Boolean {
+            return mapManager.currentMap is Road
+        }
     }
 }
