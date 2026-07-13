@@ -23,12 +23,12 @@ so that the first vertical slice can prove time, commitments, and school-day anc
 
 ## Tasks / Subtasks
 
-- [ ] Define the smallest stable schedule contracts needed by the fixture (AC: 1, 3, 4)
-  - [ ] Add engine-independent time/calendar value objects and stable IDs only where they are genuine runtime concepts; keep JSON DTOs and serializer attributes in Content.
-  - [ ] Model a day as identified schedule content containing a wake boundary, before-school and after-school free-time windows, required commitments/windows, locations, mandatory/hard semantics, dorm return, wind-down, and latest sleep.
-  - [ ] Represent start times and durations so 15-minute alignment is explicit and testable; do not implement Story 1.3's runtime feasibility/command policy.
-  - [ ] Keep the schedule definition repeatable by date/day identity so additional days and a 20-week semester can reuse the same model rather than adding first-day-only fields.
-  - [ ] If an Application-facing access contract is required, expose the narrow query/repository contract through Ports using stable Domain types; do not add an Application reference to Content.
+- [x] Define the smallest stable schedule contracts needed by the fixture (AC: 1, 3, 4)
+  - [x] Add engine-independent time/calendar value objects and stable IDs only where they are genuine runtime concepts; keep JSON DTOs and serializer attributes in Content.
+  - [x] Model a day as identified schedule content containing a wake boundary, before-school and after-school free-time windows, required commitments/windows, locations, mandatory/hard semantics, dorm return, wind-down, and latest sleep.
+  - [x] Represent start times and durations so 15-minute alignment is explicit and testable; do not implement Story 1.3's runtime feasibility/command policy.
+  - [x] Keep the schedule definition repeatable by date/day identity so additional days and a 20-week semester can reuse the same model rather than adding first-day-only fields.
+  - [x] If an Application-facing access contract is required, expose the narrow query/repository contract through Ports using stable Domain types; do not add an Application reference to Content.
 - [ ] Add the canonical first-school-day authored fixture (AC: 1, 4)
   - [ ] Create `content/mvp/calendar/first-school-day.json` using lower-kebab-case content IDs and the strict JSON contract defined in this story.
   - [ ] Include the sourced invariants: Monday-Thursday school-night rules, 06:00 wake boundary, explicit 06:00-08:00 before-school free time at the dorm, 15-minute scheduling grammar, 45-minute lesson anchors, 15-minute break windows, fixed 12:00-12:45 lunch, after-school free time, 21:00 dorm return, 21:00-22:00 dorm-only wind-down, and 22:00 latest sleep.
@@ -284,10 +284,37 @@ GPT-5 Codex
 
 - Story context created from planning, architecture, GDD, UX, project-context, current code, recent Git history, and official .NET/xUnit documentation.
 
+### Approved Implementation Plan
+
+#### T1 - Stable daily schedule contracts (v2)
+
+- **Status:** Approved
+- **Included units:** T1.S1 - Add engine-independent time/calendar value objects and stable IDs; T1.S2 - Model an identified daily schedule; T1.S3 - Make 15-minute alignment explicit; T1.S4 - Keep the definition repeatable; T1.S5 - Expose a narrow Ports access contract.
+- **Decisions:** D1 - One ordered `ScheduleEntry` model; D2 - `IDailyScheduleRepository` returns Domain types only; D3 - `DailySchedule` is immutable content, not runtime state; D4 - `BeforeSchoolFree` and `AfterSchoolFree` are explicit availability windows; D5 - `ScheduleEntrySemantics` is derived from `ScheduleEntryKind`; D6 - `AnchorLocationId` identifies the entry's schedule anchor.
+- **Approach:** Add pure Domain schedule types and a Ports repository contract without JSON, Content, runtime feasibility, or Godot dependencies.
+- **Scope:** T1.S1-T1.S5 only.
+- **Files / components:** `src/HighSchoolStory.Domain/Calendar/`; `src/HighSchoolStory.Ports/Content/`; focused Domain and Application contract tests.
+- **Preview references:** `DailySchedule`, `ScheduleEntry`, `ScheduleEntryKind`, `ScheduleEntrySemantics`, `IDailyScheduleRepository`.
+- **Validation:** `dotnet test tests/HighSchoolStory.Domain.Tests`; `dotnet test tests/HighSchoolStory.Application.Tests`; `dotnet test tests/HighSchoolStory.Architecture.Tests`.
+
 ### Completion Notes List
 
 - Ultimate context engine analysis completed - comprehensive developer guide created.
+- T1 (v2) completed: added immutable Domain daily-schedule contracts, derived entry semantics, explicit schedule anchors, and the narrow `IDailyScheduleRepository` port. Validation passed: Domain 11/11, Application 1/1, Architecture 4/4.
+- Task Closure T1: all five subtasks are complete; the active T1 v2 plan, reviewed diff, and focused tests cover AC 1, 3, and 4 without adding JSON, Content, Godot, or runtime feasibility behavior.
 
 ### File List
 
 - _bmad-output/implementation-artifacts/1-1-validated-first-school-day-schedule-fixture.md
+- src/HighSchoolStory.Domain/Calendar/DailySchedule.cs
+- src/HighSchoolStory.Domain/Calendar/ScheduleDuration.cs
+- src/HighSchoolStory.Domain/Calendar/ScheduleEntry.cs
+- src/HighSchoolStory.Domain/Calendar/ScheduleIdentifiers.cs
+- src/HighSchoolStory.Domain/Calendar/ScheduleTime.cs
+- src/HighSchoolStory.Ports/Content/IDailyScheduleRepository.cs
+- tests/HighSchoolStory.Domain.Tests/Calendar/ScheduleContractTests.cs
+- tests/HighSchoolStory.Application.Tests/Calendar/DailyScheduleRepositoryContractTests.cs
+
+### Change Log
+
+- 2026-07-13: Completed T1 stable daily-schedule contracts and focused boundary tests.
