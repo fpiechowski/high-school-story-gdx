@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "id": "first-school-day",
+  "dayOfWeek": "monday",
+  "entries": [
+    {
+      "id": "first-day-wake",
+      "kind": "wake",
+      "start": "06:00",
+      "durationMinutes": 0,
+      "anchorLocationId": "dorm"
+    },
+    {
+      "id": "first-day-before-school",
+      "kind": "before-school-free",
+      "start": "06:00",
+      "durationMinutes": 120,
+      "anchorLocationId": "dorm"
+    },
+    {
+      "id": "first-day-lesson-1",
+      "kind": "lesson",
+      "start": "08:00",
+      "durationMinutes": 45,
+      "anchorLocationId": "school"
+    },
+    {
+      "id": "first-day-break-1",
+      "kind": "break",
+      "start": "08:45",
+      "durationMinutes": 15,
+      "anchorLocationId": "school"
+    },
+    {
+      "id": "first-day-lesson-2",
+      "kind": "lesson",
+      "start": "09:00",
+      "durationMinutes": 45,
+      "anchorLocationId": "school"
+    },
+    {
+      "id": "first-day-break-2",
+      "kind": "break",
+      "start": "09:45",
+      "durationMinutes": 15,
+      "anchorLocationId": "school"
+    },
+    {
+      "id": "first-day-lesson-3",
+      "kind": "lesson",
+      "start": "10:00",
+      "durationMinutes": 45,
+      "anchorLocationId": "school"
+    },
+    {
+      "id": "first-day-break-3",
+      "kind": "break",
+      "start": "10:45",
+      "durationMinutes": 15,
+      "anchorLocationId": "school"
+    },
+    {
+      "id": "first-day-lesson-4",
+      "kind": "lesson",
+      "start": "11:00",
+      "durationMinutes": 45,
+      "anchorLocationId": "school"
+    },
+    {
+      "id": "first-day-break-4",
+      "kind": "break",
+      "start": "11:45",
+      "durationMinutes": 15,
+      "anchorLocationId": "school"
+    },
+    {
+      "id": "first-day-lunch",
+      "kind": "lunch",
+      "start": "12:00",
+      "durationMinutes": 45,
+      "anchorLocationId": "school"
+    },
+    {
+      "id": "first-day-lesson-5",
+      "kind": "lesson",
+      "start": "12:45",
+      "durationMinutes": 45,
+      "anchorLocationId": "school"
+    },
+    {
+      "id": "first-day-break-5",
+      "kind": "break",
+      "start": "13:30",
+      "durationMinutes": 15,
+      "anchorLocationId": "school"
+    },
+    {
+      "id": "first-day-lesson-6",
+      "kind": "lesson",
+      "start": "13:45",
+      "durationMinutes": 45,
+      "anchorLocationId": "school"
+    },
+    {
+      "id": "first-day-break-6",
+      "kind": "break",
+      "start": "14:30",
+      "durationMinutes": 15,
+      "anchorLocationId": "school"
+    },
+    {
+      "id": "first-day-after-school",
+      "kind": "after-school-free",
+      "start": "14:45",
+      "durationMinutes": 375,
+      "anchorLocationId": "school"
+    },
+    {
+      "id": "first-day-dorm-return",
+      "kind": "dorm-return",
+      "start": "21:00",
+      "durationMinutes": 0,
+      "anchorLocationId": "dorm"
+    },
+    {
+      "id": "first-day-wind-down",
+      "kind": "wind-down",
+      "start": "21:00",
+      "durationMinutes": 60,
+      "anchorLocationId": "dorm"
+    },
+    {
+      "id": "first-day-latest-sleep",
+      "kind": "latest-sleep",
+      "start": "22:00",
+      "durationMinutes": 0,
+      "anchorLocationId": "dorm"
+    }
+  ]
+}

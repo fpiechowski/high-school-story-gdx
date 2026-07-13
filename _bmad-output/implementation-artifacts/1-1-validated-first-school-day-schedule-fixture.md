@@ -29,11 +29,11 @@ so that the first vertical slice can prove time, commitments, and school-day anc
   - [x] Represent start times and durations so 15-minute alignment is explicit and testable; do not implement Story 1.3's runtime feasibility/command policy.
   - [x] Keep the schedule definition repeatable by date/day identity so additional days and a 20-week semester can reuse the same model rather than adding first-day-only fields.
   - [x] If an Application-facing access contract is required, expose the narrow query/repository contract through Ports using stable Domain types; do not add an Application reference to Content.
-- [ ] Add the canonical first-school-day authored fixture (AC: 1, 4)
-  - [ ] Create `content/mvp/calendar/first-school-day.json` using lower-kebab-case content IDs and the strict JSON contract defined in this story.
-  - [ ] Include the sourced invariants: Monday-Thursday school-night rules, 06:00 wake boundary, explicit 06:00-08:00 before-school free time at the dorm, 15-minute scheduling grammar, 45-minute lesson anchors, 15-minute break windows, fixed 12:00-12:45 lunch, after-school free time, 21:00 dorm return, 21:00-22:00 dorm-only wind-down, and 22:00 latest sleep.
-  - [ ] Implement the canonical six-lesson sequence documented in Schedule Model Guardrails, including stable IDs, exact starts/durations, and locations; tests must assert this sequence rather than accepting any internally valid timetable.
-  - [ ] Keep Story 1.2's scenario file `content/fixtures/vertical-slice/one-school-day.json` out of scope; the schedule fixture is catalog content, not a scripted command sequence.
+- [x] Add the canonical first-school-day authored fixture (AC: 1, 4)
+  - [x] Create `content/mvp/calendar/first-school-day.json` using lower-kebab-case content IDs and the strict JSON contract defined in this story.
+  - [x] Include the sourced invariants: Monday-Thursday school-night rules, 06:00 wake boundary, explicit 06:00-08:00 before-school free time at the dorm, 15-minute scheduling grammar, 45-minute lesson anchors, 15-minute break windows, fixed 12:00-12:45 lunch, after-school free time, 21:00 dorm return, 21:00-22:00 dorm-only wind-down, and 22:00 latest sleep.
+  - [x] Implement the canonical six-lesson sequence documented in Schedule Model Guardrails, including stable IDs, exact starts/durations, and locations; tests must assert this sequence rather than accepting any internally valid timetable.
+  - [x] Keep Story 1.2's scenario file `content/fixtures/vertical-slice/one-school-day.json` out of scope; the schedule fixture is catalog content, not a scripted command sequence.
 - [ ] Implement strict content loading and atomic catalog construction (AC: 1, 3, 4)
   - [ ] Add schedule loading under `src/HighSchoolStory.Content/Loading/` and immutable runtime catalog/query types under `src/HighSchoolStory.Content/Catalog/`.
   - [ ] Use one explicit, reused `System.Text.Json` options instance with case-sensitive camelCase names, unmapped-member rejection, required-member enforcement, and string-only enum values.
@@ -297,11 +297,24 @@ GPT-5 Codex
 - **Preview references:** `DailySchedule`, `ScheduleEntry`, `ScheduleEntryKind`, `ScheduleEntrySemantics`, `IDailyScheduleRepository`.
 - **Validation:** `dotnet test tests/HighSchoolStory.Domain.Tests`; `dotnet test tests/HighSchoolStory.Application.Tests`; `dotnet test tests/HighSchoolStory.Architecture.Tests`.
 
+#### T2 - Canonical first school-day fixture (v1)
+
+- **Status:** Approved
+- **Included units:** T2.S1 - Create the authored fixture; T2.S2 - Include the approved day anchors; T2.S3 - Include the canonical six-lesson sequence; T2.S4 - Keep the Story 1.2 scenario fixture out of scope.
+- **Decisions:** D1 - One file contains one daily-schedule definition; D2 - Times use `HH:mm` and durations use `durationMinutes`; D3 - `schemaVersion: 1` versions the JSON document format; D4 - JSON Schema is deferred to T3 with the strict loader and DTO contract.
+- **Approach:** Add the first-day JSON only; runtime semantics remain derived from `kind` and no loader, DTO, scenario, or validator is added.
+- **Scope:** T2.S1-T2.S4 only.
+- **Files / components:** `content/mvp/calendar/first-school-day.json`.
+- **Preview references:** Root schedule document and its lower-kebab-case entries.
+- **Validation:** JSON syntax and an exact structural comparison with the Story 1.1 canonical entry sequence; Domain contract regression test.
+
 ### Completion Notes List
 
 - Ultimate context engine analysis completed - comprehensive developer guide created.
 - T1 (v2) completed: added immutable Domain daily-schedule contracts, derived entry semantics, explicit schedule anchors, and the narrow `IDailyScheduleRepository` port. Validation passed: Domain 11/11, Application 1/1, Architecture 4/4.
 - Task Closure T1: all five subtasks are complete; the active T1 v2 plan, reviewed diff, and focused tests cover AC 1, 3, and 4 without adding JSON, Content, Godot, or runtime feasibility behavior.
+- T2 (v1) completed: added the versioned canonical first school-day fixture with all 19 approved entries. JSON syntax and exact entry sequence passed; Domain regression passed 11/11.
+- Task Closure T2: all four subtasks are complete; the fixture includes the approved schedule anchors and six-lesson sequence while keeping Story 1.2's scenario fixture out of scope.
 
 ### File List
 
@@ -314,7 +327,9 @@ GPT-5 Codex
 - src/HighSchoolStory.Ports/Content/IDailyScheduleRepository.cs
 - tests/HighSchoolStory.Domain.Tests/Calendar/ScheduleContractTests.cs
 - tests/HighSchoolStory.Application.Tests/Calendar/DailyScheduleRepositoryContractTests.cs
+- content/mvp/calendar/first-school-day.json
 
 ### Change Log
 
 - 2026-07-13: Completed T1 stable daily-schedule contracts and focused boundary tests.
+- 2026-07-13: Completed T2 canonical first school-day JSON fixture.
