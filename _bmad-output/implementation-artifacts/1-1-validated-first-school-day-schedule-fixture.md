@@ -6,7 +6,7 @@ pull_request_url:
 
 # Story 1.1: Validated First School-Day Schedule Fixture
 
-Status: ready-for-dev
+Status: in-progress
 
 ## Story
 
