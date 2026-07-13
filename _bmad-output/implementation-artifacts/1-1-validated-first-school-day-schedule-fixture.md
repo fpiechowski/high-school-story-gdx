@@ -308,6 +308,16 @@ GPT-5 Codex
 - **Preview references:** Root schedule document and its lower-kebab-case entries.
 - **Validation:** JSON syntax and an exact structural comparison with the Story 1.1 canonical entry sequence; Domain contract regression test.
 
+#### T3 - Strict loading and atomic catalog construction (v1)
+
+- **Status:** Approved
+- **Included units:** T3.S1-T3.S5.
+- **Decisions:** D1 - project-owned `Result<TSuccess, TFailure>`; D2 - `ContentReport` aggregates typed `ContentIssue` values; D3 - `DailyScheduleRepository` adapts `ContentCatalog` to Ports; D4 - strict shared JSON options and deterministic file/report ordering.
+- **Approach:** Add Content DTO loading, translation of read/shape failures to typed reports, and atomic catalog construction without semantic schedule validation.
+- **Scope:** T3.S1-T3.S5 only.
+- **Files / components:** Domain Shared result; Content Loading, Validation, Catalog; focused Content tests.
+- **Validation:** `dotnet test tests/HighSchoolStory.Content.Tests`; Architecture and Application regression tests.
+
 ### Completion Notes List
 
 - Ultimate context engine analysis completed - comprehensive developer guide created.
