@@ -1,7 +1,7 @@
 ---
 baseline_commit: 5e25bf18d818cd6e68a5e5362af4802aaed98c61
 branch_name: story/1-1/validated-first-school-day-schedule-fixture
-pull_request_url:
+pull_request_url: https://github.com/codex-fp/high-school-story/pull/3
 ---
 
 # Story 1.1: Validated First School-Day Schedule Fixture
