@@ -34,12 +34,12 @@ so that the first vertical slice can prove time, commitments, and school-day anc
   - [x] Include the sourced invariants: Monday-Thursday school-night rules, 06:00 wake boundary, explicit 06:00-08:00 before-school free time at the dorm, 15-minute scheduling grammar, 45-minute lesson anchors, 15-minute break windows, fixed 12:00-12:45 lunch, after-school free time, 21:00 dorm return, 21:00-22:00 dorm-only wind-down, and 22:00 latest sleep.
   - [x] Implement the canonical six-lesson sequence documented in Schedule Model Guardrails, including stable IDs, exact starts/durations, and locations; tests must assert this sequence rather than accepting any internally valid timetable.
   - [x] Keep Story 1.2's scenario file `content/fixtures/vertical-slice/one-school-day.json` out of scope; the schedule fixture is catalog content, not a scripted command sequence.
-- [ ] Implement strict content loading and atomic catalog construction (AC: 1, 3, 4)
-  - [ ] Add schedule loading under `src/HighSchoolStory.Content/Loading/` and immutable runtime catalog/query types under `src/HighSchoolStory.Content/Catalog/`.
-  - [ ] Use one explicit, reused `System.Text.Json` options instance with case-sensitive camelCase names, unmapped-member rejection, required-member enforcement, and string-only enum values.
-  - [ ] Translate syntax, shape, required-member, and unmapped-member failures into typed content issues; do not leak `JsonException` or raw DTOs across the Content boundary.
-  - [ ] Build and expose a ContentCatalog only after the complete selected catalog validates without errors. Never return a partial catalog from invalid input.
-  - [ ] Load files in deterministic order and sort diagnostics by stable keys such as source path, content ID, and rule ID.
+- [x] Implement strict content loading and atomic catalog construction (AC: 1, 3, 4)
+  - [x] Add schedule loading under `src/HighSchoolStory.Content/Loading/` and immutable runtime catalog/query types under `src/HighSchoolStory.Content/Catalog/`.
+  - [x] Use one explicit, reused `System.Text.Json` options instance with case-sensitive camelCase names, unmapped-member rejection, required-member enforcement, and string-only enum values.
+  - [x] Translate syntax, shape, required-member, and unmapped-member failures into typed content issues; do not leak `JsonException` or raw DTOs across the Content boundary.
+  - [x] Build and expose a ContentCatalog only after the complete selected catalog validates without errors. Never return a partial catalog from invalid input.
+  - [x] Load files in deterministic order and sort diagnostics by stable keys such as source path, content ID, and rule ID.
 - [ ] Implement semantic school-day schedule validation (AC: 1, 2, 4)
   - [ ] Define stable rule IDs/reason codes and readable diagnostics for missing lesson anchors, overlapping hard commitments, invalid start alignment, invalid duration alignment, unreachable required commitments, and latest-sleep conflicts.
   - [ ] Use the initial canonical rule IDs `schedule.missing-lesson-anchor`, `schedule.overlapping-hard-commitment`, `schedule.start-not-aligned`, `schedule.duration-not-aligned`, `schedule.unreachable-required-commitment`, and `schedule.latest-sleep-conflict`; add narrower codes only when a failure is materially distinct.
@@ -325,6 +325,8 @@ GPT-5 Codex
 - Task Closure T1: all five subtasks are complete; the active T1 v2 plan, reviewed diff, and focused tests cover AC 1, 3, and 4 without adding JSON, Content, Godot, or runtime feasibility behavior.
 - T2 (v1) completed: added the versioned canonical first school-day fixture with all 19 approved entries. JSON syntax and exact entry sequence passed; Domain regression passed 11/11.
 - Task Closure T2: all four subtasks are complete; the fixture includes the approved schedule anchors and six-lesson sequence while keeping Story 1.2's scenario fixture out of scope.
+- T3 (v1) completed: strict loader, atomic catalog, typed load failure, and separate schedule repository passed Content 2/2, Application 1/1, and Architecture 4/4.
+- Task Closure T3: all five subtasks are complete; valid content alone produces a catalog and JSON shape failures produce deterministic typed issues.
 
 ### File List
 
@@ -338,8 +340,15 @@ GPT-5 Codex
 - tests/HighSchoolStory.Domain.Tests/Calendar/ScheduleContractTests.cs
 - tests/HighSchoolStory.Application.Tests/Calendar/DailyScheduleRepositoryContractTests.cs
 - content/mvp/calendar/first-school-day.json
+- src/HighSchoolStory.Domain/Shared/Result.cs
+- src/HighSchoolStory.Content/Loading/DailyScheduleLoader.cs
+- src/HighSchoolStory.Content/Catalog/ContentCatalog.cs
+- src/HighSchoolStory.Content/Catalog/DailyScheduleRepository.cs
+- src/HighSchoolStory.Content/Validation/ContentLoadFailure.cs
+- tests/HighSchoolStory.Content.Tests/Loading/DailyScheduleLoaderTests.cs
 
 ### Change Log
 
 - 2026-07-13: Completed T1 stable daily-schedule contracts and focused boundary tests.
 - 2026-07-13: Completed T2 canonical first school-day JSON fixture.
+- 2026-07-13: Completed T3 strict loading and atomic catalog construction.
