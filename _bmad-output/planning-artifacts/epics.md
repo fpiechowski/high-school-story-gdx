@@ -29,7 +29,7 @@ FR4: The core loop must let the player review known schedule/context information
 
 FR5: The game must use 15-minute time blocks as the standard scheduling unit, with activities costing 15, 30, 45, 60, or 90 minutes where appropriate.
 
-FR6: The game must enforce school-day anchors, including 06:00 default wake, mandatory school attendance, lesson schedules, breaks, lunch, after-school free time, dorm return rules, final dorm-only wind-down time, and latest sleep rules.
+FR6: The game must enforce school-day anchors, including 06:00 default wake, explicit before-school and after-school free-time windows, mandatory school attendance, lesson schedules, breaks, lunch, dorm return rules, final dorm-only wind-down time, and latest sleep rules.
 
 FR7: The game must support schedule-valid snooze choices that trade morning agency for recovery without allowing truancy or voluntary lateness.
 
@@ -652,12 +652,13 @@ So that the first vertical slice can prove time, commitments, and school-day anc
 
 **Given** the vertical-slice fixture catalog is loaded
 **When** the first playable school day is validated
-**Then** the catalog includes a deterministic school-day schedule with wake time, lesson anchors, break/lunch windows, after-school free time, dorm return boundary, wind-down period, and latest sleep rule
+**Then** the catalog includes a deterministic school-day schedule with a 06:00 wake boundary, an explicit before-school free-time window, lesson anchors, break/lunch windows, after-school free time, dorm return boundary, wind-down period, and latest sleep rule
+**And** the wake boundary is not a `Preparation` schedule entry or a reserved time block
 **And** all schedule entries use 15-minute-aligned start times and durations.
 
 **Given** the fixture includes mandatory school attendance
 **When** ContentValidator checks the day schedule
-**Then** it rejects missing lesson anchors, overlapping hard commitments, invalid 15-minute alignment, unreachable required commitments, and latest-sleep conflicts
+**Then** it rejects missing lesson anchors, overlapping hard commitments, invalid 15-minute alignment, required commitments unreachable from the wake boundary using authored travel inputs, and latest-sleep conflicts
 **And** it reports typed validation errors with content IDs and readable diagnostics.
 
 **Given** the fixture is consumed by Application tests or ScenarioRunner
@@ -758,7 +759,7 @@ So that the semester feels like structured high-school life rather than an open-
 
 **Given** the canonical first school day begins
 **When** the active day is initialized
-**Then** the schedule includes default wake time, mandatory school attendance, lesson commitments, break/lunch windows where scheduled, after-school free time, dorm return boundary, wind-down boundary, and latest sleep rule
+**Then** the schedule includes default wake time, before-school free time, mandatory school attendance, lesson commitments, break/lunch windows where scheduled, after-school free time, dorm return boundary, wind-down boundary, and latest sleep rule
 **And** these anchors are derived from validated content and current GameState.
 
 **Given** mandatory school-day anchors are active

@@ -2074,3 +2074,28 @@ Reviewed `gdd.md`, `epics.md`, and `decision-log.md` for remaining open question
 ### GDD finalized - 2026-06-27
 
 Marked `gdd.md` and `epics.md` as `final_v1.0` for downstream planning. The finalized GDD is the canonical design source for High School Story's MVP and full-game design intent. Remaining non-blocking follow-up work is narrative design for the full classmate cast and, after that, game architecture for the systems-heavy implementation plan.
+
+### D107 - No-Cost Abstract Morning Routine
+
+Decision: Morning routine remains abstract and automatic, but does not consume a scheduled time block or act as a feasibility requirement.
+
+Details:
+- `Preparation` is not a schedule entry, hard commitment, or validation rule.
+- Snooze validity is determined by wake time, required travel, and the first mandatory commitment.
+- The player must wake before the mandatory commitment begins.
+- Optional authored morning activities may consume time only when they present a visible player choice and a concrete effect.
+
+Rationale: Time pressure should arise from player decisions and authored commitments, not from an invisible mandatory routine.
+
+### D108 - Explicit Before-School Free-Time Window
+
+Decision: The time from the wake boundary until the first mandatory school commitment is represented by an explicit non-reserving before-school free-time window rather than an implicit schedule gap.
+
+Details:
+
+- The canonical first school day exposes `before-school-free` from 06:00 to 08:00 at the dorm.
+- The window is available context, not a hard commitment or reserved activity time.
+- Player actions in this window must still preserve travel feasibility for the first mandatory commitment.
+- `after-school-free` remains a distinct window because it has different boundary and location constraints.
+
+Rationale: Explicit windows distinguish author-intended player agency from missing schedule data and make availability visible to validation and future read models.

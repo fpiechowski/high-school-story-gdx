@@ -164,8 +164,9 @@ The school, dorm, and a shared outdoor entrance area form the core campus zone.
 - A playable day starts with a 06:00 alarm.
 - Default wake-up is 06:00.
 - The player can snooze in 15-minute increments when the day's schedule allows it.
-- The latest valid wake-up is calculated from the first required school commitment minus minimum preparation time and any required travel time. Dorm-to-school movement inside campus does not consume a travel block.
-- Morning routine is abstract and consumes 15 minutes of minimum preparation time for schedule validation.
+- The latest valid wake-up is calculated from the first required school commitment minus any required travel time; wake-up must occur before that commitment begins. Dorm-to-school movement inside campus does not consume a travel block.
+- Morning routine is abstract, automatic, and does not consume a scheduled time block or reserve player time.
+- After waking, the schedule exposes an explicit non-reserving before-school free-time window until the first mandatory commitment; player actions remain subject to the travel required to arrive on time.
 - The player does not choose individual routine actions such as showering, getting dressed, or brushing teeth.
 - Snooze can restore additional Energy or reduce fatigue, but costs morning activity time.
 - Waking up close to the school deadline can increase Stress or remove morning opportunities.
