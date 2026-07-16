@@ -31,8 +31,8 @@ public sealed class DailyScheduleLoader
                 if (dto.SchemaVersion != 1) throw new JsonException("Unsupported schema version.");
                 schedules.Add(new DailySchedule(new(dto.Id), dto.DayOfWeek, dto.Entries.Select(x => new ScheduleEntry(new(x.Id), x.Kind, ScheduleTime.FromHoursAndMinutes(x.Start.Hour, x.Start.Minute), new(x.DurationMinutes), new(x.AnchorLocationId)))));
             }
-            catch (JsonException ex) { issues.Add(new(IssueSeverity.Error, FailureCategory.Shape, null, path, "content.json-invalid", ex.Message)); }
-            catch (ArgumentException ex) { issues.Add(new(IssueSeverity.Error, FailureCategory.Shape, null, path, "content.schedule-invalid", ex.Message)); }
+            catch (JsonException ex) { issues.Add(new(IssueSeverity.Error, FailureCategory.Shape, null, path, ContentLoadRuleIds.JsonInvalid, null, ex.Message, null)); }
+            catch (ArgumentException ex) { issues.Add(new(IssueSeverity.Error, FailureCategory.Shape, null, path, ContentLoadRuleIds.ScheduleInvalid, null, ex.Message, null)); }
         }
         var failure = ContentLoadFailure.Create(issues);
         return failure.HasErrors ? Result<ContentCatalog, ContentLoadFailure>.Fail(failure) : Result<ContentCatalog, ContentLoadFailure>.Ok(new ContentCatalog(schedules));

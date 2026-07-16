@@ -41,7 +41,7 @@ so that the first vertical slice can prove time, commitments, and school-day anc
   - [x] Build and expose a ContentCatalog only after the complete selected catalog validates without errors. Never return a partial catalog from invalid input.
   - [x] Load files in deterministic order and sort diagnostics by stable keys such as source path, content ID, and rule ID.
 - [ ] Implement semantic school-day schedule validation (AC: 1, 2, 4)
-  - [ ] Define stable rule IDs/reason codes and readable diagnostics for missing lesson anchors, overlapping hard commitments, invalid start alignment, invalid duration alignment, unreachable required commitments, and latest-sleep conflicts.
+  - [x] Define stable rule IDs/reason codes and readable diagnostics for missing lesson anchors, overlapping hard commitments, invalid start alignment, invalid duration alignment, unreachable required commitments, and latest-sleep conflicts.
   - [ ] Use the initial canonical rule IDs `schedule.missing-lesson-anchor`, `schedule.overlapping-hard-commitment`, `schedule.start-not-aligned`, `schedule.duration-not-aligned`, `schedule.unreachable-required-commitment`, and `schedule.latest-sleep-conflict`; add narrower codes only when a failure is materially distinct.
   - [ ] Require every issue to carry severity/failure category, rule ID, source path, content ID when recoverable, optional causality trace ID, and a readable message; add a suggested fix where it is reliably actionable.
   - [ ] Validate the complete boundary chain: wake/before-school free time/travel reachability -> required school anchors -> break/lunch windows -> after-school free time -> dorm return -> wind-down -> latest sleep.
@@ -318,6 +318,16 @@ GPT-5 Codex
 - **Files / components:** Domain Shared result; Content Loading, Validation, Catalog; focused Content tests.
 - **Validation:** `dotnet test tests/HighSchoolStory.Content.Tests`; Architecture and Application regression tests.
 
+#### T4.S1 - Stable rule IDs and diagnostic contract (v1)
+
+- **Status:** Approved
+- **Included units:** Define canonical schedule validation rule IDs; enrich typed content issues with semantic category, optional causality trace, and actionable suggested fix; preserve deterministic ordering; add focused contract tests.
+- **Decisions:** D1 - `RuleId` is a strongly typed Domain Shared value; D2 - canonical schedule rules remain lower-kebab-case report values; D3 - semantic validation is a distinct failure category; D4 - causality trace and suggested fix are optional diagnostic metadata.
+- **Approach:** Establish the reusable diagnostic contract only. Do not implement schedule-chain, reachability, runtime feasibility, travel legality, or CLI behavior in this subtask.
+- **Scope:** T4.S1 only.
+- **Files / components:** Domain Shared identifiers; Content Validation; loader adaptation; focused Content tests.
+- **Validation:** `dotnet test tests/HighSchoolStory.Content.Tests`; Architecture regression tests.
+
 ### Completion Notes List
 
 - Ultimate context engine analysis completed - comprehensive developer guide created.
@@ -327,6 +337,7 @@ GPT-5 Codex
 - Task Closure T2: all four subtasks are complete; the fixture includes the approved schedule anchors and six-lesson sequence while keeping Story 1.2's scenario fixture out of scope.
 - T3 (v1) completed: strict loader, atomic catalog, typed load failure, and separate schedule repository passed Content 2/2, Application 1/1, and Architecture 4/4.
 - Task Closure T3: all five subtasks are complete; valid content alone produces a catalog and JSON shape failures produce deterministic typed issues.
+- T4.S1 (v1) completed: added typed, lower-kebab-case rule IDs, all six canonical schedule validation IDs, semantic issue category, and optional causality/suggested-fix diagnostics. Content 7/7 and Architecture 4/4 passed.
 
 ### File List
 
@@ -341,14 +352,17 @@ GPT-5 Codex
 - tests/HighSchoolStory.Application.Tests/Calendar/DailyScheduleRepositoryContractTests.cs
 - content/mvp/calendar/first-school-day.json
 - src/HighSchoolStory.Domain/Shared/Result.cs
+- src/HighSchoolStory.Domain/Shared/RuleId.cs
 - src/HighSchoolStory.Content/Loading/DailyScheduleLoader.cs
 - src/HighSchoolStory.Content/Catalog/ContentCatalog.cs
 - src/HighSchoolStory.Content/Catalog/DailyScheduleRepository.cs
 - src/HighSchoolStory.Content/Validation/ContentLoadFailure.cs
 - tests/HighSchoolStory.Content.Tests/Loading/DailyScheduleLoaderTests.cs
+- tests/HighSchoolStory.Content.Tests/Validation/ContentIssueContractTests.cs
 
 ### Change Log
 
 - 2026-07-13: Completed T1 stable daily-schedule contracts and focused boundary tests.
 - 2026-07-13: Completed T2 canonical first school-day JSON fixture.
 - 2026-07-13: Completed T3 strict loading and atomic catalog construction.
+- 2026-07-16: Completed T4.S1 stable schedule-validation rule IDs and diagnostic contract.

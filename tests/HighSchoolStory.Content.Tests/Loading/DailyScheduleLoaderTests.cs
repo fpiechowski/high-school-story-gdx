@@ -1,4 +1,5 @@
 using HighSchoolStory.Content.Loading;
+using HighSchoolStory.Content.Validation;
 using Xunit;
 
 namespace HighSchoolStory.Content.Tests.Loading;
@@ -26,7 +27,7 @@ public sealed class DailyScheduleLoaderTests
         Assert.False(result.IsSuccess);
         Assert.Null(result.Success);
         Assert.NotNull(result.Failure);
-        Assert.Contains(result.Failure!.Issues, issue => issue.RuleId == "content.json-invalid");
+        Assert.Contains(result.Failure!.Issues, issue => issue.RuleId == ContentLoadRuleIds.JsonInvalid);
     }
 
     private sealed class TemporaryContent : IDisposable
