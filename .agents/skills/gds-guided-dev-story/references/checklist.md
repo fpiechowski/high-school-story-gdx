@@ -34,6 +34,7 @@ validation-rules:
 - [ ] Each Approved Implementation Plan records the chosen approach, approved scope, files or components, and validation plan.
 - [ ] Material implementation decisions were surfaced with options and recorded as selected decisions in the approved plan.
 - [ ] For code-bearing work, the user reviewed key implementation snippets or a clearly labeled proposed diff before approving the plan.
+- [ ] Every meaningful implementation step included a concrete five-part explanation: what changed, why it was needed, how it works, why that approach was chosen, and an example of use.
 - [ ] Each completed unit has a reviewed diff.
 - [ ] Each completed unit has passing targeted tests or agreed observable validation.
 - [ ] Known validation gaps, failures, and follow-up work are resolved or explicitly accepted by the user.

@@ -160,6 +160,16 @@ The task, subtask, or group text is the human-readable match; the `Tn`, `Tn.Sn`,
 
 After the user approves the micro-plan, implement only its recorded scope. Use red-green-refactor in a coached form: use the approved test or observable validation, implement the minimum to satisfy it, then make only justified cleanup. Tests are part of the patch, not a later optional activity.
 
+Break an approved patch into meaningful implementation steps. After every step that changes implementation behavior, and before proceeding to the next implementation step, give the user an `Implementation Step Context` in `{communication_language}`. Tie every point to the actual change just made; do not replace it with generic teaching text. Include:
+
+- **Co zostało zrobione?** The concrete file, component, or behavior changed.
+- **Po co zostało to zrobione?** The linked plan item, acceptance criterion, or constraint it advances.
+- **Jak zostało zrobione?** The relevant control flow, data flow, API, or structural change.
+- **Dlaczego właśnie tak?** The selected decision, local convention, and important alternatives or trade-offs.
+- **Przykład użycia:** A short, realistic example showing the changed code or behavior in use. Use a focused code snippet, test case, input/output example, or gameplay scenario as appropriate.
+
+Group only edits that form one inseparable implementation step. State clearly when a step is purely mechanical and has no user-visible behavior, but still explain its purpose and relationship to the next behavior-bearing step. Do not begin the next step until this context has been presented; a later diff summary does not satisfy this requirement.
+
 ### Review And Completion Gate
 
 After the agent patch, do not show another letter menu or advance to another plan batch. Immediately review the diff against the approved plan, linked AC, and Dev Notes. Run the agreed targeted tests first, then broader relevant regression checks when practical. Identify omissions, regressions, scope drift, and test gaps.
