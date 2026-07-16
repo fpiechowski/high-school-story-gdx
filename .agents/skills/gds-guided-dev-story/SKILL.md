@@ -166,7 +166,7 @@ Break an approved patch into meaningful implementation steps. After every step t
 - **Po co zostało to zrobione?** The linked plan item, acceptance criterion, or constraint it advances.
 - **Jak zostało zrobione?** The relevant control flow, data flow, API, or structural change.
 - **Dlaczego właśnie tak?** The selected decision, local convention, and important alternatives or trade-offs.
-- **Przykład użycia:** A short, realistic example showing the changed code or behavior in use. Use a focused code snippet, test case, input/output example, or gameplay scenario as appropriate.
+- **Przykład użycia:** A short user-journey example: describe the player's action, the relevant game state, and the resulting visible or persisted outcome enabled by this step. For an infrastructure-only change, connect it to the nearest player-facing journey it enables; do not substitute an API call or isolated test case for the journey.
 
 Group only edits that form one inseparable implementation step. State clearly when a step is purely mechanical and has no user-visible behavior, but still explain its purpose and relationship to the next behavior-bearing step. Do not begin the next step until this context has been presented; a later diff summary does not satisfy this requirement.
 
