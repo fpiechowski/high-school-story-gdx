@@ -11,8 +11,8 @@ optional-inputs:
   - 'Regression test results'
   - 'Review notes'
 validation-rules:
-  - 'Only permitted story sections modified: baseline_commit, Tasks/Subtasks checkboxes, Dev Agent Record, File List, Change Log, Status'
-  - 'Every completed task has diff-review and validation evidence'
+  - 'Only permitted story sections modified: baseline_commit, branch_name, pull_request_url, Tasks/Subtasks checkboxes, Dev Agent Record, File List, Change Log, Status'
+  - 'Every completed task has accepted ITL Adapter checkpoint, diff-review, and validation evidence'
   - 'The user explicitly approves final story completion'
 ---
 
@@ -22,23 +22,21 @@ validation-rules:
 
 - [ ] Story, Acceptance Criteria, Tasks/Subtasks, Dev Notes, project-context, and sprint status were loaded.
 - [ ] Every task or subtask was linked to the applicable acceptance criteria.
-- [ ] Each completed task, subtask, or plan group has an active, keyed Approved Implementation Plan in Dev Agent Record.
+- [ ] Each completed task or subtask has a stable `S#` mapping and accepted checkpoint in ITL Adapter State inside Dev Agent Record.
 - [ ] Each completed increment stayed within its approved story scope.
 - [ ] Architecture, dependencies, and implementation patterns follow Dev Notes and project-context.
 
 ## Per-Unit Evidence
 
-- [ ] Each task or subtask had a checkpoint before implementation.
-- [ ] Each Approved Implementation Plan uses a `Tn`, `Tn.Sn`, or `Tn.Gn` key, scope text, and version.
-- [ ] Each group plan lists every included subtask explicitly.
-- [ ] Each Approved Implementation Plan records the chosen approach, approved scope, files or components, and validation plan.
-- [ ] Material implementation decisions were surfaced with options and recorded as selected decisions in the approved plan.
-- [ ] For code-bearing work, the user reviewed key implementation snippets or a clearly labeled proposed diff before approving the plan.
-- [ ] Every meaningful implementation step included a concrete five-part explanation: what changed, why it was needed, how it works, why that approach was chosen, and a player user-journey example.
+- [ ] ITL Adapter State records the current status, current and next `S#`, step-to-story-unit mapping, plan, decisions, evidence, and append-only checkpoints.
+- [ ] Every step was proposed and explicitly accepted before implementation; a question or generic decision approval was never treated as authorization.
+- [ ] Material decisions list two or three options with a recommendation and remain unimplemented until explicitly selected.
+- [ ] Every accepted step has focused verification, a diff review, and a checkpoint ordered as What, Why, How, Why this approach, and User journey.
+- [ ] Each User journey describes a player action, game state, and visible or persisted result, including for infrastructure work.
 - [ ] Each completed unit has a reviewed diff.
 - [ ] Each completed unit has passing targeted tests or agreed observable validation.
 - [ ] Known validation gaps, failures, and follow-up work are resolved or explicitly accepted by the user.
-- [ ] Every task and subtask is marked complete only after its evidence was reviewed.
+- [ ] Every task and subtask is marked complete only after the completed ITL checkpoint was accepted and its evidence was reviewed.
 - [ ] After the final subtask of a task, task closure verified that subtask evidence collectively covers the task's AC and Dev Notes, with no task-level deliverable or unresolved blocker remaining.
 - [ ] Each parent task closed from completed subtasks has a `Task Closure` note in Dev Agent Record naming the aggregated evidence.
 
