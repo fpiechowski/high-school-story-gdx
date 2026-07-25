@@ -23,6 +23,7 @@ public static class ContentLoadRuleIds
 
 public static class ScheduleValidationRuleIds
 {
+    public static readonly RuleId BoundaryChainInvalid = new("schedule.boundary-chain-invalid");
     public static readonly RuleId MissingLessonAnchor = new("schedule.missing-lesson-anchor");
     public static readonly RuleId OverlappingHardCommitment = new("schedule.overlapping-hard-commitment");
     public static readonly RuleId StartNotAligned = new("schedule.start-not-aligned");

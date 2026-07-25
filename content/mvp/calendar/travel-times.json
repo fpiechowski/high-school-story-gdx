@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "travelTimes": [
+    {
+      "from": "dorm",
+      "to": "school",
+      "minimumTravelMinutes": 0
+    },
+    {
+      "from": "school",
+      "to": "dorm",
+      "minimumTravelMinutes": 0
+    }
+  ]
+}
