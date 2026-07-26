@@ -6,7 +6,7 @@ pull_request_url: https://github.com/codex-fp/high-school-story/pull/3
 
 # Story 1.1: Validated First School-Day Schedule Fixture
 
-Status: in-progress
+Status: review
 
 ## Story
 
@@ -61,11 +61,11 @@ so that the first vertical slice can prove time, commitments, and school-day anc
   - [x] Prove the minimal one-day catalog passes without broader semester content and can coexist with a second day using the same model.
   - [x] Prove an application-facing consumer receives typed schedule/catalog data rather than paths, raw JSON, or JSON DTOs; keep Application free of Content/System.Text.Json dependencies.
   - [x] Extend process-level CLI tests for a profile-aware valid catalog, an invalid catalog, and each invalid invocation class while preserving all existing ContentValidator and ScenarioRunner discovery contracts.
-- [ ] Verify the story through the supported repository gates (AC: 1-4)
-  - [ ] Run `dotnet test tests/HighSchoolStory.Content.Tests` first; also run Domain/Application/Scenario tests when their boundaries are touched.
-  - [ ] Run `dotnet test tests/HighSchoolStory.Architecture.Tests` and retain explicit guards proving Application has neither `System.Text.Json` nor concrete Content dependencies while Content remains the raw-JSON owner.
-  - [ ] Run ContentValidator against `content/mvp --profile vertical-slice` and exercise `--help`, `--version`, a missing path, and an invalid fixture/catalog.
-  - [ ] Run `dotnet test` before handoff. Run `dotnet build "High School Story.sln"` if project/package/build configuration changes.
+- [x] Verify the story through the supported repository gates (AC: 1-4)
+  - [x] Run `dotnet test tests/HighSchoolStory.Content.Tests` first; also run Domain/Application/Scenario tests when their boundaries are touched.
+  - [x] Run `dotnet test tests/HighSchoolStory.Architecture.Tests` and retain explicit guards proving Application has neither `System.Text.Json` nor concrete Content dependencies while Content remains the raw-JSON owner.
+  - [x] Run ContentValidator against `content/mvp --profile vertical-slice` and exercise `--help`, `--version`, a missing path, and an invalid fixture/catalog.
+  - [x] Run `dotnet test` before handoff. Run `dotnet build "High School Story.sln"` if project/package/build configuration changes.
 
 ## Dev Notes
 
@@ -393,13 +393,17 @@ GPT-5 Codex
 - 2026-07-25: Completed T4 semantic school-day validation, including minimal one-day catalog evidence.
 - 2026-07-25: Implemented T5 profile-aware ContentValidator CLI and process-level contract evidence; awaiting milestone acceptance.
 - 2026-07-25: Completed T6 deterministic fixture, catalog-boundary, negative-matrix, and repeated-load evidence after user acceptance.
+- 2026-07-25: Ran T7 repository verification gates; code, test, build, and CLI checks passed, but continuous story Git validation is awaiting a decision about four unrelated commits in the recorded baseline-to-HEAD range.
+- 2026-07-26: Resolved the story Git-history blocker by migrating the four unrelated workflow commits to `chore/deliberative-workflow-skills`, fast-forwarding that branch to `origin/main`, and validating a clean Story 1.1 candidate range.
+- 2026-07-26: Completed T7 repository verification gates after user acceptance; all story tasks are complete.
+- 2026-07-26: Story moved to review after final user approval; clean candidate published to the existing Story 1.1 PR.
 
 #### ITL Adapter State
 
 - **Source:** `_bmad-output/implementation-artifacts/1-1-validated-first-school-day-schedule-fixture.md` — Story 1.1
-- **Status:** awaiting-approval
-- **Current step:** S8 - T7 - Run the required repository verification gates
-- **Next step:** S8 - T7 - Run the required repository verification gates
+- **Status:** completed
+- **Current step:** Story 1.1 ready for independent code review
+- **Next step:** `gds-code-review`
 
 #### ITL Adapter Plan
 
@@ -410,7 +414,7 @@ GPT-5 Codex
 - [x] S5 - T4.S6 - Allow the valid one-day catalog without unrelated content.
 - [x] S6 - T5 - Replace the ContentValidator scaffold with profile-aware vertical-slice validation.
 - [x] S7 - T6 - Add remaining deterministic fixture, catalog-boundary, CLI, and regression evidence.
-- [ ] S8 - T7 - Run the required repository verification gates.
+- [x] S8 - T7 - Run the required repository verification gates.
 
 #### ITL Adapter Decisions
 
@@ -762,3 +766,45 @@ GPT-5 Codex
 - **User journey:** A maintainer checks out the committed story, runs the documented tests and validator commands, and gets the same validated catalog behavior, deterministic diagnostics, and clean repository-level result expected for handoff.
 - **User response:** pending
 - **Next proposal:** Complete the story after T7 verification passes, or report the exact failing gate for remediation.
+
+**S8 - 2026-07-25 (result walkthrough)**
+
+- **State:** awaiting-decision
+- **What was delivered:** Ran the approved repository verification scope without changing production code, test code, project configuration, push state, or PR state.
+- **Verification:** `dotnet restore "High School Story.sln"` passed; `dotnet test tests/HighSchoolStory.Content.Tests` passed (26/26); focused Domain/Application/Scenario/Architecture tests passed (11/11, 1/1, 9/9, 4/4); full `dotnet test` passed (53/53, including the existing GodotSmoke test); and `dotnet build "High School Story.sln"` passed with 0 warnings and 0 errors.
+- **CLI evidence:** `ContentValidator --help` and `--version` exited 0; `content/mvp --profile vertical-slice` exited 0; a nonexistent path exited 2; and the existing `content/mvp/calendar` subroot exited 1 with the typed missing-`travel-times.json` content finding. `git diff --check` passed.
+- **User journey:** A maintainer can reproduce the valid catalog, distinguish invocation failure from validation failure by exit code, and run all repository checks successfully before handoff.
+- **Blocking finding:** `_bmad/scripts/validate_story_git.py` against the recorded baseline `5e25bf18d818cd6e68a5e5362af4802aaed98c61` failed only because four pre-existing, unrelated workflow-skill commits (`274077b`, `a2143e3`, `f24bf3c`, `205ee4e`) lack the required Story 1.1 title and trailer. The current Story 1.1 commit validates when checked after the last unrelated commit (`205ee4e...`), but the continuous baseline-to-HEAD validation required before review does not yet pass.
+- **Decision needed:** (A) recommended — authorize a targeted history rewrite that removes the four unrelated commits from this story branch, then rerun the continuous validator; (B) preserve history and accept a documented two-segment audit, knowing it does not satisfy the repository's continuous validation rule; or (C) request another approach. No history has been rewritten.
+- **Scope check:** No source/test implementation work, commit, push, PR action, or story-status transition was performed in S8.
+- **User response:** pending
+- **Next proposal:** Resolve the Git-history decision, rerun continuous validation, then present final story completion for explicit approval.
+
+**S8 - 2026-07-26 (Git-history resolution)**
+
+- **State:** awaiting-approval
+- **User decision:** "ok zróbmy tak. Z tego co widzę branch story 1.1 ma swój PR - to dobrze. Ten drugi branch techniczny na 4 commity możemy od razu wmergować w origin/main"
+- **Outcome:** The four unrelated workflow commits were preserved as new commits on `chore/deliberative-workflow-skills`, pushed to `origin`, and fast-forwarded to `origin/main` at `aa51939`. The clean local Story 1.1 candidate starts from the remote PR tip `d246290` and replays only the Story 1.1 implementation commit as `c5eb123`.
+- **Verification:** `_bmad/scripts/validate_story_git.py --base 5e25bf18d818cd6e68a5e5362af4802aaed98c61` now validates all 10 Story 1.1 commits on the clean candidate; candidate diff check passed.
+- **Safety:** The current dirty Story worktree and all unrelated user changes were left untouched. The existing Story PR was not pushed, force-pushed, or otherwise changed.
+- **User response:** pending
+- **Next proposal:** Accept S8, then separately authorize publishing the clean candidate to the existing Story 1.1 PR when ready.
+
+**S8 - 2026-07-26 (resolution)**
+
+- **State:** accepted
+- **User response:** "tak"
+- **Outcome:** T7 is complete. The repository verification gates, CLI matrix, clean Story 1.1 Git-history validation, and isolated workflow-commit migration have been accepted.
+
+#### Task Closure T7 — Supported repository verification gates
+
+- **Status:** complete
+- **Evidence:** Focused Content, Domain, Application, Scenario, and Architecture tests passed; the full test suite passed; the solution build completed without warnings or errors; ContentValidator valid, invalid, help, version, and missing-path behavior was exercised; and the clean candidate validated all 10 Story 1.1 commits.
+- **AC coverage:** AC 1-4 remain traceable through the accepted fixture, semantic-validation, typed catalog boundary, ContentValidator, deterministic-evidence, and final verification milestones.
+- **Remaining scope:** None; Story 1.1 is ready for independent code review.
+
+**Final story completion checkpoint - 2026-07-26 (resolution)**
+
+- **State:** accepted
+- **User response:** "tak"
+- **Outcome:** Final Story 1.1 publication and review-readiness actions are authorized. The clean candidate will be committed, validated, published to the existing PR, and marked ready for independent code review.
