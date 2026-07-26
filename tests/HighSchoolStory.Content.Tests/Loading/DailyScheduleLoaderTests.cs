@@ -48,7 +48,7 @@ public sealed class DailyScheduleLoaderTests
         var issue = Assert.Single(result.Failure!.Issues);
         Assert.Equal(IssueSeverity.Error, issue.Severity);
         Assert.Equal(FailureCategory.Shape, issue.FailureCategory);
-        Assert.Null(issue.ContentId);
+        Assert.Equal("monday", issue.ContentId);
         Assert.Equal(fixture.SchedulePath, issue.SourcePath);
         Assert.Equal(ContentLoadRuleIds.JsonInvalid, issue.RuleId);
         Assert.Null(issue.CausalityTraceId);
@@ -93,7 +93,7 @@ public sealed class DailyScheduleLoaderTests
 
         Assert.False(result.IsSuccess);
         Assert.Null(result.Success);
-        Assert.Contains(result.Failure!.Issues, issue => issue.RuleId == ContentLoadRuleIds.JsonInvalid && issue.SourcePath == fixture.SchedulePath);
+        Assert.Contains(result.Failure!.Issues, issue => issue.RuleId == ContentLoadRuleIds.JsonInvalid && issue.ContentId == "monday" && issue.SourcePath == fixture.SchedulePath);
     }
 
     [Fact]
@@ -112,7 +112,7 @@ public sealed class DailyScheduleLoaderTests
 
         Assert.False(result.IsSuccess);
         Assert.Null(result.Success);
-        Assert.Contains(result.Failure!.Issues, issue => issue.RuleId == ContentLoadRuleIds.JsonInvalid && issue.SourcePath == fixture.SchedulePath);
+        Assert.Contains(result.Failure!.Issues, issue => issue.RuleId == ContentLoadRuleIds.JsonInvalid && issue.ContentId == "monday" && issue.SourcePath == fixture.SchedulePath);
     }
 
     [Fact]
@@ -163,6 +163,18 @@ public sealed class DailyScheduleLoaderTests
         Assert.False(result.IsSuccess);
         Assert.Null(result.Success);
         Assert.Contains(result.Failure!.Issues, issue => issue.RuleId == ContentLoadRuleIds.JsonInvalid && issue.Message.Contains("HH:mm", StringComparison.Ordinal));
+    }
+
+    [Fact]
+    public void Sanitizes_invalid_time_values_in_diagnostics()
+    {
+        using var fixture = new TemporaryContent(ValidSchedule().Replace("\"08:00\"", "\"08\\n00\"", StringComparison.Ordinal));
+
+        var result = new DailyScheduleLoader().Load(fixture.Root);
+
+        var issue = Assert.Single(result.Failure!.Issues, issue => issue.RuleId == ContentLoadRuleIds.JsonInvalid);
+        Assert.DoesNotContain('\n', issue.Message);
+        Assert.Contains("\\n", issue.Message);
     }
 
     [Fact]
@@ -250,6 +262,21 @@ public sealed class DailyScheduleLoaderTests
         Assert.False(result.IsSuccess);
         Assert.Null(result.Success);
         Assert.Contains(result.Failure!.Issues, issue => issue.RuleId == ContentLoadRuleIds.ScheduleInvalid && issue.Message.Contains("At least one daily schedule", StringComparison.Ordinal));
+    }
+
+    [Fact]
+    public void Reports_an_empty_calendar_even_when_travel_times_are_also_invalid()
+    {
+        using var fixture = new TemporaryContent(ValidSchedule());
+        File.Delete(fixture.SchedulePath);
+        File.WriteAllText(fixture.TravelTimesPath, "{ \"schemaVersion\": 1, \"unexpected\": true }");
+
+        var result = new DailyScheduleLoader().Load(fixture.Root);
+
+        Assert.False(result.IsSuccess);
+        Assert.Null(result.Success);
+        Assert.Contains(result.Failure!.Issues, issue => issue.RuleId == ContentLoadRuleIds.JsonInvalid && issue.SourcePath == fixture.TravelTimesPath);
+        Assert.Contains(result.Failure.Issues, issue => issue.RuleId == ContentLoadRuleIds.ScheduleInvalid && issue.Message.Contains("At least one daily schedule", StringComparison.Ordinal));
     }
 
     [Fact]
