@@ -26,7 +26,7 @@ internal static class Program
             return InvalidInputExitCode;
         }
 
-        var result = new DailyScheduleLoader().Load(contentPath);
+        var result = new DailyScheduleLoader().Load(contentPath, profile);
         if (!result.IsSuccess)
         {
             foreach (var issue in result.Failure!.Issues)

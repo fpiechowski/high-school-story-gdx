@@ -1,5 +1,7 @@
+using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 using HighSchoolStory.Content.Catalog;
 using HighSchoolStory.Content.Validation;
 using HighSchoolStory.Domain.Calendar;
@@ -10,6 +12,8 @@ namespace HighSchoolStory.Content.Loading;
 public sealed class DailyScheduleLoader
 {
     private const string TravelTimesFileName = "travel-times.json";
+    private const string VerticalSliceProfile = "vertical-slice";
+    private static readonly Regex LowerKebabCase = new("^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$", RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
     private static readonly JsonSerializerOptions Options = new()
     {
@@ -21,28 +25,82 @@ public sealed class DailyScheduleLoader
 
     static DailyScheduleLoader() => Options.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.KebabCaseLower, false));
 
-    public Result<ContentCatalog, ContentLoadFailure> Load(string contentPath)
+    public Result<ContentCatalog, ContentLoadFailure> Load(string contentPath) => Load(contentPath, VerticalSliceProfile);
+
+    public Result<ContentCatalog, ContentLoadFailure> Load(string contentPath, string profile)
     {
-        var issues = new List<ContentIssue>(); var schedules = new List<DailySchedule>();
+        if (!string.Equals(profile, VerticalSliceProfile, StringComparison.Ordinal))
+        {
+            return Result<ContentCatalog, ContentLoadFailure>.Fail(ContentLoadFailure.Create([
+                new(IssueSeverity.Error, FailureCategory.Shape, null, contentPath, ContentLoadRuleIds.ProfileUnsupported, null, $"Profile '{profile}' is not supported. Use '{VerticalSliceProfile}'.", null),
+            ]));
+        }
+
+        var issues = new List<ContentIssue>();
+        var schedules = new List<DailySchedule>();
+        var scheduleIds = new HashSet<string>(StringComparer.Ordinal);
         var calendar = Path.Combine(contentPath, "calendar");
         var travelTimes = LoadTravelTimes(calendar, issues);
-        foreach (var path in Directory.Exists(calendar)
-            ? Directory.EnumerateFiles(calendar, "*.json")
-                .Where(x => !string.Equals(Path.GetFileName(x), TravelTimesFileName, StringComparison.Ordinal))
-                .OrderBy(x => x, StringComparer.Ordinal)
-            : Enumerable.Empty<string>())
+        IReadOnlyList<string> schedulePaths;
+        try
+        {
+            schedulePaths = Directory.Exists(calendar)
+                ? Directory.EnumerateFiles(calendar, "*.json")
+                    .Where(x => !string.Equals(Path.GetFileName(x), TravelTimesFileName, StringComparison.Ordinal))
+                    .OrderBy(x => x, StringComparer.Ordinal)
+                    .ToArray()
+                : [];
+        }
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or NotSupportedException)
+        {
+            issues.Add(ReadIssue(calendar, ex));
+            schedulePaths = [];
+        }
+
+        foreach (var path in schedulePaths)
         {
             try
             {
                 var dto = JsonSerializer.Deserialize<ScheduleDto>(File.ReadAllText(path), Options) ?? throw new JsonException("Schedule document was empty.");
                 if (dto.SchemaVersion != 1) throw new JsonException("Unsupported schema version.");
-                var schedule = new DailySchedule(new(dto.Id), dto.DayOfWeek, dto.Entries.Select(x => new ScheduleEntry(new(x.Id), x.Kind, ScheduleTime.FromHoursAndMinutes(x.Start.Hour, x.Start.Minute), new(x.DurationMinutes), new(x.AnchorLocationId))));
+                if (dto.Entries is null || dto.Entries.Any(x => x is null)) throw new JsonException("Schedule entries must not be null.");
+                EnsureContentId(dto.Id, "schedule ID");
+                var entryIds = new HashSet<string>(StringComparer.Ordinal);
+                var entries = new List<ScheduleEntry>();
+                foreach (var entryDto in dto.Entries)
+                {
+                    EnsureContentId(entryDto.Id, "schedule entry ID");
+                    if (!entryIds.Add(entryDto.Id))
+                    {
+                        issues.Add(new(IssueSeverity.Error, FailureCategory.Shape, dto.Id, path, ScheduleValidationRuleIds.DuplicateEntryId, null, $"Schedule entry ID '{entryDto.Id}' is duplicated.", "Give each schedule entry a unique ID."));
+                        continue;
+                    }
+
+                    var start = ParseStart(entryDto.Start);
+                    EnsureContentId(entryDto.AnchorLocationId, "anchor location ID");
+                    entries.Add(new ScheduleEntry(new(entryDto.Id), entryDto.Kind, start, new(entryDto.DurationMinutes), new(entryDto.AnchorLocationId)));
+                }
+                var schedule = new DailySchedule(new(dto.Id), dto.DayOfWeek, entries);
                 issues.AddRange(new DailyScheduleValidator().Validate(schedule, path, travelTimes));
-                schedules.Add(schedule);
+                if (!scheduleIds.Add(schedule.Id.Value))
+                {
+                    issues.Add(new(IssueSeverity.Error, FailureCategory.Shape, schedule.Id.Value, path, ContentLoadRuleIds.ScheduleInvalid, null, $"Schedule ID '{schedule.Id.Value}' is duplicated.", "Give each schedule document a unique ID."));
+                }
+                else
+                {
+                    schedules.Add(schedule);
+                }
             }
             catch (JsonException ex) { issues.Add(new(IssueSeverity.Error, FailureCategory.Shape, null, path, ContentLoadRuleIds.JsonInvalid, null, ex.Message, null)); }
             catch (ArgumentException ex) { issues.Add(new(IssueSeverity.Error, FailureCategory.Shape, null, path, ContentLoadRuleIds.ScheduleInvalid, null, ex.Message, null)); }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or NotSupportedException) { issues.Add(ReadIssue(path, ex)); }
         }
+        if (schedules.Count == 0 && issues.Count == 0)
+        {
+            var sourcePath = Path.Combine(calendar, "*.json");
+            issues.Add(new(IssueSeverity.Error, FailureCategory.Shape, null, sourcePath, ContentLoadRuleIds.ScheduleInvalid, null, "At least one daily schedule document is required.", "Add a daily schedule JSON document under the calendar content directory."));
+        }
+
         var failure = ContentLoadFailure.Create(issues);
         return failure.HasErrors ? Result<ContentCatalog, ContentLoadFailure>.Fail(failure) : Result<ContentCatalog, ContentLoadFailure>.Ok(new ContentCatalog(schedules));
     }
@@ -60,7 +118,13 @@ public sealed class DailyScheduleLoader
         {
             var dto = JsonSerializer.Deserialize<TravelTimesDto>(File.ReadAllText(path), Options) ?? throw new JsonException("Travel-time document was empty.");
             if (dto.SchemaVersion != 1) throw new JsonException("Unsupported travel-time schema version.");
-            return dto.TravelTimes.Select(x => new TravelTime(new(x.From), new(x.To), new(x.MinimumTravelMinutes))).ToArray();
+            if (dto.TravelTimes is null || dto.TravelTimes.Any(x => x is null)) throw new JsonException("Travel-time entries must not be null.");
+            return dto.TravelTimes.Select(x =>
+            {
+                EnsureContentId(x.From, "travel-time source location ID");
+                EnsureContentId(x.To, "travel-time destination location ID");
+                return new TravelTime(new(x.From), new(x.To), new(x.MinimumTravelMinutes));
+            }).ToArray();
         }
         catch (JsonException ex)
         {
@@ -72,19 +136,41 @@ public sealed class DailyScheduleLoader
             issues.Add(new(IssueSeverity.Error, FailureCategory.Shape, null, path, ContentLoadRuleIds.ScheduleInvalid, null, ex.Message, null));
             return [];
         }
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or NotSupportedException)
+        {
+            issues.Add(ReadIssue(path, ex));
+            return [];
+        }
     }
+
+    private static ScheduleTime ParseStart(string value)
+    {
+        if (!TimeOnly.TryParseExact(value, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out var start))
+            throw new JsonException($"Schedule entry start '{value}' must use exact HH:mm format.");
+
+        return ScheduleTime.FromHoursAndMinutes(start.Hour, start.Minute);
+    }
+
+    private static void EnsureContentId(string value, string label)
+    {
+        if (string.IsNullOrWhiteSpace(value) || !LowerKebabCase.IsMatch(value))
+            throw new JsonException($"A {label} must use lower-kebab-case.");
+    }
+
+    private static ContentIssue ReadIssue(string path, Exception exception) =>
+        new(IssueSeverity.Error, FailureCategory.Read, null, path, ContentLoadRuleIds.ContentReadFailed, null, $"Could not read content: {exception.Message}", "Ensure the content path and files are readable.");
 
     private sealed class ScheduleDto
     {
         public required int SchemaVersion { get; init; }
         public required string Id { get; init; }
         public required DayOfWeek DayOfWeek { get; init; }
-        public required List<EntryDto> Entries { get; init; }
+        public required List<EntryDto>? Entries { get; init; }
     }
     private sealed class TravelTimesDto
     {
         public required int SchemaVersion { get; init; }
-        public required List<TravelTimeDto> TravelTimes { get; init; }
+        public required List<TravelTimeDto>? TravelTimes { get; init; }
     }
     private sealed class TravelTimeDto
     {
@@ -96,7 +182,7 @@ public sealed class DailyScheduleLoader
     {
         public required string Id { get; init; }
         public required ScheduleEntryKind Kind { get; init; }
-        public required TimeOnly Start { get; init; }
+        public required string Start { get; init; }
         public required int DurationMinutes { get; init; }
         public required string AnchorLocationId { get; init; }
     }
