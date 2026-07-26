@@ -59,9 +59,12 @@ public sealed class DailyScheduleLoader
 
         foreach (var path in schedulePaths)
         {
+            string? recoveredScheduleId = null;
             try
             {
-                var dto = JsonSerializer.Deserialize<ScheduleDto>(File.ReadAllText(path), Options) ?? throw new JsonException("Schedule document was empty.");
+                var json = File.ReadAllText(path);
+                recoveredScheduleId = TryRecoverScheduleId(json);
+                var dto = JsonSerializer.Deserialize<ScheduleDto>(json, Options) ?? throw new JsonException("Schedule document was empty.");
                 if (dto.SchemaVersion != 1) throw new JsonException("Unsupported schema version.");
                 if (dto.Entries is null || dto.Entries.Any(x => x is null)) throw new JsonException("Schedule entries must not be null.");
                 EnsureContentId(dto.Id, "schedule ID");
@@ -91,11 +94,11 @@ public sealed class DailyScheduleLoader
                     schedules.Add(schedule);
                 }
             }
-            catch (JsonException ex) { issues.Add(new(IssueSeverity.Error, FailureCategory.Shape, null, path, ContentLoadRuleIds.JsonInvalid, null, ex.Message, null)); }
-            catch (ArgumentException ex) { issues.Add(new(IssueSeverity.Error, FailureCategory.Shape, null, path, ContentLoadRuleIds.ScheduleInvalid, null, ex.Message, null)); }
+            catch (JsonException ex) { issues.Add(new(IssueSeverity.Error, FailureCategory.Shape, recoveredScheduleId, path, ContentLoadRuleIds.JsonInvalid, null, ex.Message, null)); }
+            catch (ArgumentException ex) { issues.Add(new(IssueSeverity.Error, FailureCategory.Shape, recoveredScheduleId, path, ContentLoadRuleIds.ScheduleInvalid, null, ex.Message, null)); }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or NotSupportedException) { issues.Add(ReadIssue(path, ex)); }
         }
-        if (schedules.Count == 0 && issues.Count == 0)
+        if (schedulePaths.Count == 0)
         {
             var sourcePath = Path.Combine(calendar, "*.json");
             issues.Add(new(IssueSeverity.Error, FailureCategory.Shape, null, sourcePath, ContentLoadRuleIds.ScheduleInvalid, null, "At least one daily schedule document is required.", "Add a daily schedule JSON document under the calendar content directory."));
@@ -146,10 +149,30 @@ public sealed class DailyScheduleLoader
     private static ScheduleTime ParseStart(string value)
     {
         if (!TimeOnly.TryParseExact(value, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out var start))
-            throw new JsonException($"Schedule entry start '{value}' must use exact HH:mm format.");
+            throw new JsonException($"Schedule entry start '{SanitizeDiagnosticValue(value)}' must use exact HH:mm format.");
 
         return ScheduleTime.FromHoursAndMinutes(start.Hour, start.Minute);
     }
+
+    private static string? TryRecoverScheduleId(string json)
+    {
+        try
+        {
+            using var document = JsonDocument.Parse(json);
+            return document.RootElement.ValueKind == JsonValueKind.Object &&
+                document.RootElement.TryGetProperty("id", out var id) &&
+                id.ValueKind == JsonValueKind.String
+                ? id.GetString()
+                : null;
+        }
+        catch (JsonException)
+        {
+            return null;
+        }
+    }
+
+    private static string SanitizeDiagnosticValue(string? value) =>
+        (value ?? "<null>").Replace("\r", "\\r", StringComparison.Ordinal).Replace("\n", "\\n", StringComparison.Ordinal);
 
     private static void EnsureContentId(string value, string label)
     {

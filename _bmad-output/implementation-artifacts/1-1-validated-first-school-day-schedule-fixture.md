@@ -6,7 +6,7 @@ pull_request_url: https://github.com/codex-fp/high-school-story/pull/3
 
 # Story 1.1: Validated First School-Day Schedule Fixture
 
-Status: review
+Status: done
 
 ## Story
 
@@ -826,3 +826,12 @@ GPT-5 Codex
 - [x] [Review][Patch] Mixed valid/invalid catalog atomicity lacked focused evidence — a mixed-input regression test now asserts no catalog is exposed.
 
 The initial blind-review `--profile` observation was initially triaged as dismissed because `vertical-slice` is the only supported profile; the subsequent acceptance audit identified the missing explicit loader dispatch, which is now covered by the profile-aware boundary and regression test.
+
+### Review Findings — PR #4 follow-up
+
+- [x] [Review][Patch] Recoverable schedule IDs are discarded from JSON shape issues — the loader now recovers the JSON `id` before strict deserialization and preserves it in typed shape issues, with regression coverage.
+- [x] [Review][Patch] Empty-calendar diagnostics are suppressed when travel-times also fails — the loader now reports the missing daily schedule independently whenever no schedule files are selected, with regression coverage.
+- [x] [Review][Patch] Invalid start values can inject line breaks into CLI diagnostics — diagnostic values are now sanitized before rendering, with regression coverage.
+- [x] [Review][Defer] Null or empty content paths are not explicitly rejected by the loader — deferred, pre-existing in `DailyScheduleLoader.Load` before PR #4.
+- [x] [Review][Defer] Access-denied calendar directories can be misreported as missing files — deferred, pre-existing `File.Exists`/`Directory.Exists` preflight behavior.
+- [x] [Review][Defer] Duplicate travel-time pairs are not rejected — deferred, pre-existing travel-time loading/lookup behavior outside the PR #4 change.
