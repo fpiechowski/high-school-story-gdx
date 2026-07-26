@@ -13,6 +13,8 @@ public sealed class DailyScheduleValidator
         var entries = schedule.Entries;
 
         ValidateAlignment(entries, contentId, sourcePath, issues);
+        ValidateEntryBounds(entries, contentId, sourcePath, issues);
+        ValidateAnchorLocations(entries, contentId, sourcePath, issues);
         ValidateRequiredChain(entries, contentId, sourcePath, issues);
         ValidateBoundaryChain(entries, contentId, sourcePath, issues);
         ValidateReachability(entries, travelTimes, contentId, sourcePath, issues);
@@ -31,6 +33,34 @@ public sealed class DailyScheduleValidator
 
             if (!entry.Duration.IsQuarterHourAligned)
                 issues.Add(Issue(contentId, sourcePath, ScheduleValidationRuleIds.DurationNotAligned, $"Entry '{entry.Id.Value}' has duration {entry.Duration.Minutes} minutes, which is not 15-minute aligned.", "Set the duration to a multiple of 15 minutes."));
+        }
+    }
+
+    private static void ValidateEntryBounds(IEnumerable<ScheduleEntry> entries, string contentId, string sourcePath, List<ContentIssue> issues)
+    {
+        foreach (var entry in entries)
+        {
+            if ((long)entry.Start.MinutesSinceMidnight + entry.Duration.Minutes > ScheduleTime.MinutesPerDay)
+                issues.Add(new(IssueSeverity.Error, FailureCategory.Semantic, contentId, sourcePath, ScheduleValidationRuleIds.IntervalOutOfRange, null, $"Entry '{entry.Id.Value}' ends after the end of the day.", "Shorten the entry so it ends by 24:00."));
+
+            if (entry.Semantics is not ScheduleEntrySemantics.Boundary && entry.Duration.Minutes == 0)
+                issues.Add(new(IssueSeverity.Error, FailureCategory.Semantic, contentId, sourcePath, ScheduleValidationRuleIds.NonPositiveDuration, null, $"Entry '{entry.Id.Value}' must have a positive duration.", "Give interval-based entries a duration greater than 0 minutes."));
+        }
+    }
+
+    private static void ValidateAnchorLocations(IEnumerable<ScheduleEntry> entries, string contentId, string sourcePath, List<ContentIssue> issues)
+    {
+        foreach (var entry in entries)
+        {
+            var expectedLocation = entry.Kind switch
+            {
+                ScheduleEntryKind.Wake or ScheduleEntryKind.BeforeSchoolFree or ScheduleEntryKind.DormReturn or ScheduleEntryKind.WindDown or ScheduleEntryKind.LatestSleep => "dorm",
+                ScheduleEntryKind.Lesson or ScheduleEntryKind.Break or ScheduleEntryKind.Lunch or ScheduleEntryKind.AfterSchoolFree => "school",
+                _ => null,
+            };
+
+            if (expectedLocation is not null && entry.AnchorLocationId.Value != expectedLocation)
+                issues.Add(new(IssueSeverity.Error, FailureCategory.Semantic, contentId, sourcePath, ScheduleValidationRuleIds.AnchorLocationInvalid, null, $"Entry '{entry.Id.Value}' of kind '{entry.Kind}' must be anchored at '{expectedLocation}'.", $"Set anchorLocationId to '{expectedLocation}'."));
         }
     }
 
@@ -155,8 +185,8 @@ public sealed class DailyScheduleValidator
     private static void ValidateTravelTime(
         AnchorLocationId from,
         AnchorLocationId to,
-        int availableAt,
-        int requiredAt,
+        long availableAt,
+        long requiredAt,
         string commitmentId,
         IReadOnlyCollection<TravelTime> travelTimes,
         string contentId,
@@ -198,7 +228,7 @@ public sealed class DailyScheduleValidator
 
     private static ContentIssue Issue(string contentId, string sourcePath, HighSchoolStory.Domain.Shared.RuleId ruleId, string message, string? suggestedFix) => new(IssueSeverity.Error, FailureCategory.Semantic, contentId, sourcePath, ruleId, null, message, suggestedFix);
     private static void AddChainIssue(string contentId, string sourcePath, List<ContentIssue> issues, string message, string suggestedFix) => issues.Add(Issue(contentId, sourcePath, ScheduleValidationRuleIds.BoundaryChainInvalid, message, suggestedFix));
-    private static int End(ScheduleEntry entry) => entry.Start.MinutesSinceMidnight + entry.Duration.Minutes;
+    private static long End(ScheduleEntry entry) => (long)entry.Start.MinutesSinceMidnight + entry.Duration.Minutes;
     private static bool Overlaps(ScheduleEntry first, ScheduleEntry second) => first.Start.MinutesSinceMidnight < End(second) && second.Start.MinutesSinceMidnight < End(first);
     private static bool IsSchoolEntry(ScheduleEntry entry) => entry.Kind is ScheduleEntryKind.Lesson or ScheduleEntryKind.Break or ScheduleEntryKind.Lunch;
 }

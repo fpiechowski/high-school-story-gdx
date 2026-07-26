@@ -18,6 +18,8 @@ public sealed record ContentIssue(
 public static class ContentLoadRuleIds
 {
     public static readonly RuleId JsonInvalid = new("content.json-invalid");
+    public static readonly RuleId ContentReadFailed = new("content.read-failed");
+    public static readonly RuleId ProfileUnsupported = new("content.profile-unsupported");
     public static readonly RuleId ScheduleInvalid = new("content.schedule-invalid");
 }
 
@@ -28,6 +30,10 @@ public static class ScheduleValidationRuleIds
     public static readonly RuleId OverlappingHardCommitment = new("schedule.overlapping-hard-commitment");
     public static readonly RuleId StartNotAligned = new("schedule.start-not-aligned");
     public static readonly RuleId DurationNotAligned = new("schedule.duration-not-aligned");
+    public static readonly RuleId DuplicateEntryId = new("schedule.duplicate-entry-id");
+    public static readonly RuleId IntervalOutOfRange = new("schedule.interval-out-of-range");
+    public static readonly RuleId NonPositiveDuration = new("schedule.non-positive-duration");
+    public static readonly RuleId AnchorLocationInvalid = new("schedule.anchor-location-invalid");
     public static readonly RuleId UnreachableRequiredCommitment = new("schedule.unreachable-required-commitment");
     public static readonly RuleId LatestSleepConflict = new("schedule.latest-sleep-conflict");
 }

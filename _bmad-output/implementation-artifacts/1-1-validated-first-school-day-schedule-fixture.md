@@ -808,3 +808,21 @@ GPT-5 Codex
 - **State:** accepted
 - **User response:** "tak"
 - **Outcome:** Final Story 1.1 publication and review-readiness actions are authorized. The clean candidate will be committed, validated, published to the existing PR, and marked ready for independent code review.
+
+### Review Findings
+
+- [x] [Review][Patch] Null schedule collections or elements could escape as an unhandled `NullReferenceException` — the loader now reports malformed JSON through the typed failure boundary, with regression coverage for null collections and elements.
+- [x] [Review][Patch] Duplicate schedule IDs could escape as an unhandled `ArgumentException` — the loader now detects duplicate IDs and returns a typed schedule-invalid issue, with regression coverage.
+- [x] [Review][Patch] A calendar with no daily schedule documents could produce an empty successful catalog — the loader now rejects empty calendars, with regression coverage.
+- [x] [Review][Patch] Duplicate schedule entry IDs were accepted — the loader now reports a typed duplicate-entry finding.
+- [x] [Review][Patch] Schedule times with seconds could be normalized instead of rejected — the loader now requires exact `HH:mm` input.
+- [x] [Review][Patch] Oversized durations/travel arithmetic could overflow — interval bounds are checked and reachability uses wide arithmetic.
+- [x] [Review][Patch] Zero-duration interval entries could satisfy required anchors — interval-based entries now require positive duration.
+- [x] [Review][Patch] Boundary and school entries could use the wrong location — authored anchor semantics are now checked.
+- [x] [Review][Patch] Content IDs did not enforce the documented lower-kebab-case contract — schedule, entry, anchor, and travel location IDs are now checked at load time.
+- [x] [Review][Patch] Read/enumeration failures could escape the typed Content boundary — filesystem failures now become `FailureCategory.Read` issues.
+- [x] [Review][Patch] The profile argument was not passed to the loader — the ContentValidator now dispatches it through an explicit profile-aware loader boundary.
+- [x] [Review][Patch] Loader-to-catalog-to-Ports consumer evidence was only structural — an end-to-end typed consumer regression test now covers the path.
+- [x] [Review][Patch] Mixed valid/invalid catalog atomicity lacked focused evidence — a mixed-input regression test now asserts no catalog is exposed.
+
+The initial blind-review `--profile` observation was initially triaged as dismissed because `vertical-slice` is the only supported profile; the subsequent acceptance audit identified the missing explicit loader dispatch, which is now covered by the profile-aware boundary and regression test.
