@@ -51,12 +51,12 @@ so that the core daily loop can be proven through the same Application commands 
   - [x] Record scenario ID, fixture version, seed, schedule ID, command outcome, typed expected rejection, time before/after, read-model snapshot, honored commitment, and final-state fingerprint in a stable report contract.
   - [x] Sort/format report fields deterministically and avoid machine-specific paths, current wall-clock time, non-seeded randomness, or Godot frame time.
 
-- [ ] Replace the ScenarioRunner scaffold with thin composition and execution (AC: 1-5)
-  - [ ] Update `tools/HighSchoolStory.ScenarioRunner/Program.cs` without breaking its existing discovery contract.
-  - [ ] In the tool composition root, load the catalog through `DailyScheduleLoader`, construct `ContentCatalog`/`DailyScheduleRepository`, and inject the `IDailyScheduleRepository` port into Application. Application must not obtain content from filesystem paths.
-  - [ ] Supply controlled clock/RNG and in-memory state/store dependencies. Record the seed in the report.
-  - [ ] Parse and validate the scenario fixture in the tool or Content boundary; keep CLI parsing/rendering thin and do not create a second game engine.
-  - [ ] Keep exit code `2` for invalid invocation/missing path. Establish and test a distinct, stable nonzero exit code for malformed fixture or unmet scenario assertion; print concise diagnostics.
+- [x] Replace the ScenarioRunner scaffold with thin composition and execution (AC: 1-5)
+  - [x] Update `tools/HighSchoolStory.ScenarioRunner/Program.cs` without breaking its existing discovery contract.
+  - [x] In the tool composition root, load the catalog through `DailyScheduleLoader`, construct `ContentCatalog`/`DailyScheduleRepository`, and inject the `IDailyScheduleRepository` port into Application. Application must not obtain content from filesystem paths.
+  - [x] Supply controlled clock/RNG and in-memory state/store dependencies. Record the seed in the report.
+  - [x] Parse and validate the scenario fixture in the tool or Content boundary; keep CLI parsing/rendering thin and do not create a second game engine.
+  - [x] Keep exit code `2` for invalid invocation/missing path. Establish and test a distinct, stable nonzero exit code for malformed fixture or unmet scenario assertion; print concise diagnostics.
 
 - [ ] Add focused regression evidence (AC: 1-5)
   - [ ] Add Application tests for each command handler, essential state transition, player-facing snapshot mapping, and typed rejection with state equality before/after.
@@ -165,6 +165,7 @@ GPT-5.6
 - Domain daily-loop kernel added with immutable seeded `GameState`, transition-only updates, deterministic fingerprints, wellbeing/evidence value types, and typed gameplay failures. Domain tests pass (14/14).
 - Application daily-loop handlers and read models added for context review, mandatory progression, active lesson choice, wellbeing trade-off, social discovery, blocked action, and day end. Application tests pass (3/3).
 - Deterministic scenario contracts, strict fixture loading, canonical `one-school-day.json`, report formatting, and twice-run equivalence evidence added. Scenario tests pass (11/11).
+- ScenarioRunner CLI now composes validated Content with Application, controlled clock/RNG, and stable report output. Process tests cover canonical execution, malformed fixture exit 3, assertion exit 4, and the existing CLI contract (14/14 Scenario tests).
 
 ### File List
 
@@ -187,9 +188,12 @@ GPT-5.6
 - tools/HighSchoolStory.ScenarioRunner/ScenarioReportFormatter.cs
 - content/fixtures/vertical-slice/one-school-day.json
 - tests/HighSchoolStory.Scenario.Tests/DailyLoopScenarioTests.cs
+- tools/HighSchoolStory.ScenarioRunner/Program.cs
+- tests/HighSchoolStory.Scenario.Tests/TestProjectTests.cs
 
 ### Change Log
 
 - 2026-07-30: Added the minimal engine-independent daily-loop state and typed failure contracts.
 - 2026-07-30: Added Application command handlers, decision snapshots, controlled runtime ports, and canonical session transitions.
 - 2026-07-30: Added the canonical deterministic scenario fixture, typed scenario contracts, strict fixture parsing, and stable report evidence.
+- 2026-07-30: Replaced the ScenarioRunner scaffold with thin validated-content composition and stable exit-code/report behavior.

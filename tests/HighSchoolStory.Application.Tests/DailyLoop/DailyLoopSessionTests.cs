@@ -46,6 +46,33 @@ public sealed class DailyLoopSessionTests
         Assert.Contains("attendance", result.Failure.PlayerFacingLabel, StringComparison.OrdinalIgnoreCase);
     }
 
+    [Fact]
+    public void Remaining_commitments_social_evidence_and_day_end_use_application_handlers()
+    {
+        var session = CreateSession();
+        Assert.True(session.Execute(new ReviewDayContextCommand("review-context")).IsSuccess);
+        Assert.True(session.Execute(new HonorMandatoryCommitmentCommand("honor-lesson", new ScheduleEntryId("first-day-lesson-1"))).IsSuccess);
+        Assert.True(session.Execute(new ChooseLessonActionCommand("lesson-choice", new ScheduleEntryId("first-day-lesson-1"), "participate")).IsSuccess);
+        Assert.True(session.Execute(new ResolveWellbeingChoiceCommand("wellbeing-choice", "take-breath")).IsSuccess);
+        Assert.False(session.Execute(new AttemptBlockedActionCommand("blocked-choice", "leave-school-early")).IsSuccess);
+
+        var progress = session.Execute(new ProgressMandatoryCommitmentsCommand("progress-school"));
+        Assert.True(progress.IsSuccess);
+        Assert.Equal(DailyLoopContext.AfterSchool, progress.Success!.ReadModel.DayContext);
+        Assert.Equal("school-day-anchors", progress.Success.EvidenceId);
+
+        var social = session.Execute(new DiscoverSocialTouchpointCommand("discover-social", "quiet-reconnection-clue", "future-conversation-hook"));
+        Assert.True(social.IsSuccess);
+        Assert.Equal("quiet-reconnection-clue", social.Success!.ReadModel.SocialClue!.Id);
+        Assert.Equal("future-conversation-hook", social.Success.ReadModel.FutureHookCandidate!.Id);
+
+        var end = session.Execute(new EndDayCommand("end-day"));
+        Assert.True(end.IsSuccess);
+        Assert.True(end.Success!.ReadModel.DayEnded);
+        Assert.Equal(DailyLoopContext.DayComplete, end.Success.ReadModel.DayContext);
+        Assert.Equal("day-complete", end.Success.EvidenceId);
+    }
+
     private static DailyLoopSession CreateSession()
     {
         var entries = new[]
