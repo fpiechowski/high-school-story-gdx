@@ -31,11 +31,11 @@ so that the core daily loop can be proven through the same Application commands 
 
 ## Tasks / Subtasks
 
-- [ ] Define the minimal daily-loop state and typed outcomes below the engine boundary (AC: 1-4)
-  - [ ] Add immutable Domain value types/state for a seeded first-day execution: schedule identity, current time/context, narrowly scoped wellbeing, visible consequences, discovered social clue, and future-hook candidate.
-  - [ ] Keep `GameState` canonical and mutable only through Domain/Application transitions. Do not persist or derive truth from report snapshots, CLI objects, or Godot state.
-  - [ ] Define explicit gameplay rejection/failure payloads and use `Result<TSuccess, TFailure>` for expected rejected commands. Exceptions remain for bugs, corrupt infrastructure, or broken invariants.
-  - [ ] Reuse `ScheduleTime`, `ScheduleDuration`, `DailySchedule`, and `ScheduleEntrySemantics`; do not duplicate time representations or parse schedule JSON outside Content.
+- [x] Define the minimal daily-loop state and typed outcomes below the engine boundary (AC: 1-4)
+  - [x] Add immutable Domain value types/state for a seeded first-day execution: schedule identity, current time/context, narrowly scoped wellbeing, visible consequences, discovered social clue, and future-hook candidate.
+  - [x] Keep `GameState` canonical and mutable only through Domain/Application transitions. Do not persist or derive truth from report snapshots, CLI objects, or Godot state.
+  - [x] Define explicit gameplay rejection/failure payloads and use `Result<TSuccess, TFailure>` for expected rejected commands. Exceptions remain for bugs, corrupt infrastructure, or broken invariants.
+  - [x] Reuse `ScheduleTime`, `ScheduleDuration`, `DailySchedule`, and `ScheduleEntrySemantics`; do not duplicate time representations or parse schedule JSON outside Content.
 
 - [ ] Add real Application daily-loop commands, queries, and read models (AC: 1-3)
   - [ ] Place feature code under `src/HighSchoolStory.Application/Features/DailyLoop/` and scenario/report contracts under `src/HighSchoolStory.Application/Scenario/`.
@@ -162,7 +162,15 @@ GPT-5.6
 
 - Ultimate context engine analysis completed - comprehensive developer guide created.
 - Deliberation decision accepted: implement a narrow production-shaped daily-loop kernel now; reserve the canonical reusable policy for Story 1.3.
+- Domain daily-loop kernel added with immutable seeded `GameState`, transition-only updates, deterministic fingerprints, wellbeing/evidence value types, and typed gameplay failures. Domain tests pass (14/14).
 
 ### File List
 
 - _bmad-output/implementation-artifacts/1-2-deterministic-daily-loop-scenario-runner-path.md
+- src/HighSchoolStory.Domain/DailyLoop/DailyLoopTypes.cs
+- src/HighSchoolStory.Domain/DailyLoop/GameState.cs
+- tests/HighSchoolStory.Domain.Tests/DailyLoop/GameStateTests.cs
+
+### Change Log
+
+- 2026-07-30: Added the minimal engine-independent daily-loop state and typed failure contracts.
