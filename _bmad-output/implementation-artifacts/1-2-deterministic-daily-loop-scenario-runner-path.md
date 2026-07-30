@@ -5,7 +5,7 @@ branch_name: story/1-2/deterministic-daily-loop-scenario-runner-path
 
 # Story 1.2: Deterministic Daily Loop Scenario Runner Path
 
-Status: in-progress
+Status: review
 
 ## Story
 
@@ -58,19 +58,19 @@ so that the core daily loop can be proven through the same Application commands 
   - [x] Parse and validate the scenario fixture in the tool or Content boundary; keep CLI parsing/rendering thin and do not create a second game engine.
   - [x] Keep exit code `2` for invalid invocation/missing path. Establish and test a distinct, stable nonzero exit code for malformed fixture or unmet scenario assertion; print concise diagnostics.
 
-- [ ] Add focused regression evidence (AC: 1-5)
-  - [ ] Add Application tests for each command handler, essential state transition, player-facing snapshot mapping, and typed rejection with state equality before/after.
-  - [ ] Add Scenario tests that run the canonical fixture twice and compare the structured reports, including seed, command order, snapshots, time transitions, and final fingerprint.
-  - [ ] Assert the happy path includes the required lesson action, wellbeing/time trade-off, social discovery, immediate consequence, future-hook candidate, mandatory commitment, and day-end transition.
-  - [ ] Assert the blocked action is reported as expected evidence rather than a test/process crash.
-  - [ ] Extend `tests/HighSchoolStory.Scenario.Tests/TestProjectTests.cs` while preserving all existing ContentValidator and ScenarioRunner help/version/missing-path tests.
-  - [ ] Retain architecture evidence that Domain has no Godot/R3/Ports/JSON/logging dependencies, Application has no Godot or Content dependency, and the CLI has no Godot dependency.
+- [x] Add focused regression evidence (AC: 1-5)
+  - [x] Add Application tests for each command handler, essential state transition, player-facing snapshot mapping, and typed rejection with state equality before/after.
+  - [x] Add Scenario tests that run the canonical fixture twice and compare the structured reports, including seed, command order, snapshots, time transitions, and final fingerprint.
+  - [x] Assert the happy path includes the required lesson action, wellbeing/time trade-off, social discovery, immediate consequence, future-hook candidate, mandatory commitment, and day-end transition.
+  - [x] Assert the blocked action is reported as expected evidence rather than a test/process crash.
+  - [x] Extend `tests/HighSchoolStory.Scenario.Tests/TestProjectTests.cs` while preserving all existing ContentValidator and ScenarioRunner help/version/missing-path tests.
+  - [x] Retain architecture evidence that Domain has no Godot/R3/Ports/JSON/logging dependencies, Application has no Godot or Content dependency, and the CLI has no Godot dependency.
 
-- [ ] Verify the documented tool contract and repository gates (AC: 1-5)
-  - [ ] Run the narrow Application and Scenario test projects first, then `dotnet test` before handoff.
-  - [ ] Exercise `dotnet run --project tools/HighSchoolStory.ScenarioRunner -- --help`, `--version`, a missing fixture path, the canonical fixture, and a malformed fixture.
-  - [ ] Run `dotnet build "High School Story.sln"` only if project/build configuration changes.
-  - [ ] Do not run Godot smoke checks unless this story changes Godot-host or engine-integration code.
+- [x] Verify the documented tool contract and repository gates (AC: 1-5)
+  - [x] Run the narrow Application and Scenario test projects first, then `dotnet test` before handoff.
+  - [x] Exercise `dotnet run --project tools/HighSchoolStory.ScenarioRunner -- --help`, `--version`, a missing fixture path, the canonical fixture, and a malformed fixture.
+  - [x] Run `dotnet build "High School Story.sln"` only if project/build configuration changes.
+  - [x] Do not run Godot smoke checks unless this story changes Godot-host or engine-integration code.
 
 ## Dev Notes
 
@@ -158,6 +158,13 @@ GPT-5.6
 
 - Story-context analysis completed from epics, architecture, GDD, UX, project context, previous story, current code, Git history, and current Microsoft documentation.
 
+### Implementation Plan
+
+- Keep `GameState` immutable and Domain-owned; express each allowed daily-loop change as a `DailyLoopTransition`.
+- Route the canonical path through named Application handlers and expose only `DailyLoopReadModel`/`DecisionSnapshot` to the scenario adapter.
+- Let the fixture identify commands and assertions only; load the authored schedule through `DailyScheduleLoader` and execute with controlled clock/RNG dependencies.
+- Treat expected rejection as a typed `Result` outcome, record before/after fingerprints, and format the report from stable IDs, seeded values, and authored schedule boundaries.
+
 ### Completion Notes List
 
 - Ultimate context engine analysis completed - comprehensive developer guide created.
@@ -166,6 +173,8 @@ GPT-5.6
 - Application daily-loop handlers and read models added for context review, mandatory progression, active lesson choice, wellbeing trade-off, social discovery, blocked action, and day end. Application tests pass (3/3).
 - Deterministic scenario contracts, strict fixture loading, canonical `one-school-day.json`, report formatting, and twice-run equivalence evidence added. Scenario tests pass (11/11).
 - ScenarioRunner CLI now composes validated Content with Application, controlled clock/RNG, and stable report output. Process tests cover canonical execution, malformed fixture exit 3, assertion exit 4, and the existing CLI contract (14/14 Scenario tests).
+- Focused regression evidence covers every daily-loop handler, canonical fixture equivalence across two runs, typed blocked-choice state equality, architecture boundaries, and required CLI diagnostics.
+- Repository verification passed: `dotnet test` 80/80; `dotnet build "High School Story.sln"` 0 warnings/0 errors; ScenarioRunner help/version/missing/canonical manual matrix exited 0/0/2/0; malformed fixture and unmet assertion are covered by process tests with exit 3/4.
 
 ### File List
 
@@ -190,6 +199,7 @@ GPT-5.6
 - tests/HighSchoolStory.Scenario.Tests/DailyLoopScenarioTests.cs
 - tools/HighSchoolStory.ScenarioRunner/Program.cs
 - tests/HighSchoolStory.Scenario.Tests/TestProjectTests.cs
+- _bmad-output/implementation-artifacts/sprint-status.yaml
 
 ### Change Log
 
@@ -197,3 +207,4 @@ GPT-5.6
 - 2026-07-30: Added Application command handlers, decision snapshots, controlled runtime ports, and canonical session transitions.
 - 2026-07-30: Added the canonical deterministic scenario fixture, typed scenario contracts, strict fixture parsing, and stable report evidence.
 - 2026-07-30: Replaced the ScenarioRunner scaffold with thin validated-content composition and stable exit-code/report behavior.
+- 2026-07-30: Completed focused regression evidence and repository verification gates; implementation is ready for review.
