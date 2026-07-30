@@ -45,6 +45,7 @@ public sealed record ScenarioCommandReport(
     ScenarioExpectedOutcome Outcome,
     ScheduleTime TimeBefore,
     ScheduleTime TimeAfter,
+    DailyLoopFailureCode? ExpectedFailureCode,
     DailyLoopFailureCode? FailureCode,
     string? EvidenceId,
     DailyLoopReadModel ReadModel);

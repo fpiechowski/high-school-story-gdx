@@ -56,6 +56,10 @@ public sealed class ScenarioFixtureLoader
                     return Fail($"Fixture command '{command.Id}' has unsupported type '{command.Type}'.");
                 if (!TryParseOutcome(command.ExpectedOutcome, out var expectedOutcome))
                     return Fail($"Fixture command '{command.Id}' has unsupported expectedOutcome '{command.ExpectedOutcome}'.");
+                EnsureOptionalId(command.TargetId, "targetId");
+                EnsureOptionalId(command.ChoiceId, "choiceId");
+                EnsureOptionalId(command.ClueId, "clueId");
+                EnsureOptionalId(command.FutureHookId, "futureHookId");
 
                 var snapshot = ParseSnapshot(command.Snapshot, command.Id, out var snapshotFailure);
                 if (snapshotFailure is not null)
@@ -241,6 +245,12 @@ public sealed class ScenarioFixtureLoader
     {
         if (string.IsNullOrWhiteSpace(value) || !LowerKebabCase.IsMatch(value))
             throw new ArgumentException($"Fixture {field} must use lower-kebab-case.");
+    }
+
+    private static void EnsureOptionalId(string? value, string field)
+    {
+        if (value is not null)
+            EnsureId(value, field);
     }
 
     private static Result<DailyLoopScenarioDefinition, ScenarioFixtureFailure> Fail(string message) =>

@@ -47,6 +47,7 @@ public static class ScenarioReportFormatter
         outcome = command.Outcome == ScenarioExpectedOutcome.Success ? "success" : "rejected",
         timeBefore = FormatTime(command.TimeBefore),
         timeAfter = FormatTime(command.TimeAfter),
+        expectedFailureCode = command.ExpectedFailureCode.HasValue ? FormatFailureCode(command.ExpectedFailureCode.Value) : null,
         failureCode = command.FailureCode.HasValue ? FormatFailureCode(command.FailureCode.Value) : null,
         evidenceId = command.EvidenceId,
         snapshot = ToSnapshot(command.ReadModel.DecisionSnapshot),

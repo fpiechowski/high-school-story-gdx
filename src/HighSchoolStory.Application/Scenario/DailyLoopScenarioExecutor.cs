@@ -69,6 +69,7 @@ public sealed class DailyLoopScenarioExecutor
                     ScenarioExpectedOutcome.Success,
                     commandResult.TimeBefore,
                     commandResult.TimeAfter,
+                    step.ExpectedFailureCode,
                     null,
                     commandResult.EvidenceId,
                     commandResult.ReadModel));
@@ -99,6 +100,7 @@ public sealed class DailyLoopScenarioExecutor
                 ScenarioExpectedOutcome.Rejected,
                 readModel.CurrentTime,
                 readModel.CurrentTime,
+                step.ExpectedFailureCode,
                 failure.Code,
                 null,
                 readModel));
