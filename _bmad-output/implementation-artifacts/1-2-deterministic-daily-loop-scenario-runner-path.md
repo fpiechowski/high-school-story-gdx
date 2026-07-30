@@ -37,19 +37,19 @@ so that the core daily loop can be proven through the same Application commands 
   - [x] Define explicit gameplay rejection/failure payloads and use `Result<TSuccess, TFailure>` for expected rejected commands. Exceptions remain for bugs, corrupt infrastructure, or broken invariants.
   - [x] Reuse `ScheduleTime`, `ScheduleDuration`, `DailySchedule`, and `ScheduleEntrySemantics`; do not duplicate time representations or parse schedule JSON outside Content.
 
-- [ ] Add real Application daily-loop commands, queries, and read models (AC: 1-3)
-  - [ ] Place feature code under `src/HighSchoolStory.Application/Features/DailyLoop/` and scenario/report contracts under `src/HighSchoolStory.Application/Scenario/`.
-  - [ ] Implement named command handlers for the evidence path: `ReviewDayContext`, mandatory commitment/lesson progression, one active lesson choice, one wellbeing/time choice, one social discovery touchpoint, a deliberately blocked action, and end-of-day transition.
-  - [ ] Every command invoked by the fixture must travel through an Application handler; ScenarioRunner must not apply a parallel state transition.
-  - [ ] Expose read models rather than Domain aggregates. Decision snapshots must include current time, day context, next commitment, available window, feasibility status, next-boundary text, textual warning/block label, and qualitative severity.
-  - [ ] Make the active lesson choice observable and deterministic. Do not build Story 3.2's full three-block lesson runtime; document any temporary lesson transition as deliberately narrow.
-  - [ ] Model the social/memory proof as typed, minimal evidence (for example a discovered clue and future-hook candidate), not as a premature Dialogue, Relationships, or Memory Ledger subsystem.
+- [x] Add real Application daily-loop commands, queries, and read models (AC: 1-3)
+  - [x] Place feature code under `src/HighSchoolStory.Application/Features/DailyLoop/` and scenario/report contracts under `src/HighSchoolStory.Application/Scenario/`.
+  - [x] Implement named command handlers for the evidence path: `ReviewDayContext`, mandatory commitment/lesson progression, one active lesson choice, one wellbeing/time choice, one social discovery touchpoint, a deliberately blocked action, and end-of-day transition.
+  - [x] Every command invoked by the fixture must travel through an Application handler; ScenarioRunner must not apply a parallel state transition.
+  - [x] Expose read models rather than Domain aggregates. Decision snapshots must include current time, day context, next commitment, available window, feasibility status, next-boundary text, textual warning/block label, and qualitative severity.
+  - [x] Make the active lesson choice observable and deterministic. Do not build Story 3.2's full three-block lesson runtime; document any temporary lesson transition as deliberately narrow.
+  - [x] Model the social/memory proof as typed, minimal evidence (for example a discovered clue and future-hook candidate), not as a premature Dialogue, Relationships, or Memory Ledger subsystem.
 
-- [ ] Define the deterministic scenario and report contracts (AC: 1, 2, 4, 5)
-  - [ ] Create `content/fixtures/vertical-slice/one-school-day.json` with lower-kebab-case IDs, schema version, scenario ID, seed, schedule ID, ordered commands, and expected outcomes/snapshot assertions.
-  - [ ] Treat the fixture as a script over validated catalog content, not a second authored calendar. It identifies `first-school-day`; its commands must not contain independently calculated availability, timestamps, or effects.
-  - [ ] Record scenario ID, fixture version, seed, schedule ID, command outcome, typed expected rejection, time before/after, read-model snapshot, honored commitment, and final-state fingerprint in a stable report contract.
-  - [ ] Sort/format report fields deterministically and avoid machine-specific paths, current wall-clock time, non-seeded randomness, or Godot frame time.
+- [x] Define the deterministic scenario and report contracts (AC: 1, 2, 4, 5)
+  - [x] Create `content/fixtures/vertical-slice/one-school-day.json` with lower-kebab-case IDs, schema version, scenario ID, seed, schedule ID, ordered commands, and expected outcomes/snapshot assertions.
+  - [x] Treat the fixture as a script over validated catalog content, not a second authored calendar. It identifies `first-school-day`; its commands must not contain independently calculated availability, timestamps, or effects.
+  - [x] Record scenario ID, fixture version, seed, schedule ID, command outcome, typed expected rejection, time before/after, read-model snapshot, honored commitment, and final-state fingerprint in a stable report contract.
+  - [x] Sort/format report fields deterministically and avoid machine-specific paths, current wall-clock time, non-seeded randomness, or Godot frame time.
 
 - [ ] Replace the ScenarioRunner scaffold with thin composition and execution (AC: 1-5)
   - [ ] Update `tools/HighSchoolStory.ScenarioRunner/Program.cs` without breaking its existing discovery contract.
@@ -163,6 +163,8 @@ GPT-5.6
 - Ultimate context engine analysis completed - comprehensive developer guide created.
 - Deliberation decision accepted: implement a narrow production-shaped daily-loop kernel now; reserve the canonical reusable policy for Story 1.3.
 - Domain daily-loop kernel added with immutable seeded `GameState`, transition-only updates, deterministic fingerprints, wellbeing/evidence value types, and typed gameplay failures. Domain tests pass (14/14).
+- Application daily-loop handlers and read models added for context review, mandatory progression, active lesson choice, wellbeing trade-off, social discovery, blocked action, and day end. Application tests pass (3/3).
+- Deterministic scenario contracts, strict fixture loading, canonical `one-school-day.json`, report formatting, and twice-run equivalence evidence added. Scenario tests pass (11/11).
 
 ### File List
 
@@ -170,7 +172,24 @@ GPT-5.6
 - src/HighSchoolStory.Domain/DailyLoop/DailyLoopTypes.cs
 - src/HighSchoolStory.Domain/DailyLoop/GameState.cs
 - tests/HighSchoolStory.Domain.Tests/DailyLoop/GameStateTests.cs
+- src/HighSchoolStory.Ports/Time/IClock.cs
+- src/HighSchoolStory.Ports/Time/IRandomSource.cs
+- src/HighSchoolStory.Application/Features/DailyLoop/DailyLoopCommands.cs
+- src/HighSchoolStory.Application/Features/DailyLoop/DailyLoopHandlers.cs
+- src/HighSchoolStory.Application/Features/DailyLoop/DailyLoopReadModels.cs
+- src/HighSchoolStory.Application/Features/DailyLoop/DailyLoopReadModelMapper.cs
+- src/HighSchoolStory.Application/Features/DailyLoop/DailyLoopScheduleQueries.cs
+- src/HighSchoolStory.Application/Features/DailyLoop/DailyLoopSession.cs
+- tests/HighSchoolStory.Application.Tests/DailyLoop/DailyLoopSessionTests.cs
+- src/HighSchoolStory.Application/Scenario/DailyLoopScenarioContracts.cs
+- src/HighSchoolStory.Application/Scenario/DailyLoopScenarioExecutor.cs
+- tools/HighSchoolStory.ScenarioRunner/ScenarioFixtureLoader.cs
+- tools/HighSchoolStory.ScenarioRunner/ScenarioReportFormatter.cs
+- content/fixtures/vertical-slice/one-school-day.json
+- tests/HighSchoolStory.Scenario.Tests/DailyLoopScenarioTests.cs
 
 ### Change Log
 
 - 2026-07-30: Added the minimal engine-independent daily-loop state and typed failure contracts.
+- 2026-07-30: Added Application command handlers, decision snapshots, controlled runtime ports, and canonical session transitions.
+- 2026-07-30: Added the canonical deterministic scenario fixture, typed scenario contracts, strict fixture parsing, and stable report evidence.
