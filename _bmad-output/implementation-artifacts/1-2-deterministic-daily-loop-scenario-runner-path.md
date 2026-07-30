@@ -1,6 +1,11 @@
+---
+baseline_commit: 2e792db35ffb263bee5a6ced0a95935c7f692188
+branch_name: story/1-2/deterministic-daily-loop-scenario-runner-path
+---
+
 # Story 1.2: Deterministic Daily Loop Scenario Runner Path
 
-Status: ready-for-dev
+Status: in-progress
 
 ## Story
 
