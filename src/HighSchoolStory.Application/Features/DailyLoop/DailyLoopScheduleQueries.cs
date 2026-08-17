@@ -10,22 +10,25 @@ internal static class DailyLoopScheduleQueries
 
     public static ScheduleEntry? FindNextLesson(DailySchedule schedule, GameState state) =>
         schedule.Entries
-            .Where(x => x.Kind == ScheduleEntryKind.Lesson && !state.HonoredCommitments.Contains(x.Id))
+            .Where(x => x.Semantics == ScheduleEntrySemantics.HardCommitment && x.Kind == ScheduleEntryKind.Lesson && !state.HonoredCommitments.Contains(x.Id))
             .OrderBy(x => x.Start.MinutesSinceMidnight)
             .FirstOrDefault(x => x.Start.MinutesSinceMidnight >= state.CurrentTime.MinutesSinceMidnight);
 
     public static ScheduleEntry? FindAfterSchool(DailySchedule schedule) =>
-        schedule.Entries.FirstOrDefault(x => x.Kind == ScheduleEntryKind.AfterSchoolFree);
+        schedule.Entries.FirstOrDefault(x => x.Semantics == ScheduleEntrySemantics.AvailabilityWindow && x.Kind == ScheduleEntryKind.AfterSchoolFree);
 
     public static ScheduleEntry? FindDormReturn(DailySchedule schedule) =>
-        schedule.Entries.FirstOrDefault(x => x.Kind == ScheduleEntryKind.DormReturn);
+        schedule.Entries.FirstOrDefault(x => x.Semantics == ScheduleEntrySemantics.Boundary && x.Kind == ScheduleEntryKind.DormReturn);
 
     public static ScheduleEntry? FindLatestSleep(DailySchedule schedule) =>
-        schedule.Entries.FirstOrDefault(x => x.Kind == ScheduleEntryKind.LatestSleep);
+        schedule.Entries.FirstOrDefault(x => x.Semantics == ScheduleEntrySemantics.Boundary && x.Kind == ScheduleEntryKind.LatestSleep);
+
+    public static ScheduleEntry? FindWindDown(DailySchedule schedule) =>
+        schedule.Entries.FirstOrDefault(x => x.Semantics == ScheduleEntrySemantics.FixedWindow && x.Kind == ScheduleEntryKind.WindDown);
 
     public static ScheduleEntry? FindBreakAt(DailySchedule schedule, int minutes) =>
         schedule.Entries.FirstOrDefault(x =>
-            x.Kind == ScheduleEntryKind.Break &&
+            x.Semantics == ScheduleEntrySemantics.AvailabilityWindow && x.Kind == ScheduleEntryKind.Break &&
             x.Start.MinutesSinceMidnight <= minutes &&
             minutes < x.Start.MinutesSinceMidnight + x.Duration.Minutes);
 

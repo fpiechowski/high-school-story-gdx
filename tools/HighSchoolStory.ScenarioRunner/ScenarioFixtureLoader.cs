@@ -48,6 +48,8 @@ public sealed class ScenarioFixtureLoader
             var commands = new List<DailyLoopScenarioStep>();
             foreach (var command in dto.Commands)
             {
+                if (command is null)
+                    return Fail("Fixture command elements must not be null.");
                 EnsureId(command.Id, "command id");
                 if (!ids.Add(command.Id))
                     return Fail($"Fixture command ID '{command.Id}' is duplicated.");
@@ -56,6 +58,8 @@ public sealed class ScenarioFixtureLoader
                     return Fail($"Fixture command '{command.Id}' has unsupported type '{command.Type}'.");
                 if (!TryParseOutcome(command.ExpectedOutcome, out var expectedOutcome))
                     return Fail($"Fixture command '{command.Id}' has unsupported expectedOutcome '{command.ExpectedOutcome}'.");
+                if (!HasRequiredFields(command, commandType))
+                    return Fail($"Fixture command '{command.Id}' is missing fields required by '{command.Type}'.");
                 EnsureOptionalId(command.TargetId, "targetId");
                 EnsureOptionalId(command.ChoiceId, "choiceId");
                 EnsureOptionalId(command.ClueId, "clueId");
@@ -66,6 +70,8 @@ public sealed class ScenarioFixtureLoader
                     return Fail(snapshotFailure);
                 if (!TryParseFailureCode(command.ExpectedFailureCode, out var expectedFailureCode))
                     return Fail($"Fixture command '{command.Id}' has unsupported expectedFailureCode '{command.ExpectedFailureCode}'.");
+                if (expectedOutcome == ScenarioExpectedOutcome.Rejected && !expectedFailureCode.HasValue)
+                    return Fail($"Fixture rejected command '{command.Id}' requires expectedFailureCode.");
 
                 commands.Add(new(
                     command.Id,
@@ -159,6 +165,16 @@ public sealed class ScenarioFixtureLoader
         };
         return value is "review-day-context" or "honor-mandatory-commitment" or "choose-lesson-action" or "resolve-wellbeing-choice" or "progress-mandatory-commitments" or "discover-social-touchpoint" or "attempt-blocked-action" or "end-day";
     }
+
+    private static bool HasRequiredFields(CommandDto command, DailyLoopCommandType commandType) => commandType switch
+    {
+        DailyLoopCommandType.HonorMandatoryCommitment => !string.IsNullOrWhiteSpace(command.TargetId),
+        DailyLoopCommandType.ChooseLessonAction => !string.IsNullOrWhiteSpace(command.TargetId) && !string.IsNullOrWhiteSpace(command.ChoiceId),
+        DailyLoopCommandType.ResolveWellbeingChoice => !string.IsNullOrWhiteSpace(command.ChoiceId),
+        DailyLoopCommandType.DiscoverSocialTouchpoint => !string.IsNullOrWhiteSpace(command.ClueId) && !string.IsNullOrWhiteSpace(command.FutureHookId),
+        DailyLoopCommandType.AttemptBlockedAction => !string.IsNullOrWhiteSpace(command.TargetId),
+        _ => true,
+    };
 
     private static bool TryParseOutcome(string? value, out ScenarioExpectedOutcome result)
     {
@@ -263,7 +279,7 @@ public sealed class ScenarioFixtureLoader
         public required string FixtureVersion { get; init; }
         public required int Seed { get; init; }
         public required string ScheduleId { get; init; }
-        public required List<CommandDto>? Commands { get; init; }
+        public required List<CommandDto?>? Commands { get; init; }
     }
 
     private sealed class CommandDto

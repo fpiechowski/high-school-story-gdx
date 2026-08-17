@@ -6,7 +6,7 @@ pull_request_url: https://github.com/codex-fp/high-school-story/pull/5
 
 # Story 1.2: Deterministic Daily Loop Scenario Runner Path
 
-Status: review
+Status: done
 
 ## Story
 
@@ -72,6 +72,24 @@ so that the core daily loop can be proven through the same Application commands 
   - [x] Exercise `dotnet run --project tools/HighSchoolStory.ScenarioRunner -- --help`, `--version`, a missing fixture path, the canonical fixture, and a malformed fixture.
   - [x] Run `dotnet build "High School Story.sln"` only if project/build configuration changes.
   - [x] Do not run Godot smoke checks unless this story changes Godot-host or engine-integration code.
+
+### Review Findings
+
+- [x] [Review][Patch] [P1] Reject repeated `EndDay` commands with typed `DayAlreadyEnded` instead of allowing `GameState.Apply` to throw [src/HighSchoolStory.Application/Features/DailyLoop/DailyLoopHandlers.cs:165-183]
+- [x] [Review][Patch] [P1] Prevent `ProgressMandatoryCommitments` from being called at 06:00 and skipping every lesson before the active lesson path [src/HighSchoolStory.Application/Features/DailyLoop/DailyLoopHandlers.cs:98-116]
+- [x] [Review][Patch] [P1] Require the authored dorm-return and wind-down boundary before completing the day [src/HighSchoolStory.Application/Features/DailyLoop/DailyLoopHandlers.cs:165-183]
+- [x] [Review][Patch] [P1] Convert missing-schedule execution into typed `ScheduleUnavailable` diagnostics instead of throwing while building a rejected-step read model [src/HighSchoolStory.Application/Scenario/DailyLoopScenarioExecutor.cs:84-92]
+- [x] [Review][Patch] [P2] Reject null command elements in a fixture and preserve malformed-fixture exit code `3` [tools/HighSchoolStory.ScenarioRunner/ScenarioFixtureLoader.cs:49-51]
+- [x] [Review][Patch] [P2] Resolve repository content from the fixture path or another stable root so absolute fixture invocations work outside the repository working directory [tools/HighSchoolStory.ScenarioRunner/Program.cs:76-87]
+- [x] [Review][Patch] [P2] Make the injected controlled clock affect the initial/legality path or remove the unused dependency [src/HighSchoolStory.Application/Features/DailyLoop/DailyLoopSession.cs:13-28]
+- [x] [Review][Patch] [P2] Require `expectedFailureCode` for rejected fixture commands so the runner cannot silently accept the wrong typed failure [src/HighSchoolStory.Application/Scenario/DailyLoopScenarioExecutor.cs:84-85]
+- [x] [Review][Patch] [P1] Prevent public `GameState.Apply` from accepting arbitrary commitments and end-day transitions outside validated Application handlers [src/HighSchoolStory.Domain/DailyLoop/GameState.cs:84-115]
+- [x] [Review][Patch] [P2] Return a day-complete snapshot without a stale latest-sleep next boundary after `DayEnded` [src/HighSchoolStory.Application/Features/DailyLoop/DailyLoopReadModelMapper.cs:11-44]
+- [x] [Review][Patch] [P2] Validate type-specific required fixture fields during loading so malformed commands return exit code `3`, not execution exit code `4` [tools/HighSchoolStory.ScenarioRunner/ScenarioFixtureLoader.cs:55-79]
+- [x] [Review][Patch] [P2] Include visible consequence and clue labels in the canonical state fingerprint used for state-equality evidence [src/HighSchoolStory.Domain/DailyLoop/GameState.cs:118-137]
+- [x] [Review][Patch] [P2] Return typed rejection for empty social clue/future-hook IDs instead of allowing Application constructors to throw [src/HighSchoolStory.Application/Features/DailyLoop/DailyLoopHandlers.cs:123-143]
+- [x] [Review][Patch] [P3] Make wellbeing delta arithmetic saturating for extreme integer inputs [src/HighSchoolStory.Domain/DailyLoop/DailyLoopTypes.cs:47-49]
+- [x] [Review][Patch] [P2] Reuse `ScheduleEntrySemantics` for general commitment/boundary queries instead of reclassifying schedule entries only by `ScheduleEntryKind` [src/HighSchoolStory.Application/Features/DailyLoop/DailyLoopScheduleQueries.cs:11-24]
 
 ## Dev Notes
 
@@ -171,18 +189,19 @@ GPT-5.6
 - Ultimate context engine analysis completed - comprehensive developer guide created.
 - Deliberation decision accepted: implement a narrow production-shaped daily-loop kernel now; reserve the canonical reusable policy for Story 1.3.
 - Domain daily-loop kernel added with immutable seeded `GameState`, transition-only updates, deterministic fingerprints, wellbeing/evidence value types, and typed gameplay failures. Domain tests pass (14/14).
-- Application daily-loop handlers and read models added for context review, mandatory progression, active lesson choice, wellbeing trade-off, social discovery, blocked action, and day end. Application tests pass (3/3).
-- Deterministic scenario contracts, strict fixture loading, canonical `one-school-day.json`, report formatting, and twice-run equivalence evidence added. Scenario tests pass (11/11).
+- Application daily-loop handlers and read models added for context review, mandatory progression, active lesson choice, wellbeing trade-off, social discovery, blocked action, and day end. Application tests pass (7/7).
+- Deterministic scenario contracts, strict fixture loading, canonical `one-school-day.json`, report formatting, and twice-run equivalence evidence added. Scenario tests pass (16/16).
 - ScenarioRunner CLI now composes validated Content with Application, controlled clock/RNG, and stable report output. Process tests cover canonical execution, malformed fixture exit 3, assertion exit 4, and the existing CLI contract (14/14 Scenario tests).
 - Focused regression evidence covers every daily-loop handler, canonical fixture equivalence across two runs, typed blocked-choice state equality, architecture boundaries, and required CLI diagnostics.
-- Repository verification passed: `dotnet test` 80/80; `dotnet build "High School Story.sln"` 0 warnings/0 errors; ScenarioRunner help/version/missing/canonical manual matrix exited 0/0/2/0; malformed fixture and unmet assertion are covered by process tests with exit 3/4.
+- Review hardening closed all 15 patch findings: transition mutation is internal to the Domain/Application boundary, day-end and progression boundaries are explicit, fixture diagnostics are typed and strict, and deterministic fingerprints include player-visible evidence.
+- Repository verification passed: `dotnet test` 87/87; `dotnet build "High School Story.sln"` 0 warnings/0 errors; ScenarioRunner help/version/missing/canonical/outside-cwd manual matrix exited 0/0/2/0/0; malformed fixture and unmet assertion are covered by process tests with exit 3/4.
 
 ### File List
 
 - _bmad-output/implementation-artifacts/1-2-deterministic-daily-loop-scenario-runner-path.md
 - src/HighSchoolStory.Domain/DailyLoop/DailyLoopTypes.cs
 - src/HighSchoolStory.Domain/DailyLoop/GameState.cs
-- tests/HighSchoolStory.Domain.Tests/DailyLoop/GameStateTests.cs
+- src/HighSchoolStory.Domain/Properties/AssemblyInfo.cs
 - src/HighSchoolStory.Ports/Time/IClock.cs
 - src/HighSchoolStory.Ports/Time/IRandomSource.cs
 - src/HighSchoolStory.Application/Features/DailyLoop/DailyLoopCommands.cs
@@ -192,14 +211,15 @@ GPT-5.6
 - src/HighSchoolStory.Application/Features/DailyLoop/DailyLoopScheduleQueries.cs
 - src/HighSchoolStory.Application/Features/DailyLoop/DailyLoopSession.cs
 - tests/HighSchoolStory.Application.Tests/DailyLoop/DailyLoopSessionTests.cs
+- tests/HighSchoolStory.Domain.Tests/DailyLoop/GameStateTests.cs
 - src/HighSchoolStory.Application/Scenario/DailyLoopScenarioContracts.cs
 - src/HighSchoolStory.Application/Scenario/DailyLoopScenarioExecutor.cs
 - tools/HighSchoolStory.ScenarioRunner/ScenarioFixtureLoader.cs
 - tools/HighSchoolStory.ScenarioRunner/ScenarioReportFormatter.cs
 - content/fixtures/vertical-slice/one-school-day.json
-- tests/HighSchoolStory.Scenario.Tests/DailyLoopScenarioTests.cs
 - tools/HighSchoolStory.ScenarioRunner/Program.cs
 - tests/HighSchoolStory.Scenario.Tests/TestProjectTests.cs
+- tests/HighSchoolStory.Scenario.Tests/DailyLoopScenarioTests.cs
 - _bmad-output/implementation-artifacts/sprint-status.yaml
 
 ### Change Log
@@ -209,3 +229,4 @@ GPT-5.6
 - 2026-07-30: Added the canonical deterministic scenario fixture, typed scenario contracts, strict fixture parsing, and stable report evidence.
 - 2026-07-30: Replaced the ScenarioRunner scaffold with thin validated-content composition and stable exit-code/report behavior.
 - 2026-07-30: Completed focused regression evidence and repository verification gates; implementation is ready for review.
+- 2026-08-17: Closed the adversarial review findings, expanded regression coverage, and marked the story done pending merge.

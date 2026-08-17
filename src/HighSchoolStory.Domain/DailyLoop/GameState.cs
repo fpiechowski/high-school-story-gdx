@@ -65,11 +65,11 @@ public sealed record GameState
     public ImmutableArray<VisibleConsequence> VisibleConsequences { get; }
     public bool DayEnded { get; }
 
-    public static GameState CreateSeeded(ScheduleId scheduleId, DayOfWeek dayOfWeek, int seed) => new(
+    public static GameState CreateSeeded(ScheduleId scheduleId, DayOfWeek dayOfWeek, int seed, ScheduleTime? initialTime = null) => new(
         scheduleId,
         dayOfWeek,
         seed,
-        ScheduleTime.FromHoursAndMinutes(6, 0),
+        initialTime ?? ScheduleTime.FromHoursAndMinutes(6, 0),
         DailyLoopContext.BeforeSchool,
         new AnchorLocationId("dorm"),
         new WellbeingState(70, 20),
@@ -81,7 +81,7 @@ public sealed record GameState
         ImmutableArray<VisibleConsequence>.Empty,
         false);
 
-    public GameState Apply(DailyLoopTransition transition)
+    internal GameState Apply(DailyLoopTransition transition)
     {
         ArgumentNullException.ThrowIfNull(transition);
 
@@ -117,8 +117,10 @@ public sealed record GameState
 
     public string Fingerprint()
     {
-        var commitments = string.Join(',', HonoredCommitments.Select(x => x.Value).Order(StringComparer.Ordinal));
-        var consequences = string.Join(',', VisibleConsequences.Select(x => x.Id));
+        var commitments = string.Join(',', HonoredCommitments.Select(x => Encode(x.Value)).Order(StringComparer.Ordinal));
+        var consequences = string.Join(',', VisibleConsequences.Select(x => $"{Encode(x.Id)}={Encode(x.PlayerLabel)}"));
+        var socialClue = SocialClue is null ? string.Empty : $"{Encode(SocialClue.Id)}={Encode(SocialClue.PlayerLabel)}";
+        var futureHook = FutureHookCandidate is null ? string.Empty : $"{Encode(FutureHookCandidate.Id)}={Encode(FutureHookCandidate.PlayerLabel)}";
         return string.Join('|',
             ScheduleId.Value,
             DayOfWeek,
@@ -131,9 +133,11 @@ public sealed record GameState
             commitments,
             LessonChoiceId ?? string.Empty,
             WellbeingChoiceId ?? string.Empty,
-            SocialClue?.Id ?? string.Empty,
-            FutureHookCandidate?.Id ?? string.Empty,
+            socialClue,
+            futureHook,
             consequences,
             DayEnded);
     }
+
+    private static string Encode(string value) => $"{value.Length}:{value}";
 }

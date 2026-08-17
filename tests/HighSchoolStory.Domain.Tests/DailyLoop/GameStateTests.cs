@@ -58,4 +58,35 @@ public sealed class GameStateTests
         Assert.Equal(DailyLoopFailureCode.MandatoryCommitment, result.Failure!.Code);
         Assert.Equal("School commitments still require attendance.", result.Failure.Message);
     }
+
+    [Fact]
+    public void Fingerprint_includes_player_visible_evidence_labels()
+    {
+        var first = GameState.CreateSeeded(new ScheduleId("first-school-day"), DayOfWeek.Monday, 1201).Apply(
+            new DailyLoopTransition(
+                ScheduleTime.FromHoursAndMinutes(8, 0),
+                DailyLoopContext.School,
+                new AnchorLocationId("school"),
+                SocialClue: new SocialClue("clue", "You noticed a quiet invitation."),
+                FutureHookCandidate: new FutureHookCandidate("hook", "A future conversation may grow."),
+                Consequence: new VisibleConsequence("consequence", "The visible result is clear.")));
+        var second = GameState.CreateSeeded(new ScheduleId("first-school-day"), DayOfWeek.Monday, 1201).Apply(
+            new DailyLoopTransition(
+                ScheduleTime.FromHoursAndMinutes(8, 0),
+                DailyLoopContext.School,
+                new AnchorLocationId("school"),
+                SocialClue: new SocialClue("clue", "A different clue label."),
+                FutureHookCandidate: new FutureHookCandidate("hook", "A different hook label."),
+                Consequence: new VisibleConsequence("consequence", "A different consequence label.")));
+
+        Assert.NotEqual(first.Fingerprint(), second.Fingerprint());
+    }
+
+    [Fact]
+    public void Wellbeing_adjustment_saturates_extreme_deltas()
+    {
+        var wellbeing = new WellbeingState(70, 20).Adjust(int.MaxValue, int.MinValue);
+
+        Assert.Equal(new WellbeingState(100, 0), wellbeing);
+    }
 }

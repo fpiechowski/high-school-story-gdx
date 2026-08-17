@@ -45,8 +45,10 @@ public readonly record struct WellbeingState
     public int Stress { get; }
 
     public WellbeingState Adjust(int energyDelta, int stressDelta) => new(
-        Math.Clamp(Energy + energyDelta, 0, 100),
-        Math.Clamp(Stress + stressDelta, 0, 100));
+        Clamp(Energy, energyDelta),
+        Clamp(Stress, stressDelta));
+
+    private static int Clamp(int current, int delta) => (int)Math.Clamp((long)current + delta, 0L, 100L);
 }
 
 public sealed record VisibleConsequence

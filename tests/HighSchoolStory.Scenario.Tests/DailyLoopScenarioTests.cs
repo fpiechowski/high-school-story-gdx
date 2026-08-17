@@ -54,6 +54,58 @@ public sealed class DailyLoopScenarioTests
         }
     }
 
+    [Fact]
+    public void Fixture_loader_rejects_null_commands_and_missing_type_specific_fields()
+    {
+        var paths = new[]
+        {
+            Path.Combine(Path.GetTempPath(), $"scenario-null-command-{Guid.NewGuid():N}.json"),
+            Path.Combine(Path.GetTempPath(), $"scenario-missing-field-{Guid.NewGuid():N}.json"),
+            Path.Combine(Path.GetTempPath(), $"scenario-missing-failure-code-{Guid.NewGuid():N}.json"),
+        };
+        File.WriteAllText(paths[0], "{\"schemaVersion\":1,\"scenarioId\":\"bad\",\"fixtureVersion\":\"1.0\",\"seed\":1,\"scheduleId\":\"first-school-day\",\"commands\":[null]}");
+        File.WriteAllText(paths[1], "{\"schemaVersion\":1,\"scenarioId\":\"bad\",\"fixtureVersion\":\"1.0\",\"seed\":1,\"scheduleId\":\"first-school-day\",\"commands\":[{\"id\":\"honor\",\"type\":\"honor-mandatory-commitment\",\"expectedOutcome\":\"success\"}]}");
+        File.WriteAllText(paths[2], "{\"schemaVersion\":1,\"scenarioId\":\"bad\",\"fixtureVersion\":\"1.0\",\"seed\":1,\"scheduleId\":\"first-school-day\",\"commands\":[{\"id\":\"blocked\",\"type\":\"attempt-blocked-action\",\"targetId\":\"leave-school-early\",\"expectedOutcome\":\"rejected\"}]}");
+        try
+        {
+            var loader = new ScenarioFixtureLoader();
+
+            var nullCommand = loader.Load(paths[0]);
+            var missingField = loader.Load(paths[1]);
+            var missingFailureCode = loader.Load(paths[2]);
+
+            Assert.False(nullCommand.IsSuccess);
+            Assert.Contains("must not be null", nullCommand.Failure!.Message);
+            Assert.False(missingField.IsSuccess);
+            Assert.Contains("missing fields", missingField.Failure!.Message);
+            Assert.False(missingFailureCode.IsSuccess);
+            Assert.Contains("requires expectedFailureCode", missingFailureCode.Failure!.Message);
+        }
+        finally
+        {
+            foreach (var path in paths)
+                File.Delete(path);
+        }
+    }
+
+    [Fact]
+    public void Scenario_executor_reports_missing_schedule_without_building_a_read_model()
+    {
+        var definition = LoadDefinition() with { ScheduleId = new ScheduleId("missing-schedule") };
+        var root = FindRepositoryRoot();
+        var loaded = new DailyScheduleLoader().Load(Path.Combine(root, "content", "mvp"), "vertical-slice");
+        Assert.True(loaded.IsSuccess, loaded.Failure?.ToString());
+        var executor = new DailyLoopScenarioExecutor(
+            new DailyScheduleRepository(loaded.Success!),
+            () => new FixedClock(ScheduleTime.FromHoursAndMinutes(6, 0)),
+            seed => new FixedRandom(seed));
+
+        var result = executor.Execute(definition);
+
+        Assert.False(result.IsSuccess);
+        Assert.Equal(ScenarioExecutionFailureCode.ScheduleUnavailable, result.Failure!.Code);
+    }
+
     private static DailyLoopScenarioDefinition LoadDefinition()
     {
         var path = Path.Combine(FindRepositoryRoot(), "content", "fixtures", "vertical-slice", "one-school-day.json");

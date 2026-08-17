@@ -20,7 +20,7 @@ public sealed class DailyLoopSession
         _clock = clock ?? throw new ArgumentNullException(nameof(clock));
         _random = random ?? throw new ArgumentNullException(nameof(random));
         _schedule = scheduleRepository.Find(scheduleId);
-        _state = GameState.CreateSeeded(scheduleId, _schedule?.DayOfWeek ?? DayOfWeek.Monday, _random.Seed);
+        _state = GameState.CreateSeeded(scheduleId, _schedule?.DayOfWeek ?? DayOfWeek.Monday, _random.Seed, _clock.Now);
     }
 
     public string CurrentStateFingerprint => _state.Fingerprint();

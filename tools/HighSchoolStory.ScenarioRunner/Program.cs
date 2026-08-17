@@ -39,7 +39,7 @@ internal static class Program
             return MalformedFixtureExitCode;
         }
 
-        var repositoryRoot = FindRepositoryRoot();
+        var repositoryRoot = FindRepositoryRoot(args[0]);
         if (repositoryRoot is null)
         {
             Console.Error.WriteLine("Scenario content could not be located from the repository root.");
@@ -73,14 +73,23 @@ internal static class Program
         return 0;
     }
 
-    private static string? FindRepositoryRoot()
+    private static string? FindRepositoryRoot(string fixturePath)
     {
-        var directory = new DirectoryInfo(Directory.GetCurrentDirectory());
-        while (directory is not null)
+        var starts = new[]
         {
-            if (File.Exists(Path.Combine(directory.FullName, "High School Story.sln")))
-                return directory.FullName;
-            directory = directory.Parent;
+            new FileInfo(Path.GetFullPath(fixturePath)).Directory,
+            new DirectoryInfo(Directory.GetCurrentDirectory()),
+            new DirectoryInfo(AppContext.BaseDirectory),
+        };
+        foreach (var start in starts)
+        {
+            var directory = start;
+            while (directory is not null)
+            {
+                if (File.Exists(Path.Combine(directory.FullName, "High School Story.sln")))
+                    return directory.FullName;
+                directory = directory.Parent;
+            }
         }
 
         return null;

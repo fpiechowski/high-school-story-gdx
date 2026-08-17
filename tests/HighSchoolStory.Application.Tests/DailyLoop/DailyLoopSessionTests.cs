@@ -71,9 +71,64 @@ public sealed class DailyLoopSessionTests
         Assert.True(end.Success!.ReadModel.DayEnded);
         Assert.Equal(DailyLoopContext.DayComplete, end.Success.ReadModel.DayContext);
         Assert.Equal("day-complete", end.Success.EvidenceId);
+        Assert.Null(end.Success.ReadModel.DecisionSnapshot.NextBoundary);
+        Assert.Equal("The school day is complete.", end.Success.ReadModel.DecisionSnapshot.NextBoundaryText);
+
+        var repeatedEnd = session.Execute(new EndDayCommand("end-day-again"));
+        Assert.False(repeatedEnd.IsSuccess);
+        Assert.Equal(DailyLoopFailureCode.DayAlreadyEnded, repeatedEnd.Failure!.Code);
+    }
+
+    [Fact]
+    public void Progress_before_the_active_lesson_boundary_is_rejected_without_state_change()
+    {
+        var session = CreateSession();
+        var before = session.CurrentStateFingerprint;
+
+        var result = session.Execute(new ProgressMandatoryCommitmentsCommand("progress-too-early"));
+
+        Assert.False(result.IsSuccess);
+        Assert.Equal(DailyLoopFailureCode.InvalidCommandOrder, result.Failure!.Code);
+        Assert.Equal(before, session.CurrentStateFingerprint);
+    }
+
+    [Fact]
+    public void Empty_social_evidence_is_rejected_as_typed_failure()
+    {
+        var session = CreateSession();
+        session.Execute(new ReviewDayContextCommand("review-context"));
+
+        var result = session.Execute(new DiscoverSocialTouchpointCommand("discover-social", "", "future-hook"));
+
+        Assert.False(result.IsSuccess);
+        Assert.Equal(DailyLoopFailureCode.SocialDiscoveryUnavailable, result.Failure!.Code);
+    }
+
+    [Fact]
+    public void Controlled_clock_seeds_the_initial_state()
+    {
+        var session = new DailyLoopSession(
+            new StubRepository(CreateSchedule()),
+            new ScheduleId("first-school-day"),
+            new FixedClock(Time(7)),
+            new FixedRandom(1201));
+
+        var review = session.Execute(new ReviewDayContextCommand("review-context"));
+
+        Assert.True(review.IsSuccess);
+        Assert.Equal(Time(7), review.Success!.ReadModel.CurrentTime);
     }
 
     private static DailyLoopSession CreateSession()
+    {
+        return new DailyLoopSession(
+            new StubRepository(CreateSchedule()),
+            new ScheduleId("first-school-day"),
+            new FixedClock(Time(6)),
+            new FixedRandom(1201));
+    }
+
+    private static DailySchedule CreateSchedule()
     {
         var entries = new[]
         {
@@ -87,12 +142,7 @@ public sealed class DailyLoopSessionTests
             new ScheduleEntry(new ScheduleEntryId("first-day-wind-down"), ScheduleEntryKind.WindDown, Time(21), new ScheduleDuration(60), new AnchorLocationId("dorm")),
             new ScheduleEntry(new ScheduleEntryId("first-day-latest-sleep"), ScheduleEntryKind.LatestSleep, Time(22), new ScheduleDuration(0), new AnchorLocationId("dorm")),
         };
-        var schedule = new DailySchedule(new ScheduleId("first-school-day"), DayOfWeek.Monday, entries);
-        return new DailyLoopSession(
-            new StubRepository(schedule),
-            schedule.Id,
-            new FixedClock(Time(6)),
-            new FixedRandom(1201));
+        return new DailySchedule(new ScheduleId("first-school-day"), DayOfWeek.Monday, entries);
     }
 
     private static ScheduleTime Time(int hour, int minute = 0) => ScheduleTime.FromHoursAndMinutes(hour, minute);

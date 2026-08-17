@@ -33,6 +33,9 @@ public sealed class DailyLoopScenarioExecutor
             return Fail(ScenarioExecutionFailureCode.InvalidDefinition, "Scenario definition requires identity, a non-negative seed, and at least one command.");
         }
 
+        if (_scheduleRepository.Find(definition.ScheduleId) is null)
+            return Fail(ScenarioExecutionFailureCode.ScheduleUnavailable, $"Schedule '{definition.ScheduleId.Value}' was not found.");
+
         var session = new DailyLoopSession(
             _scheduleRepository,
             definition.ScheduleId,
@@ -46,6 +49,8 @@ public sealed class DailyLoopScenarioExecutor
         {
             if (string.IsNullOrWhiteSpace(step.CommandId))
                 return Fail(ScenarioExecutionFailureCode.InvalidDefinition, "Every scenario command requires a stable command ID.");
+            if (step.ExpectedOutcome == ScenarioExpectedOutcome.Rejected && !step.ExpectedFailureCode.HasValue)
+                return Fail(ScenarioExecutionFailureCode.InvalidDefinition, $"Rejected command '{step.CommandId}' requires an expected failure code.", step.CommandId);
 
             var command = CreateCommand(step, out var commandFailure);
             if (command is null)
@@ -81,7 +86,7 @@ public sealed class DailyLoopScenarioExecutor
                 return Fail(ScenarioExecutionFailureCode.AssertionFailed, $"Command '{step.CommandId}' was expected to be rejected but succeeded.", step.CommandId);
 
             var failure = result.Failure!;
-            if (step.ExpectedFailureCode.HasValue && step.ExpectedFailureCode.Value != failure.Code)
+            if (step.ExpectedFailureCode!.Value != failure.Code)
                 return Fail(ScenarioExecutionFailureCode.AssertionFailed, $"Command '{step.CommandId}' returned '{failure.Code}' instead of expected '{step.ExpectedFailureCode.Value}'.", step.CommandId);
 
             var fingerprintAfter = session.CurrentStateFingerprint;

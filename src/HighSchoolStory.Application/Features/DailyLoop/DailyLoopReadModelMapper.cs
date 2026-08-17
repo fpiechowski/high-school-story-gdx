@@ -12,10 +12,12 @@ internal static class DailyLoopReadModelMapper
         var afterSchool = DailyLoopScheduleQueries.FindAfterSchool(schedule);
         var dormReturn = DailyLoopScheduleQueries.FindDormReturn(schedule);
         var latestSleep = DailyLoopScheduleQueries.FindLatestSleep(schedule);
-        var nextBoundary = nextLesson?.Start ??
-            (state.CurrentTime.MinutesSinceMidnight < (dormReturn?.Start.MinutesSinceMidnight ?? int.MaxValue)
-                ? dormReturn?.Start
-                : latestSleep?.Start);
+        var nextBoundary = state.DayEnded
+            ? null
+            : nextLesson?.Start ??
+                (state.CurrentTime.MinutesSinceMidnight < (dormReturn?.Start.MinutesSinceMidnight ?? int.MaxValue)
+                    ? dormReturn?.Start
+                    : latestSleep?.Start);
 
         var availableMinutes = Math.Max(0, (nextBoundary?.MinutesSinceMidnight ?? state.CurrentTime.MinutesSinceMidnight) - state.CurrentTime.MinutesSinceMidnight);
         var feasibility = state.DayEnded || nextBoundary is null
@@ -39,7 +41,9 @@ internal static class DailyLoopReadModelMapper
             _ when state.DayEnded => "The school day is complete.",
             _ => "The next boundary is known.",
         };
-        var boundaryText = nextLesson is not null
+        var boundaryText = state.DayEnded
+            ? "The school day is complete."
+            : nextLesson is not null
             ? $"Next school commitment at {DailyLoopScheduleQueries.FormatTime(nextLesson.Start)}."
             : dormReturn is not null && state.CurrentTime.MinutesSinceMidnight < dormReturn.Start.MinutesSinceMidnight
                 ? $"Dorm return boundary at {DailyLoopScheduleQueries.FormatTime(dormReturn.Start)}."

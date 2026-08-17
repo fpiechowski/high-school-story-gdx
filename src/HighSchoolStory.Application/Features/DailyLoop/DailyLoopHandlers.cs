@@ -4,9 +4,9 @@ using HighSchoolStory.Domain.Shared;
 
 namespace HighSchoolStory.Application.Features.DailyLoop;
 
-public sealed record DailyLoopHandlerResult(GameState State, string? EvidenceId = null);
+internal sealed record DailyLoopHandlerResult(GameState State, string? EvidenceId = null);
 
-public sealed class ReviewDayContextHandler
+internal sealed class ReviewDayContextHandler
 {
     public Result<DailyLoopHandlerResult, DailyLoopFailure> Handle(ReviewDayContextCommand command, GameState state)
     {
@@ -17,13 +17,13 @@ public sealed class ReviewDayContextHandler
     }
 }
 
-public sealed class HonorMandatoryCommitmentHandler(DailySchedule schedule)
+internal sealed class HonorMandatoryCommitmentHandler(DailySchedule schedule)
 {
     public Result<DailyLoopHandlerResult, DailyLoopFailure> Handle(HonorMandatoryCommitmentCommand command, GameState state)
     {
         var entry = DailyLoopScheduleQueries.FindEntry(schedule, command.CommitmentId);
         var nextLesson = DailyLoopScheduleQueries.FindNextLesson(schedule, state);
-        if (entry is null || entry.Kind != ScheduleEntryKind.Lesson || nextLesson?.Id != command.CommitmentId)
+        if (entry is null || entry.Semantics != ScheduleEntrySemantics.HardCommitment || entry.Kind != ScheduleEntryKind.Lesson || nextLesson?.Id != command.CommitmentId)
         {
             return Result<DailyLoopHandlerResult, DailyLoopFailure>.Fail(
                 DailyLoopFailure.Blocked(DailyLoopFailureCode.MandatoryCommitment, "The next mandatory school commitment must be honored first."));
@@ -44,12 +44,12 @@ public sealed class HonorMandatoryCommitmentHandler(DailySchedule schedule)
     }
 }
 
-public sealed class ChooseLessonActionHandler(DailySchedule schedule)
+internal sealed class ChooseLessonActionHandler(DailySchedule schedule)
 {
     public Result<DailyLoopHandlerResult, DailyLoopFailure> Handle(ChooseLessonActionCommand command, GameState state)
     {
         var lesson = DailyLoopScheduleQueries.FindEntry(schedule, command.LessonId);
-        if (lesson is null || lesson.Kind != ScheduleEntryKind.Lesson || !state.HonoredCommitments.Contains(lesson.Id))
+        if (lesson is null || lesson.Semantics != ScheduleEntrySemantics.HardCommitment || lesson.Kind != ScheduleEntryKind.Lesson || !state.HonoredCommitments.Contains(lesson.Id))
         {
             return Result<DailyLoopHandlerResult, DailyLoopFailure>.Fail(
                 DailyLoopFailure.Invalid(DailyLoopFailureCode.InvalidLessonChoice, "An active lesson choice requires the honored lesson."));
@@ -73,7 +73,7 @@ public sealed class ChooseLessonActionHandler(DailySchedule schedule)
     }
 }
 
-public sealed class ResolveWellbeingChoiceHandler(DailySchedule schedule)
+internal sealed class ResolveWellbeingChoiceHandler(DailySchedule schedule)
 {
     public Result<DailyLoopHandlerResult, DailyLoopFailure> Handle(ResolveWellbeingChoiceCommand command, GameState state)
     {
@@ -95,16 +95,21 @@ public sealed class ResolveWellbeingChoiceHandler(DailySchedule schedule)
     }
 }
 
-public sealed class ProgressMandatoryCommitmentsHandler(DailySchedule schedule)
+internal sealed class ProgressMandatoryCommitmentsHandler(DailySchedule schedule)
 {
     public Result<DailyLoopHandlerResult, DailyLoopFailure> Handle(ProgressMandatoryCommitmentsCommand command, GameState state)
     {
         var afterSchool = DailyLoopScheduleQueries.FindAfterSchool(schedule);
         var lessons = schedule.Entries
-            .Where(x => x.Kind == ScheduleEntryKind.Lesson && !state.HonoredCommitments.Contains(x.Id))
+            .Where(x => x.Semantics == ScheduleEntrySemantics.HardCommitment && x.Kind == ScheduleEntryKind.Lesson && !state.HonoredCommitments.Contains(x.Id))
             .OrderBy(x => x.Start.MinutesSinceMidnight)
             .ToArray();
-        if (afterSchool is null || lessons.Length == 0 || state.CurrentTime.MinutesSinceMidnight > afterSchool.Start.MinutesSinceMidnight)
+        var nextLesson = lessons.FirstOrDefault();
+        if (state.DayEnded || state.Context != DailyLoopContext.School ||
+            state.LessonChoiceId is null || state.WellbeingChoiceId is null ||
+            afterSchool is null || nextLesson is null ||
+            state.CurrentTime.MinutesSinceMidnight < nextLesson.Start.MinutesSinceMidnight ||
+            state.CurrentTime.MinutesSinceMidnight > afterSchool.Start.MinutesSinceMidnight)
         {
             return Result<DailyLoopHandlerResult, DailyLoopFailure>.Fail(
                 DailyLoopFailure.Invalid(DailyLoopFailureCode.InvalidCommandOrder, "The remaining school commitments are not available from the current boundary."));
@@ -120,11 +125,17 @@ public sealed class ProgressMandatoryCommitmentsHandler(DailySchedule schedule)
     }
 }
 
-public sealed class DiscoverSocialTouchpointHandler(DailySchedule schedule)
+internal sealed class DiscoverSocialTouchpointHandler(DailySchedule schedule)
 {
     public Result<DailyLoopHandlerResult, DailyLoopFailure> Handle(DiscoverSocialTouchpointCommand command, GameState state)
     {
         var afterSchool = DailyLoopScheduleQueries.FindAfterSchool(schedule);
+        if (string.IsNullOrWhiteSpace(command.ClueId) || string.IsNullOrWhiteSpace(command.FutureHookId))
+        {
+            return Result<DailyLoopHandlerResult, DailyLoopFailure>.Fail(
+                DailyLoopFailure.Invalid(DailyLoopFailureCode.SocialDiscoveryUnavailable, "Social discovery requires both a clue and a future hook."));
+        }
+
         if (afterSchool is null || state.Context != DailyLoopContext.AfterSchool ||
             state.CurrentTime.MinutesSinceMidnight < afterSchool.Start.MinutesSinceMidnight || state.SocialClue is not null)
         {
@@ -144,7 +155,7 @@ public sealed class DiscoverSocialTouchpointHandler(DailySchedule schedule)
     }
 }
 
-public sealed class AttemptBlockedActionHandler(DailySchedule schedule)
+internal sealed class AttemptBlockedActionHandler(DailySchedule schedule)
 {
     public Result<DailyLoopHandlerResult, DailyLoopFailure> Handle(AttemptBlockedActionCommand command, GameState state)
     {
@@ -160,22 +171,35 @@ public sealed class AttemptBlockedActionHandler(DailySchedule schedule)
     }
 }
 
-public sealed class EndDayHandler(DailySchedule schedule)
+internal sealed class EndDayHandler(DailySchedule schedule)
 {
     public Result<DailyLoopHandlerResult, DailyLoopFailure> Handle(EndDayCommand command, GameState state)
     {
+        if (state.DayEnded)
+        {
+            return Result<DailyLoopHandlerResult, DailyLoopFailure>.Fail(
+                DailyLoopFailure.Blocked(DailyLoopFailureCode.DayAlreadyEnded, "The school day is already complete."));
+        }
+
         var latestSleep = DailyLoopScheduleQueries.FindLatestSleep(schedule);
         var dormReturn = DailyLoopScheduleQueries.FindDormReturn(schedule);
+        var windDown = DailyLoopScheduleQueries.FindWindDown(schedule);
         var afterSchool = DailyLoopScheduleQueries.FindAfterSchool(schedule);
-        var hasUnhonoredLesson = schedule.Entries.Any(x => x.Kind == ScheduleEntryKind.Lesson && !state.HonoredCommitments.Contains(x.Id));
-        if (latestSleep is null || dormReturn is null || afterSchool is null || hasUnhonoredLesson ||
+        var hasUnhonoredLesson = schedule.Entries.Any(x => x.Semantics == ScheduleEntrySemantics.HardCommitment && x.Kind == ScheduleEntryKind.Lesson && !state.HonoredCommitments.Contains(x.Id));
+        if (latestSleep is null || dormReturn is null || windDown is null || afterSchool is null || hasUnhonoredLesson ||
+            windDown.Start != dormReturn.Start || DailyLoopScheduleQueries.EndMinutes(windDown) > latestSleep.Start.MinutesSinceMidnight ||
             state.CurrentTime.MinutesSinceMidnight < afterSchool.Start.MinutesSinceMidnight)
         {
             return Result<DailyLoopHandlerResult, DailyLoopFailure>.Fail(
                 DailyLoopFailure.Blocked(DailyLoopFailureCode.MandatoryCommitment, "The day cannot end before school and dorm boundaries are honored."));
         }
 
-        var next = state.Apply(new DailyLoopTransition(
+        var atDorm = state.Apply(new DailyLoopTransition(
+            dormReturn.Start,
+            DailyLoopContext.DormWindDown,
+            dormReturn.AnchorLocationId,
+            Consequence: new VisibleConsequence("dorm-return", "You returned to the dorm for wind-down.")));
+        var next = atDorm.Apply(new DailyLoopTransition(
             latestSleep.Start,
             DailyLoopContext.DayComplete,
             latestSleep.AnchorLocationId,
