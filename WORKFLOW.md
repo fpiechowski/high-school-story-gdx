@@ -69,6 +69,8 @@ Description:
 No description provided.
 {% endif %}
 
+Epics are grouping records, not implementation units. If `issue.labels` contains `Epic` (case-insensitive), or the issue does not identify exactly one BMAD story in the form `BMAD Story: X.Y` (or an equivalent unambiguous story key), do not edit code or story artifacts. Create/update the single `## Symphony Workpad` comment with the exact blocker, move the issue to `Human Review`, and stop.
+
 Every issue must identify exactly one BMAD story in the form `BMAD Story: X.Y` (or an equivalent
 unambiguous story key) and must contain its acceptance criteria and validation requirements. If
 the story identity, required acceptance input, repository access, Linear access, or required
