@@ -80,6 +80,60 @@ public sealed class ToolCliContractTests
         }
     }
 
+    [Fact]
+    public async Task ScenarioRunner_executes_the_canonical_fixture_and_emits_a_structured_report()
+    {
+        var fixturePath = Path.Combine(FindRepositoryRoot(), "content", "fixtures", "vertical-slice", "one-school-day.json");
+
+        var result = await RunToolAsync("HighSchoolStory.ScenarioRunner", fixturePath);
+
+        Assert.Equal(0, result.ExitCode);
+        Assert.Contains("\"scenarioId\": \"first-school-day-deterministic\"", result.StandardOutput);
+        Assert.Contains("\"blockedChoiceChecks\"", result.StandardOutput);
+        Assert.Contains("\"finalStateFingerprint\"", result.StandardOutput);
+        Assert.Empty(result.StandardError);
+    }
+
+    [Fact]
+    public async Task ScenarioRunner_reports_malformed_fixture_with_stable_exit_code()
+    {
+        var fixturePath = Path.Combine(Path.GetTempPath(), $"high-school-story-malformed-{Guid.NewGuid():N}.json");
+        File.WriteAllText(fixturePath, "{\"schemaVersion\":1,\"scenarioId\":\"bad\",\"fixtureVersion\":\"1.0\",\"seed\":1,\"scheduleId\":\"first-school-day\",\"commands\":[],\"effects\":[]}");
+        try
+        {
+            var result = await RunToolAsync("HighSchoolStory.ScenarioRunner", fixturePath);
+
+            Assert.Equal(3, result.ExitCode);
+            Assert.Contains("Scenario fixture is invalid", result.StandardError);
+            Assert.Empty(result.StandardOutput);
+        }
+        finally
+        {
+            File.Delete(fixturePath);
+        }
+    }
+
+    [Fact]
+    public async Task ScenarioRunner_reports_an_unmet_assertion_with_a_distinct_exit_code()
+    {
+        var canonicalPath = Path.Combine(FindRepositoryRoot(), "content", "fixtures", "vertical-slice", "one-school-day.json");
+        var fixturePath = Path.Combine(Path.GetTempPath(), $"high-school-story-assertion-{Guid.NewGuid():N}.json");
+        var fixture = File.ReadAllText(canonicalPath).Replace("\"expectedOutcome\": \"rejected\"", "\"expectedOutcome\": \"success\"", StringComparison.Ordinal);
+        File.WriteAllText(fixturePath, fixture);
+        try
+        {
+            var result = await RunToolAsync("HighSchoolStory.ScenarioRunner", fixturePath);
+
+            Assert.Equal(4, result.ExitCode);
+            Assert.Contains("Scenario assertion failed", result.StandardError);
+            Assert.Empty(result.StandardOutput);
+        }
+        finally
+        {
+            File.Delete(fixturePath);
+        }
+    }
+
     private static async Task<ProcessResult> RunToolAsync(string toolName, params string[] arguments)
     {
         var startInfo = new ProcessStartInfo("dotnet")

@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "scenarioId": "first-school-day-deterministic",
+  "fixtureVersion": "1.0",
+  "seed": 1201,
+  "scheduleId": "first-school-day",
+  "commands": [
+    {
+      "id": "review-day-context",
+      "type": "review-day-context",
+      "expectedOutcome": "success",
+      "snapshot": {
+        "currentTime": "06:00",
+        "dayContext": "before-school",
+        "nextKnownCommitment": "first-day-lesson-1",
+        "availableTimeWindowMinutes": 120,
+        "feasibility": "fits",
+        "nextBoundaryText": "Next school commitment at 08:00.",
+        "warningBlockLabel": "Next commitment: first-day-lesson-1.",
+        "severity": "informational"
+      }
+    },
+    {
+      "id": "honor-first-lesson",
+      "type": "honor-mandatory-commitment",
+      "targetId": "first-day-lesson-1",
+      "expectedOutcome": "success"
+    },
+    {
+      "id": "choose-active-lesson-action",
+      "type": "choose-lesson-action",
+      "targetId": "first-day-lesson-1",
+      "choiceId": "participate",
+      "expectedOutcome": "success"
+    },
+    {
+      "id": "resolve-wellbeing-trade-off",
+      "type": "resolve-wellbeing-choice",
+      "choiceId": "take-breath",
+      "expectedOutcome": "success"
+    },
+    {
+      "id": "blocked-early-departure",
+      "type": "attempt-blocked-action",
+      "targetId": "leave-school-early",
+      "expectedOutcome": "rejected",
+      "expectedFailureCode": "mandatory-commitment",
+      "snapshot": {
+        "currentTime": "09:00",
+        "dayContext": "school",
+        "nextKnownCommitment": "first-day-lesson-2",
+        "availableTimeWindowMinutes": 0,
+        "feasibility": "blocked",
+        "nextBoundaryText": "Next school commitment at 09:00.",
+        "warningBlockLabel": "A mandatory commitment is due now.",
+        "severity": "blocked"
+      }
+    },
+    {
+      "id": "progress-school-commitments",
+      "type": "progress-mandatory-commitments",
+      "expectedOutcome": "success"
+    },
+    {
+      "id": "discover-social-touchpoint",
+      "type": "discover-social-touchpoint",
+      "clueId": "quiet-reconnection-clue",
+      "futureHookId": "future-conversation-hook",
+      "expectedOutcome": "success"
+    },
+    {
+      "id": "end-first-school-day",
+      "type": "end-day",
+      "expectedOutcome": "success"
+    }
+  ]
+}
