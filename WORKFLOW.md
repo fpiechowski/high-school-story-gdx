@@ -38,7 +38,7 @@ agent:
   max_concurrent_agents: 1
   max_turns: 20
 codex:
-  command: codex --config shell_environment_policy.inherit=all app-server
+  command: codex --model gpt-5.6-terra --config 'model_reasoning_effort="high"' --config shell_environment_policy.inherit=all app-server
   approval_policy: never
   thread_sandbox: workspace-write
   turn_sandbox_policy:
