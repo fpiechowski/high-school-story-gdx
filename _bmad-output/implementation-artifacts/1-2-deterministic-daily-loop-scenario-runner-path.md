@@ -1,6 +1,7 @@
 ---
 baseline_commit: 2e792db35ffb263bee5a6ced0a95935c7f692188
 branch_name: story/1-2/deterministic-daily-loop-scenario-runner-path
+pull_request_url: https://github.com/codex-fp/high-school-story/pull/5
 ---
 
 # Story 1.2: Deterministic Daily Loop Scenario Runner Path
